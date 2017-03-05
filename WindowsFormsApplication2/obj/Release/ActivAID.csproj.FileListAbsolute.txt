@@ -1,7 +1,0 @@
-C:\Users\Jonathan\Documents\Visual Studio 2015\Projects\WindowsFormsApplication2\WindowsFormsApplication2\bin\Release\WindowsFormsApplication2.exe
-C:\Users\Jonathan\Documents\Visual Studio 2015\Projects\WindowsFormsApplication2\WindowsFormsApplication2\bin\Release\WindowsFormsApplication2.pdb
-C:\Users\Jonathan\Documents\Visual Studio 2015\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\Release\ActivAID.Form1.resources
-C:\Users\Jonathan\Documents\Visual Studio 2015\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\Release\WindowsFormsApplication2.Properties.Resources.resources
-C:\Users\Jonathan\Documents\Visual Studio 2015\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\Release\ActivAID.csproj.GenerateResource.Cache
-C:\Users\Jonathan\Documents\Visual Studio 2015\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\Release\WindowsFormsApplication2.exe
-C:\Users\Jonathan\Documents\Visual Studio 2015\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\Release\WindowsFormsApplication2.pdb
