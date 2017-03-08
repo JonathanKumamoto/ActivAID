@@ -20,3 +20,28 @@ c:\users\jonathan\documents\visual studio 2015\Projects\ActivAID\ActivAID\bin\De
 c:\users\jonathan\documents\visual studio 2015\Projects\ActivAID\ActivAID\bin\Debug\Syn.WordNet.dll
 c:\users\jonathan\documents\visual studio 2015\Projects\ActivAID\ActivAID\bin\Debug\Newtonsoft.Json.xml
 c:\users\jonathan\documents\visual studio 2015\Projects\ActivAID\ActivAID\bin\Debug\Syn.Bot.xml
+C:\Users\arca\Desktop\ActivAID\ActivAID\ActivAID\bin\Debug\ActivAID.exe.config
+C:\Users\arca\Desktop\ActivAID\ActivAID\ActivAID\obj\Debug\ActivAID.exe
+C:\Users\arca\Desktop\ActivAID\ActivAID\ActivAID\obj\Debug\ActivAID.pdb
+C:\Users\arca\Desktop\ActivAID\ActivAID\ActivAID\bin\Debug\ActivAID.exe
+C:\Users\arca\Desktop\ActivAID\ActivAID\ActivAID\bin\Debug\ActivAID.pdb
+C:\Users\arca\Desktop\ActivAID\ActivAID\ActivAID\bin\Debug\Jint.dll
+C:\Users\arca\Desktop\ActivAID\ActivAID\ActivAID\bin\Debug\Newtonsoft.Json.dll
+C:\Users\arca\Desktop\ActivAID\ActivAID\ActivAID\bin\Debug\Syn.Log.dll
+C:\Users\arca\Desktop\ActivAID\ActivAID\ActivAID\bin\Debug\Syn.Neuro.dll
+C:\Users\arca\Desktop\ActivAID\ActivAID\ActivAID\bin\Debug\Syn.VA.dll
+C:\Users\arca\Desktop\ActivAID\ActivAID\ActivAID\bin\Debug\Syn.WordNet.dll
+C:\Users\arca\Desktop\ActivAID\ActivAID\ActivAID\bin\Debug\Newtonsoft.Json.xml
+C:\Users\arca\Desktop\ActivAID\ActivAID\ActivAID\bin\Debug\Syn.Bot.xml
+C:\Users\arca\Desktop\ActivAID\ActivAID\ActivAID\obj\Debug\ActivAID.csprojResolveAssemblyReference.cache
+C:\Users\arca\Desktop\ActivAID\ActivAID\ActivAID\obj\Debug\MainWindow.baml
+C:\Users\arca\Desktop\ActivAID\ActivAID\ActivAID\obj\Debug\MainWindow.g.cs
+C:\Users\arca\Desktop\ActivAID\ActivAID\ActivAID\obj\Debug\App.g.cs
+C:\Users\arca\Desktop\ActivAID\ActivAID\ActivAID\obj\Debug\ActivAID_MarkupCompile.cache
+C:\Users\arca\Desktop\ActivAID\ActivAID\ActivAID\obj\Debug\ActivAID.g.resources
+C:\Users\arca\Desktop\ActivAID\ActivAID\ActivAID\obj\Debug\ActivAID.Properties.Resources.resources
+C:\Users\arca\Desktop\ActivAID\ActivAID\ActivAID\obj\Debug\ActivAID.csproj.GenerateResource.Cache
+C:\Users\arca\Desktop\ActivAID\ActivAID\ActivAID\obj\Debug\ActivAID_MarkupCompile.lref
+C:\Users\arca\Desktop\ActivAID\ActivAID\bin\Debug\ActivAID.exe.config
+C:\Users\arca\Desktop\ActivAID\ActivAID\obj\Debug\ActivAID.exe
+C:\Users\arca\Desktop\ActivAID\ActivAID\obj\Debug\ActivAID.pdb
