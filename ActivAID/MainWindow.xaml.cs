@@ -7,6 +7,7 @@ using System.Windows.Media;
 using System.Windows.Controls;
 using System;
 using System.Windows.Controls.Primitives;
+using System.Collections.Generic;
 
 namespace ActivAID
 {
@@ -17,6 +18,9 @@ namespace ActivAID
         public Label botmsg;
         public String ColorBOT, ColorUser, FontColor;
         public static MainWindow AppWindow;
+        QueryHandler queryHandler;
+        public Func<string, string> stringOp;
+        public Func<string[], string[]> summarize;
 
         public MainWindow()
         {
@@ -28,6 +32,28 @@ namespace ActivAID
             FontColor = "#FFFFFF";
             AppWindow = this;
             MouseDown += delegate { DragMove(); };
+            defineFunctionObjects();
+            SentenceBoiler sb = new SentenceBoiler();
+            DataAccess dA = new DataAccessDB();
+            queryHandler  = new QueryHandler(dA, sb, stringOp, summarize);
+        }
+
+        private void defineFunctionObjects()
+        {
+            stringOp = new Func<string, string>((x) =>
+            {
+                var temp = x;
+                new HTMLMessager().removeFromLine(ref temp);
+                return temp;
+            });
+            summarize = new Func<string[], string[]>((toSummarize) =>
+            {
+                List<string> sumList = new List<string>();
+                OpenTextSummarizer.SummarizerArguments args = new OpenTextSummarizer.SummarizerArguments();
+                args.InputString = String.Join(" ", toSummarize);
+                OpenTextSummarizer.SummarizedDocument sd = OpenTextSummarizer.Summarizer.Summarize(args);
+                return sd.Sentences.ToArray();
+            });
         }
 /*        public void setColorScheme(String ColorScheme)
         {
@@ -78,6 +104,7 @@ namespace ActivAID
             usermsg.FontFamily = new FontFamily("Candara");
             usermsg.FontSize = 12;
             usermsg.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom(FontColor));
+
             OutputBox.Items.Add(usermsg);
             txtBlockbot.Text = "  BOT: "+result.BotMessage;
             botmsg.Name = "botmsg";   //bot's response box
@@ -97,8 +124,17 @@ namespace ActivAID
             OutputBox.Items.Add(botmsg);
             OutputBox.SelectedIndex = OutputBox.Items.Count - 1;
             OutputBox.SelectedIndex = -1;
+            //InputBox.Text = string.Empty;
+            if (isUnixCommand(outPut))
+            {
+                unixCommands(outPut);
+            }
+            //checks for specific responses by the bot to perform functions
+            else
+            {
+                txtBlockbot.Text = " BOT: \n" + queryHandler.backendCommand(outPut);
+            }
             InputBox.Text = string.Empty;
-            unixCommands(outPut); //checks for specific responses by the bot to perform functions
         }
         private void CloseButton_OnClick(object sender, RoutedEventArgs e)
         {
@@ -117,9 +153,22 @@ namespace ActivAID
          * 
          * --------------------------------------END----------------------------------------------------------------------------------------
          */
+
+        private bool isUnixCommand(string botOutput)
+        {
+            if (botOutput == "Application closed." || botOutput == "Cleared." || botOutput == "Astronics homepage.")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         private void unixCommands(string botOutput)
         {
-            if(botOutput == "Application closed.") //closes application window
+            if (botOutput == "Application closed.") //closes application window
             {
                 Application.Current.Shutdown();
             }
@@ -130,7 +179,7 @@ namespace ActivAID
                  * the bot will not be reset only the text chat. Please fix!
                  */
             }
-            else if(botOutput == "Astronics homepage.") //sends users to the astronics homepage
+            else if (botOutput == "Astronics homepage.") //sends users to the astronics homepage
             {
                 System.Diagnostics.Process.Start("https://www.astronics.com/");
             }

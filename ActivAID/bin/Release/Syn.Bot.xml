@@ -1090,6 +1090,20 @@
             Occurs when a <see cref="T:Syn.Bot.Oscova.Response"/> received by this <see cref="T:Syn.Bot.Oscova.BotUser"/>.
             </summary>
         </member>
+        <member name="M:Syn.Bot.Oscova.Collection.QuickReplyCollection.Add(System.String,System.String)">
+            <summary>
+            Adds the specified template expression and response as a quick reply.
+            </summary>
+            <param name="templateExpression">The template expression.</param>
+            <param name="response">The response.</param>
+        </member>
+        <member name="M:Syn.Bot.Oscova.Collection.QuickReplyCollection.Add(System.String,Syn.Bot.Oscova.Delegates.Responder)">
+            <summary>
+            Adds the specified template expression and <see cref="T:Syn.Bot.Oscova.Delegates.Responder"/> as a quick reply.
+            </summary>
+            <param name="templateExpression">The template expression.</param>
+            <param name="responder">The responder.</param>
+        </member>
         <member name="M:Syn.Bot.Oscova.Collection.EntryCollection.OrderByEntryLength">
             <summary>
             Orders the collection based on the length of item values.
@@ -1263,9 +1277,14 @@
             </summary>
             <seealso cref="T:Syn.Bot.Oscova.Interfaces.ITokenizer" />
         </member>
-        <member name="M:Syn.Bot.Oscova.Languages.English.EnglishTokenizer.#ctor">
+        <member name="M:Syn.Bot.Oscova.Languages.English.EnglishTokenizer.#ctor(Syn.Bot.Oscova.Language)">
             <summary>
             Initializes a new instance of the <see cref="T:Syn.Bot.Oscova.Languages.English.EnglishTokenizer"/> class.
+            </summary>
+        </member>
+        <member name="P:Syn.Bot.Oscova.Languages.English.EnglishTokenizer.TrimPunctuations">
+            <summary>
+            Determines if punctuation marks must be trimmed from tokens.
             </summary>
         </member>
         <member name="P:Syn.Bot.Oscova.Languages.English.EnglishTokenizer.ReservedPatterns">
@@ -1439,6 +1458,15 @@
             The minimum word vector similarty.
             </value>
             <remarks>Default is <c>0.9</c></remarks>
+        </member>
+        <member name="P:Syn.Bot.Oscova.ScoreConfiguration.IsolatedTextEntityConfidence">
+            <summary>
+            Gets or sets the isolated text entity confidence.
+            </summary>
+            <value>
+            The isolated text entity confidence.
+            </value>
+            <remarks>Default value is <c>0.8</c></remarks>
         </member>
         <member name="T:Syn.Bot.Oscova.Sys">
             <summary>
@@ -1921,7 +1949,12 @@
             Initializes a new instance of the <see cref="T:Syn.Bot.Oscova.Dialog"/> class.
             </summary>
         </member>
-        <member name="P:Syn.Bot.Oscova.Dialog.Name">
+        <member name="P:Syn.Bot.Oscova.Dialog.QuickReplies">
+            <summary>
+            Gets the quick reply collection.
+            </summary>
+        </member>
+        <member name="P:Syn.Bot.Oscova.Dialog.DialogName">
             <summary>
             Gets the name of this dialog.
             </summary>
@@ -2071,20 +2104,6 @@
             The stop words.
             </value>
             <remarks>Stop words are commonly used words which are filtered or ignored during text processing.</remarks>
-        </member>
-        <member name="M:Syn.Bot.Oscova.Language.AddFilter(Syn.Bot.Oscova.FilterType,System.String,System.String)">
-            <summary>
-            Adds the filter.
-            </summary>
-            <param name="type">The filter type.</param>
-            <param name="input">The input.</param>
-            <param name="output">The output.</param>
-        </member>
-        <member name="M:Syn.Bot.Oscova.Language.Normalize(System.String)">
-            <summary>
-            Normalizes the specified input by applying filters and removing punctuations.
-            </summary>
-            <param name="input">The input.</param>
         </member>
         <member name="T:Syn.Bot.Oscova.Response">
             <summary>

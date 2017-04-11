@@ -19,3 +19,30 @@ c:\users\jonathan\documents\visual studio 2015\Projects\ActivAID\ActivAID\obj\Re
 c:\users\jonathan\documents\visual studio 2015\Projects\ActivAID\ActivAID\obj\Release\ActivAID.csproj.GenerateResource.Cache
 c:\users\jonathan\documents\visual studio 2015\Projects\ActivAID\ActivAID\obj\Release\ActivAID.exe
 c:\users\jonathan\documents\visual studio 2015\Projects\ActivAID\ActivAID\obj\Release\ActivAID.pdb
+C:\Users\Matthew\Desktop\ActivAID\ActivAID\bin\Release\ActivAID.exe.config
+C:\Users\Matthew\Desktop\ActivAID\ActivAID\bin\Release\ActivAID.exe
+C:\Users\Matthew\Desktop\ActivAID\ActivAID\bin\Release\ActivAID.pdb
+C:\Users\Matthew\Desktop\ActivAID\ActivAID\bin\Release\HtmlAgilityPack.dll
+C:\Users\Matthew\Desktop\ActivAID\ActivAID\bin\Release\Jint.dll
+C:\Users\Matthew\Desktop\ActivAID\ActivAID\bin\Release\Newtonsoft.Json.dll
+C:\Users\Matthew\Desktop\ActivAID\ActivAID\bin\Release\OpenTextSummarizer.dll
+C:\Users\Matthew\Desktop\ActivAID\ActivAID\bin\Release\Syn.Bot.dll
+C:\Users\Matthew\Desktop\ActivAID\ActivAID\bin\Release\Syn.Log.dll
+C:\Users\Matthew\Desktop\ActivAID\ActivAID\bin\Release\Syn.Neuro.dll
+C:\Users\Matthew\Desktop\ActivAID\ActivAID\bin\Release\Syn.VA.dll
+C:\Users\Matthew\Desktop\ActivAID\ActivAID\bin\Release\Syn.WordNet.dll
+C:\Users\Matthew\Desktop\ActivAID\ActivAID\bin\Release\HtmlAgilityPack.pdb
+C:\Users\Matthew\Desktop\ActivAID\ActivAID\bin\Release\HtmlAgilityPack.xml
+C:\Users\Matthew\Desktop\ActivAID\ActivAID\bin\Release\Newtonsoft.Json.xml
+C:\Users\Matthew\Desktop\ActivAID\ActivAID\bin\Release\Syn.Bot.xml
+C:\Users\Matthew\Desktop\ActivAID\ActivAID\obj\Release\ActivAID.csprojResolveAssemblyReference.cache
+C:\Users\Matthew\Desktop\ActivAID\ActivAID\obj\Release\MainWindow.g.cs
+C:\Users\Matthew\Desktop\ActivAID\ActivAID\obj\Release\App.g.cs
+C:\Users\Matthew\Desktop\ActivAID\ActivAID\obj\Release\ActivAID_MarkupCompile.cache
+C:\Users\Matthew\Desktop\ActivAID\ActivAID\obj\Release\ActivAID_MarkupCompile.lref
+C:\Users\Matthew\Desktop\ActivAID\ActivAID\obj\Release\MainWindow.baml
+C:\Users\Matthew\Desktop\ActivAID\ActivAID\obj\Release\ActivAID.g.resources
+C:\Users\Matthew\Desktop\ActivAID\ActivAID\obj\Release\ActivAID.Properties.Resources.resources
+C:\Users\Matthew\Desktop\ActivAID\ActivAID\obj\Release\ActivAID.csproj.GenerateResource.Cache
+C:\Users\Matthew\Desktop\ActivAID\ActivAID\obj\Release\ActivAID.exe
+C:\Users\Matthew\Desktop\ActivAID\ActivAID\obj\Release\ActivAID.pdb
