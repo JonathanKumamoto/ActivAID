@@ -63,7 +63,7 @@ namespace ActivAID
             });
 
 
-            SentenceBoiler sb = new SentenceBoiler();
+            UserInputBoiler sb = new UserInputBoiler();
             DataAccess dA = new DataAccessDB();
             return new QueryHandler(dA, sb, func, summarize);
         }
@@ -74,7 +74,7 @@ namespace ActivAID
             Console.WriteLine(sentences.Count() + " " + paragraph.Count());
             foreach (var response in qHandler.handleQuery(sentences))
             {
-                var block = response.ToList();
+                var block = response.Item2.ToList();
                 tupList.AddRange(getTupList(block));
                 tupList.Add(new Tuple<string[], string[]>(null, null));
             }
