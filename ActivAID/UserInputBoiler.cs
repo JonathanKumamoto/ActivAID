@@ -11,7 +11,7 @@ namespace ActivAID
         {
             int max = -1;
             string maxFile = "";
-            string path = "../../SynBotDir";
+            string path = "..\\..\\SynBotDir";
             foreach (string fileName in System.IO.Directory.EnumerateFiles(path)) //maybe don't hard code
             {
                 SimlBot Chatbot = new SimlBot();
