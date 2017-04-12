@@ -33,9 +33,13 @@ namespace ActivAID
             AppWindow = this;
             MouseDown += delegate { DragMove(); };
             defineFunctionObjects();
+<<<<<<< HEAD
             UserInputBoiler sb = new UserInputBoiler();
+=======
+            UserInputBoiler uib = new UserInputBoiler();
+>>>>>>> origin/mf_dev
             DataAccess dA = new DataAccessDB();
-            queryHandler  = new QueryHandler(dA, sb, stringOp, summarize);
+            queryHandler  = new QueryHandler(dA, uib, stringOp, summarize);
         }
 
         private void defineFunctionObjects()
