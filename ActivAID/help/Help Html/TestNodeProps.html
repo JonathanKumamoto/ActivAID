@@ -1,0 +1,170 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 12.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Test Node Properties</title>
+    <style type="text/css">
+        .style1
+        {
+            width: 292px;
+            height: 601px;
+        }
+        .style2
+        {
+            font-size: xx-small;
+        }
+    </style>
+</head>
+
+<body>
+
+<p><b><font face="Verdana" size="3"><a name="Top">Test Node Properties</a></font></b></p>
+<p><font face="Verdana" size="2">The test node properties apply specifically to
+test nodes.&nbsp; Each node has its own unique set of properties, and the
+properties available to a test node are dependant upon the test type.&nbsp; To view
+a test node's properties in the Properties Page, click on the node in the Test
+Sequence View.&nbsp; If the Properties Page is not visible, right-click anywhere
+in the Test Sequence View and click Node Properties.&nbsp; The following shows
+an example of the properties for both test types:</font></p>
+<p>&nbsp;</p>
+<table border="0" width="59%">
+  <tr>
+    <td width="44%"><font face="Verdana" size="2">Boolean test type:</font></td>
+    <td width="43%"><font face="Verdana" size="2">MinMax test type:</font></td>
+  </tr>
+  <tr>
+    <td width="44%" valign="top">
+    <img border="0" src="bin/PropertiesPage3b.jpg" width="293" height="269"></td>
+    <td width="43%" valign="top">
+    <img border="0" src="bin/PropertiesPage6b.jpg" width="293" height="334"></td>
+  </tr>
+</table>
+<p><font face="Verdana" size="2">
+Click on the following links for a detailed description of each property.</font></p>
+<table border="1" width="100%" height="38">
+  <tr>
+    <td width="25%" height="16"><font face="Verdana" size="2">&nbsp;<a 
+            href="#BranchOnFailNode">BranchOnFailNode</a></font></td>
+    <td width="25%" height="16"><font face="Verdana" size="2">&nbsp;<a href="#BreakOnFail">BreakOnFail</a></font></td>
+    <td width="25%" height="16"><font face="Verdana" size="2">&nbsp;<a href="#Description">Description</a></font></td>
+    <td width="25%" height="16"><font face="Verdana" size="2">&nbsp;<a href="#Enable">Enable</a></font></td>
+  </tr>
+  <tr>
+    <td width="25%" height="10">&nbsp;<font face="Verdana" size="2"><a href="#LoopCount">LoopCount</a></font></td>
+    <td width="25%" height="10"><font face="Verdana" size="2">&nbsp;<a href="#MethodName">MethodName</a></font></td>
+    <td width="25%" height="10"><font face="Verdana" size="2">&nbsp;<a href="#NodeType">NodeType</a></font></td>
+    <td width="25%" height="10"><font face="Verdana" size="2">&nbsp;<a href="#Tag">Tag</a></font></td>
+  </tr>
+  <tr>
+    <td width="25%" height="10"><font face="Verdana" size="2">&nbsp;<a href="#TestNodeName">TestNodeName</a></font></td>
+    <td width="25%" height="10"><font face="Verdana" size="2">&nbsp;<a href="#TestType">TestType</a></font></td>
+    <td width="25%" height="10"><font face="Verdana" size="2">&nbsp;<a href="#MaxValue">MaxValue</a></font></td>
+    <td width="25%" height="10"><font face="Verdana" size="2">&nbsp;<a href="#MinValue">MinValue</a></font></td>
+  </tr>
+  <tr>
+    <td width="25%" height="10"><font face="Verdana" size="2">&nbsp;<a href="#Units">Units</a></font></td>
+    <td width="25%" height="10"></td>
+    <td width="25%" height="10"></td>
+    <td width="25%" height="10"><font face="Verdana" size="2">&nbsp;</font></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<hr>
+<p><font face="Verdana" size="2"><b><a name="BranchOnFailNode">BranchOnFailNode</a></b></font></p>
+<p><font face="Verdana" size="2">The node to branch to if this test fails.&nbsp;
+The default value is &quot;None&quot;.&nbsp; To change this property, select a
+node from the drop-down list.&nbsp; As shown in the example below, all group and
+test nodes in the test program are listed as available branch nodes.&nbsp;&nbsp;</font></p>
+<p><font face="Verdana" size="2">
+    &nbsp;<img alt="" class="style1" src="bin/PropertiesPage7.png" /></font></p>
+<p><font face="Verdana" size="2"><i>Note: </i>Care should be taken when
+selecting a branch node to avoid an infinite loop during test execution.&nbsp;
+For example, using the above illustration, if ReadExcel's branch node is set to
+WriteExcel, and if WriteExcel does not have a branch node, then if ReadExcel fails every time
+there will be an infinite loop between WriteExcel and ReadExcel.</font></p>
+<hr>
+<p><font face="Verdana" size="2"><b><a name="BreakOnFail">BreakOnFail</a></b></font></p>
+<p><font face="Verdana" size="2">If true, the test program will pause before
+starting execution of the next node if this node fails.&nbsp; This gives the
+user an opportunity to snapshot the current state of the system to investigate
+the cause of the failure before continuing the test.&nbsp; If the test was run
+in debug mode,&nbsp;&nbsp;</font></p>
+<hr>
+<p><b><font face="Verdana" size="2"><a name="Description">Description</a></font></b></p>
+<p><font face="Verdana" size="2">An optional, brief description of the test
+node.&nbsp; If a description was entered while <a href="NewTest.html">adding a
+new test node</a>, it will appear here.&nbsp; To change this property, simply
+delete the current description and type in a new description.</font></p>
+<hr>
+<p><font face="Verdana" size="2"><b><a name="Enable">Enable</a></b></font></p>
+<p><font face="Verdana" size="2">If true, the node is enabled.&nbsp; If false,
+the node is disabled.&nbsp; When a node is disabled,
+it is not executed when the test program is run and appears grayed out in the
+Test Sequence View.&nbsp; If the test node belongs to a group node that is
+disabled, the test node will not be executed regardless of whether or not the
+test is enabled.</font></p>
+<hr>
+<p><b><font face="Verdana" size="2"><a name="LoopCount">LoopCount</a></font></b></p>
+<p><font face="Verdana" size="2">The number of times the test node will loop.&nbsp; 
+The default is 1 loop.&nbsp; The node will be executed the number of times 
+specified by this property before moving on to the next node in the test 
+sequence.&nbsp; If this node fails and a branch node is specified, the looping 
+will terminate and the branch node will be executed.</font></p>
+<hr>
+<p><font face="Verdana" size="2"><b><a name="MethodName">MethodName</a></b></font></p>
+<p><font face="Verdana" size="2">The name of the VBScript method that will be
+executed when this node is active during a test program run.&nbsp; To change
+this property, delete the current method name and type in the new method
+name.&nbsp; It is the user's responsibility to ensure that this property
+contains the name of an existing function in the test script.&nbsp; If the
+script engine is unable to find the test function, an &quot;Unknown name&quot;
+error will be generated.</font></p>
+<hr>
+<p><font face="Verdana" size="2"><b><a name="NodeType">NodeType</a></b></font></p>
+<p><font face="Verdana" size="2">The type of node selected, either
+&quot;Root&quot;, &quot;Group&quot;, or &quot;Test&quot;.&nbsp; This property is
+read-only.</font></p>
+<hr>
+<p><b><font face="Verdana" size="2"><a name="Tag">Tag</a></font></b></p>
+<p><font face="Verdana" size="2">A string value that represents any user-defined data associated with the test 
+node.</font></p>
+<hr>
+<p><font face="Verdana" size="2"><b><a name="TestNodeName">TestNodeName</a></b></font></p>
+<p><font face="Verdana" size="2">The name of the test node.&nbsp; This property
+is read-only.</font></p>
+<hr>
+<p><font face="Verdana" size="2"><b><a name="TestType">TestType</a></b></font></p>
+<p><font face="Verdana" size="2">The type of test, either Boolean or
+Min/Max.&nbsp; The default value is Boolean.&nbsp; For more information, see 
+<a href="TestTypes.html">Test Types</a>.</font></p>
+<hr>
+<p><b><font face="Verdana" size="2"><a name="MaxValue">MaxValue</a></font></b></p>
+<p><font face="Verdana" size="2">This property is only available to test nodes
+with a Min/Max test type.&nbsp; See <a href="TestResultProps_TestNodes.html#Max">Test
+result properties of test nodes</a>.</font></p>
+<hr>
+<p><b><font face="Verdana" size="2"><a name="MinValue">MinValue</a></font></b></p>
+<p><font face="Verdana" size="2">This property is only available to test nodes
+with a Min/Max test type.&nbsp; See <a href="TestResultProps_TestNodes.html#Min">Test
+result properties of test nodes</a>.</font></p>
+<hr>
+<p><b><font face="Verdana" size="2"><a name="Units">Units</a></font></b></p>
+<p><font face="Verdana" size="2">This property is only available to test nodes
+with a Min/Max test type.&nbsp; See <a href="TestResultProps_TestNodes.html#Units">Test
+result properties of test nodes</a>.</font></p>
+<hr>
+<p>&nbsp;</p>
+<p><b><font face="Verdana" size="2">See Also</font></b></p>
+<p>&nbsp;&nbsp; <font face="Verdana" size="2"><a href="PropertiesPage.html">Properties
+Page</a> | <a href="TestProgramProps.html">Test
+Program Properties</a> | <a href="GroupNodeProps.html">Group Node Properties</a></font></p>
+<p>&nbsp;</p>
+<p><font size="2" face="Verdana"><a href="#Top">Back to Top</a></font></p>
+<p><i><font face="Verdana" size="1">Astronics Test Systems<br>
+Last updated on </font><span class="style2">11/17/14 by M.Buccat</span></i></p>
+
+</body>
+
+</html>

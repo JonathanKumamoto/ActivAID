@@ -1,0 +1,100 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 12.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Test Program Overview</title>
+<link rel="stylesheet" type="text/css" href="help.css">
+<style type="text/css">
+.auto-style1 {
+	font-family: Verdana;
+	font-size: x-small;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Test Program Overview</h1>
+<p><font face="Verdana" size="2">All ActivATE test programs are comprised of a
+sequence file (.seq extension) and at least one test script file (.tpf
+extension).&nbsp; The sequence file format is an Extensible Markup Language,
+or XML file and displayed graphically as a TreeView (much like a directory 
+structure).&nbsp; It contains information about the test program such as the test and
+group nodes, test properties, execution sequence and other user configurable
+settings.&nbsp; This file is generated automatically by ActivATE, and in
+general, it should not be edited by the user.</font></p>
+<p><font face="Verdana" size="2">The test script file contains the main VBScript, 
+C#, or VB.Net code for the test program.&nbsp; The outline for this test script 
+is created automatically when a new test program is created and as new test and 
+group nodes are added.&nbsp; The user completes this file by adding the test code needed
+to implement each test.&nbsp; </font></p>
+<p><font face="Verdana" size="2">Optionally, for VBScript files, a globals file may be included (.gtf
+extension).&nbsp; The globals file is also a VBScript file and is used to
+implement methods, properties and classes that may be used by multiple test
+programs.</font></p>
+<p><font face="Verdana" size="2">These three files are named after the test
+program.&nbsp; For example, a new test program created with the name &quot;MyTest&quot;
+would automatically create the files MyTest.seq, MyTest.tpf, and, if VBScsript 
+and a globals
+file is to be used, MyTest.gtf.</font></p>
+<h1>Organizing a Test Program</h1>
+<p class="auto-style1">Test Engineers should put some thought into designing a 
+test program (sometimes called a test flow) and how the logical groups are 
+organized.&nbsp; For example, there should be a &quot;Setup&quot; or initialization group, 
+a main test group, and a &quot;Cleanup&quot; or shutdown group.&nbsp; This allows the test 
+engineer to partition and validate the test program more logically.&nbsp; 
+Sections can easily be <a href="TestNodeProps.html#Enable">disabled</a> (right-mouse-click on the node) or run 
+separately.</p>
+<ul>
+	<li>
+	<p class="auto-style1">Think about logical grouping</p>
+	</li>
+	<li>
+	<p class="auto-style1">Don't try to do too much in one test. Each test node 
+	should be no longer than a page or page and half when viewed from the 
+	editor.&nbsp; Break the test into relatively small, manageable parts.</p>
+	</li>
+	<li>
+	<p class="auto-style1">Groups, as well as individual tests can be moved 
+	around (drag and drop) after the test flow is created.</p>
+	</li>
+	<li>
+	<p class="auto-style1">As a general rule, the &quot;Shutdown&quot; group is used as a 
+	branch node incase there are catastrophic errors (see test sequence below.&nbsp; 
+	The blue flag on the test node shows this node has the
+	<a href="TestNodeProps.html#BranchNode">branch-on-fail</a> flag set.</p>
+	</li>
+	<li>
+	<p class="auto-style1">Keep the test names descriptive or add a description 
+	(shown as a blue comment).</p>
+	</li>
+	<li>
+	<p class="auto-style1">As many sub-groups as needed may be used to add 
+	clarity and control to the test sequence.</p>
+	</li>
+</ul>
+<table style="width: 100%">
+	<tr>
+		<td style="width: 330px">
+		<img alt="Example Test Program Flow" height="398" src="bin/TestProgramFlow.png" width="347"></td>
+		<td>
+		<img alt="Collapsed Test Sequence " height="258" src="bin/TestProgramFlow2.png" width="311"><br>
+		Example of a collapsed test program sequence.&nbsp; Note the blue flags 
+		indicating a branch-on-fail is enabled for those nodes.</td>
+	</tr>
+</table>
+<p><b>See Also</b></p>
+<p><b>&nbsp;&nbsp;&nbsp; </b><a href="NewTestProgram.html">Creating a new test 
+program</a> | <a href="NewGroup.html">Adding a new group</a> |
+<a href="NewTest.html">Adding a new test</a> | <a href="TestTypes.html">Test 
+Types</a></p>
+<p><i><font face="Verdana" size="1">Astronics Test Systems<br>
+Last updated on 12/23/13 by I. Williams</font></i></p>
+<p>&nbsp;</p>
+
+</body>
+
+</html>

@@ -1,0 +1,256 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Edit Menu and Edit Toolbar</title>
+<link rel="stylesheet" type="text/css" href="help.css">
+</head>
+
+<body>
+
+<h1><a name="Top">Edit Menu and Edit Toolbar</a></h1>
+<p>The Edit Toolbar contains functions to help you edit your text in the 
+Script/Globals View of a test program or a text file.&nbsp; The Edit menu 
+contains some of the items that are found in the Edit Toolbar.&nbsp; The Edit 
+menu and toolbar are only visible when there is at least one document open.</p>
+<table border="0" width="47%" id="table10" height="283">
+  <tr>
+    <td width="246" height="279" valign="top">
+    <img border="0" src="bin/editMenu.png" width="189" height="264"></td>
+    <td height="279" valign="top">
+	<img border="0" src="bin/AdvancedMenu.png" width="304" height="122"><p>
+	<img border="0" src="bin/BookmarksMenu.png" width="316" height="99"></td>
+  </tr>
+</table>
+<p><img border="0" src="bin/edittoolbar.png" width="600" height="47"></p>
+<table border="1" id="table12">
+  <tr>
+    <td width="247">&nbsp;<a href="#Clear_Bookmarks">Clear Bookmarks</a></td>
+    <td width="248">&nbsp;<a href="#Copy">Copy</a></td>
+    <td width="248">&nbsp;<a href="#Cut">Cut</a></td>
+    <td width="248">&nbsp;<a href="#Decrease_Indent">Decrease Indent</a></td>
+    <td width="248">&nbsp;<a href="#Delete">Delete</a></td>
+  </tr>
+  <tr>
+    <td width="247">&nbsp;<a href="#Find">Find</a></td>
+    <td width="248">&nbsp;<a href="#Font">Font</a></td>
+    <td width="248">&nbsp;<a href="#Increase_Indent">Increase Indent</a></td>
+    <td width="248">&nbsp;<a href="#Make_Lowercase">Make Lowercase</a></td>
+    <td width="248">&nbsp;<a href="#Make_Uppercase">Make Uppercase</a></td>
+  </tr>
+  <tr>
+    <td width="247">&nbsp;<a href="#Next_Bookmark">Next Bookmark</a></td>
+    <td width="248">&nbsp;<a href="#Paste">Paste</a></td>
+    <td width="248">&nbsp;<a href="#Previous_Bookmark">Previous Bookmark</a></td>
+    <td width="248">&nbsp;<a href="#Redo">Redo</a></td>
+    <td width="248">&nbsp;<a href="#Select_All">Select All</a></td>
+  </tr>
+  <tr>
+    <td width="247">&nbsp;<a href="#Toggle_Bookmark">Toggle Bookmark</a></td>
+    <td width="248">&nbsp;<a href="#Toggle Comment">Toggle Comment</a></td>
+    <td width="248">&nbsp;<a href="#Undo">Undo</a></td>
+    <td width="248">&nbsp;<a href="#Whitespace">Whitespace</a></td>
+    <td width="248">&nbsp;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<hr>
+<table border="0" width="15%" id="table13">
+  <tr>
+    <td width="145"><b><a name="Clear_Bookmarks">Clear Bookmarks</a></b></td>
+    <td><img border="0" src="bin/clearBookmarks.png" width="22" height="21"></td>
+  </tr>
+</table>
+<p>Removes all bookmarks
+<img border="0" src="bin/bookmark.png" width="15" height="14"> in the currently 
+selected document.&nbsp; If a test program is the current document, the 
+bookmarks will not be cleared from both the Test View and the Globals View, but 
+rather only from the view that is visible.</p>
+<hr>
+<table border="0" width="8%" id="table16">
+  <tr>
+    <td width="56"><b><a name="Copy">Copy</a></b></td>
+    <td><img border="0" src="bin/copy.png" width="22" height="21"></td>
+  </tr>
+</table>
+<p>Places a copy of the selected text in the editor on the clipboard.&nbsp; 
+Shortcut key is Ctrl+C.</p>
+<hr>
+<table border="0" width="8%" id="table17">
+  <tr>
+    <td width="55"><b><a name="Cut">Cut</a></b></td>
+    <td><img border="0" src="bin/cut.png" width="19" height="21"></td>
+  </tr>
+</table>
+<p>Removes the currently selected text from the editor and places it on the 
+clipboard.&nbsp; Shortcut key is Ctrl+X.</p>
+<hr>
+<table border="0" width="15%" id="table18">
+  <tr>
+    <td width="145"><b><a name="Decrease_Indent">Decrease Indent</a></b></td>
+    <td><img border="0" src="bin/decreaseIndent.png" width="23" height="20"></td>
+  </tr>
+</table>
+<p>Moves the line of text at the current cursor location to the left by one tab 
+width.</p>
+<hr>
+<table border="0" width="10%" id="table19">
+  <tr>
+    <td width="86"><b><a name="Delete">Delete</a></b></td>
+    <td><img border="0" src="bin/delete.png" width="20" height="20"></td>
+  </tr>
+</table>
+<p>Deletes the currently selected text in the editor.&nbsp; Shortcut key is 
+Delete.</p>
+<hr>
+<table border="0" width="8%" id="table20">
+  <tr>
+    <td width="69"><b><a name="Find">Find</a></b></td>
+    <td><img border="0" src="bin/find.png" width="22" height="21"></td>
+  </tr>
+</table>
+<p>Finds occurrences of the specified string in the specified context.&nbsp; The 
+Find and Replace dialog is displayed as shown below.&nbsp; Enter the word to find in 
+the text box.&nbsp; Optionally check Match case and/or Match whole word to 
+narrow down the search.&nbsp; From the Look in drop down list, select the scope 
+of the search: Current document, Current selection or All open files (current 
+test program only).&nbsp; After the 
+search parameters have been set, click Find Next to find the first occurrence of 
+the string.&nbsp; If found, the search stops and the string is highlighted.&nbsp; 
+You may continue to click Find Next to find all additional occurrences until the 
+starting point is reached.&nbsp; Once the dialog is closed, press the F3 key to 
+continue finding the next occurrence of the last string that was searched for.&nbsp; 
+To perform a replace, click the replace button in the dialog's toolbar to view 
+the Replace options.&nbsp; Shortcut key is Ctrl+F.</p>
+<p><img border="0" src="bin/find1.png" width="250" height="280"></p>
+<hr>
+<table border="0" width="9%" id="table22">
+  <tr>
+    <td width="55"><b><a name="Font">Font</a></b></td>
+    <td><img border="0" src="bin/font.png" width="19" height="17"></td>
+  </tr>
+</table>
+<p><font face="Verdana">Opens a font dialog to set the font for the current editor.&nbsp; The default 
+font is Courier New size 10.&nbsp; This font selection applies to the entire document in 
+the editor.</font></p>
+<hr>
+<table border="0" width="14%" id="table23">
+  <tr>
+    <td width="132"><b><a name="Increase_Indent">Increase Indent</a></b></td>
+    <td><img border="0" src="bin/IncreaseIndent.png" width="23" height="19"></td>
+  </tr>
+</table>
+<p>Moves the line of text at the current cursor location to the right by one tab 
+width.</p>
+<hr>
+<p><b><a name="Make_Lowercase">Make Lowercase</a></b></p>
+<p>Converts each character in the currently selected text to its lowercase 
+equivalent.</p>
+<hr>
+<p><b><a name="Make_Uppercase">Make Uppercase</a></b></p>
+<p>Converts each character in the currently selected text to its uppercase 
+equivalent.</p>
+<hr>
+<table border="0" width="13%" id="table24">
+  <tr>
+    <td width="123"><b><a name="Next_Bookmark">Next Bookmark</a></b></td>
+    <td><img border="0" src="bin/nextBookmark.png" width="21" height="18"></td>
+  </tr>
+</table>
+<p>Moves the cursor to the next bookmark
+<img border="0" src="bin/bookmark.png" width="15" height="14"> in the current 
+editor.&nbsp; </p>
+<hr>
+<table border="0" width="9%" id="table25">
+  <tr>
+    <td width="79"><b><a name="Paste">Paste</a></b></td>
+    <td><img border="0" src="bin/paste.png" width="23" height="20"></td>
+  </tr>
+</table>
+<p>Inserts the text on the clipboard from a previous copy or cut at the cursor 
+in the current editor.&nbsp; Shortcut key is Ctrl+V.</p>
+<hr>
+<table border="0" width="16%" id="table26">
+  <tr>
+    <td width="160"><b><a name="Previous_Bookmark">Previous Bookmark</a></b></td>
+    <td><img border="0" src="bin/previousBookmark.png" width="23" height="19"></td>
+  </tr>
+</table>
+<p>Moves the cursor to the previous bookmark
+<img border="0" src="bin/bookmark.png" width="15" height="14"> in the current 
+editor.&nbsp; </p>
+<hr>
+<table border="0" width="8%" id="table27">
+  <tr>
+    <td width="65"><b><a name="Redo">Redo</a></b></td>
+    <td><img border="0" src="bin/redo.png" width="20" height="19"></td>
+  </tr>
+</table>
+<p>Redo the last action that was undone.&nbsp; Shortcut key is Ctrl+Y.</p>
+<hr>
+<p><b><a name="Select_All">Select All</a></b></p>
+<p>Selects all the text in the current editor.&nbsp; Shortcut key is Ctrl+A.</p>
+<hr>
+<table border="0" width="16%" id="table29">
+  <tr>
+    <td width="160"><b><a name="Toggle_Bookmark">Toggle Bookmark</a></b></td>
+    <td><img border="0" src="bin/toggleBookmark.png" width="22" height="18"></td>
+  </tr>
+</table>
+<p>Inserts or removes a bookmark&nbsp;<img border="0" src="bin/bookmark.png" width="15" height="14"> in the editor at the line where the cursor is 
+located.&nbsp; Use a bookmark to mark a line of code so that you may quickly 
+navigate back to it in the future.</p>
+<hr>
+<table border="0" width="18%" id="table30">
+  <tr>
+    <td width="176"><b><a name="Toggle Comment">Toggle Comment</a></b></td>
+    <td><img border="0" src="bin/togglecomment.png" width="22" height="22"></td>
+  </tr>
+</table>
+<p>If the currently selected lines in the editor begin with a VBScript comment 
+character, the comment characters are removed.&nbsp; If the currently selected 
+lines do not begin with a comment character, a comment character is inserted at 
+the beginning of each line.</p>
+<p><b>Example:&nbsp; </b></p>
+<table border="0" width="73%" id="table33">
+  <tr>
+    <td width="373" valign="top">Select the code to comment:</td>
+    <td valign="top">After clicking the toggle comment button, the selected lines are 
+    commented:</td>
+  </tr>
+  <tr>
+    <td width="373">
+    <img border="0" src="bin/CommentCode1.png" width="328" height="176"></td>
+    <td><img border="0" src="bin/CommentCode2.png" width="340" height="172"></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<hr>
+<table border="0" width="9%" id="table31">
+  <tr>
+    <td width="71"><b><a name="Undo">Undo</a></b></td>
+    <td><img border="0" src="bin/undo.png" width="21" height="19"></td>
+  </tr>
+</table>
+<p>Undo the last action.&nbsp; Shortcut key is Ctrl+Z.</p>
+<hr>
+<table border="0" width="12%" id="table32">
+  <tr>
+    <td width="103"><b><a name="Whitespace">Whitespace</a></b></td>
+    <td><img border="0" src="bin/Whitespace.jpg" width="27" height="20"></td>
+  </tr>
+</table>
+<p>Show all whitespace (spaces and tabs) in the current editor.&nbsp; A space is 
+denoted with a <font face="Verdana">'<b>·</b>' and a tab is denoted with an 
+arrow as shown in the example below.</font></p>
+<p><img border="0" src="bin/Whitespace1.jpg" width="330" height="259"></p>
+<hr>
+<p>&nbsp;</p>
+<p><font size="2" face="Verdana"><a href="#Top">Back to Top</a></font></p>
+<p><i><font face="Verdana" size="1">Astronics Test Systems<br>
+Last updated on 2/20/07 by L. Anhalt</font></i></p>
+
+</body>
+
+</html>

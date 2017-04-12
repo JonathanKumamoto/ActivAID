@@ -13,36 +13,44 @@ namespace Parser
     class ParserWrapper
     {
         Dictionary<string, ParsedCHM> parsedCHMs;
+        ActivAIDDB db;
 
         public ParserWrapper(string filePath)
         {
+            db = new ActivAIDDB();
+            db.insertIntoFiles(filePath);
             parsedCHMs = new Dictionary<string, ParsedCHM>();
             parsedCHMs[filePath] = new ParsedCHM(filePath);
+            persistData();
         }
 
         public ParserWrapper(List<string> filePaths)
         {
+            db = new ActivAIDDB();
+            parsedCHMs = new Dictionary<string, ParsedCHM>();
             foreach (string file in filePaths)
             {
                 parsedCHMs[file] = new ParsedCHM(file);
             }
+            persistData();
+            Console.WriteLine("Data successfully inserted into database");
         }
 
-      /* private void insertBlocksIntoDB(string filePath, List<List<Element>> blocks)
+        private void insertBlocksIntoDB(string filePath, List<List<Element>> blocks)
         {
             foreach (List<Element> block in blocks)
             {
-                int blockCount = 0;
+                int blockCount = 1; // changed to start from 1 not 0
                 foreach (Element element in block)
                 {
                     if (element.name == "img")
                     {
-                        //NEED A MEANS TO RETRIEVE ID
-                        ;//db.insertIntoImages();
+                        // TODO IMAGE HANDLING
+                        ;// db.insertIntoImages();
                     }
                     else
                     {
-                        //NEED A MEANS TO RETRIEVE ID
+                        
                         db.insertIntoElements(filePath, blockCount, element.data);
                     }
                     ++blockCount;
@@ -54,22 +62,21 @@ namespace Parser
         {
             foreach (string href in hrefs)
             {
-                //NEED A MEANS TO RETRIEVE ID
                 db.insertIntoHyperlinks(filePath, href);
             }
         }
 
         public void persistData()
         {
-            ActiveAIDDB db = new ActiveAIDDB();
-            db.insertIntoFiles(title, "");
+            //ActiveAIDDB db = new ActiveAIDDB();
+            //db.insertIntoFiles(title, "");
 
             foreach (KeyValuePair<string, ParsedCHM> pair in parsedCHMs)
             {
                 insertBlocksIntoDB(pair.Key, pair.Value.blocks);
                 insertHREFSOIntoDB(pair.Value.title, pair.Value.hrefs);
             }
-        }*/
+        }
 
         public void genModel()
         {

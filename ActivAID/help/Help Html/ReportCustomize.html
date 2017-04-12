@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="en-us" http-equiv="Content-Language" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Customizing the Test Report</title>
+<style type="text/css">
+.auto-style1 {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: medium;
+}
+h2
+	{margin-top:10.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:"Cambria","serif";
+	color:#4F81BD;
+	}
+table.MsoTableGrid
+	{border:solid windowtext 1.0pt;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	}
+.auto-style2 {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: small;
+}
+</style>
+</head>
+
+<body>
+
+<p class="auto-style1"><a name="Customizing_the_Test_Report"><strong>Customizing 
+the Test Report</strong></a></p>
+<p class="auto-style2">A ".\Report" sub-directory is installed under the 
+AcitvATE installation directory.&nbsp; This directory contains some 
+customization files that may be changed to personalize the Report Title and 
+Report Logo. </p>
+<p class="MsoNormal"><span class="auto-style2">
+<b style="mso-bidi-font-weight: normal">Report Logo:</b></span><span class="auto-style2" style="mso-spacerun: yes">&nbsp;
+</span><span class="auto-style2">Users can customize the report logo by 
+replacing the “ReportLogo.jpg” file with a company logo of their own choosing.</span><span class="auto-style2" style="mso-spacerun: yes">&nbsp;
+</span><span class="auto-style2">The logo will be resized to fit the logo area.</span><span class="auto-style2" style="mso-spacerun: yes">&nbsp;
+</span><span class="auto-style2">If this file is missing,</span><span class="auto-style2" style="mso-spacerun: yes">&nbsp;
+</span><span class="auto-style2">the default ActivATE logo will be used.</span><span class="auto-style2" style="mso-spacerun: yes">&nbsp;
+</span><o:p></o:p></p>
+<p class="MsoNormal"><span class="auto-style2">
+<b style="mso-bidi-font-weight: normal">Report Title:</b></span><span class="auto-style2" style="mso-spacerun: yes">&nbsp;
+</span><span class="auto-style2">You can override the default report title by 
+removing the underscore “_” from the “_ReportTitle.txt” file and replacing the 
+text in this file with your own title.</span><span class="auto-style2" style="mso-spacerun: yes">&nbsp;
+</span><span class="auto-style2">Program logic checks for the file “ReportTitle.txt”.</span><span class="auto-style2" style="mso-spacerun: yes">&nbsp;
+</span><span class="auto-style2">If this file exists (hence, the underscore to 
+rename it), then the contents of the file is read and used as the title.</span><span class="auto-style2" style="mso-spacerun: yes">&nbsp;
+</span><span class="auto-style2">If this file does not exist, then a default 
+title is used.</span><o:p></o:p></p>
+<p class="MsoNormal"><span class="auto-style2">
+<b style="mso-bidi-font-weight: normal">Report Definition (Advanced)</b></span>:<span class="auto-style2" style="mso-spacerun: yes">&nbsp;
+</span><span class="auto-style2">If “ReportDefn.rdlc” exists, then this file is 
+used for the report layout rather than the default report file.</span><span class="auto-style2" style="mso-spacerun: yes">&nbsp; 
+This file is installed in the ".\Report" sub-directory of the ActivATE 
+installation directory.&nbsp; </span><span class="auto-style2">Note the 
+underscore “_” on this file.</span><span class="auto-style2" style="mso-spacerun: yes">&nbsp;
+</span><span class="auto-style2">This effectively renames the file so it does 
+not exist and the default embedded resource is used.</span><span class="auto-style2" style="mso-spacerun: yes">&nbsp;
+</span><span class="auto-style2">Remove the underscore to use this file as the 
+report layout.</span><o:p></o:p></p>
+<p class="MsoNormal"><!--[if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter" xmlns:v="urn:schemas-microsoft-com:vml"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0" xmlns:v="urn:schemas-microsoft-com:vml"/>
+  <v:f eqn="sum @0 1 0" xmlns:v="urn:schemas-microsoft-com:vml"/>
+  <v:f eqn="sum 0 0 @1" xmlns:v="urn:schemas-microsoft-com:vml"/>
+  <v:f eqn="prod @2 1 2" xmlns:v="urn:schemas-microsoft-com:vml"/>
+  <v:f eqn="prod @3 21600 pixelWidth" xmlns:v="urn:schemas-microsoft-com:vml"/>
+  <v:f eqn="prod @3 21600 pixelHeight" xmlns:v="urn:schemas-microsoft-com:vml"/>
+  <v:f eqn="sum @0 0 1" xmlns:v="urn:schemas-microsoft-com:vml"/>
+  <v:f eqn="prod @6 1 2" xmlns:v="urn:schemas-microsoft-com:vml"/>
+  <v:f eqn="prod @7 21600 pixelWidth" xmlns:v="urn:schemas-microsoft-com:vml"/>
+  <v:f eqn="sum @8 21600 0" xmlns:v="urn:schemas-microsoft-com:vml"/>
+  <v:f eqn="prod @7 21600 pixelHeight" xmlns:v="urn:schemas-microsoft-com:vml"/>
+  <v:f eqn="sum @10 21600 0" xmlns:v="urn:schemas-microsoft-com:vml"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect" xmlns:v="urn:schemas-microsoft-com:vml"/>
+ <o:lock v:ext="edit" aspectratio="t" xmlns:o="urn:schemas-microsoft-com:office:office"/>
+</v:shapetype><v:shape id="Picture_x0020_2" o:spid="_x0000_i1026" type="#_x0000_t75"
+ style='width:468pt;height:174.75pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="file:///C:\Users\IAN~1.WIL\AppData\Local\Temp\msohtmlclip1\01\clip_image001.png"
+  o:title="" xmlns:v="urn:schemas-microsoft-com:vml"/>
+</v:shape><![endif]--><o:p>
+<img alt="Report Example" height="233" src="bin/ReportRDLC.png" width="624" /></o:p></p>
+<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+<table border="0" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-yfti-tbllook: 1184; mso-padding-alt: 0in 5.4pt 0in 5.4pt; mso-border-insideh: none; mso-border-insidev: none">
+	<tr style="mso-yfti-irow: 0; mso-yfti-firstrow: yes; mso-yfti-lastrow: yes">
+		<td style="width: 4.2in; padding: 0in 5.4pt 0in 5.4pt" valign="top" width="403">
+		<p class="MsoNormal"><span class="auto-style2">The entire layout of the 
+		report can be changed by editing the “ReportDefn.rdlc” file using 
+		Microsoft Visual Studio (2008 or later).<span style="mso-spacerun: yes">&nbsp;
+		</span>Users should be familiar with Microsoft ReportViewer before 
+		changing this file.<span style="mso-spacerun: yes">&nbsp; </span>Do not 
+		delete any of the parameters (shown at right) but it is OK to remove the 
+		text box containing the parameter expression.<span style="mso-spacerun: yes">&nbsp;
+		</span>For example, deleting the text box containing [@TestComment] will 
+		simply remove that display from the report.<o:p></o:p></p>
+		<p class="MsoNormal">Note: The report form uses the ResultsDataSet.<span style="mso-spacerun: yes">&nbsp;
+		</span>Do not delete any of the fields from this data set. </span> <o:p></o:p>
+		</p>
+		<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+		</td>
+		<td style="width: 2.45in; padding: 0in 5.4pt 0in 5.4pt" valign="top" width="235">
+		<p class="MsoNormal"><!--[if gte vml 1]><v:shape id="Picture_x0020_1"
+   o:spid="_x0000_i1025" type="#_x0000_t75" style='width:141pt;height:194.25pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="file:///C:\Users\IAN~1.WIL\AppData\Local\Temp\msohtmlclip1\01\clip_image003.png"
+    o:title="" xmlns:v="urn:schemas-microsoft-com:vml"/>
+  </v:shape><![endif]-->
+		<img alt="Report Parameters" height="259" src="bin/ReportParameters.png" width="188" /><o:p></o:p></p>
+		</td>
+	</tr>
+</table>
+<hr>
+<p>see Al<font size="2" face="Verdana">so:&nbsp; <a href="TestResultsFile.html">
+Test Results File </a>| <a href="Overview.html">Back to Main</a></font></p>
+<p><i><font face="Verdana" size="1">Astronics Test Systems<br>
+Last updated on 11/18/14 by M. Buccat</font></i></p>
+
+</body>
+
+</html>

@@ -33,7 +33,7 @@ namespace ActivAID
             AppWindow = this;
             MouseDown += delegate { DragMove(); };
             defineFunctionObjects();
-            SentenceBoiler sb = new SentenceBoiler();
+            UserInputBoiler sb = new UserInputBoiler();
             DataAccess dA = new DataAccessDB();
             queryHandler  = new QueryHandler(dA, sb, stringOp, summarize);
         }

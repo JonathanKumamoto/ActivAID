@@ -1,0 +1,116 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Templates</title>
+<link rel="stylesheet" type="text/css" href="help.css">
+</head>
+
+<body>
+
+<p><b><font face="Verdana" size="3"><a name="Top">Templates</a></font></b></p>
+<p>Many users find that the majority of the test programs they create follow the 
+same format and use much of the same code.&nbsp; Templates may be used to save 
+time and reduce the chance of errors introduced from copying and pasting.&nbsp; 
+Templates are user-defined XML files that can be used for creating new test 
+programs, group nodes and test nodes.&nbsp; The following sections describe how 
+to define and use template files in each of these situations:</p>
+<p><a href="TestProgramTemplates.htm">Test Program Templates</a><br>
+<a href="GroupNodeTemplates.htm">Group Node Templates</a><br>
+<a href="TestNodeTemplates.htm">Test Node Templates</a></p>
+<p><b>Template File Overview</b></p>
+<p>An ActivATE<font face="Verdana">™ template file can be edited directly in the 
+ActivATE™ IDE which provides XML color coding for easier editing.&nbsp; It is 
+recommended that you modify an existing template file rather than trying to 
+create one from scratch.&nbsp; Two template files are installed with ActivATE in 
+the 'Templates' folder under the ActivATE installation directory -&nbsp; &quot;Blank.template&quot; 
+and &quot;Sample.template&quot;.&nbsp; The Blank.template file contains an empty set of 
+XML tags, and the Sample.template file contains the XML tags populated with a 
+template for a basic test program.&nbsp;&nbsp; Both of these files can be 
+modified to create your own template, but the XML tags should not be edited.&nbsp; 
+All template files need to have the &quot;.template&quot; file extension and must be 
+located in the 'Templates' folder (usually located at &quot;C:\Program Files\Racal 
+Instruments\ActivATE .Net 3.x\Templates&quot;).&nbsp; The XML tags are shown below:</font></p>
+<p><font face="Verdana">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>Blank.template file contents:</i></font></p>
+  <div align="center">
+    <table class="MsoNormalTable" border="0" cellpadding="0" width="90%" style="width:90.0%;mso-cellspacing:1.5pt;background:gainsboro;mso-padding-alt:
+ 0in 0in 0in 0in" id="table1">
+      <tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+        <td width="90%" style="width:90.0%;background:#E6E6E6;padding:.75pt .75pt .75pt .75pt">
+            <pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt; </pre>
+            <pre>&lt;!-- This is a comment --&gt;</pre>
+            <pre>&lt;CodeTemplate&gt;</pre>
+            <pre>&lt;NewTestProgram&gt;</pre>
+            <pre>&lt;!-- 
+NewTestProgram Default parameters:  
+	Test Program Name - $Name$
+	Description - $Desc$
+	Pre-Test Name - $PreTest$
+	Post-Test Name - $PostTest$ 
+--&gt;</pre>
+            <pre>&lt;Global&gt;	
+	&lt;!-- Define any code to go in global space here (to be inserted at the top of the file) --&gt;
+&lt;/Global&gt;</pre>
+            <pre>&lt;PreTest&gt;	
+	&lt;!-- Define your pre-test subroutine here --&gt;
+&lt;/PreTest&gt;</pre>
+            <pre>&lt;PostTest&gt;	
+	&lt;!-- Define your post-test subroutine here --&gt;
+&lt;/PostTest&gt;</pre>
+            <pre>&lt;/NewTestProgram&gt;
+</pre>
+            <pre>&lt;NewGroupNode&gt;</pre>
+            <pre>&lt;!-- 
+NewGroupNode Default parameters:  
+	Group Name - $Name$
+	Description - $Desc$
+	Pre-Group Name - $PreGroup$
+	Post-Group Name - $PostGroup$ 
+	Parent Node - $Parent$
+--&gt;</pre>
+            <pre>&lt;Global&gt;	
+	&lt;!-- Define any code to go in global space here (to be inserted immediately before the pre and/or post group subs) --&gt;
+&lt;/Global&gt;</pre>
+            <pre>&lt;PreGroup&gt;	
+	&lt;!-- Define your pre-group subroutine here --&gt;
+&lt;/PreGroup&gt;</pre>
+            <pre>&lt;PostGroup&gt;	
+	&lt;!-- Define your post-group subroutine here --&gt;
+&lt;/PostGroup&gt;</pre>
+            <pre>&lt;/NewGroupNode&gt;</pre>
+            <pre>&lt;NewTestNode&gt;</pre>
+            <pre>&lt;!-- 
+NewTestNode Default parameters:  
+	Test Node Name - $Name$
+	Description - $Desc$
+	Function Name - $Function$
+	Parent Node - $Parent$
+--&gt;</pre>
+            <pre>&lt;Global&gt;	
+	&lt;!-- Define any code to go in global space here (to be inserted immediately before the test function) --&gt;
+&lt;/Global&gt;</pre>
+            <pre>&lt;TestFunction&gt;  
+	&lt;!-- Define your test function here --&gt;
+&lt;/TestFunction&gt;</pre>
+            <pre>&lt;/NewTestNode&gt;</pre>
+            <pre>&lt;/CodeTemplate&gt;<font face="Courier New" size="2"> </font></pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+<p>&nbsp;</p>
+<p><b><font face="Verdana" size="2">See Also</font></b></p>
+<p>&nbsp;&nbsp; <font face="Verdana" size="2">
+<a href="TestProgramTemplates.htm">Test Program Templates</a> | 
+<a href="GroupNodeTemplates.htm">Group Node Templates</a> |
+<a href="TestNodeTemplates.htm">Test Node Templates</a></font></p>
+<p>&nbsp;</p>
+<p><font size="2" face="Verdana"><a href="#Top">Back to Top</a></font></p>
+<p><i><font face="Verdana" size="1">Astronics Test Systems<br>
+Last updated on 3/1/07 by L. Anhalt</font></i></p>
+
+</body>
+
+</html>

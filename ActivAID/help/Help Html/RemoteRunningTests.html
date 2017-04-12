@@ -1,0 +1,68 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Running Tests With Remoting</title>
+<link rel="stylesheet" type="text/css" href="help.css">
+    <style type="text/css">
+
+        .style3
+        {
+            width: 486px;
+            height: 198px;
+        }
+        .style4
+        {
+            width: 763px;
+            height: 469px;
+        }
+        .style5
+        {
+            width: 756px;
+            height: 462px;
+        }
+    </style>
+    </head>
+
+<body>
+
+<h1>Running Tests With Remoting</h1>
+<p>When using remoting, a server and its multiple clients are able to access the 
+    same group of slots to run their test programs.&nbsp; They are all also able to 
+    control the same shared devices.&nbsp; All the clients and the server must have 
+    access to the network drive that contains the desired test program in order to 
+    run together.&nbsp; </p>
+    <p>&nbsp;<a href="#Running on Server Side">Running on Server Side</a> &nbsp;<a 
+            href="#Running on Client Side">Running on Client Side</a></p>
+     <p><b><a name="Running on Server Side">Running on Server Side</a></b></p>
+    <p>A server can run tests on any slot in TP manager or the IDE without reserving it, 
+        as long as the slot isn't reserved by a client.</p>
+    <p>In the example below, the TP manager shows that slots 2, 9, and 13 are 
+        reserved by a client with IP address '172.16.2.86', and that the server cannot load tests on 
+        these slots.&nbsp; However, the server can use any of the other available slots 
+        for testing.</p>
+    <p>
+        <img alt="" class="style4" src="bin/tp_manager_server.PNG" /></p>
+      <p><b><a name="Running on Client Side">Running on Client Side</a></b></p>
+    <p>A client can only run tests on slots that they have reserved.&nbsp; Otherwise, 
+        the following error message is seen.</p>
+    <p>
+        <img alt="" class="style3" 
+            src="bin/client_side_slot_reserved_by_server_error.PNG" /></p>
+    <p>
+        In the example below, the TP manager shows that slots 3, 5, and 7 are reserved 
+        by the server with IP address '172.16.2.78', and that the server cannot load 
+        tests on these slots.&nbsp; The test program only runs on slots that are 
+        reserved by this client.</p>
+    <p>
+        <img alt="" class="style5" src="bin/tpmanager_client.PNG" /><a name="Running on Client Side"></p>
+<p><a href="RemoteClientSetup.html">Remote Client Setup</a>&nbsp; <a href="ServerSide.html">Server Side</a>&nbsp;&nbsp; <a href="ClientSide.html">
+    Client Side</a>&nbsp; <a href="RemoteClientDisconnecting.html">Disconnecting</a></p>
+<hr>
+<p><i><font face="Verdana" size="1">Astronics Test Systems<br>
+Last updated on 1/14/15 M. Buccat</font></i></p>
+
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 12.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Using a null script name</title>
+</head>
+
+<body>
+
+<p><b><font face="Verdana" size="3"><a name="Top">Using a null script name</a></font></b></p>
+<p><font face="Verdana" size="2">A limitation of VBScript is that we cannot
+declare a class inside of an imported file when used as described above.&nbsp;
+To work around this, you may declare your Import statement with a null, or
+empty, test script reference name.&nbsp; In this case, the code inside the
+imported file is added to the main test script before being passed to the script
+engine instead of creating it as a separate object.&nbsp; To use methods and
+variables declared outside of a class in the imported file, no object name is
+used.&nbsp; If a class is declared inside the imported file, an instance of that
+class must be created before using its members (standard VBScript
+protocol).&nbsp;&nbsp;</font></p>
+<p><font face="Verdana" size="2"><b>Example:</b>&nbsp; </font><font face="Verdana" size="2">Repeat
+the previous example using a null script name.</font></p>
+  <div align="center">
+    <table class="MsoNormalTable" border="0" cellpadding="0" width="90%" style="width:90.0%;mso-cellspacing:1.5pt;background:gainsboro;mso-padding-alt:
+ 0in 0in 0in 0in">
+      <tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+        <td width="90%" style="width:90.0%;background:#E6E6E6;padding:.75pt .75pt .75pt .75pt">
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><font face="Courier New" size="2"><span style="color: blue">&nbsp;
+            Option Explicit&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#008000">		' MUST be declared on the first line</font><span style="color:blue"><br>
+            </span>
+            <span style="color: blue">&nbsp;&nbsp;<br>
+            &nbsp;</span> <font color="#0000FF">Import</font> <font color="#800000">&quot;MathStuff.tpf&quot;</font>,<span style="color: blue">
+            </span><font color="#800000">&quot;&quot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#800000"><br>
+            &nbsp;&nbsp;&nbsp;<b>&nbsp; </b></font>.<br>
+            &nbsp;&nbsp;&nbsp;&nbsp; .<br>
+            &nbsp;&nbsp;&nbsp;&nbsp; .</font></p>
+            <p><font face="Courier New" size="2">&nbsp; <font color="#008000">'
+            Call a function declared inside MathStuff.tpf</font><br>
+            &nbsp; <font color="#0000FF">Dim</font> x, y, z<br>
+            &nbsp; x <font color="#0000FF"> =</font> 5 : y <font color="#0000FF"> =</font> 10<br>
+            &nbsp;	z <font color="#0000FF"> =</font> Average(x, y)<br>
+            &nbsp;&nbsp;</font>
+        </td>
+      </tr>
+    </table>
+  </div>
+<p><font face="Verdana" size="2">Here, Average() is treated just as if it were
+declared locally in the main test script file.</font></p>
+<p>&nbsp;</p>
+<p><font face="Verdana" size="2"><b>Example:</b>&nbsp; </font><font face="Verdana" size="2">Declare
+a class inside an import file.</font></p>
+  <div align="center">
+    <table class="MsoNormalTable" border="0" cellpadding="0" width="90%" style="width:90.0%;mso-cellspacing:1.5pt;background:gainsboro;mso-padding-alt:
+ 0in 0in 0in 0in">
+      <tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+        <td width="90%" style="width:90.0%;background:#E6E6E6;padding:.75pt .75pt .75pt .75pt">
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><font face="Courier New" size="2"><span style="color: blue">&nbsp;
+            Option Explicit&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#008000">		' MUST be declared on the first line</font><span style="color:blue"><br>
+            </span>
+            <span style="color: blue">&nbsp;&nbsp;<br>
+            &nbsp;</span> <font color="#0000FF">Import</font> <font color="#800000">&quot;MathStuffClass.tpf&quot;</font>,<span style="color: blue">
+            </span><font color="#800000">&quot;&quot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#800000"><br>
+            &nbsp;&nbsp;&nbsp;<b>&nbsp; </b></font>.<br>
+            &nbsp;&nbsp;&nbsp;&nbsp; .<br>
+            &nbsp;&nbsp;&nbsp;&nbsp; .</font></p>
+            <p><font face="Courier New" size="2">&nbsp; <font color="#008000">'
+            Instantiate an object of type Math and call one of its functions<br>
+            &nbsp; </font><font color="#0000FF">Dim</font><font color="#008000">
+            </font> mathObj<font color="#008000"><br>
+            &nbsp; </font><font color="#0000FF">	Set</font><font color="#008000">
+            </font> mathObj<font color="#008000"> </font><font color="#0000FF"> = New</font><font color="#008000">
+            </font> Math<br>
+            &nbsp; <font color="#0000FF">Dim</font> x, y, z<br>
+            &nbsp; x <font color="#0000FF"> =</font> 5 : y <font color="#0000FF"> =</font> 10<br>
+            &nbsp;	z <font color="#0000FF"> =</font> mathObj.Average(x, y)<br>
+            &nbsp; </font>
+        </td>
+      </tr>
+    </table>
+  </div>
+<p><font face="Verdana" size="2">The Math class is declared in
+MathStuffClass.tpf as follows:</font></p>
+<blockquote>
+  <pre><font color="#0000FF">Class</font> Math</pre>
+  <blockquote>
+    <pre><font color="#008000">' Returns the average of x and y
+</font><font color="#0000FF">Function</font> Average(x, y)
+	Average <font color="#0000FF">=</font> (x <font color="#0000FF">+</font> y)<font color="#0000FF">/</font>2
+<font color="#0000FF">End Function</font></pre>
+    <pre><font color="#008000">' Returns the sum of x and y
+</font><font color="#0000FF">Function</font> Sum(x, y)
+	Sum <font color="#0000FF">=</font> x <font color="#0000FF">+</font> y
+<font color="#0000FF">End Function</font></pre>
+    <pre><font color="#008000">' Returns the difference between x and y
+</font><font color="#0000FF">Function</font> Difference(x, y)
+	Difference <font color="#0000FF">=</font> x <font color="#0000FF">-</font> y
+<font color="#0000FF">End Function</font></pre>
+  </blockquote>
+  <pre><font color="#0000FF">End Class</font></pre>
+</blockquote>
+<pre>&nbsp;</pre>
+<pre><b><font face="Verdana">See Also</font></b></pre>
+<pre><font face="Verdana"><b>	</b><a href="ImportStatement.html">Using the Import Statement</a> | <a href="ImportScriptErrors.html">Script Errors</a></font></pre>
+<p>&nbsp;</p>
+<p><font size="2" face="Verdana"><a href="#Top">Back to
+Top</a></font></p>
+<p><i><font face="Verdana" size="1">Astronics Test Systems<br>
+Last updated on 1/13/06 by L. Anhalt</font></i></p>
+
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 12.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>The ActivATE ATE Test Platform: An Overview</title>
+<link rel="stylesheet" type="text/css" href="help.css">
+<style type="text/css">
+.auto-style1 {
+	font-size: small;
+}
+</style>
+</head>
+
+<body>
+
+<h1><a name="Top">The ActivATE</a><font face="Verdana" size="3">™</font><a name="Top"> 
+ATE Test Platform, v5.x : An Overview</a></h1>
+<p><font face="Verdana" size="2">The ActivATE™ ATE Test Platform was designed from the ground up using Microsoft's® latest
+technology.&nbsp; It is a standard Windows® &quot;look-and-feel&quot;
+application written in C# for fast execution.&nbsp; Either VBScript, C#, or 
+VB.Net may be used as the as the
+test program engine (or all three simultaneously). It combines a graphical user interface with text-based code that
+provides a very simple and easy-to-use yet extremely powerful environment,
+allowing for rapid application development.&nbsp; </font></p>
+<p>With pre-defined access levels, <font face="Verdana" size="2">ActivATE is well-suited for both the
+test engineer and the test operator on the shop floor.&nbsp;A multi-threaded
+test execution environment allows multiple TIU's (Test Interface Units or test heads) to run
+independently and concurrently.</font></p>
+<p><img border="0" src="bin/MainScreen.png" width="933" height="789"></p>
+<p><font face="Verdana" size="2">The overall theory of 
+<a href="TestPrograms.html">test program developmen</a>t
+is quite simple.&nbsp; We add Groups and Tests to the tree in the
+<a href="TestSequenceView.html">Test Sequence View</a>.&nbsp; Each Group and Test is called a node, 
+and these nodes are capable of executing
+VBScript, C#, or VB.Net test code that performs certain functions, such as reading a DMM value.&nbsp; Typically, the test code is used to make calls into the
+device drivers (no need to use &quot;CreateObject&quot; in VBScript, we've done that for
+you).&nbsp; Each driver or device has its own set of APIs (Application 
+Programming Interface) that perform certain functions.&nbsp; For example, a
+VBScript command to close a relay on a switch card would be: </font>
+<font face="Courier New"><span class="auto-style1"><strong>nRetVal = Switch1.Close(nRelay)</strong></span></font><font size="2" face="Courier New">. </font><font face="Verdana">A</font><font size="2" face="Verdana">s the test engineer 
+adds nodes to the test sequence, a VBScript test
+shell (or .NET DLL for .NET code) is created behind the scenes for the user.&nbsp;&nbsp; 
+No need to save or compile.&nbsp; Simply press the RUN (or Play) button to 
+execute the program.&nbsp; </font></p>
+<table border="0" cellpadding="2" width="717">
+  <tr>
+    <td>
+    <img border="0" src="bin/IntellisenseExample.jpg" width="479" height="190"></td>
+    <td width="189"><font face="Verdana">ActivATE exposes all the methods and 
+    properties
+      of the driver object to the user&nbsp;including the parameter list.</font></td>
+  </tr>
+</table>
+<p><img border="0" src="bin/parameterHelp.jpg" width="294" height="42"></p>
+<p><font face="Verdana">Login levels and permissions, data logging, trace
+outputs, time stamping, error debugging, break points, loop on test, stop on
+test, stop on fail, and many more features are built into the
+environment.&nbsp; In addition, by using VBScript, the user also has full access
+to many other creatable objects such as Microsoft Excel®, Word®, and Access®, thus
+creating an open architecture that becomes very scalable.&nbsp;&nbsp;&nbsp;With 
+.NET test code, the .NET System Namespace is fully exposed to the test program, making the ActivATE test 
+environment a very robust and intuitive ATE platform.</font></p>
+<table border="0" cellpadding="2" width="794">
+  <tr>
+    <td width="511">
+    <br>
+    <img border="0" src="bin/SwitchCard.PNG" width="476" height="459"></td>
+    <td width="269"><font face="Verdana">Driver GUI's are live and react
+      accordingly as the test executes, permitting an extremely flexible
+      environment for the test development.&nbsp;&nbsp; Simulation mode allows
+      for desktop development and checkout without hardware.</font></td>
+  </tr>
+</table>
+<p><font face="Verdana">Language-specific color coding gives a clear and
+concise text environment for developing test programs.&nbsp; Script errors are
+reported in the trace output window where the user simply clicks on the error
+message to get to the exact line of script where the error occurred.</font></p>
+<p><img border="0" src="bin/colorCodingDotNet.png" width="536" height="327"></p>
+<p><font size="2" face="Verdana"><a href="#Top">Back to Top</a></font></p>
+<p><i><font face="Verdana" size="1">Astronics Test Systems<br>
+Last updated on January 7 2015 by M. Buccat</font></i></p>
+
+</body>
+
+</html>

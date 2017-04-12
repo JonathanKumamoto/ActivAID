@@ -1,0 +1,325 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 12.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Test results properties of test nodes</title>
+<link rel="stylesheet" type="text/css" href="help.css">
+    <style type="text/css">
+        .style1
+        {
+            font-size: xx-small;
+        }
+    </style>
+</head>
+
+<body>
+
+<p><b><font face="Verdana" size="3"><a name="Top">Test result properties of test
+nodes</a></font></b></p>
+<p><font face="Verdana" size="2">This page describes how to set the configurable 
+test node properties that relate to test results.&nbsp;
+Most can be accessed via either the <a href="PropertiesPage.html">Properties Page</a> or the
+Results object from the test script.&nbsp; The Results object is available in
+each VBScript test function.&nbsp; Any changes made will apply to the test node
+whose function the changes are made in.&nbsp; The IntelliSense® provided for the
+Results object will assist you in setting the test node properties.&nbsp; All
+test node properties will be displayed in both the Test Results window and the
+test results file (if the results file is enabled).</font></p>
+<p><font face="Verdana" size="2"><b>Example:</b></font></p>
+<p><font face="Verdana" size="2">From the test script, type &quot;Results&quot;
+followed by a period (.).&nbsp; As soon as you type the period, a list showing
+the available test result properties appears.&nbsp;&nbsp;&nbsp;</font></p>
+<p><font face="Verdana" size="2">
+<img border="0" src="bin/TestResults4.png" width="252" height="224">&nbsp;</font></p>
+<p><font face="Verdana" size="2">
+Click on the following links for a detailed description of each property or 
+method.</font></p>
+<table border="1" width="100%" id="table1">
+  <tr>
+    <td width="25%">&nbsp; <a href="#CaseSensitive">CaseSensitive</a></td>
+    <td width="25%">&nbsp; <font size="2"><a href="#Comment">Comment</a></font></td>
+    <td width="25%">&nbsp;<a href="#ComparisonString">ComparisonString</a></td>
+    <td width="25%">&nbsp; <a href="#EnableFileLogging">EnableFileLogging</a></td>
+  </tr>
+  <tr>
+    <td width="25%">&nbsp; <a href="#FileName">FileName</a></td>
+    <td width="25%">&nbsp; <a href="#FilePath">FilePath</a></td>
+    <td width="25%"><font size="2">&nbsp;<a href="#HeaderComment">HeaderComment</a></font></td>
+    <td width="25%"><font size="2">&nbsp;</font><a href="#IsWithinLimits">IsWithinLimits</a></td>
+  </tr>
+  <tr>
+    <td width="25%">&nbsp; <a href="#LogMeasurement">LogMeasurement</a></td>
+    <td width="25%">&nbsp; <a href="#Max">Max</a></td>
+    <td width="25%"><font size="2">&nbsp;</font><a href="#Min">Min</a></td>
+    <td width="25%">&nbsp; <a href="#TestType">TestType</a></td>
+  </tr>
+  <tr>
+    <td width="25%"><font size="2">&nbsp;<a href="#Units">Units</a></font></td>
+    <td width="25%">&nbsp; <a href="#WriteLine">WriteLine</a></td>
+    <td width="25%">&nbsp;</td>
+    <td width="25%">&nbsp;</td>
+  </tr>
+  </table>
+    <p>For more info on EnableFileLogging, FileName, FilePath, HeaderComment, 
+        LogMeasurement, or WriteLine, see<font face="Verdana" size="2"> the <a href="TestResultsFile.html">Test results file</a> 
+topic.</font></p>
+<hr>
+<p><b><font face="Verdana"><a name="CaseSensitive">CaseSensitive</a></font></b></p>
+<p><font size="2" face="Verdana">Determines whether or not the string comparison 
+made for a StringCompare test type is case-sensitive.&nbsp; This property can be set when a new 
+StringCompare test is created (see <a href="NewTest.html">Adding
+a new test</a>), or it can be set later from the Properties Page or the test
+script.&nbsp; </font></p>
+<p><font size="2" face="Verdana"><br>
+<i>Note:</i>&nbsp; The CaseSensitive property applies only to StringCompare test types.&nbsp; It
+will only be visible in the Properties Page if the test node is a StringCompare test.</font></p>
+<p><b><font size="2" face="Verdana">Example VBScript call:</font></b>&nbsp;&nbsp;</p>
+  <div align="center">
+    <table class="MsoNormalTable" border="0" cellpadding="0" width="90%" style="width:90.0%;mso-cellspacing:1.5pt;background:gainsboro;mso-padding-alt:
+ 0in 0in 0in 0in" id="table3">
+      <tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+        <td width="90%" style="width:90.0%;background:#E6E6E6;padding:.75pt .75pt .75pt .75pt">
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><span style="color: blue"><font face="Courier New" size="2">&nbsp;&nbsp;<br>
+            </font></span><font face="Courier New" SIZE="2">&nbsp;
+            Results.CaseSensitive <font color="#0000FF">=</font> </font>
+			<font face="Courier New" color="#0000FF">False&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			</font><font face="Courier New" color="#008000">' Make this 
+			comparison case insensitive.</font><font face="Courier New" SIZE="2" COLOR="#800000"><br>
+			</font><font SIZE="2"><br>
+            </p>
+            </font>
+        </td>
+      </tr>
+    </table>
+  </div>
+<p class="MsoNormal" style="mso-layout-grid-align: none; text-autospace: none">&nbsp;</p>
+<hr>
+<p><b><font face="Verdana" size="2"><a name="Comment">Comment</a></font></b></p>
+<p><font face="Verdana" size="2">The Comment property can only be set from the
+test script.&nbsp; The comment field may consist of any string value, but it 
+should be kept brief.&nbsp; The comment will be displayed in the test results 
+window and in the test results file (if the results file is enabled).</font></p>
+<p><b><font size="2" face="Verdana">Example VBScript call:</font></b>&nbsp;&nbsp;</p>
+  <div align="center">
+    <table class="MsoNormalTable" border="0" cellpadding="0" width="90%" style="width:90.0%;mso-cellspacing:1.5pt;background:gainsboro;mso-padding-alt:
+ 0in 0in 0in 0in">
+      <tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+        <td width="90%" style="width:90.0%;background:#E6E6E6;padding:.75pt .75pt .75pt .75pt">
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><span style="color: blue"><font face="Courier New" size="2">&nbsp;&nbsp;<br>
+            </font></span><font face="Courier New" SIZE="2">&nbsp;
+            Results.Comment <font color="#0000FF">=</font> </font><font SIZE="2" COLOR="#800000"><font face="Courier New">&quot;Here
+            is a comment&quot;<br>
+			</font></font><font SIZE="2"><br>
+            </p>
+            </font>
+        </td>
+      </tr>
+    </table>
+  </div>
+<p class="MsoNormal" style="mso-layout-grid-align: none; text-autospace: none">&nbsp;</p>
+<hr>
+<p><b><font face="Verdana"><a name="ComparisonString">ComparisonString</a></font></b></p>
+<p><font size="2" face="Verdana">The string that the return value of the test 
+will be compared to to determine a pass or fail.&nbsp; This property can be set when a new 
+StringCompare test is created (see <a href="NewTest.html">Adding
+a new test</a>), or it can be set later from the Properties Page or the test
+script.&nbsp; </font></p>
+<p><font size="2" face="Verdana"><br>
+<i>Note:</i>&nbsp; The ComparisonString property applies only to StringCompare test types.&nbsp; It
+will only be visible in the Properties Page if the test node is a StringCompare test.</font></p>
+<p><b><font size="2" face="Verdana">Example VBScript call:</font></b>&nbsp;&nbsp;</p>
+  <div align="center">
+    <table class="MsoNormalTable" border="0" cellpadding="0" width="90%" style="width:90.0%;mso-cellspacing:1.5pt;background:gainsboro;mso-padding-alt:
+ 0in 0in 0in 0in" id="table4">
+      <tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+        <td width="90%" style="width:90.0%;background:#E6E6E6;padding:.75pt .75pt .75pt .75pt">
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><span style="color: blue"><font face="Courier New" size="2">&nbsp;&nbsp;<br>
+            </font></span><font face="Courier New" SIZE="2">&nbsp;
+            Results.ComparisonString <font color="#0000FF">=</font> </font>
+			<font face="Courier New" SIZE="2" COLOR="#800000">&quot;Hello 
+			World!&quot;<br>
+			</font><font SIZE="2"><br>
+            </p>
+            </font>
+        </td>
+      </tr>
+    </table>
+  </div>
+<p class="MsoNormal" style="mso-layout-grid-align: none; text-autospace: none">&nbsp;</p>
+<hr>
+<p><b><font face="Verdana"></font><a name = "EnableFileLogging">EnableFilelogging</a></b></p>
+    <p>Gets or sets whether or not to save results to a file.</p>
+    <p>&nbsp;</p>
+<hr>
+    <p><b><font face="Verdana"></font><a name = "FileName">FileName</a></b></p>
+    <p>Gets or sets the test results file name as a string.</p>
+    <p>&nbsp;</p>
+<hr>
+    <p><b><font face="Verdana"></font><a name = "FilePath">FilePath</a></b></p>
+    <p>Gets or sets the file path that the test results file will be saved to.</p>
+    <p>&nbsp;</p>
+<hr>
+    <p>&nbsp;</p>
+    <p><b><font face="Verdana"></font><a name = "HeaderComment">HeaderComment</a></b></p>
+    <p>Gets or sets an optional comment field in the header of the test results file.</p>
+    <p>&nbsp;</p>
+<hr>
+    <p><b><font face="Verdana"></font><a name = "LogMeasurement">LogMeasurement</a></b></p>
+    <p>Logs a measurement that will be recorded in the results file, specified by user.</p>
+    <p>&nbsp;</p>
+<hr>
+    <p><b><font face="Verdana"></font><a name = "WriteLine">WriteLine</a></b></p>
+    <p>Appends a non-formatted string to the test results .csv file. </p>
+    <p>&nbsp;</p>
+<hr>
+    <p>&nbsp;</p>
+    <p><b><font face="Verdana"><a name="IsWithinLimits">IsWithinLimits</a></font></b></p>
+<p><font face="Courier New" color="#0000FF">bool </font>
+<font face="Courier New">IsWithinLimits(<font color="#0000FF"> object </font>
+result )</font></p>
+<p><font size="2" face="Verdana">Determines whether or not the value specified 
+by <i>result </i>is within the limits for the current test node.&nbsp; Use this 
+method when it is necessary to determine if a test result is within limits 
+before the test node has finished executing.&nbsp; In the example code below, 
+the loop will continue looping until the return value is within limits.</font></p>
+<p><b><font size="2" face="Verdana">Example VBScript call:</font></b>&nbsp;&nbsp;</p>
+  <div align="center">
+    <table class="MsoNormalTable" border="0" cellpadding="0" width="90%" style="width:90.0%;mso-cellspacing:1.5pt;background:gainsboro;mso-padding-alt:
+ 0in 0in 0in 0in" id="table5">
+      <tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+        <td width="90%" style="width:90.0%;background:#E6E6E6;padding:.75pt .75pt .75pt .75pt">
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><span style="color: blue"><font face="Courier New" size="2">&nbsp;&nbsp;<br>
+            </font></span><font face="Courier New" SIZE="2">&nbsp;
+            </font><font FACE="Courier New" SIZE="2" COLOR="#0000ff">Do</font></p>
+			<blockquote>
+				<p><font FACE="Courier New" SIZE="2" COLOR="#008000">' Do stuff 
+				here...</font></p>
+			</blockquote>
+			<font FACE="Courier New" SIZE="2" COLOR="#0000ff">
+			<p>&nbsp; Loop</font><font FACE="Courier New" SIZE="2"> </font>
+			<font FACE="Courier New" SIZE="2" COLOR="#0000ff">Until</font><font FACE="Courier New" SIZE="2"> 
+			Results.IsWithinLimits(dActual) = </font>
+			<font FACE="Courier New" SIZE="2" COLOR="#0000ff">True</font><font face="Courier New" SIZE="2" COLOR="#800000"><br>
+			</font><font SIZE="2"><br>
+            </font>
+        </td>
+      </tr>
+    </table>
+  </div>
+<p class="MsoNormal" style="mso-layout-grid-align: none; text-autospace: none">&nbsp;</p>
+<hr>
+<p><font size="2" face="Verdana"><b><a name="Max">Max</a></b></font></p>
+<p><font size="2" face="Verdana">The maximum passing value a test can
+return.&nbsp; Any result that is greater than the Max value will cause the test
+to fail.&nbsp; Max can be set when a new Min/Max test is created (see <a href="NewTest.html">Adding
+a new test</a>), or it can be set later from the Properties Page or the test
+script.&nbsp; The Max field may consist of any integer or floating-point value.</font></p>
+<p><font size="2" face="Verdana"><br>
+<i>Note:</i>&nbsp; The Max property applies only to Min/Max test types.&nbsp; It
+will only be visible in the Properties Page if the test node is a Min/Max test.</font></p>
+<p><b><font size="2" face="Verdana">Example VBScript call:</font></b>&nbsp;&nbsp;</p>
+  <div align="center">
+    <table class="MsoNormalTable" border="0" cellpadding="0" width="90%" style="width:90.0%;mso-cellspacing:1.5pt;background:gainsboro;mso-padding-alt:
+ 0in 0in 0in 0in">
+      <tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+        <td width="90%" style="width:90.0%;background:#E6E6E6;padding:.75pt .75pt .75pt .75pt">
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><span style="color: blue"><font face="Courier New" size="2">&nbsp;&nbsp;<br>
+            </font></span><font face="Courier New" SIZE="2">&nbsp; Results.Max <font color="#0000FF">=</font>
+            5.5<br>
+			</font><font SIZE="2"><br>
+            </p>
+            </font>
+        </td>
+      </tr>
+    </table>
+  </div>
+<p class="MsoNormal" style="mso-layout-grid-align: none; text-autospace: none">&nbsp;</p>
+<hr>
+<p><font size="2" face="Verdana"><b><a name="Min">Min</a></b></font></p>
+<p><font size="2" face="Verdana">The minimum passing value a test can
+return.&nbsp; Any result that is less than the Min value will cause the test to
+fail.&nbsp; Min can be set when a new Min/Max test is created (see <a href="NewTest.html">Adding
+a new test</a>), or it can be set later from the Properties Page or the test
+script.&nbsp; The Min field may consist of any integer or floating-point value.</font></p>
+<p><font size="2" face="Verdana"><br>
+<i>Note:</i>&nbsp; The Min property applies only to Min/Max test types.&nbsp; It
+will only be visible in the Properties Page if the test node is a Min/Max test.</font></p>
+<p><b><font size="2" face="Verdana">Example VBScript call:</font></b>&nbsp;&nbsp;</p>
+  <div align="center">
+    <table class="MsoNormalTable" border="0" cellpadding="0" width="90%" style="width:90.0%;mso-cellspacing:1.5pt;background:gainsboro;mso-padding-alt:
+ 0in 0in 0in 0in" id="table2">
+      <tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+        <td width="90%" style="width:90.0%;background:#E6E6E6;padding:.75pt .75pt .75pt .75pt">
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><span style="color: blue"><font face="Courier New" size="2">&nbsp;&nbsp;<br>
+            </font></span><font face="Courier New" SIZE="2">&nbsp; Results.Min <font color="#0000FF">=</font>
+            -5.5<br>
+			</font><font SIZE="2"><br>
+            </p>
+            </font>
+        </td>
+      </tr>
+    </table>
+  </div>
+<p class="MsoNormal" style="mso-layout-grid-align: none; text-autospace: none">&nbsp;</p>
+<hr>
+<p><b><font face="Verdana"><a name="TestType">TestType</a></font></b></p>
+<p><font face="Verdana">Gets the test type for the active test node.&nbsp; 
+Returns one of the following integers:</font></p>
+<blockquote>
+	<p><font face="Verdana">0 = Boolean test type<br>
+	1 = Max test type<br>
+	2 = Min test type<br>
+	3 = Min/Max test type<br>
+	4 = StringCompare test type</font></p>
+</blockquote>
+<p><font face="Verdana">See <a href="TestTypes.html">Test Types</a> for more 
+information on the different test types available.</font></p>
+<hr>
+<p><font size="2" face="Verdana"><b><a name="Units">Units</a></b></font></p>
+<p><font size="2" face="Verdana">The units of the test's return value.&nbsp;
+Units can be set from the Properties Page or the test script.&nbsp; A drop-down
+list of possible selections is available from the Properties Page, but you may
+also type in your own units.&nbsp; The Units field may consist of any string
+value.</font></p>
+<p><font size="2" face="Verdana"><br>
+<i>Note:</i>&nbsp; The Units property applies only to Min/Max test types.&nbsp;
+It will only be visible in the Properties Page if the test node is a Min/Max
+test.</font></p>
+<table border="0" width="43%">
+  <tr>
+    <td width="58%">
+	<img border="0" src="bin/TestResults5.png" width="256" height="258"></td>
+    <td width="40%" valign="middle"><font face="Verdana" size="2">Select one of
+      the predefined values, or simply type in your own.</font></td>
+  </tr>
+</table>
+<p><b><font size="2" face="Verdana">Example VBScript call:</font></b>&nbsp;&nbsp;</p>
+  <div align="center">
+    <table class="MsoNormalTable" border="0" cellpadding="0" width="90%" style="width:90.0%;mso-cellspacing:1.5pt;background:gainsboro;mso-padding-alt:
+ 0in 0in 0in 0in">
+      <tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+        <td width="90%" style="width:90.0%;background:#E6E6E6;padding:.75pt .75pt .75pt .75pt">
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><span style="color: blue"><font face="Courier New" size="2">&nbsp;&nbsp;<br>
+            </font></span><font face="Courier New" SIZE="2">&nbsp; Results.Units
+            <font color="#0000FF">=</font> </font><font face="Courier New" size="2" color="#800000">&quot;WATTS&quot;<br>
+			</font><font SIZE="2"><br>
+            </p>
+            </font>
+        </td>
+      </tr>
+    </table>
+  </div>
+<p class="MsoNormal" style="mso-layout-grid-align: none; text-autospace: none">&nbsp;</p>
+<hr>
+<p><font size="2" face="Verdana"><a href="#Top">
+<br>
+Back to Top</a></font></p>
+<p><i><font face="Verdana" size="1">Astronics Test Systems<br>
+    <span class="style1">Last updated on </span></font><span class="style1">11/18/14 
+    by M. Buccat</span></i></p>
+
+</body>
+
+</html>

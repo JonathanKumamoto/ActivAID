@@ -1,0 +1,15 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=ActivATE Help.chm
+Contents file=Table of Contents.hhc
+Default topic=Overview.html
+Display compile progress=No
+Full-text search=Yes
+Language=0x409 English (United States)
+
+
+[FILES]
+Overview.html
+
+[INFOTYPES]
+

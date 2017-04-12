@@ -9,25 +9,31 @@ namespace ActivAID
 {
     public class DataAccessDB : DataAccess
     {
-        //private ActivAIDDB db;
+        private ActivAIDDB db;
 
         public DataAccessDB()
         {
-            ;//db = new ActivAIDDB();
+            db = new ActivAIDDB();
         }
 
-        private Dictionary<int, List<string>> getBlocks(Query query) //TODO
+        private Dictionary<int, List<string>> getBlocks(Query query) // might change to filenames instead
         {
-            //access db
+            string current_directory = System.IO.Directory.GetCurrentDirectory() + (char)92;
+            string helplocation = current_directory + "help" + (char)92 + "Help HTML" + (char)92;
+            string filepath = helplocation + query.attributeList[0].value;
+            return db.getAllElements(filepath);
         }
 
-        private string[] getHrefs(Query query) //TODO
+        private string[] getHrefs(Query query) // might change to filenames instead
         {
-            //access db
+            string current_directory = System.IO.Directory.GetCurrentDirectory() + (char)92;
+            string helplocation = current_directory + "help" + (char)92 + "Help HTML" + (char)92;
+            string filepath = helplocation + query.attributeList[0].value;
+            return db.getHyperlinks(filepath);
         }
         public HrefsandBlocks query(Query query)
         {
-            return new HrefsandBlocks(getHrefs(), getBlocks());
+            return new HrefsandBlocks(getHrefs(query), getBlocks(query));
         }
     }
 }

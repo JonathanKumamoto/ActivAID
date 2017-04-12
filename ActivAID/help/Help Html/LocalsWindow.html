@@ -1,0 +1,66 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Locals Watch Window</title>
+<link rel="stylesheet" type="text/css" href="help.css">
+</head>
+
+<body>
+<h1><a name="Top">Locals Watch Window</a></h1>
+<p>The locals watch window is used to examine the values of variables in the 
+test program.&nbsp; By default, the Locals Watch Window is not visible in the IDE.&nbsp; 
+To toggle the visibility of the Locals Watch Window, click Locals (Debug) from 
+the View menu.&nbsp; You may also click the Locals Watch Window icon
+<img border="0" src="bin/localsWindow.png" width="18" height="18"> in the Debug 
+toolbar to show the Locals Watch Window.&nbsp; When visible, it is docked in 
+front of the Properties Page.&nbsp; </p>
+<p>The variables to be watched in the Locals Watch Window are automatically 
+selected.&nbsp; The user has no control over which variables are watched here.&nbsp; 
+All locally defined variables will automatically be placed in the Locals Watch 
+Window.&nbsp; As soon as they go out of scope, they are removed.&nbsp; </p>
+<p>When the test program is run in debug mode and breaks at a breakpoint, the 
+variables in the Locals Watch Window will be shown with their current value and 
+type, if available.&nbsp; If a variable has not yet been initialized, the value will 
+be &quot;Empty&quot;.&nbsp; When stepping through the code, the values in the Locals Watch 
+Window will be updated as they are changed.&nbsp; </p>
+<table style="width: 100%">
+	<tr>
+		<td style="width: 359px">
+		<img height="34" src="bin/DebugToolBar.png" width="340"></td>
+		<td>Users can select the &quot;HEX&quot; mode if they wish to see integer values 
+		displayed as Hex.</td>
+	</tr>
+</table>
+<p><b>Example:</b></p>
+<p>The following test program is in a break state in the first iteration of the 
+For loop in function t2.&nbsp; The Locals Watch Window reflects the current 
+value of 'cntr2', which is a locally defined variable.&nbsp; The variable 'cntr2', 
+which refers to the return value of the function, is a local variable but is 
+undefined at this point.&nbsp; The global variable 'GlobalVal' does not appear 
+in the Locals Watch Window even though it is in scope because it is not locally 
+defined.</p>
+<table border="0" width="54%" id="table1">
+  <tr>
+    <td width="375">
+    <img border="0" src="bin/watchWindow3.png" width="353" height="301"></td>
+    <td valign="top">
+    <img border="0" src="bin/localsWindow1.png" width="294" height="109"></td>
+  </tr>
+</table>
+<p><b><font face="Verdana" size="2">See Also</font></b></p>
+<blockquote>
+  <p><font face="Verdana" size="2"><a href="DebuggerOverview.html">Debugger 
+  Overview</a> | <a href="DebuggerCommands.html">Debugger Commands</a> | 
+  <a href="WatchWindow.html">Watch Window</a> | <a href="CommandWindow.html">
+  Command Window</a></font></p>
+</blockquote>
+<p>&nbsp;</p>
+<p><font size="2" face="Verdana"><a href="#Top">Back to Top</a></font></p>
+<p><i><font face="Verdana" size="1">Astronics Test Systems<br>
+Last updated on March 7, 2011 by I. Williams</font></i></p>
+
+</body>
+
+</html>

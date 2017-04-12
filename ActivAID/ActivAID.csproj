@@ -87,10 +87,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ActivAIDDB.cs" />
     <Compile Include="Query.cs" />
     <Compile Include="QueryGenerator.cs" />
     <Compile Include="QueryHandler.cs" />
-    <Compile Include="SentenceBoiler.cs" />
+    <Compile Include="UserInputBoiler.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

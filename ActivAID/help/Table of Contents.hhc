@@ -1,0 +1,411 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<!-- Sitemap 1.0 -->
+</HEAD><BODY>
+<OBJECT type="text/site properties">
+	<param name="FrameName" value="ActivATE Overview">
+	<param name="Window Styles" value="0x800025">
+</OBJECT>
+<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ActivATE Overview">
+		<param name="Local" value="Overview.html">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Menus and Toolbars">
+			<param name="Local" value="MenusAndToolbars.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="File Menu and Standard Toolbar">
+				<param name="Local" value="FileMenu_StandardToolbar.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Edit Menu and Edit Toolbar">
+				<param name="Local" value="EditMenu_EditToolbar.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="View Menu">
+				<param name="Local" value="ViewMenu.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Window Menu">
+				<param name="Local" value="WindowMenu.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Tools Menu">
+				<param name="Local" value="ToolsMenu.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Debug Menu and Debug Toolbar">
+				<param name="Local" value="DebuggerCommands.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Customizing Menus">
+				<param name="Local" value="CustomizeMenuItems.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Test Programs">
+			<param name="Local" value="TestPrograms.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Creating VBScript Test Programs">
+				<param name="Local" value="NewTestProgram.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Creating a .NET Test Program">
+				<param name="Local" value="DotNetTestPrograms.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Project Manager">
+				<param name="Local" value="ProjectManager.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Predefined Objects and Methods">
+				<param name="Local" value="PredefinedObjects.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Execute OnTerminating">
+				<param name="Local" value="ExecuteOnTerminating.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Adding a new group">
+				<param name="Local" value="NewGroup.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Adding a new test">
+				<param name="Local" value="NewTest.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Running a test program">
+				<param name="Local" value="RunningTestProgram.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Test Types">
+				<param name="Local" value="TestTypes.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Remote Client Setup">
+			<param name="Local" value="RemoteClientSetup.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Server Side">
+				<param name="Local" value="ServerSide.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Client Side">
+				<param name="Local" value="ClientSide.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Running Tests">
+				<param name="Local" value="RemoteRunningTests.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Disconnecting">
+				<param name="Local" value="RemoteClientDisconnecting.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Import Statement">
+			<param name="Local" value="ImportStatement.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Using a null script name">
+				<param name="Local" value="NullScriptName.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Script Errors">
+				<param name="Local" value="ImportScriptErrors.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Script Trace Log Window">
+			<param name="Local" value="ScriptTraceLogWindow.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Script Errors">
+				<param name="Local" value="ScriptErrors.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Using the Tracelog Object">
+				<param name="Local" value="TracelogObject.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Test Results">
+			<param name="Local" value="TestResults.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Test Results Window">
+				<param name="Local" value="TestResultsWindow.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Test Node Properties">
+				<param name="Local" value="TestResultProps_TestNodes.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Test Results File">
+				<param name="Local" value="TestResultsFile.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Customizing Reports">
+				<param name="Local" value="ReportCustomize.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Test Sequence View">
+			<param name="Local" value="TestSequenceView.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Context Menu">
+				<param name="Local" value="TestSequenceViewContextMenu.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Node Drag-Drop">
+				<param name="Local" value="NodeDragDrop.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Properties Page">
+			<param name="Local" value="PropertiesPage.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Test Program Properties">
+				<param name="Local" value="TestProgramProps.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Group Node Properties">
+				<param name="Local" value="GroupNodeProps.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Test Node Properties">
+				<param name="Local" value="TestNodeProps.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Using the Debugger">
+			<param name="Local" value="DebuggerOverview.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Debugger Commands">
+				<param name="Local" value="DebuggerCommands.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Watch Window">
+				<param name="Local" value="WatchWindow.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Locals Watch Window">
+				<param name="Local" value="LocalsWindow.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Command Window">
+				<param name="Local" value="CommandWindow.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Login Manager">
+			<param name="Local" value="LoginManager.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Adding a new user">
+				<param name="Local" value="NewUser.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Editing a user">
+				<param name="Local" value="EditUser.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Deleting a user">
+				<param name="Local" value="DeleteUser.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Driver Configuration">
+			<param name="Local" value="DriverConfiguration.htm">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Viewing the Current Drivers">
+				<param name="Local" value="ViewingDrivers.htm">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Adding a New Driver">
+				<param name="Local" value="AddingDrivers.htm">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Deleting a Driver">
+				<param name="Local" value="DeletingDrivers.htm">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Modifying a Driver">
+				<param name="Local" value="ModifiyingDrivers.htm">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Saving a Configuration">
+				<param name="Local" value="SaveConfiguration.htm">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Options Dialog">
+			<param name="Local" value="OptionsDialog.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Start Page">
+				<param name="Local" value="StartupPage.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="File Protection">
+				<param name="Local" value="ProtectFiles.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="System Controller Module">
+			<param name="Local" value="SystemController.htm">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Architecture">
+				<param name="Local" value="SystemController.htm">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="System Control Examples">
+				<param name="Local" value="SystemController_pg2.htm">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="OnConnection and Events">
+				<param name="Local" value="SystemController_pg3.htm">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Start Page">
+			<param name="Local" value="StartupPage.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Start Page">
+				<param name="Local" value="StartupPage.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Start Page Customization">
+				<param name="Local" value="StartPage_pg2.htm">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Test Program Manager (TPMngr)">
+			<param name="Local" value="TestProgramManager.htm">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Test Program Manager">
+				<param name="Local" value="TestProgramManager.htm">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Advanced Features">
+			<param name="Local" value="AdvancedFeatures.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Macro Record View">
+				<param name="Local" value="MacroRecord.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Execute OnTerminating">
+				<param name="Local" value="ExecuteOnTerminating.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Package Manager">
+				<param name="Local" value="PackageMngr.html">
+				</OBJECT>
+			<UL>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Introduction">
+					<param name="Local" value="PackageMngr.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Data Files in Project">
+					<param name="Local" value="PackageMngr_DataFiles.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Package Creation">
+					<param name="Local" value="PackageMngr_Creation.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Package Usage">
+					<param name="Local" value="PackageMngr_Usage.html">
+					</OBJECT>
+			</UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Templates">
+				<param name="Local" value="Templates.html">
+				</OBJECT>
+			<UL>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Test Program">
+					<param name="Local" value="TestProgramTemplates.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Group Node">
+					<param name="Local" value="GroupNodeTemplates.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Test Node">
+					<param name="Local" value="TestNodeTemplates.htm">
+					</OBJECT>
+			</UL>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Creating Drivers and Add-Ins">
+			<param name="Local" value="CreatingDrivers.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Driver Architecture">
+				<param name="Local" value="CreatingDrivers.html#Driver_Architecture">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Using ENUMS In Your Driver">
+				<param name="Local" value="CreatingDriversPart2.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Threading">
+				<param name="Local" value="CreatingDriversPart2.html#Threading">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Creating Events">
+				<param name="Local" value="CreatingDriversPart3.html#Creating_Events">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Catching (Sinking) Events">
+				<param name="Local" value="CreatingDriversPart3.html#Catching_Events">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Using Constants">
+				<param name="Local" value="ConstantDefinitions.html">
+				</OBJECT>
+			<UL>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Using the ActivATE SDK">
+					<param name="Local" value="UsingTheSDK.html">
+					</OBJECT>
+			</UL>
+		</UL>
+	</UL>
+</UL>
+</BODY></HTML>

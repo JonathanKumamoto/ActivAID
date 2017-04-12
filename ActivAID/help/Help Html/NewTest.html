@@ -1,0 +1,128 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 12.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Adding a new test</title>
+<link rel="stylesheet" type="text/css" href="help.css">
+</head>
+
+<body>
+
+<p><b><font size="3" face="Verdana"><a name="Top">Adding a new test</a></font></b></p>
+
+<ol>
+	<li><font size="2" face="Verdana">Right click on the node to add a test node to.&nbsp;
+Tests may ONLY be added to the root node or group nodes.<br>
+&nbsp;</font></li>
+	<li><font size="2" face="Verdana">Select &quot;New Test&quot; from the
+context menu.</font></li>
+</ol>
+
+<p><font size="2" face="Verdana">&nbsp;&nbsp;&nbsp; 
+<img border="0" src="bin/newtest1.jpg" width="327" height="230"></font></p>
+
+<ol>
+	<li value="3"><font size="2" face="Verdana">The New Test dialog appears as
+shown below.&nbsp; Enter a name for the new test in the Test Name
+text box.</font></li>
+</ol>
+
+<p><font size="2" face="Verdana">&nbsp;&nbsp;&nbsp; 
+<img border="0" src="bin/NewTest2.jpg" width="296" height="376"></font></p>
+
+<ol>
+	<li value="4"><font size="2" face="Verdana">Enter a description for this test if
+desired in the Description text box.<br>
+&nbsp;</font></li>
+	<li><font size="2" face="Verdana">Select the test type from the Test Type 
+	drop-down list.&nbsp; The default value is Boolean.&nbsp; For more 
+	information, see <a href="TestTypes.html">Test Types</a>.<br>
+&nbsp;</font></li>
+	<li><font size="2" face="Verdana">If a Min/Max test type was selected,
+the Minimum and Maximum text boxes will be enabled.&nbsp; Enter these values now
+if desired.&nbsp; (They may also be edited later in the Property Grid or during 
+	runtime from the test program.)<br>
+&nbsp;</font></li>
+	<li><font size="2" face="Verdana">You may choose to select a node from
+the list of all available group and test nodes in the Branch On Fail Node
+drop-down list.&nbsp; This designates the next node where execution will
+continue if this test fails during program execution.<br>
+&nbsp;</font></li>
+	<li>If you would like to create your test from an existing template, check 
+	the &quot;Use Template&quot; check box and select the template from the drop down 
+	list.&nbsp; For information on creating templates, see the
+	<a href="Templates.html">Templates</a> help topic.<br>
+&nbsp;</li>
+	<li><font size="2" face="Verdana">The function name will automatically be 
+	filled in for you based on the test name you enter.&nbsp; If you would like 
+	to change the default name, you may do so.&nbsp; This function is the code 
+	that executes when this test is active during a test program run.<br>
+&nbsp;</font></li>
+	<li><font face="Verdana" size="2">Click OK to finish or Cancel to exit
+without creating a new test.<br>
+&nbsp;</font></li>
+	<li><font face="Verdana" size="2">The following code demonstrates the script 
+	that is auto-generated and displayed in the Script View window after the new 
+	test is created.&nbsp; It is appended to the end of the existing test 
+	script.</font></li>
+</ol>
+<blockquote>
+  <pre><font color="#008000">'----------------------------------------------------
+' Parent  : Group1
+' Description: A sample test
+'----------------------------------------------------
+</font><font color="#0000FF">Function</font> Test1()
+
+<font color="#008000">	'  ToDo: Put your code here
+</font>
+	Test1 <font color="#0000FF">= false</font>
+<font color="#0000FF">End Function</font></pre>
+</blockquote>
+<p>&nbsp;</p>
+<p><b><font face="Verdana" size="2">Notes:</font></b></p>
+<p><font size="2" face="Verdana">Two nodes with
+the same name cannot exist within the same group (i.e., at the same tree
+level).&nbsp; Therefore, if you try to add a test node to a group that already
+contains a node with the same name, you will receive an error message and the
+new node will not be added.&nbsp; (Node names are case-sensitive.)</font></p>
+<p><font size="2" face="Verdana">If your new test node's VBScript function has
+the same name as a previously defined function, the following message box
+appears:</font></p>
+<table border="0" width="60%">
+  <tr>
+    <td width="59%"><img border="0" src="bin/NewTest3.jpg"></td>
+    <td width="41%"><font face="Verdana" size="2">We are adding a new test node,
+      Test1, to the test program.&nbsp; This warning message appears because
+      there is already a function named Test1 defined in the test script.</font></td>
+  </tr>
+</table>
+<p><font size="2" face="Verdana">If you click &quot;Yes&quot;, a new test
+function will not be created.&nbsp; Instead, the new test node will execute the
+existing function when the test program is run.&nbsp; It is OK to have two or
+more nodes call the same test function.</font></p>
+<p><font size="2" face="Verdana">If you click &quot;No&quot;, a new test
+function will be created, but a number will be appended to the end of the new
+function name to make it unique.&nbsp; For example, if the function name is
+Test1, the names Test1_1, Test1_2, etc. will be tried until a unique name is
+found.</font></p>
+<p><font size="2" face="Verdana">If you click &quot;Cancel&quot;, the new node
+is not created.</font></p>
+<p>&nbsp;</p>
+<p><font size="2" face="Verdana"><a href="#Top">Back to Top</a></font></p>
+<p><i><font face="Verdana" size="1">Astronics Test Systems<br>
+Last updated on 2/20/07 by L. Anhalt</font></i></p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<pre>&nbsp;</pre>
+
+<p>&nbsp;</p>
+
+</body>
+
+</html>
