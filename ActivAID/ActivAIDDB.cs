@@ -36,9 +36,11 @@ namespace ActivAID
             using (conn = new SqlConnection())
             {
                 conn.ConnectionString = builder.ConnectionString;
-                string fileQuery = "INSERT INTO Files ([filePath]) VALUES (@file)";
+                string fileQuery = "INSERT INTO Files (filePath, filename) VALUES (@file, @filename)";
                 SqlCommand cmd = new SqlCommand(fileQuery, conn);
                 cmd.Parameters.AddWithValue("@file", filepath);
+                string filename = System.IO.Path.GetFileName(filepath);
+                cmd.Parameters.AddWithValue("@filename", filename);
                 //cmd.Parameters.AddWithValue("@key", keywords);
                 cmd.Connection = conn;
                 conn.Open();
@@ -56,10 +58,12 @@ namespace ActivAID
                 using (conn = new SqlConnection())
                 {
                     conn.ConnectionString = builder.ConnectionString;
-                    string hyperQuery = "INSERT INTO Hyperlinks (fileId, filePath) VALUES (@id, @path)";
+                    string hyperQuery = "INSERT INTO Hyperlinks (fileId, filePath, filename) VALUES (@id, @path, @fname)";
                     SqlCommand cmd = new SqlCommand(hyperQuery, conn);
                     cmd.Parameters.AddWithValue("@id", parentId);
                     cmd.Parameters.AddWithValue("@path", filepath);
+                    string fname = System.IO.Path.GetFileName(filepath);
+                    cmd.Parameters.AddWithValue("@fname", fname);
                     cmd.Connection = conn;
                     conn.Open();
                     cmd.ExecuteNonQuery();
