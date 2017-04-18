@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 using System.Windows;
 using Syn.Bot.Siml;
 using System.Windows.Input;
@@ -8,6 +8,7 @@ using System.Windows.Controls;
 using System;
 using System.Windows.Controls.Primitives;
 using System.Collections.Generic;
+using System.Windows.Media.Imaging;
 
 namespace ActivAID
 {
@@ -19,27 +20,37 @@ namespace ActivAID
         public String ColorBOT, ColorUser, FontColor;
         public static MainWindow AppWindow;
         QueryHandler queryHandler;
+        public Settings settwindow;
+        public int fontSize;
+        public String GoldBOT;
+        public Boolean mainBOTmsg;
         public Func<string, string> stringOp;
         public Func<string[], string[]> summarize;
 
         public MainWindow()
         {
             InitializeComponent();
+            InputBox.TextChanged += OnTextChangedHandler;
             Chatbot = new SimlBot();
             Chatbot.PackageManager.LoadFromString(File.ReadAllText("Knowledge.simlpk"));
-            ColorBOT = "#FF4A4B53";
-            ColorUser = "#FF5383AD";
-            FontColor = "#FFFFFF";
+            ColorBOT = "#FF4A4B53"; // Color of Bot message rectangle
+            ColorUser = "#FF5383AD"; // Color of User message rectangle
+            FontColor = "#FFFFFF"; // Font color for text in Chat
             AppWindow = this;
             MouseDown += delegate { DragMove(); };
+            settwindow = new Settings();
+            fontSize = 16;
+            GoldBOT = "botmsg";
+            mainBOTmsg = true;
             defineFunctionObjects();
-//<<<<<<< HEAD
+            //<<<<<<< HEAD
             UserInputBoiler sb = new UserInputBoiler();
-//=======
+            //=======
             UserInputBoiler uib = new UserInputBoiler();
-//>>>>>>> origin/mf_dev
+            //>>>>>>> origin/mf_dev
             DataAccess dA = new DataAccessDB();
-            queryHandler  = new QueryHandler(dA, uib, stringOp, summarize);
+            queryHandler = new QueryHandler(dA, uib, stringOp, summarize);
+            MainWindow_Creator();
         }
 
         private void defineFunctionObjects()
@@ -59,30 +70,126 @@ namespace ActivAID
                 return sd.Sentences.ToArray();
             });
         }
-/*        public void setColorScheme(String ColorScheme)
-        {
-            OutputBox.Items.Clear();
-            if (ColorScheme == "DLG")
-            {
-                grid1.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF284167"));
-                close.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF5383AD"));
-                ColorBOT = "#FF4A4B53";
-                ColorUser = "#FF5383AD";
-                FontColor = "#FFFFFF";
-            }
-            else if(ColorScheme=="GBW"){
-                grid1.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#4A4B53"));
-                close.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF000000"));
-                close.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFFFFF"));
-                firstBOT.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF284167"));
-                ColorBOT = "#FF284167";
-                ColorUser = "#FF000000";
-            }
-        }*/
+        /*        public void setColorScheme(String ColorScheme)
+                {
+                    OutputBox.Items.Clear();
+                    if (ColorScheme == "DLG")
+                    {
+                        grid1.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF284167"));
+                        close.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF5383AD"));
+                        ColorBOT = "#FF4A4B53";
+                        ColorUser = "#FF5383AD";
+                        FontColor = "#FFFFFF";
+                    }
+                    else if(ColorScheme=="GBW"){
+                        grid1.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#4A4B53"));
+                        close.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF000000"));
+                        close.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFFFFF"));
+                        firstBOT.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF284167"));
+                        ColorBOT = "#FF284167";
+                        ColorUser = "#FF000000";
+                    }
+                }*/
 
         /*
          * Handles the "send" button click
-         */ 
+         */
+
+        private void SendButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(InputBox.Text)) //Check if the entry isn't empty
+            {
+                SendButton_action();
+            }
+        }
+
+        private void MainWindow_Creator()
+        {
+            Label mainmsg = new Label(); //Default main BOT message creator
+            mainmsg.Name = "mainmsg";
+            mainmsg.Content = "Hello, what are you looking for?";
+            mainmsg.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(ColorBOT));
+            mainmsg.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom(FontColor));
+            mainmsg.Width = 230;
+            mainmsg.FontSize = 16;
+            mainmsg.FontFamily = new FontFamily("Candara");
+            mainmsg.Margin = new Thickness(50, -40, 0, 0);
+            UserBubble_Creator(true);
+            OutputBox.Items.Add(mainmsg); // Add to ListBox
+        }
+        private void UserBubble_Creator(bool bot)
+        {
+            Ellipse user = new Ellipse(); //Image bubble creator
+            ImageBrush userimage = new ImageBrush();
+            userimage.ImageSource = (bot ? new BitmapImage(new Uri(@"Media\pb.png", UriKind.Relative)) : new BitmapImage(new Uri(@"Media\customer.png", UriKind.Relative)));
+            user.Height = 38;
+            user.Width = 38;
+            user.Margin = (bot ? new Thickness(0, 0, 0, 0) : new Thickness(370, 10, 0, 0));
+            user.Fill = userimage;
+            user.HorizontalAlignment = HorizontalAlignment.Right;
+            OutputBox.Items.Add(user);// Add to ListBox
+        }
+        private void SendButton_action()
+        {
+            Mouse.OverrideCursor = Cursors.Wait;
+            clear.Visibility = System.Windows.Visibility.Collapsed;
+            mic.Visibility = System.Windows.Visibility.Visible;
+            //User Message creator, txtblock inside a Label
+            usermsg = new Label();
+            TextBlock txtBlockuser = new TextBlock();
+            TextBlock txtBlockbot = new TextBlock();
+            txtBlockuser.TextWrapping = TextWrapping.Wrap;
+            txtBlockbot.TextWrapping = TextWrapping.Wrap;
+            var result = Chatbot.Chat(InputBox.Text);
+            string outPut = result.BotMessage;
+            txtBlockuser.Text = InputBox.Text;
+            usermsg.Name = "usermsg";   //user input box
+            usermsg.Target = OutputBox;
+            usermsg.Content = txtBlockuser;
+            usermsg.BorderThickness = new Thickness(1);
+            usermsg.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(ColorUser));
+            usermsg.HorizontalAlignment = HorizontalAlignment.Center;
+            usermsg.VerticalAlignment = VerticalAlignment.Top;
+            usermsg.MaxWidth = 120;
+            usermsg.FontFamily = new FontFamily("Candara");
+            usermsg.FontSize = 16;
+            usermsg.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom(FontColor));
+            usermsg.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
+            int ActualWidth = 360 - ((int)usermsg.DesiredSize.Width); //Algorithm to calcualte margin for every user message
+            usermsg.Margin = new Thickness(ActualWidth, -30, 25, 10);
+            Mouse.OverrideCursor = null;
+            UserBubble_Creator(false);
+            OutputBox.Items.Add(usermsg); //Add to ListBox
+            //Bot message creator, txtblock inside of a Label
+            txtBlockbot.Text = result.BotMessage;
+            botmsg = new Label();
+            botmsg.Name = "botmsg";   //bot's response box
+            botmsg.Target = OutputBox;
+            botmsg.Content = txtBlockbot;
+            botmsg.BorderThickness = new Thickness(1);
+            botmsg.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(ColorBOT));
+            botmsg.HorizontalAlignment = HorizontalAlignment.Center;
+            botmsg.VerticalAlignment = VerticalAlignment.Top;
+            botmsg.MaxWidth = 220;
+            botmsg.Width = txtBlockbot.Width;
+            botmsg.Width = 210;
+            botmsg.Margin = new Thickness(50, -40, 0, 0);
+            botmsg.FontFamily = new FontFamily("Candara");
+            botmsg.FontSize = 16;
+            botmsg.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom(FontColor));
+            UserBubble_Creator(true);
+            OutputBox.Items.Add(botmsg); // Adding to Listbox
+            OutputBox.SelectedIndex = OutputBox.Items.Count - 1; //Setting the GUI to point to the last time in the ListBox everytime
+            OutputBox.SelectedIndex = -1;
+            if (!unixCommands(outPut))//checks for specific responses by the bot to perform functions
+            {
+                txtBlockbot.Text = queryHandler.backendCommand(InputBox.Text);
+                //Console.WriteLine(InputBox.Text+"::: yo");
+            }
+            InputBox.Text = string.Empty;
+            //unixCommands(outPut);
+        }
+        /*
         private void SendButton_OnClick(object sender, RoutedEventArgs e)
         {
             usermsg = new Label();
@@ -140,6 +247,7 @@ namespace ActivAID
             }
             InputBox.Text = string.Empty;
         }
+        */
         private void CloseButton_OnClick(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
@@ -170,35 +278,64 @@ namespace ActivAID
             }
         }
 
-        private void unixCommands(string botOutput)
+        private bool unixCommands(string botOutput)
         {
             if (botOutput == "Application closed.") //closes application window
             {
                 Application.Current.Shutdown();
+                return true;
             }
             else if (botOutput == "Cleared.") //clear all the text
             {
                 OutputBox.Items.Clear();
+                MainWindow_Creator();
                 /* WARNING -> BUG: if user is in a nested command with the BOT (ex: "close application" -> )
                  * the bot will not be reset only the text chat. Please fix!
                  */
+                return true;
             }
             else if (botOutput == "Astronics homepage.") //sends users to the astronics homepage
             {
-                System.Diagnostics.Process.Start("https://www.astronics.com/");
+                System.Diagnostics.Process.Start("http://astronicstestsystems.com/");
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
+
 
         /*
          * Added event binding for the 'return' key which calls the "SendButton_OnClick" method
          */
-        private void OnKeyDownHandler(object sender, KeyEventArgs e)
+        private void OnKeyUpHandler(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Return)
+            //Console.WriteLine("Here" + InputBox.Text);
+            if (e.Key == Key.Return && !string.IsNullOrWhiteSpace(InputBox.Text))
             {
                 SendButton_OnClick(sender, e);
             }
         }
+
+        private void OnTextChangedHandler(object sender, TextChangedEventArgs e)
+        {
+            if (InputBox.Text.Length > 0)
+            {
+                mic.Visibility = System.Windows.Visibility.Collapsed;
+                clear.Visibility = System.Windows.Visibility.Visible;
+            }
+            else
+            {
+                clear.Visibility = System.Windows.Visibility.Collapsed;
+                mic.Visibility = System.Windows.Visibility.Visible;
+            }
+        }
+        private void ClearTextBox_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            InputBox.Clear();
+        }
+
         public void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBox tb = (TextBox)sender;
@@ -216,8 +353,9 @@ namespace ActivAID
 
         private void SettingsButton_OnClick(object sender, MouseButtonEventArgs e)
         {
-            //To be developed: Dialog box pop up with options to chagne color scheme or font size in user/bot conversation
-            
+            //Dialog box pop up with options to chagne color scheme or font size in user/bot conversation
+            settwindow.Show();
+            settwindow.Topmost = true;
         }
     }
 

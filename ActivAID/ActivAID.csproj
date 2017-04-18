@@ -88,14 +88,16 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ActivAIDDB.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Query.cs" />
     <Compile Include="QueryGenerator.cs" />
     <Compile Include="QueryHandler.cs" />
+    <Compile Include="Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserInputBoiler.cs" />
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -106,10 +108,6 @@
     <Compile Include="Element.cs" />
     <Compile Include="HtmlMessager.cs" />
     <Compile Include="KeyWordFinder.cs" />
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Parser.cs" />
@@ -141,6 +139,28 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Settings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="media\close.png" />
+    <Resource Include="media\colorscheme1.png" />
+    <Resource Include="media\colorscheme2.png" />
+    <Resource Include="media\colorscheme3.png" />
+    <Resource Include="media\customer.png" />
+    <Resource Include="media\loading.gif" />
+    <Resource Include="media\magglass.png" />
+    <Resource Include="media\mic.png" />
+    <Resource Include="media\pb.PNG" />
+    <Resource Include="media\settingsimg.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

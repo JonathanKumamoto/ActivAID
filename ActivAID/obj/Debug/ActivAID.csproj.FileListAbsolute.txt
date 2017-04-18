@@ -98,3 +98,5 @@ C:\Users\Tony\Documents\GitHub\ActivAID\ActivAID\obj\Debug\MainWindow.baml
 C:\Users\Tony\Documents\GitHub\ActivAID\ActivAID\obj\Debug\ActivAID.g.resources
 C:\Users\Tony\Documents\GitHub\ActivAID\ActivAID\obj\Debug\ActivAID.Properties.Resources.resources
 C:\Users\Tony\Documents\GitHub\ActivAID\ActivAID\obj\Debug\ActivAID.csproj.GenerateResource.Cache
+C:\Users\Tony\Documents\GitHub\ActivAID\ActivAID\obj\Debug\Settings.g.cs
+C:\Users\Tony\Documents\GitHub\ActivAID\ActivAID\obj\Debug\Settings.baml
