@@ -130,6 +130,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="bin\Debug\ActivAID.exe.config" />
+    <None Include="bin\Debug\ActivAID.vshost.exe.config" />
+    <None Include="bin\Debug\ActivAID.vshost.exe.manifest" />
+    <None Include="bin\Debug\Knowledge.simlpk" />
+    <None Include="bin\Release\ActivAID.exe.config" />
+    <None Include="bin\Release\ActivAID.vshost.exe.config" />
+    <None Include="bin\Release\ActivAID.vshost.exe.manifest" />
+    <None Include="bin\Release\Knowledge.simlpk" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -151,16 +159,60 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="media\close.png" />
-    <Resource Include="media\colorscheme1.png" />
-    <Resource Include="media\colorscheme2.png" />
-    <Resource Include="media\colorscheme3.png" />
-    <Resource Include="media\customer.png" />
-    <Resource Include="media\loading.gif" />
-    <Resource Include="media\magglass.png" />
-    <Resource Include="media\mic.png" />
-    <Resource Include="media\pb.PNG" />
-    <Resource Include="media\settingsimg.png" />
+    <Resource Include="Media\close.png" />
+    <Resource Include="Media\ColorScheme1.png" />
+    <Resource Include="Media\ColorScheme2.png" />
+    <Resource Include="Media\ColorScheme3.png" />
+    <Resource Include="Media\customer.png" />
+    <Resource Include="Media\loading.gif" />
+    <Resource Include="Media\magglass.png" />
+    <Resource Include="Media\mic.png" />
+    <Resource Include="Media\pb.PNG" />
+    <Resource Include="Media\settingsimg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\ActivAID.exe" />
+    <Content Include="bin\Debug\ActivAID.pdb" />
+    <Content Include="bin\Debug\ActivAID.vshost.exe" />
+    <Content Include="bin\Debug\HtmlAgilityPack.dll" />
+    <Content Include="bin\Debug\HtmlAgilityPack.pdb" />
+    <Resource Include="bin\Debug\HtmlAgilityPack.xml" />
+    <Content Include="bin\Debug\Jint.dll" />
+    <Content Include="bin\Debug\Newtonsoft.Json.dll" />
+    <Resource Include="bin\Debug\Newtonsoft.Json.xml" />
+    <Content Include="bin\Debug\OpenTextSummarizer.dll" />
+    <Content Include="bin\Debug\Syn.Bot.dll" />
+    <Resource Include="bin\Debug\Syn.Bot.xml" />
+    <Content Include="bin\Debug\Syn.Log.dll" />
+    <Content Include="bin\Debug\Syn.Neuro.dll" />
+    <Content Include="bin\Debug\Syn.VA.dll" />
+    <Content Include="bin\Debug\Syn.WordNet.dll" />
+    <Resource Include="bin\Media\close.png" />
+    <Resource Include="bin\Media\ColorScheme1.png" />
+    <Resource Include="bin\Media\ColorScheme2.png" />
+    <Resource Include="bin\Media\ColorScheme3.png" />
+    <Resource Include="bin\Media\customer.png" />
+    <Resource Include="bin\Media\loading.gif" />
+    <Resource Include="bin\Media\magglass.png" />
+    <Resource Include="bin\Media\mic.png" />
+    <Resource Include="bin\Media\pb.PNG" />
+    <Resource Include="bin\Media\settingsimg.png" />
+    <Content Include="bin\Release\ActivAID.exe" />
+    <Content Include="bin\Release\ActivAID.pdb" />
+    <Content Include="bin\Release\ActivAID.vshost.exe" />
+    <Content Include="bin\Release\HtmlAgilityPack.dll" />
+    <Content Include="bin\Release\HtmlAgilityPack.pdb" />
+    <Resource Include="bin\Release\HtmlAgilityPack.xml" />
+    <Content Include="bin\Release\Jint.dll" />
+    <Content Include="bin\Release\Newtonsoft.Json.dll" />
+    <Resource Include="bin\Release\Newtonsoft.Json.xml" />
+    <Content Include="bin\Release\OpenTextSummarizer.dll" />
+    <Content Include="bin\Release\Syn.Bot.dll" />
+    <Resource Include="bin\Release\Syn.Bot.xml" />
+    <Content Include="bin\Release\Syn.Log.dll" />
+    <Content Include="bin\Release\Syn.Neuro.dll" />
+    <Content Include="bin\Release\Syn.VA.dll" />
+    <Content Include="bin\Release\Syn.WordNet.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -82,14 +82,6 @@ C:\Users\Tony\Documents\GitHub\ActivAID\ActivAID\obj\Debug\ActivAID.pdb
 C:\Users\Tony\Documents\GitHub\ActivAID\ActivAID\bin\Debug\ActivAID.exe.config
 C:\Users\Tony\Documents\GitHub\ActivAID\ActivAID\bin\Debug\ActivAID.exe
 C:\Users\Tony\Documents\GitHub\ActivAID\ActivAID\bin\Debug\ActivAID.pdb
-C:\Users\Tony\Documents\GitHub\ActivAID\ActivAID\bin\Debug\HtmlAgilityPack.dll
-C:\Users\Tony\Documents\GitHub\ActivAID\ActivAID\bin\Debug\Jint.dll
-C:\Users\Tony\Documents\GitHub\ActivAID\ActivAID\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Tony\Documents\GitHub\ActivAID\ActivAID\bin\Debug\Syn.Bot.dll
-C:\Users\Tony\Documents\GitHub\ActivAID\ActivAID\bin\Debug\Syn.Log.dll
-C:\Users\Tony\Documents\GitHub\ActivAID\ActivAID\bin\Debug\Syn.Neuro.dll
-C:\Users\Tony\Documents\GitHub\ActivAID\ActivAID\bin\Debug\Syn.VA.dll
-C:\Users\Tony\Documents\GitHub\ActivAID\ActivAID\bin\Debug\Syn.WordNet.dll
 C:\Users\Tony\Documents\GitHub\ActivAID\ActivAID\bin\Debug\HtmlAgilityPack.pdb
 C:\Users\Tony\Documents\GitHub\ActivAID\ActivAID\bin\Debug\HtmlAgilityPack.xml
 C:\Users\Tony\Documents\GitHub\ActivAID\ActivAID\bin\Debug\Newtonsoft.Json.xml
@@ -100,3 +92,4 @@ C:\Users\Tony\Documents\GitHub\ActivAID\ActivAID\obj\Debug\ActivAID.Properties.R
 C:\Users\Tony\Documents\GitHub\ActivAID\ActivAID\obj\Debug\ActivAID.csproj.GenerateResource.Cache
 C:\Users\Tony\Documents\GitHub\ActivAID\ActivAID\obj\Debug\Settings.g.cs
 C:\Users\Tony\Documents\GitHub\ActivAID\ActivAID\obj\Debug\Settings.baml
+C:\Users\Tony\Documents\GitHub\ActivAID\ActivAID\obj\Debug\ActivAID_Content.g.cs
