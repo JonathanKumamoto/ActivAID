@@ -144,6 +144,9 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="SynBotDir\DeleteUser.simlpk" />
+    <None Include="SynBotDir\EditUser.simlpk" />
+    <None Include="SynBotDir\NewUser.simlpk" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

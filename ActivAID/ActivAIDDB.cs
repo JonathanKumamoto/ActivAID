@@ -172,9 +172,12 @@ namespace ActivAID
                         {
                             elementList[blocknum].Add(data);
                         }
-                        List<string> block = new List<string>();
-                        block.Add(data);
-                        elementList.Add(blocknum, block);
+                        else
+                        {
+                            List<string> block = new List<string>();
+                            block.Add(data);
+                            elementList.Add(blocknum, block);
+                        }
                     }
                 }
             }

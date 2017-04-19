@@ -55,6 +55,7 @@ namespace ActivAID
             });
             Func<string[], string[]> summarize = new Func<string[], string[]>((toSummarize) =>
             {
+                // Need to change
                 List<string> sumList = new List<string>();
                 OpenTextSummarizer.SummarizerArguments args = new OpenTextSummarizer.SummarizerArguments();
                 args.InputString = String.Join(" ", toSummarize);
