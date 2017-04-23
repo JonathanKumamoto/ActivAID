@@ -60,7 +60,12 @@ namespace ActivAID
                 OpenTextSummarizer.SummarizerArguments args = new OpenTextSummarizer.SummarizerArguments();
                 args.InputString = String.Join(" ", toSummarize);
                 OpenTextSummarizer.SummarizedDocument sd = OpenTextSummarizer.Summarizer.Summarize(args);
-                return sd.Sentences.ToArray();
+                List<string> str = new List<string>(new string[]{ "This article covers topics and keywords related to: \n" });
+                foreach(var concept in sd.Concepts)
+                { 
+                    str.Add(concept);
+                };
+                return str.Take(5).ToArray();
             });
 
 
