@@ -7,17 +7,49 @@
         mc:Ignorable="d"
         WindowStyle="None"
         Name="main"
-        Title="ActivAID" Height="541.264" Width="536.861" WindowStartupLocation="Manual" FontFamily="Agency FB" BorderBrush="Black" Background="#2b4167" AllowsTransparency="True">
-    <Grid x:Name="grid1">
-        <Button Name="close" Content="x" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Click="CloseButton_OnClick" Margin="508,-1,-1.2,513.6" BorderBrush="{x:Null}" FontFamily="Berlin Sans FB" FontSize="20" Background="#5383AD" BorderThickness="0" Cursor="Hand" ClickMode="Press" Width="30" Height="29" Foreground="White"/>
-        <Label x:Name="label" Content="ActivAID" HorizontalAlignment="Center" Margin="0,-1,0,0" VerticalAlignment="Top" FontFamily="Candara" FontSize="18" Foreground="White" FontWeight="Bold" Height="32" Width="77"/>
-        <TextBox Name="InputBox" Margin="51,460,50,47.6" MaxLength="180" Padding="10,5,40,0" SelectionOpacity="-1" Text="Search..." FontFamily="Candara" FontSize="18" Foreground="#FF9C9C9C" GotFocus="TextBox_GotFocus" KeyUp="OnKeyUpHandler"/>
-        <Button Name="Search" Click="SendButton_OnClick" Margin="451,460,50.8,47.6" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" BorderBrush="{x:Null}" Background="{x:Null}" Width="35" Height="34">
-            <Image x:Name="search" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="32" Grid.Column="1" Source="/Media/magglass.png" Opacity="0.6" Cursor="Hand"/>
-        </Button>
-        <Image x:Name="image1" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="23" Source="/Media/settingsimg.png" MouseLeftButtonDown="SettingsButton_OnClick"/>
-        <ListBox Name="OutputBox" Margin="51,66,50.8,86.6" Background="{x:Null}" BorderBrush="{x:Null}" />
-        <Image x:Name="mic" HorizontalAlignment="Left" Height="25" Margin="425,465,0,0" VerticalAlignment="Top" Width="29" Source="/Media/mic.png" Opacity="0.6" Cursor="Hand"/>
-        <Image x:Name="clear" HorizontalAlignment="Left" Height="13" Margin="436,471,0,0" VerticalAlignment="Top" Width="14" Source="Media/close.png" Opacity="0.6" Cursor="Hand" MouseLeftButtonDown="ClearTextBox_OnMouseLeftButtonUp" Visibility="Collapsed"/>
-    </Grid>
+        Title="ActivAID" Height="541.264" Width="536.861" WindowStartupLocation="Manual" FontFamily="Arial" Background="Transparent" AllowsTransparency="True">
+    <Window.Resources>
+        <!-- Put in any styles needed for window. Similar to that of an HTML <header> area -->
+    </Window.Resources>
+
+    <Border BorderThickness="3" CornerRadius="4" BorderBrush="#35517b" Background="#35517b">
+        <Grid x:Name="grid1">
+            <!--<Frame x:Name="frame" HorizontalAlignment="Left" Height="109" Margin="0,426,0,0" VerticalAlignment="Top" Width="530" Background="transparent"/>-->
+            <Frame x:Name="frame" HorizontalAlignment="Left" Height="439" Margin="-6,45,-5,0" VerticalAlignment="Top" Width="542" Background="#284167"/>
+
+            <Label x:Name="label" Content="ActivAID" HorizontalAlignment="Center" Margin="22,4,399,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="24" Foreground="White" FontWeight="Bold" Height="32" Width="110"/>
+
+            <Button x:Name="close" Click="CloseButton_OnClick" Margin="492,3,4,498" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" BorderBrush="{x:Null}" Background="{x:Null}" Width="35" Height="34">
+                <Image x:Name="closeImage" HorizontalAlignment="Center" Height="21" VerticalAlignment="Center" Width="27" Grid.Column="1" Source="/Media/iconClose2.png" Opacity="1" Cursor="Hand"/>
+            </Button>
+
+            <TextBox x:Name="InputBox" Margin="39,495,60,12" MaxLength="180" Padding="10,5,40,0" SelectionOpacity="-1" Text="Search..." FontFamily="Century Gothic" Background="#FFF" Foreground="#FF9C9C9C" GotFocus="TextBox_GotFocus" KeyUp="OnKeyUpHandler">
+                <TextBox.Style>
+
+                    <Style TargetType="{x:Type TextBox}">
+                        <!--
+                        <Style.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                        
+                                        <Image x:Name="search" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="32" Grid.Column="1" Source="/Media/magglass.png" Opacity="0.6" Cursor="Hand"/>
+
+                        </Style.Triggers>
+                        -->
+                    </Style>
+
+                </TextBox.Style>
+            </TextBox>
+
+
+            <Button x:Name="Search" Content="Send" Click="SendButton_OnClick" Margin="476,495,10,12" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" BorderBrush="{x:Null}" Background="{x:Null}" Width="45" Height="28" FontFamily="Century Gothic" FontSize="15" Foreground="White" FontWeight="Bold">
+            </Button>
+            <Image x:Name="image1" HorizontalAlignment="Left" Height="24" Margin="463,8,0,0" VerticalAlignment="Top" Width="25" Source="/Media/iconSettings.png" MouseLeftButtonDown="SettingsButton_OnClick"/>
+
+
+            <ListBox x:Name="OutputBox" Margin="51,66,50.8,86.6" Background="{x:Null}" BorderBrush="{x:Null}" />
+            <Image x:Name="mic" HorizontalAlignment="Left" Height="25" Margin="10,496,0,0" VerticalAlignment="Top" Width="29" Source="/Media/iconMicroPhone.png" Opacity="1" Cursor="Hand"/>
+            <Image x:Name="clear" HorizontalAlignment="Left" Height="25" Margin="446,497,0,0" VerticalAlignment="Top" Width="24" Source="Media/close.png" Opacity="0.4" Cursor="Hand" MouseLeftButtonDown="ClearTextBox_OnMouseLeftButtonUp" Visibility="Collapsed"/>
+        </Grid>
+
+    </Border>
 </Window>

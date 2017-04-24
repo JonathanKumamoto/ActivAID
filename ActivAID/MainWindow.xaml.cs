@@ -26,6 +26,7 @@ namespace ActivAID
         public Boolean mainBOTmsg;
         public Func<string, string> stringOp;
         public Func<string[], string[]> summarize;
+        
 
         public MainWindow()
         {
@@ -121,7 +122,7 @@ namespace ActivAID
         {
             Ellipse user = new Ellipse(); //Image bubble creator
             ImageBrush userimage = new ImageBrush();
-            userimage.ImageSource = (bot ? new BitmapImage(new Uri(@"Media\pb.png", UriKind.Relative)) : new BitmapImage(new Uri(@"Media\customer.png", UriKind.Relative)));
+            userimage.ImageSource = (bot ? new BitmapImage(new Uri(@"Media\iconBot.png", UriKind.Relative)) : new BitmapImage(new Uri(@"Media\iconCustomer.png", UriKind.Relative)));
             user.Height = 38;
             user.Width = 38;
             user.Margin = (bot ? new Thickness(0, 0, 0, 0) : new Thickness(370, 10, 0, 0));

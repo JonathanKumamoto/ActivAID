@@ -179,6 +179,13 @@
     <Content Include="bin\Debug\ActivAID.vshost.exe" />
     <Content Include="bin\Debug\HtmlAgilityPack.dll" />
     <Content Include="bin\Debug\HtmlAgilityPack.pdb" />
+    <Resource Include="Media\iconMicrophone.png" />
+    <Resource Include="Media\iconCustomer.png" />
+    <Resource Include="Media\iconBot.png" />
+    <Resource Include="Media\iconClose2.png" />
+    <Resource Include="Media\iconClose.png" />
+    <Resource Include="Media\iconSettings.png" />
+    <Resource Include="Media\Logo.png" />
     <Resource Include="bin\Debug\HtmlAgilityPack.xml" />
     <Content Include="bin\Debug\Jint.dll" />
     <Content Include="bin\Debug\Newtonsoft.Json.dll" />
