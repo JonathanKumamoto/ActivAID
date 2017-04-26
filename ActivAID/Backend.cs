@@ -60,7 +60,12 @@ namespace ActivAID
                 OpenTextSummarizer.SummarizerArguments args = new OpenTextSummarizer.SummarizerArguments();
                 args.InputString = String.Join(" ", toSummarize);
                 OpenTextSummarizer.SummarizedDocument sd = OpenTextSummarizer.Summarizer.Summarize(args);
-                return sd.Sentences.ToArray();
+                List<string> str = new List<string>(new string[] { "This article covers topics and keywords related to: " });
+                foreach (var concept in sd.Concepts)
+                {
+                    str.Add(concept);
+                };
+                return str.Take(5).ToArray();
             });
 
 
@@ -69,7 +74,7 @@ namespace ActivAID
             return new QueryHandler(dA, sb, func, summarize);
         }
 
-        private static void populateTupList(string paragraph, QueryHandler qHandler, ref BlockDataAndKeyWords tupList)
+        private static void populateTupList(string paragraph, QueryHandler qHandler, ref BlockDataAndKeyWords tupList, ref List<string> hrefs)
         {
             var sentences = paragraph.Split('.');
             Console.WriteLine(sentences.Count() + " " + paragraph.Count());
@@ -78,20 +83,38 @@ namespace ActivAID
                 var block = response.Item2.ToList();
                 tupList.AddRange(getTupList(block));
                 tupList.Add(new Tuple<string[], string[]>(null, null));
+
+                hrefs.AddRange(response.Item1);
+                hrefs.Add(null);
             }
         }
         public static string backendCommand(string paragraph)
-        {        
+        {
             BlockDataAndKeyWords tupList = new BlockDataAndKeyWords();
-            populateTupList(paragraph, getNewQueryHandler(), ref tupList);
+            List<string> hrefs = new List<string>();
+            populateTupList(paragraph, getNewQueryHandler(), ref tupList, ref hrefs);
 
             string rString = "";
             foreach (string s in getMaxStrings(tupList))
             {
                 rString = rString + s + "\n";
             }
+            Console.WriteLine(hrefs.Count());
+            if (hrefs.Count() > 1)
+            {
+                rString = rString + "Related documents:\n";
+                int count = 0;
+                foreach (string s in hrefs)
+                {
+                    if (s != null)
+                    {
+                        rString = rString + s + (count == 0 ? " | " : "");
+                        count++;
+                    }
+                }
+            }
             return rString;
         }
-            
+
     }
 }

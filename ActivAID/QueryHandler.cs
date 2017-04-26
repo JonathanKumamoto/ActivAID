@@ -96,19 +96,6 @@ namespace ActivAID
             return inputList;
         }
 
-        /// <summary>
-        /// encapsulates the algorithm for summarizing the help files
-        /// </summary>
-        /// <param name="toSummarize">responses from data access tier that will be summarized</param>
-        /*private string[] summarize(string[] toSummarize)
-        {
-            List<string> sumList = new List<string>();
-            OpenTextSummarizer.SummarizerArguments args = new OpenTextSummarizer.SummarizerArguments();
-            args.InputString = String.Join(" ", toSummarize);
-            OpenTextSummarizer.SummarizedDocument sd = OpenTextSummarizer.Summarizer.Summarize(args);
-            return sd.Sentences.ToArray();
-        }*/
-
         private string[] getMaxStrings(BlockDataAndKeyWords tupList)
         {
             int occurance = 0;
@@ -140,29 +127,6 @@ namespace ActivAID
             }
             return retList;
         }
-
-        /*private QueryHandler getNewQueryHandler()
-        {
-            Func<string, string> func = new Func<string, string>((x) =>
-            {
-                var temp = x;
-                new HTMLMessager().removeFromLine(ref temp);
-                return temp;
-            });
-            Func<string[], string[]> summarize = new Func<string[], string[]>((toSummarize) =>
-            {
-                List<string> sumList = new List<string>();
-                OpenTextSummarizer.SummarizerArguments args = new OpenTextSummarizer.SummarizerArguments();
-                args.InputString = String.Join(" ", toSummarize);
-                OpenTextSummarizer.SummarizedDocument sd = OpenTextSummarizer.Summarizer.Summarize(args);
-                return sd.Sentences.ToArray();
-            });
-
-
-            SentenceBoiler sb = new SentenceBoiler();
-            DataAccess dA = new DataAccessDB();
-            return new QueryHandler(dA, sb, func, summarize);
-        }*/
 
         private void populateTupList(string paragraph, ref BlockDataAndKeyWords tupList)
         {

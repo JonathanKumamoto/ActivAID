@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using ActivAID;
 
+//tup.Item2.Select((x) => stringOp(x)).ToArray()
+
 namespace Parser
 {
     class ParsedCHM
