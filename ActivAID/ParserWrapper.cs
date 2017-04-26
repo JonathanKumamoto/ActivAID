@@ -159,7 +159,7 @@ namespace Parser
             return elementData;
         }
         //tup.Item2.Select((x) => stringOp(x)).ToArray()
-        private void genRegexPerFile(string filePath, List<List<Element>> blocks)
+        private void getRegexPerFile(string filePath, List<List<Element>> blocks)
         {
             List<string> elementData = aggregateElementData(blocks);
             string regex = generateRegexPatterns(elementData);
