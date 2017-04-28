@@ -117,7 +117,7 @@ namespace ActivAID
             return maxStrings;
         }
 
-        private BlockDataAndKeyWords getTupList(List<Tuple<string, string[]>> block)
+        /*private BlockDataAndKeyWords getTupList(List<Tuple<string, string[]>> block)
         {
             BlockDataAndKeyWords retList = new BlockDataAndKeyWords();
             foreach (var e in block)
@@ -126,9 +126,9 @@ namespace ActivAID
                 retList.Add(new Tuple<string[], string[]>(e.Item2, kwArray));
             }
             return retList;
-        }
+        }*/
 
-        private void populateTupList(string paragraph, ref BlockDataAndKeyWords tupList)
+        /*private void populateTupList(string paragraph, ref BlockDataAndKeyWords tupList)
         {
             var sentences = paragraph.Split('.');
             foreach (QueryResponseTup response in handleQuery(sentences))
@@ -137,8 +137,8 @@ namespace ActivAID
                 tupList.AddRange(getTupList(block));
                 tupList.Add(new Tuple<string[], string[]>(null, null));
             }
-        }
-        public string backendCommand(string paragraph)
+        }*/
+        /*public string backendCommand(string paragraph)
         {
             BlockDataAndKeyWords tupList = new BlockDataAndKeyWords();
             populateTupList(paragraph, ref tupList);
@@ -149,7 +149,7 @@ namespace ActivAID
                 rString = rString + s + "\n";
             }
             return rString;
-        }
+        }*/
 
         /// <summary>
         /// acts as the junction for communcication between data access and front end

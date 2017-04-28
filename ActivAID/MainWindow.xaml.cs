@@ -30,6 +30,7 @@ namespace ActivAID
 
         public MainWindow()
         {
+            BackEnd.loadIronPython();
             InitializeComponent();
             InputBox.TextChanged += OnTextChangedHandler;
             Chatbot = new SimlBot();
@@ -44,11 +45,7 @@ namespace ActivAID
             GoldBOT = "botmsg";
             mainBOTmsg = true;
             defineFunctionObjects();
-            //<<<<<<< HEAD
-            UserInputBoiler sb = new UserInputBoiler();
-            //=======
             UserInputBoiler uib = new UserInputBoiler();
-            //>>>>>>> origin/mf_dev
             DataAccess dA = new DataAccessDB();
             queryHandler = new QueryHandler(dA, uib, stringOp, summarize);
             MainWindow_Creator();
