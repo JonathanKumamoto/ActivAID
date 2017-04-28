@@ -49,9 +49,10 @@ namespace ActivAID
         /// retrieves responses to queries and aggregates those responses
         /// </summary>
         /// <param name="q">Query to be sent off to data tier</param>
-        private QueryResponseTup aggregateQueryResults(Query q)
+        //private QueryResponseTup aggregateQueryResults(Query q)
+        private QueryResponse aggregateQueryResults(Query q)
         {
-            BlockResponse blockList = new BlockResponse();
+            /*BlockResponse blockList = new BlockResponse();
             List<string> hrefList = new List<string>();
             var qResponse = dA.query(q);
             foreach (var kvpair in qResponse.Item2)
@@ -63,15 +64,28 @@ namespace ActivAID
                 hrefList.Add(href);
             }
             //return blockList;
-            return new QueryResponseTup(hrefList.ToArray(), blockList);
+            return new QueryResponseTup(hrefList.ToArray(), blockList);*/
+            List<string> hrefList = new List<string>();
+            List<string> elements = new List<string>();
+            var qResponse = dA.query(q);
+            foreach (var kvpair in qResponse.Item2)
+            {
+                elements.AddRange(kvpair.Value.ToArray());
+            }
+            foreach (string href in qResponse.Item1)
+            {
+                hrefList.Add(href);
+            }
+            return new QueryResponse(q.originalSentence, hrefList, elements, null);
         }
 
         /// <summary>
         /// sends off query objects to the data tier
         /// </summary>
-        private async Task<QueryResponseTup[]> sendOff()
+        //private async Task<QueryResponseTup[]> sendOff()
+        private async Task<QueryResponse[]> sendOff()
         {
-            List<Task<QueryResponseTup>> issuedQueries = new List<Task<QueryResponseTup>>();
+            /*List<Task<QueryResponseTup>> issuedQueries = new List<Task<QueryResponseTup>>();
             foreach (Query q in queries)
             {
                 issuedQueries.Add
@@ -80,7 +94,17 @@ namespace ActivAID
                     (() => {return aggregateQueryResults(q);})
                 );
             }
-            return await Task.WhenAll(issuedQueries).ConfigureAwait(false);
+            return await Task.WhenAll(issuedQueries).ConfigureAwait(false);*/
+            List<Task<QueryResponse>> issuedQueries = new List<Task<QueryResponse>>();
+            foreach (Query q in queries)
+            {
+                issuedQueries.Add
+                (
+                    Task<QueryResponse>.Factory.StartNew
+                    (() => { return aggregateQueryResults(q); })
+                );
+            }
+            return await Task.WhenAll(issuedQueries).ConfigureAwait(false); 
         }
 
         private List<string> getInputStringList(List<QueryResponseTup> toSummarize)
@@ -155,9 +179,10 @@ namespace ActivAID
         /// acts as the junction for communcication between data access and front end
         /// </summary>
         /// <param name="sentences">input queries from the front end</param>
-        public List<QueryResponseTup> handleQuery(string[] sentences)
+        //public List<QueryResponseTup> handleQuery(string[] sentences)
+        public List<QueryResponse> handleQuery(string[] sentences)
         {
-            genQueries(sentences);
+            /*genQueries(sentences);
             List<QueryResponseTup> handledQueries = new List<QueryResponseTup>();
             QueryResponseTup[] response = sendOff().Result;
             foreach(QueryResponseTup br in response)
@@ -165,6 +190,15 @@ namespace ActivAID
                 var augBlocks = from tup in br.Item2
                                 select new Tuple<string, string[]>(tup.Item1, summarize(tup.Item2.Select((x) => stringOp(x)).ToArray()));
                 handledQueries.Add(new QueryResponseTup(br.Item1, augBlocks.ToList()));
+            }
+            return handledQueries;*/
+            genQueries(sentences);
+            List<QueryResponse> handledQueries = new List<QueryResponse>();
+            QueryResponse[] response = sendOff().Result;
+            foreach (QueryResponse qr in response)
+            {
+                qr.keywords = new List<string>(summarize(qr.elements.Select((x) => stringOp(x)).ToArray()));
+                handledQueries.Add(qr);
             }
             return handledQueries;
         }

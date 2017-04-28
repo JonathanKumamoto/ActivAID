@@ -37,7 +37,7 @@ namespace ActivAID
 
     public class UserInputBoiler
     {
-        public string boilDown(string sentence)
+       /* public string boilDown(string sentence)
         {
             RegexList fgexes = new RegexList();
             try
@@ -64,8 +64,8 @@ namespace ActivAID
                 }
             }
             return max <= 0 ? null : maxFgex.name;
-        }
-       /* public string boilDown(string sentence)
+        }*/
+        public string boilDown(string sentence)
         {
             int max = -1;
             string maxFile = "";
@@ -88,6 +88,6 @@ namespace ActivAID
                 max = max < test ? test : max;
             }
             return maxFile;
-        }*/
+        }
     }
 }
