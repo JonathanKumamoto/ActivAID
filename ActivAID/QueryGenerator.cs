@@ -18,7 +18,12 @@ namespace ActivAID
         public Query queryGen(string sentence)
         {
             List<Attrib> attributeList = new List<Attrib>();
-            attributeList.Add(new Attrib("filePath", uib.boilDown(sentence),false));
+            string boiled = uib.boilDown(sentence);
+            if (boiled == null)
+            {
+                throw new NoFileMatchException();
+            }
+            attributeList.Add(new Attrib("filePath", boiled, false));
             return new Query(attributeList, new Tuple<int, bool>(0, false), "text",sentence);
         }
     }

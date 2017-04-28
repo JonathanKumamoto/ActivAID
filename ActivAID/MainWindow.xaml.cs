@@ -181,7 +181,14 @@ namespace ActivAID
             OutputBox.SelectedIndex = -1;
             if (!unixCommands(outPut))//checks for specific responses by the bot to perform functions
             {
-                txtBlockbot.Text = BackEnd.backendCommand(InputBox.Text);
+                try
+                {
+                    txtBlockbot.Text = BackEnd.backendCommand(InputBox.Text);
+                }
+                catch
+                {
+                    txtBlockbot.Text = "I'm hearing ya... I just don't getcha. Can you make your request more specific?";
+                }
                 //Console.WriteLine(InputBox.Text+"::: yo");
             }
             InputBox.Text = string.Empty;

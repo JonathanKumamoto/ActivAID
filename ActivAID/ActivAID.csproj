@@ -123,6 +123,7 @@
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NoFileMatchException.cs" />
     <Compile Include="Query.cs" />
     <Compile Include="QueryGenerator.cs" />
     <Compile Include="QueryHandler.cs" />
