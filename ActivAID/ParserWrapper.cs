@@ -60,12 +60,27 @@ namespace Parser
         public ParserWrapper(string filePath)
         {
             db = new ActivAIDDB();
-            db.insertIntoFiles(filePath);
-            parsedCHMs = new Dictionary<string, ParsedCHM>();
-            parsedCHMs[filePath] = new ParsedCHM(filePath);
-            initializeFGEXES();
-            persistData();
-                        
+            Action<string> action = (str) =>
+            {
+                db.insertIntoFiles(filePath);
+                parsedCHMs = new Dictionary<string, ParsedCHM>();
+                parsedCHMs[filePath] = new ParsedCHM(filePath);
+                initializeFGEXES();
+                persistData();
+            };
+
+            FileAttributes attr = File.GetAttributes(filePath);
+            if ((attr & FileAttributes.Directory) == FileAttributes.Directory)
+            {
+                foreach (string fileName in System.IO.Directory.EnumerateFiles(filePath))
+                {
+                    action(fileName);
+                }
+            }
+            else
+            {
+                action(filePath);
+            }                        
         }
 
         public ParserWrapper(List<string> filePaths)

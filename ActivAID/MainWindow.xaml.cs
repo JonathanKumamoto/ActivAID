@@ -185,7 +185,7 @@ namespace ActivAID
                 {
                     txtBlockbot.Text = BackEnd.backendCommand(InputBox.Text);
                 }
-                catch
+                catch(NoFileMatchException)
                 {
                     txtBlockbot.Text = "I'm hearing ya... I just don't getcha. Can you make your request more specific?";
                 }
