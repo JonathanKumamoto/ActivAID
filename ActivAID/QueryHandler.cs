@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenTextSummarizer;
 using System.Text.RegularExpressions;
-using BlockResponse = System.Collections.Generic.List<System.Tuple<string, string[]>>;
 using QueryResponseTup = System.Tuple<string[], System.Collections.Generic.List<System.Tuple<string, string[]>>>;
 using BlockDataAndKeyWords = System.Collections.Generic.List<System.Tuple<string[], string[]>>;
 
@@ -52,19 +51,6 @@ namespace ActivAID
         //private QueryResponseTup aggregateQueryResults(Query q)
         private QueryResponse aggregateQueryResults(Query q)
         {
-            /*BlockResponse blockList = new BlockResponse();
-            List<string> hrefList = new List<string>();
-            var qResponse = dA.query(q);
-            foreach (var kvpair in qResponse.Item2)
-            {
-                blockList.Add(new Tuple<string, string[]>(q.originalSentence, kvpair.Value.ToArray()));
-            }
-            foreach(string href in qResponse.Item1)
-            {
-                hrefList.Add(href);
-            }
-            //return blockList;
-            return new QueryResponseTup(hrefList.ToArray(), blockList);*/
             List<string> hrefList = new List<string>();
             List<string> elements = new List<string>();
             var qResponse = dA.query(q);
@@ -85,16 +71,6 @@ namespace ActivAID
         //private async Task<QueryResponseTup[]> sendOff()
         private async Task<QueryResponse[]> sendOff()
         {
-            /*List<Task<QueryResponseTup>> issuedQueries = new List<Task<QueryResponseTup>>();
-            foreach (Query q in queries)
-            {
-                issuedQueries.Add
-                (
-                    Task<QueryResponseTup>.Factory.StartNew
-                    (() => {return aggregateQueryResults(q);})
-                );
-            }
-            return await Task.WhenAll(issuedQueries).ConfigureAwait(false);*/
             List<Task<QueryResponse>> issuedQueries = new List<Task<QueryResponse>>();
             foreach (Query q in queries)
             {
@@ -141,40 +117,6 @@ namespace ActivAID
             return maxStrings;
         }
 
-        /*private BlockDataAndKeyWords getTupList(List<Tuple<string, string[]>> block)
-        {
-            BlockDataAndKeyWords retList = new BlockDataAndKeyWords();
-            foreach (var e in block)
-            {
-                string[] kwArray = KeyWordFinder.handleLineKeyWords(5, e.Item1).ToArray();
-                retList.Add(new Tuple<string[], string[]>(e.Item2, kwArray));
-            }
-            return retList;
-        }*/
-
-        /*private void populateTupList(string paragraph, ref BlockDataAndKeyWords tupList)
-        {
-            var sentences = paragraph.Split('.');
-            foreach (QueryResponseTup response in handleQuery(sentences))
-            {
-                var block = response.Item2.ToList();
-                tupList.AddRange(getTupList(block));
-                tupList.Add(new Tuple<string[], string[]>(null, null));
-            }
-        }*/
-        /*public string backendCommand(string paragraph)
-        {
-            BlockDataAndKeyWords tupList = new BlockDataAndKeyWords();
-            populateTupList(paragraph, ref tupList);
-
-            string rString = "";
-            foreach (string s in getMaxStrings(tupList))
-            {
-                rString = rString + s + "\n";
-            }
-            return rString;
-        }*/
-
         /// <summary>
         /// acts as the junction for communcication between data access and front end
         /// </summary>
@@ -182,16 +124,6 @@ namespace ActivAID
         //public List<QueryResponseTup> handleQuery(string[] sentences)
         public List<QueryResponse> handleQuery(string[] sentences)
         {
-            /*genQueries(sentences);
-            List<QueryResponseTup> handledQueries = new List<QueryResponseTup>();
-            QueryResponseTup[] response = sendOff().Result;
-            foreach(QueryResponseTup br in response)
-            {
-                var augBlocks = from tup in br.Item2
-                                select new Tuple<string, string[]>(tup.Item1, summarize(tup.Item2.Select((x) => stringOp(x)).ToArray()));
-                handledQueries.Add(new QueryResponseTup(br.Item1, augBlocks.ToList()));
-            }
-            return handledQueries;*/
             genQueries(sentences);
             List<QueryResponse> handledQueries = new List<QueryResponse>();
             QueryResponse[] response = sendOff().Result;

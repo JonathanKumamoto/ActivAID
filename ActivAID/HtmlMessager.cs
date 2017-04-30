@@ -37,7 +37,7 @@ namespace ActivAID
             Regex regexUlTagEnd = new Regex("ul *>");
             //Regex regexLT = new Regex("&lt;"); need to figure out how to reinject
             //Regex regexGT = new Regex("&gt;");
-            Regex regexHtmlChar = new Regex("&.*?;");
+            Regex regexHtmlChar = new Regex("&.*;");
 
             /////////////////we'll see if we need to even handle this/////////
             /*if (regexLiTag.IsMatch(line))

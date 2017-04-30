@@ -29,6 +29,7 @@ namespace ActivAID
             string current_directory = System.IO.Directory.GetCurrentDirectory() + (char)92;
             string helplocation = current_directory + "help" + (char)92 + "Help HTML" + (char)92;
             string filepath = helplocation + query.attributeList[0].value;
+            Console.WriteLine("\n\n" + filepath + "\n\n");
             return db.getHyperlinks(filepath);
         }
         public HrefsandBlocks query(Query query)

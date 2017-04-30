@@ -10,7 +10,7 @@ using IronPython.Hosting;
 using Microsoft.Scripting;
 using Microsoft.Scripting.Hosting;
 using BlockDataAndKeyWords = System.Collections.Generic.List<System.Tuple<string[], string[]>>;
-
+using System.Diagnostics;
 
 //using Trainer.
 
@@ -55,11 +55,16 @@ namespace ActivAID
                     options["Frames"] = true;
                     options["FullFrames"] = true;
                     ScriptEngine engine = Python.CreateEngine(options);
-
+                    //points to python site-packages
                     string spackagesPath = Environment.GetEnvironmentVariable("SPACKAGES");
+                    //points to python libs
                     string libsPath = Environment.GetEnvironmentVariable("LIBS");
+                    //points to phrase generator script
+                    string codePath = Environment.GetEnvironmentVariable("CODE");
                     var searchPaths = engine.GetSearchPaths();
-                    searchPaths.Add(@"C:\Users\Matthew\Desktop\191B\model_for_trigram_output");
+                    //path to site-packages
+                    //searchPaths.Add(codePath);
+                    searchPaths.Add(codePath);
                     searchPaths.Add(spackagesPath);
                     searchPaths.Add(libsPath);
                     engine.SetSearchPaths(searchPaths);
@@ -94,21 +99,6 @@ namespace ActivAID
                 new HTMLMessager().removeFromLine(ref temp);
                 return temp;
             });
-            /*Func<string[], string[]> summarize = new Func<string[], string[]>((toSummarize) =>
-            {
-                // Need to change
-                //List<string> sumList = new List<string>();
-                OpenTextSummarizer.SummarizerArguments args = new OpenTextSummarizer.SummarizerArguments();
-                args.InputString = String.Join(" ", toSummarize);
-                OpenTextSummarizer.SummarizedDocument sd = OpenTextSummarizer.Summarizer.Summarize(args);
-                List<string> str = new List<string>(new string[] { "This article covers topics and keywords related to: " });
-                foreach (var concept in sd.Concepts)
-                {
-                    str.Add(concept);
-                };
-
-                return str.Take(5).ToArray();
-            });*/
             Func<string[], string[]> summarize = new Func<string[], string[]>((toSummarize) =>
             {
                 // Need to change
@@ -120,7 +110,7 @@ namespace ActivAID
                 foreach (var concept in sd.Concepts)
                 {
                     str.Add(concept);
-                };
+                }
 
                 return str.Take(5).ToArray();
             });
@@ -131,113 +121,132 @@ namespace ActivAID
             return new QueryHandler(dA, sb, func, summarize);
         }
 
-        //definiTE REFACTOR/////////////////////
-        /* private static void populateTupList(string paragraph, QueryHandler qHandler, 
-                                             ref BlockDataAndKeyWords tupList, ref List<string> hrefs,
-                                             ref List<string> fileText)
-         {
-               var sentences = paragraph.Split('.');
-               var htmlM = new HTMLMessager();
-               //Console.WriteLine(sentences.Count() + " " + paragraph.Count());
-               foreach (var response in qHandler.handleQuery(sentences))
-               { 
-                   var block = response.Item2.ToList();
-                   List<string> strings = new List<string>();
-                   foreach (var element in block)
-                   {
-                       strings.AddRange(element.Item2);
-                   }
-                   foreach (var tup in response.Item2)
-                   {
-                       Console.WriteLine("\n\n hi" + tup.Item1 + " \n\n");
-                       //string refs = s;
-                       //htmlM.removeFromLine(ref refs);
-                       //fileText.Add(" " + refs);
-                   }
-                   fileText.Add(null);
-                   tupList.AddRange(getTupList(block));
-                   tupList.Add(new Tuple<string[], string[]>(null, null));
-
-                   hrefs.AddRange(response.Item1);
-                   hrefs.Add(null);                
-               }
-         }*/
-        public static string backendCommand(string paragraph)
+        private static string getFullText(List<string> elements)
         {
-            loadIronPython();
-            //BlockDataAndKeyWords tupList = new BlockDataAndKeyWords();
-            //List<string> hrefs = new List<string>();
-            //List<string> imgs = new List<string>();
-            //List<string> fileText = new List<string>();
-            //populateTupList(paragraph, getNewQueryHandler(), ref tupList, ref hrefs, ref fileText);
-
-            /*string rString = "";
-            var maxStrings = getMaxStrings(tupList);
-            foreach (string s in maxStrings)
+            string text = "";
+            foreach (var element in elements)
             {
-                rString = rString + s + "\n";                
+                string e = element;
+                new HTMLMessager().removeFromLine(ref e);
+                text += " " + e;
             }
+            return text;
+        }
 
-            //aggregates file contents and runs phrase generator
-            string singleText = "";
-            
-            phrase_generator = phrase_generator_task.Result;
-            foreach (var str in fileText)
+        private static string getCommand(List<string> keywords, string text)
+        {
+            string pyListString = "\"[";
+            int check = 0;
+            foreach (var kw in keywords)
             {
-                if (str == null)
+                if (check != 0)
                 {
-                    //phrase_generator.text_to_phrases(singleText, maxStrings);
-                    Console.WriteLine(singleText);
-                    singleText = "";
-                    continue;
+                    pyListString += ",";
                 }
-                singleText = singleText +" "+ str;
+                pyListString += "'" + kw + "'";
+                check += 1;
             }
-            if (hrefs.Count() > 1)
+            pyListString += "]\"";
+            var command = "phrase_generator.py \"" + text.Replace("\n", "");
+            command = command.Replace("\r", "").Replace("\r\n", "").Replace("|", " ") + "\" ";
+            command += pyListString;
+            return command;
+        }
+
+        private static string callPython(string command)
+        {
+            Process pProcess = new Process();
+            pProcess.StartInfo.FileName = "python.exe";
+            pProcess.StartInfo.Arguments = command;
+            pProcess.StartInfo.UseShellExecute = false;
+            pProcess.StartInfo.CreateNoWindow = true;
+            pProcess.StartInfo.RedirectStandardOutput = true;
+            pProcess.Start();
+            return pProcess.StandardOutput.ReadToEnd();
+        }
+
+        private static string checkForPhrase(string kw, string rString, List<string> phrases)
+        {
+            int count = 0;
+            foreach(var phrase in phrases)
             {
-                rString = rString + "Related documents:\n";
-                int count = 0;
-                foreach (string s in hrefs)
+                if (new Regex(kw).Match(phrase).Success && !new Regex(phrase).Match(rString).Success)
+                {                    
+                    phrases.RemoveAt(count);
+                    return phrase;
+                }
+                ++count;
+            }
+            return kw;
+        }
+
+        private static string addKeywordsOrPhrases(List<string> keywords, List<string> phrases, string rString)
+        {
+            int count = 0;
+            foreach (var kw in keywords)
+            {
+                if (count != 0)
                 {
-                    if (s != null)
-                    {
-                        rString = rString + s + (count == 0 ? " | " : "");
-                        count++;
-                    }
+                    rString += "\n";
+                }
+                rString += checkForPhrase(kw, rString, phrases);
+                ++count;
+            }
+            return rString;
+        }
+
+        private static string addHrefs(List<string> hrefs, string rString)
+        {
+            rString += "\nRelated documents:\n";
+            int count = 0;
+            foreach (string s in hrefs)
+            {
+                if (s != null)
+                {
+                    rString += s + (count == 0 ? " | " : "");
+                    count++;
                 }
             }
             return rString;
-        }*/
+        }
 
+        public static List<string> getPhrases(string strOutput)
+        {
+            IronPython.Runtime.PythonGenerator gen = (IronPython.Runtime.PythonGenerator)phrase_generator.eval_string(strOutput);
+            List<string> phraseList = new List<string>();
+            foreach (string str in gen.Cast<string>())
+            {
+                phraseList.Add(str);
+            }
+            return phraseList;
+        }
+
+        public static string backendCommand(string paragraph)
+        {
             phrase_generator = phrase_generator_task.Result;
             //will not handle ands and such since it just takes paragraph
             string rString = "This article covers topics and keywords related to: \n";
-            foreach (var response in getNewQueryHandler().handleQuery(new string[] { paragraph }))
+            var responses = getNewQueryHandler().handleQuery(new string[] { paragraph });
+            foreach (var response in responses)
             {
-                string text = "";
-                foreach (var element in response.elements)
-                {
-                    text = text + " " + element;
-                }
-                //phrase_generator.text_to_phrases(str, response.keywords);
+                string text = getFullText(response.elements);
+                //dynamic a = phrase_generator.text_to_phrases(text, response.keywords);
+                //Console.WriteLine(IronPython.Modules.Builtin.len(a));
+                string strOutput = callPython(getCommand(response.keywords, text));
 
-                foreach (var kw in response.keywords)
-                {
-                    rString += kw + "\n";
-                }
+                /*var dict = new IronPython.Runtime.PythonDictionary();
+                var scriptDomain = new IronPython.Runtime.ScriptDomainManager();
+                var pcontext = new IronPython.Runtime.PythonContext(scriptDomain);
+                var module = new IronPython.Runtime.ModuleContext(dict, pcontext);
+                dynamic retList = IronPython.Modules.Builtin.eval(new IronPython.Runtime.CodeContext(dict, module), strOutput);*/
 
+                //dynamic retList = engine.Execute("eval(\""+ strOutput + "\")");
+                List<string> phrases = getPhrases(strOutput);
+
+                rString = addKeywordsOrPhrases(response.keywords, phrases, rString);
                 if (response.hrefs.Count() > 1)
                 {
-                    rString += "\nRelated documents:\n";
-                    int count = 0;
-                    foreach (string s in response.hrefs)
-                    {
-                        if (s != null)
-                        {
-                            rString = rString + s + (count == 0 ? " | " : "");
-                            count++;
-                        }
-                    }
+                    rString = addHrefs(response.hrefs, rString);   
                 }
             }
             return rString;

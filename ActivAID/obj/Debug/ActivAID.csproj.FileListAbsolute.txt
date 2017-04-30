@@ -151,3 +151,4 @@ C:\Users\Matthew\Desktop\cleanActiAID\ActivAID\ActivAID\bin\Debug\IronPython.Mod
 C:\Users\Matthew\Desktop\cleanActiAID\ActivAID\ActivAID\bin\Debug\IronPython.SQLite.xml
 C:\Users\Matthew\Desktop\cleanActiAID\ActivAID\ActivAID\bin\Debug\IronPython.Wpf.xml
 C:\Users\Matthew\Desktop\cleanActiAID\ActivAID\ActivAID\bin\Debug\Microsoft.Scripting.AspNet.xml
+C:\Users\Matthew\Desktop\cleanActiAID\ActivAID\ActivAID\bin\Debug\ICSharpCode.SharpZipLib.dll
