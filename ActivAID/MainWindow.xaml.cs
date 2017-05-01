@@ -105,11 +105,9 @@ namespace ActivAID
             {
                 SendButton_action();
                 InputBox.Clear();
-                if (!mic.IsEnabled)
-                {
-                    mic.IsEnabled = true;
-                    sRecognize.RecognizeAsyncStop();
-                }
+
+                mic.IsEnabled = true;
+                sRecognize.RecognizeAsyncStop();
 
                 
             }
