@@ -29,7 +29,7 @@ namespace ActivAID
         public Boolean mainBOTmsg;
         public Func<string, string> stringOp;
         public Func<string[], string[]> summarize;
-        SpeechRecognitionEngine sRecognize = new SpeechRecognitionEngine(); //-----intialize speech recogniztion
+        SpeechRecognitionEngine sRecognize; //-----intialize speech recogniztion
 
         public MainWindow()
         {
@@ -106,17 +106,23 @@ namespace ActivAID
                 SendButton_action();
                 InputBox.Clear();
 
+                if (!mic.IsEnabled)
+                {
+                    sRecognize.RecognizeAsyncStop();
+                }
                 mic.IsEnabled = true;
-                sRecognize.RecognizeAsyncStop();
-                sRecognize.Dispose();
+                mic.Visibility = System.Windows.Visibility.Visible;
 
-                
+
+
             }
         }
 
         private void voiceControl_OnClick(object sender, RoutedEventArgs e)
         {
+            sRecognize = new SpeechRecognitionEngine();
             InputBox.Clear();
+            mic.Visibility = System.Windows.Visibility.Collapsed;
             mic.IsEnabled = false;
             Choices sList = new Choices();
             sList.Add(new string[] {"Reset my drivers", "take me to the astronics website","voice", "recognition", "hello", "astronics", "bot", "can", "website", "how", "are", "you", "the", "help"});
