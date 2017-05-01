@@ -108,6 +108,7 @@ namespace ActivAID
 
                 mic.IsEnabled = true;
                 sRecognize.RecognizeAsyncStop();
+                sRecognize.Dispose();
 
                 
             }
