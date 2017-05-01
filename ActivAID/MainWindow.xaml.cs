@@ -118,7 +118,7 @@ namespace ActivAID
             InputBox.Clear();
             mic.IsEnabled = false;
             Choices sList = new Choices();
-            sList.Add(new string[] {"voice", "recognition", "hello", "astronics", "bot", "can", "website", "how", "are", "you", "the", "help"});
+            sList.Add(new string[] {"Reset my drivers", "take me to the astronics website","voice", "recognition", "hello", "astronics", "bot", "can", "website", "how", "are", "you", "the", "help"});
             Grammar gr = new Grammar(new GrammarBuilder(sList));
             try
             {
