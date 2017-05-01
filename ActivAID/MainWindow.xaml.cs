@@ -9,6 +9,9 @@ using System;
 using System.Windows.Controls.Primitives;
 using System.Collections.Generic;
 using System.Windows.Media.Imaging;
+using System.Speech.Synthesis;
+using System.Speech.Recognition;
+using System.Threading;
 
 namespace ActivAID
 {
@@ -26,11 +29,14 @@ namespace ActivAID
         public Boolean mainBOTmsg;
         public Func<string, string> stringOp;
         public Func<string[], string[]> summarize;
-        
+        SpeechRecognitionEngine sRecognize = new SpeechRecognitionEngine(); //-----intialize speech recogniztion
 
         public MainWindow()
         {
-            BackEnd.loadIronPython();
+           
+            
+            //
+            //BackEnd.loadIronPython();
             InitializeComponent();
             InputBox.TextChanged += OnTextChangedHandler;
             Chatbot = new SimlBot();
@@ -98,7 +104,41 @@ namespace ActivAID
             if (!string.IsNullOrWhiteSpace(InputBox.Text)) //Check if the entry isn't empty
             {
                 SendButton_action();
+                InputBox.Clear();
+                if (!mic.IsEnabled)
+                {
+                    mic.IsEnabled = true;
+                    sRecognize.RecognizeAsyncStop();
+                }
+
+                
             }
+        }
+
+        private void voiceControl_OnClick(object sender, RoutedEventArgs e)
+        {
+            InputBox.Clear();
+            mic.IsEnabled = false;
+            Choices sList = new Choices();
+            sList.Add(new string[] {"voice", "recognition", "hello", "astronics", "bot", "can", "website", "how", "are", "you", "the", "help"});
+            Grammar gr = new Grammar(new GrammarBuilder(sList));
+            try
+            {
+                sRecognize.RequestRecognizerUpdate();
+                sRecognize.LoadGrammar(gr);
+                sRecognize.SpeechRecognized += SRecognize_SpeechRecognized;
+                sRecognize.SetInputToDefaultAudioDevice();
+                sRecognize.RecognizeAsync(RecognizeMode.Multiple);
+            }
+            catch
+            {
+                return;
+            }
+        }
+
+        private void SRecognize_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
+        {
+            InputBox.Text += " " + e.Result.Text.ToString();
         }
 
         private void MainWindow_Creator()
@@ -179,19 +219,19 @@ namespace ActivAID
             OutputBox.Items.Add(botmsg); // Adding to Listbox
             OutputBox.SelectedIndex = OutputBox.Items.Count - 1; //Setting the GUI to point to the last time in the ListBox everytime
             OutputBox.SelectedIndex = -1;
-            if (!unixCommands(outPut))//checks for specific responses by the bot to perform functions
-            {
-                try
-                {
-                    txtBlockbot.Text = BackEnd.backendCommand(InputBox.Text);
-                }
-                catch(NoFileMatchException)
-                {
-                    txtBlockbot.Text = "I'm hearing ya... I just don't getcha. Can you make your request more specific?";
-                }
-                //Console.WriteLine(InputBox.Text+"::: yo");
-            }
-            InputBox.Text = string.Empty;
+            //if (!unixCommands(outPut))//checks for specific responses by the bot to perform functions
+            //{
+            //    try
+            //    {
+            //        txtBlockbot.Text = BackEnd.backendCommand(InputBox.Text);
+            //    }
+            //    catch(NoFileMatchException)
+            //    {
+            //        txtBlockbot.Text = "I'm hearing ya... I just don't getcha. Can you make your request more specific?";
+            //    }
+            //    //Console.WriteLine(InputBox.Text+"::: yo");
+            //}
+            //InputBox.Text = string.Empty;
             //unixCommands(outPut);
         }
         /*
@@ -320,6 +360,7 @@ namespace ActivAID
             if (e.Key == Key.Return && !string.IsNullOrWhiteSpace(InputBox.Text))
             {
                 SendButton_OnClick(sender, e);
+                
             }
         }
 

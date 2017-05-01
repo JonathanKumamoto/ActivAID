@@ -46,9 +46,12 @@
             <Image x:Name="image1" HorizontalAlignment="Left" Height="24" Margin="463,8,0,0" VerticalAlignment="Top" Width="25" Source="/Media/iconSettings.png" MouseLeftButtonDown="SettingsButton_OnClick"/>
 
 
-            <ListBox x:Name="OutputBox" Margin="51,66,50.8,86.6" Background="{x:Null}" BorderBrush="{x:Null}" />
-            <Image x:Name="mic" HorizontalAlignment="Left" Height="25" Margin="10,496,0,0" VerticalAlignment="Top" Width="29" Source="/Media/iconMicroPhone.png" Opacity="1" Cursor="Hand"/>
+            <ListBox x:Name="OutputBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="22,66,22,87" Background="{x:Null}" BorderBrush="{x:Null}" />
+
             <Image x:Name="clear" HorizontalAlignment="Left" Height="25" Margin="446,497,0,0" VerticalAlignment="Top" Width="24" Source="Media/close.png" Opacity="0.4" Cursor="Hand" MouseLeftButtonDown="ClearTextBox_OnMouseLeftButtonUp" Visibility="Collapsed"/>
+            <Button x:Name="mic" Click="voiceControl_OnClick" HorizontalAlignment="Left" Margin="10,495,0,0" VerticalAlignment="Top" Width="24" Height="28"  Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image x:Name="micImage" HorizontalAlignment="Center" Height="21" VerticalAlignment="Center" Width="27" Grid.Column="1" Source="/Media/iconMicroPhone.png" Opacity="1" Cursor="Hand"/>
+            </Button>
         </Grid>
 
     </Border>
