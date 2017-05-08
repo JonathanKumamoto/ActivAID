@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Speech.Synthesis;
 using System.Speech.Recognition;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace ActivAID
 {
@@ -27,6 +28,7 @@ namespace ActivAID
         public int fontSize;
         public String GoldBOT;
         public Boolean mainBOTmsg;
+        public Boolean RobotResponding;
         public Func<string, string> stringOp;
         public Func<string[], string[]> summarize;
         SpeechRecognitionEngine sRecognize; //-----intialize speech recogniztion
@@ -35,7 +37,7 @@ namespace ActivAID
         {
            
             
-            //
+            
             //BackEnd.loadIronPython();
             InitializeComponent();
             InputBox.TextChanged += OnTextChangedHandler;
@@ -50,6 +52,7 @@ namespace ActivAID
             fontSize = 16;
             GoldBOT = "botmsg";
             mainBOTmsg = true;
+            RobotResponding = false;
             defineFunctionObjects();
             UserInputBoiler uib = new UserInputBoiler();
             DataAccess dA = new DataAccessDB();
@@ -101,20 +104,25 @@ namespace ActivAID
 
         private void SendButton_OnClick(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(InputBox.Text)) //Check if the entry isn't empty
+            if (!RobotResponding) //give an option for lee way as the developer to give time for the bot to respond.
             {
-                SendButton_action();
-                InputBox.Clear();
+                RobotResponding = true;
 
-                if (!mic.IsEnabled)
+                if (!string.IsNullOrWhiteSpace(InputBox.Text)) //Check if the entry isn't empty
                 {
-                    sRecognize.RecognizeAsyncStop();
+                    SendButton_action();
+                    InputBox.Clear();
+
+                    if (!mic.IsEnabled)
+                    {
+                        sRecognize.RecognizeAsyncStop();
+                    }
+                    mic.IsEnabled = true;
+                    mic.Visibility = System.Windows.Visibility.Visible;
+
+
+
                 }
-                mic.IsEnabled = true;
-                mic.Visibility = System.Windows.Visibility.Visible;
-
-
-
             }
         }
 
@@ -183,8 +191,7 @@ namespace ActivAID
             TextBlock txtBlockbot = new TextBlock();
             txtBlockuser.TextWrapping = TextWrapping.Wrap;
             txtBlockbot.TextWrapping = TextWrapping.Wrap;
-            var result = Chatbot.Chat(InputBox.Text);
-            string outPut = result.BotMessage;
+            
             txtBlockuser.Text = InputBox.Text;
             usermsg.Name = "usermsg";   //user input box
             usermsg.Target = OutputBox;
@@ -203,7 +210,44 @@ namespace ActivAID
             Mouse.OverrideCursor = null;
             UserBubble_Creator(false);
             OutputBox.Items.Add(usermsg); //Add to ListBox
-            //Bot message creator, txtblock inside of a Label
+            //-----------------------------------------------------------------------------------------
+         
+            OutputBox.Items.MoveCurrentToLast();
+            OutputBox.SelectedItem = OutputBox.Items.CurrentItem;
+            OutputBox.ScrollIntoView(OutputBox.Items.CurrentItem);
+
+            
+            SendButton_actionBOT();
+            //if (!unixCommands(outPut))//checks for specific responses by the bot to perform functions
+            //{
+            //    try
+            //    {
+            //        txtBlockbot.Text = BackEnd.backendCommand(InputBox.Text);
+            //    }
+            //    catch(NoFileMatchException)
+            //    {
+            //        txtBlockbot.Text = "I'm hearing ya... I just don't getcha. Can you make your request more specific?";
+            //    }
+            //    //Console.WriteLine(InputBox.Text+"::: yo");
+            //}
+            //InputBox.Text = string.Empty;
+            //unixCommands(outPut);
+        }
+
+        private async void SendButton_actionBOT()
+        {
+            await Task.Delay(500);
+            TextBlock txtBlockbot = new TextBlock();
+            txtBlockbot.TextWrapping = TextWrapping.Wrap;
+            var result = Chatbot.Chat(InputBox.Text);
+            //----------------------------------------------------------------------------------------
+            /*
+             * ADD: Timer to have robot wait and no immediately reply to the user.
+             * 
+             */
+            //int milliseconds = 1000;
+            //Thread.Sleep(milliseconds);
+            //-----------------------------------------------------------------------------------------
             txtBlockbot.Text = result.BotMessage;
             botmsg = new Label();
             botmsg.Name = "botmsg";   //bot's response box
@@ -222,23 +266,13 @@ namespace ActivAID
             botmsg.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom(FontColor));
             UserBubble_Creator(true);
             OutputBox.Items.Add(botmsg); // Adding to Listbox
-            OutputBox.SelectedIndex = OutputBox.Items.Count - 1; //Setting the GUI to point to the last time in the ListBox everytime
-            OutputBox.SelectedIndex = -1;
-            //if (!unixCommands(outPut))//checks for specific responses by the bot to perform functions
-            //{
-            //    try
-            //    {
-            //        txtBlockbot.Text = BackEnd.backendCommand(InputBox.Text);
-            //    }
-            //    catch(NoFileMatchException)
-            //    {
-            //        txtBlockbot.Text = "I'm hearing ya... I just don't getcha. Can you make your request more specific?";
-            //    }
-            //    //Console.WriteLine(InputBox.Text+"::: yo");
-            //}
-            //InputBox.Text = string.Empty;
-            //unixCommands(outPut);
+
+            OutputBox.Items.MoveCurrentToLast();
+            OutputBox.SelectedItem = OutputBox.Items.CurrentItem;
+            OutputBox.ScrollIntoView(OutputBox.Items.CurrentItem);
+            RobotResponding = false;
         }
+
         /*
         private void SendButton_OnClick(object sender, RoutedEventArgs e)
         {
@@ -298,6 +332,7 @@ namespace ActivAID
             InputBox.Text = string.Empty;
         }
         */
+
         private void CloseButton_OnClick(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();

@@ -9,7 +9,64 @@
         Name="main"
         Title="ActivAID" Height="541.264" Width="536.861" WindowStartupLocation="Manual" FontFamily="Arial" Background="Transparent" AllowsTransparency="True">
     <Window.Resources>
-        <!-- Put in any styles needed for window. Similar to that of an HTML <header> area -->
+        <!-- Put in any styles needed for window. Similar to that of an HTML <header> area  -->
+
+        <Style x:Key="ListBoxtemStyleNoHighlighting" TargetType="ListBoxItem">
+            <Setter Property="Padding" Value="3"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalContentAlignment" Value="Top"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Grid Background="{TemplateBinding Background}">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="MouseOver"/>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="SelectionStates">
+                                    <VisualState x:Name="Unselected"/>
+                                    <VisualState x:Name="Selected"/>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="FocusStates">
+                                    <VisualState x:Name="Focused"/>
+                                    <VisualState x:Name="Unfocused"/>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Rectangle x:Name="fillColor" Fill="#FFBADDE9" IsHitTestVisible="False"
+                                Opacity="0" RadiusY="1" RadiusX="1"/>
+                            <Rectangle x:Name="fillColor2" Fill="#FFBADDE9" IsHitTestVisible="False"
+                                    Opacity="0" RadiusY="1" RadiusX="1"/>
+                            <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}"
+                                        Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                        Margin="{TemplateBinding Padding}"/>
+                            <Rectangle x:Name="FocusVisualElement" RadiusY="1" RadiusX="1" Stroke="#FF6DBDD1"
+                                            StrokeThickness="1" Visibility="Collapsed"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="LayoutTransform">
+                <Setter.Value>
+                    <ScaleTransform x:Name="transform" />
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:1" />
+                                <DoubleAnimation Storyboard.TargetProperty="LayoutTransform.ScaleY" From="0" Duration="0:0:.2"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+
     </Window.Resources>
 
     <Border BorderThickness="3" CornerRadius="4" BorderBrush="#35517b" Background="#35517b">
@@ -27,14 +84,6 @@
                 <TextBox.Style>
 
                     <Style TargetType="{x:Type TextBox}">
-                        <!--
-                        <Style.Triggers>
-                            <Trigger Property="IsFocused" Value="True"/>
-                        
-                                        <Image x:Name="search" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="32" Grid.Column="1" Source="/Media/magglass.png" Opacity="0.6" Cursor="Hand"/>
-
-                        </Style.Triggers>
-                        -->
                     </Style>
 
                 </TextBox.Style>
@@ -45,8 +94,9 @@
             </Button>
             <Image x:Name="image1" HorizontalAlignment="Left" Height="24" Margin="463,8,0,0" VerticalAlignment="Top" Width="25" Source="/Media/iconSettings.png" MouseLeftButtonDown="SettingsButton_OnClick"/>
 
-
-            <ListBox x:Name="OutputBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="22,66,22,87" Background="{x:Null}" BorderBrush="{x:Null}" />
+            <ListBox x:Name="OutputBox" SelectedItem="{Binding checkedListBox1__SelectedIndexChanged, Mode=TwoWay}" ScrollViewer.CanContentScroll="False" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden" Margin="22,66,22,87" Background="{x:Null}" BorderBrush="{x:Null}" ItemContainerStyle="{StaticResource ListBoxtemStyleNoHighlighting}">
+                
+            </ListBox>
 
             <Image x:Name="clear" HorizontalAlignment="Left" Height="25" Margin="446,497,0,0" VerticalAlignment="Top" Width="24" Source="Media/close.png" Opacity="0.4" Cursor="Hand" MouseLeftButtonDown="ClearTextBox_OnMouseLeftButtonUp" Visibility="Collapsed"/>
             <Button x:Name="mic" Click="voiceControl_OnClick" HorizontalAlignment="Left" Margin="10,495,0,0" VerticalAlignment="Top" Width="24" Height="28"  Background="{x:Null}" BorderBrush="{x:Null}">
