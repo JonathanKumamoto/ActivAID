@@ -166,7 +166,8 @@ namespace Parser
         public ParsedCHM(string file)
         {
 			buff = new List<Element>();
-			hrefs = new List<string>(); 
+			hrefs = new List<string>();
+            blocks = new List<List<Element>>();
             HtmlDocument hDoc = new HtmlDocument();
             hDoc.Load(file);
             HtmlNode titleNode = getFirstNameOccurance(hDoc.DocumentNode.Descendants(), "title");
