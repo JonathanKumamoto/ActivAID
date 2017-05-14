@@ -18,6 +18,7 @@ namespace ActivAID
 {
     public partial class MainWindow
     {
+        public string outPut;
         public SimlBot Chatbot; //the SimlBot variable
         public Label usermsg;
         public Label botmsg;
@@ -38,7 +39,7 @@ namespace ActivAID
            
             
             
-            //BackEnd.loadIronPython();
+            BackEnd.loadIronPython();
             InitializeComponent();
             InputBox.TextChanged += OnTextChangedHandler;
             Chatbot = new SimlBot();
@@ -218,20 +219,21 @@ namespace ActivAID
 
             
             SendButton_actionBOT();
-            //if (!unixCommands(outPut))//checks for specific responses by the bot to perform functions
-            //{
-            //    try
-            //    {
-            //        txtBlockbot.Text = BackEnd.backendCommand(InputBox.Text);
-            //    }
-            //    catch(NoFileMatchException)
-            //    {
-            //        txtBlockbot.Text = "I'm hearing ya... I just don't getcha. Can you make your request more specific?";
-            //    }
-            //    //Console.WriteLine(InputBox.Text+"::: yo");
-            //}
-            //InputBox.Text = string.Empty;
-            //unixCommands(outPut);
+            if (!unixCommands(outPut))//checks for specific responses by the bot to perform functions
+            {
+                Console.WriteLine(outPut + "reponse\n\n\n");
+                try
+                {
+                    txtBlockbot.Text = BackEnd.backendCommand(InputBox.Text);
+                }
+                catch(NoFileMatchException)
+                {
+                    txtBlockbot.Text = "i'm hearing ya... i just don't getcha. can you make your request more specific?";
+                }
+                //console.writeline(inputbox.text+"::: yo");
+            }
+           InputBox.Text = string.Empty;
+           //unixcommands(output);
         }
 
         private async void SendButton_actionBOT()
@@ -249,6 +251,7 @@ namespace ActivAID
             //Thread.Sleep(milliseconds);
             //-----------------------------------------------------------------------------------------
             txtBlockbot.Text = result.BotMessage;
+            outPut = result.BotMessage;
             botmsg = new Label();
             botmsg.Name = "botmsg";   //bot's response box
             botmsg.Target = OutputBox;

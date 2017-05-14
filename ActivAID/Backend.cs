@@ -43,40 +43,40 @@ namespace ActivAID
             return maxStrings;
         }
 
-        //public static void loadIronPython()//Tuple<ScriptEngine, ScriptScope> loadIronPython()
-        //{
-        //    //if (builtinscope == null && phrase_generator == null)
-        //    if (phrase_generator_task == null)
-        //    {
-        //        phrase_generator_task = Task<dynamic>.Factory.StartNew
-        //        (() =>
-        //        {
-        //            var options = new Dictionary<string, object>();
-        //            options["Frames"] = true;
-        //            options["FullFrames"] = true;
-        //            ScriptEngine engine = Python.CreateEngine(options);
-        //            //points to python site-packages
-        //            string spackagesPath = Environment.GetEnvironmentVariable("SPACKAGES");
-        //            //points to python libs
-        //            string libsPath = Environment.GetEnvironmentVariable("LIBS");
-        //            //points to phrase generator script
-        //            string codePath = Environment.GetEnvironmentVariable("CODE");
-        //            var searchPaths = engine.GetSearchPaths();
-        //            //path to site-packages
-        //            //searchPaths.Add(codePath);
-        //            searchPaths.Add(codePath);
-        //            searchPaths.Add(spackagesPath);
-        //            searchPaths.Add(libsPath);
-        //            engine.SetSearchPaths(searchPaths);
-        //            return engine.ImportModule("phrase_generator");
-        //        });
+       public static void loadIronPython()//tuple<scriptengine, scriptscope> loadironpython()
+        {
+            //if (builtinscope == null && phrase_generator == null)
+            if (phrase_generator_task == null)
+            {
+                phrase_generator_task = Task<dynamic>.Factory.StartNew
+                (() =>
+                {
+                    var options = new Dictionary<string, object>();
+                    options["Frames"] = true;
+                   options["FullFrames"] = true;
+                    ScriptEngine engine = Python.CreateEngine(options);
+                    //points to python site-packages
+                    string spackagespath = Environment.GetEnvironmentVariable("spackages");
+                    //points to python libs
+                    string libspath = Environment.GetEnvironmentVariable("libs");
+                    //points to phrase generator script
+                    string codepath = Environment.GetEnvironmentVariable("code");
+                    var searchpaths = engine.GetSearchPaths();
+                    //path to site-packages
+                    //searchpaths.add(codepath);
+                    searchpaths.Add(codepath);
+                    searchpaths.Add(spackagespath);
+                    searchpaths.Add(libspath);
+                    engine.SetSearchPaths(searchpaths);
+                    return engine.ImportModule("phrase_generator");
+                });
 
 
-        //        //builtinscope = Python.GetBuiltinModule(engine);
-        //        //phrase_generator = engine.ImportModule("phrase_generator");
-        //    }
-        //    //return new Tuple<ScriptEngine, ScriptScope>(phrase_generator, builtinscope);
-        //}
+                //builtinscope = python.getbuiltinmodule(engine);
+                //phrase_generator = engine.importmodule("phrase_generator");
+            }
+            //return new tuple<scriptengine, scriptscope>(phrase_generator, builtinscope);
+        }
 
         private static BlockDataAndKeyWords getTupList(List<Tuple<string, string[]>> block)
         {
@@ -221,35 +221,36 @@ namespace ActivAID
             return phraseList;
         }
 
-        //public static string backendCommand(string paragraph)
-        //{
-        //    phrase_generator = phrase_generator_task.Result;
-        //    //will not handle ands and such since it just takes paragraph
-        //    string rString = "This article covers topics and keywords related to: \n";
-        //    var responses = getNewQueryHandler().handleQuery(new string[] { paragraph });
-        //    foreach (var response in responses)
-        //    {
-        //        string text = getFullText(response.elements);
-        //        //dynamic a = phrase_generator.text_to_phrases(text, response.keywords);
-        //        //Console.WriteLine(IronPython.Modules.Builtin.len(a));
-        //        string strOutput = callPython(getCommand(response.keywords, text));
+        public static string backendCommand(string paragraph)
+        {
+            phrase_generator = phrase_generator_task.Result;
+            //will not handle ands and such since it just takes paragraph
+            string rString = "This article covers topics and keywords related to: \n";
+            var responses = getNewQueryHandler().handleQuery(new string[] { paragraph });
+            foreach (var response in responses)
+            {
 
-        //        /*var dict = new IronPython.Runtime.PythonDictionary();
-        //        var scriptDomain = new IronPython.Runtime.ScriptDomainManager();
-        //        var pcontext = new IronPython.Runtime.PythonContext(scriptDomain);
-        //        var module = new IronPython.Runtime.ModuleContext(dict, pcontext);
-        //        dynamic retList = IronPython.Modules.Builtin.eval(new IronPython.Runtime.CodeContext(dict, module), strOutput);*/
+                string text = getFullText(response.elements);
+                //dynamic a = phrase_generator.text_to_phrases(text, response.keywords);
+                //Console.WriteLine(IronPython.Modules.Builtin.len(a));
+                string strOutput = callPython(getCommand(response.keywords, text));
 
-        //        //dynamic retList = engine.Execute("eval(\""+ strOutput + "\")");
-        //        List<string> phrases = getPhrases(strOutput);
+                /*var dict = new IronPython.Runtime.PythonDictionary();
+                var scriptDomain = new IronPython.Runtime.ScriptDomainManager();
+                var pcontext = new IronPython.Runtime.PythonContext(scriptDomain);
+                var module = new IronPython.Runtime.ModuleContext(dict, pcontext);
+                dynamic retList = IronPython.Modules.Builtin.eval(new IronPython.Runtime.CodeContext(dict, module), strOutput);*/
 
-        //        rString = addKeywordsOrPhrases(response.keywords, phrases, rString);
-        //        if (response.hrefs.Count() > 1)
-        //        {
-        //            rString = addHrefs(response.hrefs, rString);   
-        //        }
-        //    }
-        //    return rString;
-        //}
+               // dynamic retList = engine.Execute("eval(\""+ strOutput + "\")");
+                List<string> phrases = getPhrases(strOutput);
+
+                rString = addKeywordsOrPhrases(response.keywords, phrases, rString);
+                if (response.hrefs.Count() > 1)
+                {
+                    rString = addHrefs(response.hrefs, rString);
+                }
+            }
+            return rString;
+        }
     }
 }
