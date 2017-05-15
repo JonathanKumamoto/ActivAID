@@ -56,11 +56,11 @@ namespace ActivAID
                    options["FullFrames"] = true;
                     ScriptEngine engine = Python.CreateEngine(options);
                     //points to python site-packages
-                    string spackagespath = Environment.GetEnvironmentVariable("spackages");
+                    string spackagespath = Environment.GetEnvironmentVariable("SPACKAGES");
                     //points to python libs
-                    string libspath = Environment.GetEnvironmentVariable("libs");
+                    string libspath = Environment.GetEnvironmentVariable("LIBS");
                     //points to phrase generator script
-                    string codepath = Environment.GetEnvironmentVariable("code");
+                    string codepath = Environment.GetEnvironmentVariable("CODE");
                     var searchpaths = engine.GetSearchPaths();
                     //path to site-packages
                     //searchpaths.add(codepath);
