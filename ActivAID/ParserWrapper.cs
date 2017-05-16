@@ -89,6 +89,7 @@ namespace Parser
             parsedCHMs = new Dictionary<string, ParsedCHM>();
             foreach (string file in filePaths)
             {
+                db.insertIntoFiles(file);
                 parsedCHMs[file] = new ParsedCHM(file);
             }
             initializeFGEXES();
