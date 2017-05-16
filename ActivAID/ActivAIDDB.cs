@@ -19,10 +19,10 @@ namespace ActivAID
         // private int elementCounter;
         public ActivAIDDB()
         {
-            dblocation = "Server=.\\SQLEXPRESS;Database=ActivAID DB Full Backup;Integrated Security=true";
+            dblocation = "Server=.;Database=ActivAID DB SecondTry;Integrated Security=true";
             // elementCounter = 0;
             builder = new SqlConnectionStringBuilder();
-            builder.DataSource = @"LAPTOP-58D7RN3K\SQLEXPRESS (SQL Server 12.0.2000 - LAPTOP-58D7RN3K\Matthew)"; // CHANGE THIS TO YOUR OWN SERVER
+            builder.DataSource = @"LAPTOP-58D7RN3K (SQL Server 12.0.2000 - LAPTOP-58D7RN3K\Matthew)"; // CHANGE THIS TO YOUR OWN SERVER
             //builder.DataSource = "IP Address\SQLEXPRESS, 49172"
             builder.InitialCatalog = "ActivAID DB Full Backup";
             builder.IntegratedSecurity = false;
