@@ -80,7 +80,7 @@ namespace Parser
             else
             {
                 action(filePath);
-            }                        
+            }
         }
 
         public ParserWrapper(List<string> filePaths)
@@ -110,7 +110,7 @@ namespace Parser
                     }
                     else
                     {
-                        
+
                         db.insertIntoElements(filePath, blockCount, element.data);
                     }
                     ++blockCount;
@@ -118,7 +118,7 @@ namespace Parser
             }
         }
 
-      private void insertHREFSOIntoDB(string filePath, List<string> hrefs)
+        private void insertHREFSOIntoDB(string filePath, List<string> hrefs)
         {
             foreach (string href in hrefs)
             {
@@ -130,12 +130,19 @@ namespace Parser
         {
             Func<string[], string[]> summarize = new Func<string[], string[]>((toSummarize) =>
             {
+
+                Func<string, string> stringOp = new Func<string, string>((x) =>
+                {
+                    var temp = x;
+                    new HTMLMessager().removeFromLine(ref temp);
+                    return temp;
+                });
                 // Need to change
                 List<string> sumList = new List<string>();
                 OpenTextSummarizer.SummarizerArguments args = new OpenTextSummarizer.SummarizerArguments();
-                args.InputString = String.Join(" ", toSummarize);
+                args.InputString = String.Join(" ", toSummarize.Select((x) => stringOp(x)).ToArray());
                 OpenTextSummarizer.SummarizedDocument sd = OpenTextSummarizer.Summarizer.Summarize(args);
-                return sd.Concepts.Take(4).ToArray();
+                return sd.Concepts.Take(5).ToArray();
             });
 
             string regexPattern = "";
@@ -185,7 +192,7 @@ namespace Parser
 
         }
         private void insertRegexIntoConfig()
-        {       
+        {
             using (Stream fileStream = new FileStream("config_patterns.xml", FileMode.Create, FileAccess.Write, FileShare.None))
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(RegexList));
