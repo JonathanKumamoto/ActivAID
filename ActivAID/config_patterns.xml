@@ -330,5 +330,2962 @@
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\WindowMenu.html</fileName>
       <pattern>|group|new|open</pattern>
     </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\AddingDrivers.html</fileName>
+      <pattern>|classes|adding|assembly</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\AdvancedFeatures.html</fileName>
+      <pattern>|advanced|environment|updated</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ClientSide.html</fileName>
+      <pattern>|client|user|setup</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CommandWindow.html</fileName>
+      <pattern>|command|test|script</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ConstantDefinitions.html</fileName>
+      <pattern>|=|const|public</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CreatingDrivers.html</fileName>
+      <pattern>|gui|worker|creating</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CreatingDriversPart2.html</fileName>
+      <pattern>|enums|types|called</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CreatingDriversPart3.html</fileName>
+      <pattern>|object|class|gui</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CustomizeMenuItems.html</fileName>
+      <pattern>|items|button|click</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DebuggerCommands.html</fileName>
+      <pattern>|debugger|line|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DebuggerOverview.html</fileName>
+      <pattern>|programs|debugger|watch</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DeleteUser.html</fileName>
+      <pattern>|deleting|select||</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DeletingDrivers.htm</fileName>
+      <pattern>|deleting|button|changes</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DotNetTestPrograms.html</fileName>
+      <pattern>|programs|file|new</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DriverConfiguration.htm</fileName>
+      <pattern>|configuration|test|drivers</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\EditMenu_EditToolbar.html</fileName>
+      <pattern>|select|bookmarks|editor</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\EditUser.html</fileName>
+      <pattern>|editing|fields|updated</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ExecuteOnTerminating.html</fileName>
+      <pattern>|test|programs|call</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\FileMenu_StandardToolbar.html</fileName>
+      <pattern>|test|program|menu</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\GroupNodeProps.html</fileName>
+      <pattern>|properties|test|group</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\GroupNodeTemplates.htm</fileName>
+      <pattern>|group|node|new</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ImportScriptErrors.html</fileName>
+      <pattern>|script|file|imported</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ImportStatement.html</fileName>
+      <pattern>|files|y|</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\LocalsWindow.html</fileName>
+      <pattern>|watch|window|values</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\LoginManager.html</fileName>
+      <pattern>|accounts|administrator|manager</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\MacroRecord.html</fileName>
+      <pattern>|macro|method|calls</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\MenusAndToolbars.html</fileName>
+      <pattern>|menus|||files</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ModifiyingDrivers.htm</fileName>
+      <pattern>|driver|properties|name</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NewGroup.html</fileName>
+      <pattern>|nodes|new|name</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NewTest.html</fileName>
+      <pattern>|nodes|new|name</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NewTestProgram.html</fileName>
+      <pattern>|program|new|file</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NewUser.html</fileName>
+      <pattern>|new|password|adding</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NodeDragDrop.html</fileName>
+      <pattern>|test|program|group</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NullScriptName.html</fileName>
+      <pattern>|y|=|declare</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\OptionsDialog.html</fileName>
+      <pattern>|settings|dialog|path</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\Overview.html</fileName>
+      <pattern>|code|environment|vbscript</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageMngr.html</fileName>
+      <pattern>|package|sequence|name</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageMngr_Creation.html</fileName>
+      <pattern>|file|activate|log</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageMngr_DataFiles.html</fileName>
+      <pattern>|folder|data|project</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageMngr_Usage.html</fileName>
+      <pattern>|package|test|project</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageOptionsPlugins.html</fileName>
+      <pattern>|plugins|below|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\Plugins.html</fileName>
+      <pattern>|test|programs|activate</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PredefinedObjects.html</fileName>
+      <pattern>|node|programs|		</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ProjectManager.html</fileName>
+      <pattern>|files|test|programs</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PropertiesPage.html</fileName>
+      <pattern>|test|nodes|page</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ProtectFiles.html</fileName>
+      <pattern>|program|files|protect</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\RemoteClientDisconnecting.html</fileName>
+      <pattern>|server|disconnecting|remoting</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\RemoteClientSetup.html</fileName>
+      <pattern>|remote|server|menu</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\RemoteRunningTests.html</fileName>
+      <pattern>|tests|server|clients</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ReportCustomize.html</fileName>
+      <pattern>|xmlns:v="urn:schemas-microsoft-com:vml"/&gt;|report|&lt;v:f</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\RunningTestProgram.html</fileName>
+      <pattern>|program|running|ide</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SaveConfiguration.htm</fileName>
+      <pattern>|saving|
+	|load</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ScriptErrors.html</fileName>
+      <pattern>|errors|window|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ScriptTraceLogWindow.html</fileName>
+      <pattern>|trace|log|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ServerSide.html</fileName>
+      <pattern>|server|slots|setup</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\StartPage_pg2.htm</fileName>
+      <pattern>|title|start|page</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\StartupPage.html</fileName>
+      <pattern>|feeds|page|start</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SystemController.htm</fileName>
+      <pattern>|programs|ide|environment</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SystemController_pg2.htm</fileName>
+      <pattern>|system|systemcontrol|module</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SystemController_pg3.htm</fileName>
+      <pattern>|//|driver|object</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\Templates.html</fileName>
+      <pattern>||files|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestNodeProps.html</fileName>
+      <pattern>|node|properties|type</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestNodeTemplates.htm</fileName>
+      <pattern>|templates|node|new</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestProgramManager.htm</fileName>
+      <pattern>|test|program|
+	</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestProgramProps.html</fileName>
+      <pattern>|program|properties|true</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestPrograms.html</fileName>
+      <pattern>|
+	|file|program</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestProgramTemplates.htm</fileName>
+      <pattern>|test|program|new</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResultProps_TestNodes.html</fileName>
+      <pattern>|properties|result|type</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResults.html</fileName>
+      <pattern>|results|printer|program</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResultsFile.html</fileName>
+      <pattern>|		|test|measurement</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResultsWindow.html</fileName>
+      <pattern>|results|window|default</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestSequenceView.html</fileName>
+      <pattern>|test|node|sequence</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestSequenceViewContextMenu.html</fileName>
+      <pattern>|test|method|group</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestTypes.html</fileName>
+      <pattern>|returns|value|function</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ToolsMenu.html</fileName>
+      <pattern>|user|change|
+	</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TracelogObject.html</fileName>
+      <pattern>|files|properties|log</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\UsingTheSDK.html</fileName>
+      <pattern>|class|visual|driver</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ViewingDrivers.htm</fileName>
+      <pattern>|drivers|tree|apis</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ViewMenu.html</fileName>
+      <pattern>|menu|windows|12/5/07</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\WatchWindow.html</fileName>
+      <pattern>|window|
+	|values</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\WindowMenu.html</fileName>
+      <pattern>|group|new|open</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\AddingDrivers.html</fileName>
+      <pattern>|classes|adding|assembly</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\AdvancedFeatures.html</fileName>
+      <pattern>|advanced|environment|updated</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ClientSide.html</fileName>
+      <pattern>|client|user|setup</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CommandWindow.html</fileName>
+      <pattern>|command|test|script</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ConstantDefinitions.html</fileName>
+      <pattern>|=|const|public</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CreatingDrivers.html</fileName>
+      <pattern>|gui|worker|creating</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CreatingDriversPart2.html</fileName>
+      <pattern>|enums|types|called</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CreatingDriversPart3.html</fileName>
+      <pattern>|object|class|gui</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CustomizeMenuItems.html</fileName>
+      <pattern>|items|button|click</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DebuggerCommands.html</fileName>
+      <pattern>|debugger|line|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DebuggerOverview.html</fileName>
+      <pattern>|programs|debugger|watch</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DeleteUser.html</fileName>
+      <pattern>|deleting|select||</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DeletingDrivers.htm</fileName>
+      <pattern>|deleting|button|changes</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DotNetTestPrograms.html</fileName>
+      <pattern>|programs|file|new</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DriverConfiguration.htm</fileName>
+      <pattern>|configuration|test|drivers</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\EditMenu_EditToolbar.html</fileName>
+      <pattern>|select|bookmarks|editor</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\EditUser.html</fileName>
+      <pattern>|editing|fields|updated</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ExecuteOnTerminating.html</fileName>
+      <pattern>|test|programs|call</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\FileMenu_StandardToolbar.html</fileName>
+      <pattern>|test|program|menu</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\GroupNodeProps.html</fileName>
+      <pattern>|properties|test|group</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\GroupNodeTemplates.htm</fileName>
+      <pattern>|group|node|new</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ImportScriptErrors.html</fileName>
+      <pattern>|script|file|imported</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ImportStatement.html</fileName>
+      <pattern>|files|y|</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\LocalsWindow.html</fileName>
+      <pattern>|watch|window|values</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\LoginManager.html</fileName>
+      <pattern>|accounts|administrator|manager</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\MacroRecord.html</fileName>
+      <pattern>|macro|method|calls</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\MenusAndToolbars.html</fileName>
+      <pattern>|menus|||files</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ModifiyingDrivers.htm</fileName>
+      <pattern>|driver|properties|name</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NewGroup.html</fileName>
+      <pattern>|nodes|new|name</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NewTest.html</fileName>
+      <pattern>|nodes|new|name</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NewTestProgram.html</fileName>
+      <pattern>|program|new|file</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NewUser.html</fileName>
+      <pattern>|new|password|adding</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NodeDragDrop.html</fileName>
+      <pattern>|test|program|group</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NullScriptName.html</fileName>
+      <pattern>|y|=|declare</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\OptionsDialog.html</fileName>
+      <pattern>|settings|dialog|path</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\Overview.html</fileName>
+      <pattern>|code|environment|vbscript</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageMngr.html</fileName>
+      <pattern>|package|sequence|name</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageMngr_Creation.html</fileName>
+      <pattern>|file|activate|log</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageMngr_DataFiles.html</fileName>
+      <pattern>|folder|data|project</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageMngr_Usage.html</fileName>
+      <pattern>|package|test|project</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageOptionsPlugins.html</fileName>
+      <pattern>|plugins|below|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\Plugins.html</fileName>
+      <pattern>|test|programs|activate</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PredefinedObjects.html</fileName>
+      <pattern>|node|programs|		</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ProjectManager.html</fileName>
+      <pattern>|files|test|programs</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PropertiesPage.html</fileName>
+      <pattern>|test|nodes|page</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ProtectFiles.html</fileName>
+      <pattern>|program|files|protect</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\RemoteClientDisconnecting.html</fileName>
+      <pattern>|server|disconnecting|remoting</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\RemoteClientSetup.html</fileName>
+      <pattern>|remote|server|menu</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\RemoteRunningTests.html</fileName>
+      <pattern>|tests|server|clients</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ReportCustomize.html</fileName>
+      <pattern>|xmlns:v="urn:schemas-microsoft-com:vml"/&gt;|report|&lt;v:f</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\RunningTestProgram.html</fileName>
+      <pattern>|program|running|ide</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SaveConfiguration.htm</fileName>
+      <pattern>|saving|
+	|load</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ScriptErrors.html</fileName>
+      <pattern>|errors|window|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ScriptTraceLogWindow.html</fileName>
+      <pattern>|trace|log|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ServerSide.html</fileName>
+      <pattern>|server|slots|setup</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\StartPage_pg2.htm</fileName>
+      <pattern>|title|start|page</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\StartupPage.html</fileName>
+      <pattern>|feeds|page|start</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SystemController.htm</fileName>
+      <pattern>|programs|ide|environment</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SystemController_pg2.htm</fileName>
+      <pattern>|system|systemcontrol|module</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SystemController_pg3.htm</fileName>
+      <pattern>|//|driver|object</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\Templates.html</fileName>
+      <pattern>||files|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestNodeProps.html</fileName>
+      <pattern>|node|properties|type</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestNodeTemplates.htm</fileName>
+      <pattern>|templates|node|new</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestProgramManager.htm</fileName>
+      <pattern>|test|program|
+	</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestProgramProps.html</fileName>
+      <pattern>|program|properties|true</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestPrograms.html</fileName>
+      <pattern>|
+	|file|program</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestProgramTemplates.htm</fileName>
+      <pattern>|test|program|new</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResultProps_TestNodes.html</fileName>
+      <pattern>|properties|result|type</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResults.html</fileName>
+      <pattern>|results|printer|program</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResultsFile.html</fileName>
+      <pattern>|		|test|measurement</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResultsWindow.html</fileName>
+      <pattern>|results|window|default</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestSequenceView.html</fileName>
+      <pattern>|test|node|sequence</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestSequenceViewContextMenu.html</fileName>
+      <pattern>|test|method|group</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestTypes.html</fileName>
+      <pattern>|returns|value|function</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ToolsMenu.html</fileName>
+      <pattern>|user|change|
+	</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TracelogObject.html</fileName>
+      <pattern>|files|properties|log</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\UsingTheSDK.html</fileName>
+      <pattern>|class|visual|driver</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ViewingDrivers.htm</fileName>
+      <pattern>|drivers|tree|apis</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ViewMenu.html</fileName>
+      <pattern>|menu|windows|12/5/07</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\WatchWindow.html</fileName>
+      <pattern>|window|
+	|values</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\WindowMenu.html</fileName>
+      <pattern>|group|new|open</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\AddingDrivers.html</fileName>
+      <pattern>|classes|adding|assembly</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\AdvancedFeatures.html</fileName>
+      <pattern>|advanced|environment|updated</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ClientSide.html</fileName>
+      <pattern>|client|user|setup</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CommandWindow.html</fileName>
+      <pattern>|command|test|script</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ConstantDefinitions.html</fileName>
+      <pattern>|=|const|public</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CreatingDrivers.html</fileName>
+      <pattern>|gui|worker|creating</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CreatingDriversPart2.html</fileName>
+      <pattern>|enums|types|called</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CreatingDriversPart3.html</fileName>
+      <pattern>|object|class|gui</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CustomizeMenuItems.html</fileName>
+      <pattern>|items|button|click</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DebuggerCommands.html</fileName>
+      <pattern>|debugger|line|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DebuggerOverview.html</fileName>
+      <pattern>|programs|debugger|watch</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DeleteUser.html</fileName>
+      <pattern>|deleting|select||</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DeletingDrivers.htm</fileName>
+      <pattern>|deleting|button|changes</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DotNetTestPrograms.html</fileName>
+      <pattern>|programs|file|new</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DriverConfiguration.htm</fileName>
+      <pattern>|configuration|test|drivers</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\EditMenu_EditToolbar.html</fileName>
+      <pattern>|select|bookmarks|editor</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\EditUser.html</fileName>
+      <pattern>|editing|fields|updated</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ExecuteOnTerminating.html</fileName>
+      <pattern>|test|programs|call</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\FileMenu_StandardToolbar.html</fileName>
+      <pattern>|test|program|menu</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\GroupNodeProps.html</fileName>
+      <pattern>|properties|test|group</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\GroupNodeTemplates.htm</fileName>
+      <pattern>|group|node|new</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ImportScriptErrors.html</fileName>
+      <pattern>|script|file|imported</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ImportStatement.html</fileName>
+      <pattern>|files|y|</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\LocalsWindow.html</fileName>
+      <pattern>|watch|window|values</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\LoginManager.html</fileName>
+      <pattern>|accounts|administrator|manager</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\MacroRecord.html</fileName>
+      <pattern>|macro|method|calls</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\MenusAndToolbars.html</fileName>
+      <pattern>|menus|||files</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ModifiyingDrivers.htm</fileName>
+      <pattern>|driver|properties|name</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NewGroup.html</fileName>
+      <pattern>|nodes|new|name</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NewTest.html</fileName>
+      <pattern>|nodes|new|name</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NewTestProgram.html</fileName>
+      <pattern>|program|new|file</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NewUser.html</fileName>
+      <pattern>|new|password|adding</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NodeDragDrop.html</fileName>
+      <pattern>|test|program|group</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NullScriptName.html</fileName>
+      <pattern>|y|=|declare</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\OptionsDialog.html</fileName>
+      <pattern>|settings|dialog|path</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\Overview.html</fileName>
+      <pattern>|code|environment|vbscript</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageMngr.html</fileName>
+      <pattern>|package|sequence|name</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageMngr_Creation.html</fileName>
+      <pattern>|file|activate|log</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageMngr_DataFiles.html</fileName>
+      <pattern>|folder|data|project</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageMngr_Usage.html</fileName>
+      <pattern>|package|test|project</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageOptionsPlugins.html</fileName>
+      <pattern>|plugins|below|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\Plugins.html</fileName>
+      <pattern>|test|programs|activate</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PredefinedObjects.html</fileName>
+      <pattern>|node|programs|		</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ProjectManager.html</fileName>
+      <pattern>|files|test|programs</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PropertiesPage.html</fileName>
+      <pattern>|test|nodes|page</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ProtectFiles.html</fileName>
+      <pattern>|program|files|protect</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\RemoteClientDisconnecting.html</fileName>
+      <pattern>|server|disconnecting|remoting</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\RemoteClientSetup.html</fileName>
+      <pattern>|remote|server|menu</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\RemoteRunningTests.html</fileName>
+      <pattern>|tests|server|clients</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ReportCustomize.html</fileName>
+      <pattern>|xmlns:v="urn:schemas-microsoft-com:vml"/&gt;|report|&lt;v:f</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\RunningTestProgram.html</fileName>
+      <pattern>|program|running|ide</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SaveConfiguration.htm</fileName>
+      <pattern>|saving|
+	|load</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ScriptErrors.html</fileName>
+      <pattern>|errors|window|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ScriptTraceLogWindow.html</fileName>
+      <pattern>|trace|log|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ServerSide.html</fileName>
+      <pattern>|server|slots|setup</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\StartPage_pg2.htm</fileName>
+      <pattern>|title|start|page</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\StartupPage.html</fileName>
+      <pattern>|feeds|page|start</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SystemController.htm</fileName>
+      <pattern>|programs|ide|environment</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SystemController_pg2.htm</fileName>
+      <pattern>|system|systemcontrol|module</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SystemController_pg3.htm</fileName>
+      <pattern>|//|driver|object</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\Templates.html</fileName>
+      <pattern>||files|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestNodeProps.html</fileName>
+      <pattern>|node|properties|type</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestNodeTemplates.htm</fileName>
+      <pattern>|templates|node|new</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestProgramManager.htm</fileName>
+      <pattern>|test|program|
+	</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestProgramProps.html</fileName>
+      <pattern>|program|properties|true</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestPrograms.html</fileName>
+      <pattern>|
+	|file|program</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestProgramTemplates.htm</fileName>
+      <pattern>|test|program|new</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResultProps_TestNodes.html</fileName>
+      <pattern>|properties|result|type</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResults.html</fileName>
+      <pattern>|results|printer|program</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResultsFile.html</fileName>
+      <pattern>|		|test|measurement</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResultsWindow.html</fileName>
+      <pattern>|results|window|default</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestSequenceView.html</fileName>
+      <pattern>|test|node|sequence</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestSequenceViewContextMenu.html</fileName>
+      <pattern>|test|method|group</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestTypes.html</fileName>
+      <pattern>|returns|value|function</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ToolsMenu.html</fileName>
+      <pattern>|user|change|
+	</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TracelogObject.html</fileName>
+      <pattern>|files|properties|log</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\UsingTheSDK.html</fileName>
+      <pattern>|class|visual|driver</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ViewingDrivers.htm</fileName>
+      <pattern>|drivers|tree|apis</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ViewMenu.html</fileName>
+      <pattern>|menu|windows|12/5/07</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\WatchWindow.html</fileName>
+      <pattern>|window|
+	|values</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\WindowMenu.html</fileName>
+      <pattern>|group|new|open</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\AddingDrivers.html</fileName>
+      <pattern>|classes|adding|assembly</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\AdvancedFeatures.html</fileName>
+      <pattern>|advanced|environment|updated</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ClientSide.html</fileName>
+      <pattern>|client|user|setup</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CommandWindow.html</fileName>
+      <pattern>|command|test|script</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ConstantDefinitions.html</fileName>
+      <pattern>|=|const|public</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CreatingDrivers.html</fileName>
+      <pattern>|gui|worker|creating</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CreatingDriversPart2.html</fileName>
+      <pattern>|enums|types|called</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CreatingDriversPart3.html</fileName>
+      <pattern>|object|class|gui</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CustomizeMenuItems.html</fileName>
+      <pattern>|items|button|click</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DebuggerCommands.html</fileName>
+      <pattern>|debugger|line|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DebuggerOverview.html</fileName>
+      <pattern>|programs|debugger|watch</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DeleteUser.html</fileName>
+      <pattern>|deleting|select||</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DeletingDrivers.htm</fileName>
+      <pattern>|deleting|button|changes</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DotNetTestPrograms.html</fileName>
+      <pattern>|programs|file|new</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DriverConfiguration.htm</fileName>
+      <pattern>|configuration|test|drivers</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\EditMenu_EditToolbar.html</fileName>
+      <pattern>|select|bookmarks|editor</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\EditUser.html</fileName>
+      <pattern>|editing|fields|updated</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ExecuteOnTerminating.html</fileName>
+      <pattern>|test|programs|call</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\FileMenu_StandardToolbar.html</fileName>
+      <pattern>|test|program|menu</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\GroupNodeProps.html</fileName>
+      <pattern>|properties|test|group</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\GroupNodeTemplates.htm</fileName>
+      <pattern>|group|node|new</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ImportScriptErrors.html</fileName>
+      <pattern>|script|file|imported</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ImportStatement.html</fileName>
+      <pattern>|files|y|</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\LocalsWindow.html</fileName>
+      <pattern>|watch|window|values</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\LoginManager.html</fileName>
+      <pattern>|accounts|administrator|manager</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\MacroRecord.html</fileName>
+      <pattern>|macro|method|calls</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\MenusAndToolbars.html</fileName>
+      <pattern>|menus|||files</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ModifiyingDrivers.htm</fileName>
+      <pattern>|driver|properties|name</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NewGroup.html</fileName>
+      <pattern>|nodes|new|name</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NewTest.html</fileName>
+      <pattern>|nodes|new|name</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NewTestProgram.html</fileName>
+      <pattern>|program|new|file</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NewUser.html</fileName>
+      <pattern>|new|password|adding</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NodeDragDrop.html</fileName>
+      <pattern>|test|program|group</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NullScriptName.html</fileName>
+      <pattern>|y|=|declare</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\OptionsDialog.html</fileName>
+      <pattern>|settings|dialog|path</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\Overview.html</fileName>
+      <pattern>|code|environment|vbscript</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageMngr.html</fileName>
+      <pattern>|package|sequence|name</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageMngr_Creation.html</fileName>
+      <pattern>|file|activate|log</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageMngr_DataFiles.html</fileName>
+      <pattern>|folder|data|project</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageMngr_Usage.html</fileName>
+      <pattern>|package|test|project</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageOptionsPlugins.html</fileName>
+      <pattern>|plugins|below|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\Plugins.html</fileName>
+      <pattern>|test|programs|activate</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PredefinedObjects.html</fileName>
+      <pattern>|node|programs|		</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ProjectManager.html</fileName>
+      <pattern>|files|test|programs</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PropertiesPage.html</fileName>
+      <pattern>|test|nodes|page</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ProtectFiles.html</fileName>
+      <pattern>|program|files|protect</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\RemoteClientDisconnecting.html</fileName>
+      <pattern>|server|disconnecting|remoting</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\RemoteClientSetup.html</fileName>
+      <pattern>|remote|server|menu</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\RemoteRunningTests.html</fileName>
+      <pattern>|tests|server|clients</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ReportCustomize.html</fileName>
+      <pattern>|xmlns:v="urn:schemas-microsoft-com:vml"/&gt;|report|&lt;v:f</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\RunningTestProgram.html</fileName>
+      <pattern>|program|running|ide</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SaveConfiguration.htm</fileName>
+      <pattern>|saving|
+	|load</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ScriptErrors.html</fileName>
+      <pattern>|errors|window|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ScriptTraceLogWindow.html</fileName>
+      <pattern>|trace|log|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ServerSide.html</fileName>
+      <pattern>|server|slots|setup</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\StartPage_pg2.htm</fileName>
+      <pattern>|title|start|page</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\StartupPage.html</fileName>
+      <pattern>|feeds|page|start</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SystemController.htm</fileName>
+      <pattern>|programs|ide|environment</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SystemController_pg2.htm</fileName>
+      <pattern>|system|systemcontrol|module</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SystemController_pg3.htm</fileName>
+      <pattern>|//|driver|object</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\Templates.html</fileName>
+      <pattern>||files|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestNodeProps.html</fileName>
+      <pattern>|node|properties|type</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestNodeTemplates.htm</fileName>
+      <pattern>|templates|node|new</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestProgramManager.htm</fileName>
+      <pattern>|test|program|
+	</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestProgramProps.html</fileName>
+      <pattern>|program|properties|true</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestPrograms.html</fileName>
+      <pattern>|
+	|file|program</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestProgramTemplates.htm</fileName>
+      <pattern>|test|program|new</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResultProps_TestNodes.html</fileName>
+      <pattern>|properties|result|type</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResults.html</fileName>
+      <pattern>|results|printer|program</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResultsFile.html</fileName>
+      <pattern>|		|test|measurement</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResultsWindow.html</fileName>
+      <pattern>|results|window|default</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestSequenceView.html</fileName>
+      <pattern>|test|node|sequence</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestSequenceViewContextMenu.html</fileName>
+      <pattern>|test|method|group</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestTypes.html</fileName>
+      <pattern>|returns|value|function</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ToolsMenu.html</fileName>
+      <pattern>|user|change|
+	</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TracelogObject.html</fileName>
+      <pattern>|files|properties|log</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\UsingTheSDK.html</fileName>
+      <pattern>|class|visual|driver</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ViewingDrivers.htm</fileName>
+      <pattern>|drivers|tree|apis</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ViewMenu.html</fileName>
+      <pattern>|menu|windows|12/5/07</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\WatchWindow.html</fileName>
+      <pattern>|window|
+	|values</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\WindowMenu.html</fileName>
+      <pattern>|group|new|open</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\AddingDrivers.html</fileName>
+      <pattern>|classes|adding|assembly</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\AdvancedFeatures.html</fileName>
+      <pattern>|advanced|environment|updated</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ClientSide.html</fileName>
+      <pattern>|client|user|setup</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CommandWindow.html</fileName>
+      <pattern>|command|test|script</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ConstantDefinitions.html</fileName>
+      <pattern>|=|const|public</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CreatingDrivers.html</fileName>
+      <pattern>|gui|worker|creating</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CreatingDriversPart2.html</fileName>
+      <pattern>|enums|types|called</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CreatingDriversPart3.html</fileName>
+      <pattern>|object|class|gui</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CustomizeMenuItems.html</fileName>
+      <pattern>|items|button|click</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DebuggerCommands.html</fileName>
+      <pattern>|debugger|line|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DebuggerOverview.html</fileName>
+      <pattern>|programs|debugger|watch</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DeleteUser.html</fileName>
+      <pattern>|deleting|select||</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DeletingDrivers.htm</fileName>
+      <pattern>|deleting|button|changes</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DotNetTestPrograms.html</fileName>
+      <pattern>|programs|file|new</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DriverConfiguration.htm</fileName>
+      <pattern>|configuration|test|drivers</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\EditMenu_EditToolbar.html</fileName>
+      <pattern>|select|bookmarks|editor</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\EditUser.html</fileName>
+      <pattern>|editing|fields|updated</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ExecuteOnTerminating.html</fileName>
+      <pattern>|test|programs|call</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\FileMenu_StandardToolbar.html</fileName>
+      <pattern>|test|program|menu</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\GroupNodeProps.html</fileName>
+      <pattern>|properties|test|group</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\GroupNodeTemplates.htm</fileName>
+      <pattern>|group|node|new</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ImportScriptErrors.html</fileName>
+      <pattern>|script|file|imported</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ImportStatement.html</fileName>
+      <pattern>|files|y|</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\LocalsWindow.html</fileName>
+      <pattern>|watch|window|values</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\LoginManager.html</fileName>
+      <pattern>|accounts|administrator|manager</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\MacroRecord.html</fileName>
+      <pattern>|macro|method|calls</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\MenusAndToolbars.html</fileName>
+      <pattern>|menus|||files</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ModifiyingDrivers.htm</fileName>
+      <pattern>|driver|properties|name</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NewGroup.html</fileName>
+      <pattern>|nodes|new|name</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NewTest.html</fileName>
+      <pattern>|nodes|new|name</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NewTestProgram.html</fileName>
+      <pattern>|program|new|file</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NewUser.html</fileName>
+      <pattern>|new|password|adding</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NodeDragDrop.html</fileName>
+      <pattern>|test|program|group</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NullScriptName.html</fileName>
+      <pattern>|y|=|declare</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\OptionsDialog.html</fileName>
+      <pattern>|settings|dialog|path</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\Overview.html</fileName>
+      <pattern>|code|environment|vbscript</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageMngr.html</fileName>
+      <pattern>|package|sequence|name</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageMngr_Creation.html</fileName>
+      <pattern>|file|activate|log</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageMngr_DataFiles.html</fileName>
+      <pattern>|folder|data|project</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageMngr_Usage.html</fileName>
+      <pattern>|package|test|project</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageOptionsPlugins.html</fileName>
+      <pattern>|plugins|below|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\Plugins.html</fileName>
+      <pattern>|test|programs|activate</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PredefinedObjects.html</fileName>
+      <pattern>|node|programs|		</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ProjectManager.html</fileName>
+      <pattern>|files|test|programs</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PropertiesPage.html</fileName>
+      <pattern>|test|nodes|page</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ProtectFiles.html</fileName>
+      <pattern>|program|files|protect</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\RemoteClientDisconnecting.html</fileName>
+      <pattern>|server|disconnecting|remoting</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\RemoteClientSetup.html</fileName>
+      <pattern>|remote|server|menu</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\RemoteRunningTests.html</fileName>
+      <pattern>|tests|server|clients</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ReportCustomize.html</fileName>
+      <pattern>|xmlns:v="urn:schemas-microsoft-com:vml"/&gt;|report|&lt;v:f</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\RunningTestProgram.html</fileName>
+      <pattern>|program|running|ide</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SaveConfiguration.htm</fileName>
+      <pattern>|saving|
+	|load</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ScriptErrors.html</fileName>
+      <pattern>|errors|window|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ScriptTraceLogWindow.html</fileName>
+      <pattern>|trace|log|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ServerSide.html</fileName>
+      <pattern>|server|slots|setup</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\StartPage_pg2.htm</fileName>
+      <pattern>|title|start|page</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\StartupPage.html</fileName>
+      <pattern>|feeds|page|start</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SystemController.htm</fileName>
+      <pattern>|programs|ide|environment</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SystemController_pg2.htm</fileName>
+      <pattern>|system|systemcontrol|module</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SystemController_pg3.htm</fileName>
+      <pattern>|//|driver|object</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\Templates.html</fileName>
+      <pattern>||files|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestNodeProps.html</fileName>
+      <pattern>|node|properties|type</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestNodeTemplates.htm</fileName>
+      <pattern>|templates|node|new</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestProgramManager.htm</fileName>
+      <pattern>|test|program|
+	</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestProgramProps.html</fileName>
+      <pattern>|program|properties|true</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestPrograms.html</fileName>
+      <pattern>|
+	|file|program</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestProgramTemplates.htm</fileName>
+      <pattern>|test|program|new</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResultProps_TestNodes.html</fileName>
+      <pattern>|properties|result|type</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResults.html</fileName>
+      <pattern>|results|printer|program</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResultsFile.html</fileName>
+      <pattern>|		|test|measurement</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResultsWindow.html</fileName>
+      <pattern>|results|window|default</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestSequenceView.html</fileName>
+      <pattern>|test|node|sequence</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestSequenceViewContextMenu.html</fileName>
+      <pattern>|test|method|group</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestTypes.html</fileName>
+      <pattern>|returns|value|function</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ToolsMenu.html</fileName>
+      <pattern>|user|change|
+	</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TracelogObject.html</fileName>
+      <pattern>|files|properties|log</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\UsingTheSDK.html</fileName>
+      <pattern>|class|visual|driver</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ViewingDrivers.htm</fileName>
+      <pattern>|drivers|tree|apis</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ViewMenu.html</fileName>
+      <pattern>|menu|windows|12/5/07</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\WatchWindow.html</fileName>
+      <pattern>|window|
+	|values</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\WindowMenu.html</fileName>
+      <pattern>|group|new|open</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\AddingDrivers.html</fileName>
+      <pattern>|classes|adding|assembly</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\AdvancedFeatures.html</fileName>
+      <pattern>|advanced|environment|updated</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ClientSide.html</fileName>
+      <pattern>|client|user|setup</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CommandWindow.html</fileName>
+      <pattern>|command|test|script</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ConstantDefinitions.html</fileName>
+      <pattern>|=|const|public</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CreatingDrivers.html</fileName>
+      <pattern>|gui|worker|creating</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CreatingDriversPart2.html</fileName>
+      <pattern>|enums|types|called</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CreatingDriversPart3.html</fileName>
+      <pattern>|object|class|gui</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CustomizeMenuItems.html</fileName>
+      <pattern>|items|button|click</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DebuggerCommands.html</fileName>
+      <pattern>|debugger|line|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DebuggerOverview.html</fileName>
+      <pattern>|programs|debugger|watch</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DeleteUser.html</fileName>
+      <pattern>|deleting|select||</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DeletingDrivers.htm</fileName>
+      <pattern>|deleting|button|changes</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DotNetTestPrograms.html</fileName>
+      <pattern>|programs|file|new</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DriverConfiguration.htm</fileName>
+      <pattern>|configuration|test|drivers</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\EditMenu_EditToolbar.html</fileName>
+      <pattern>|select|bookmarks|editor</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\EditUser.html</fileName>
+      <pattern>|editing|fields|updated</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ExecuteOnTerminating.html</fileName>
+      <pattern>|test|programs|call</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\FileMenu_StandardToolbar.html</fileName>
+      <pattern>|test|program|menu</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\GroupNodeProps.html</fileName>
+      <pattern>|properties|test|group</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\GroupNodeTemplates.htm</fileName>
+      <pattern>|group|node|new</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ImportScriptErrors.html</fileName>
+      <pattern>|script|file|imported</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ImportStatement.html</fileName>
+      <pattern>|files|y|</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\LocalsWindow.html</fileName>
+      <pattern>|watch|window|values</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\LoginManager.html</fileName>
+      <pattern>|accounts|administrator|manager</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\MacroRecord.html</fileName>
+      <pattern>|macro|method|calls</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\MenusAndToolbars.html</fileName>
+      <pattern>|menus|||files</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ModifiyingDrivers.htm</fileName>
+      <pattern>|driver|properties|name</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NewGroup.html</fileName>
+      <pattern>|nodes|new|name</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NewTest.html</fileName>
+      <pattern>|nodes|new|name</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NewTestProgram.html</fileName>
+      <pattern>|program|new|file</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NewUser.html</fileName>
+      <pattern>|new|password|adding</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NodeDragDrop.html</fileName>
+      <pattern>|test|program|group</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NullScriptName.html</fileName>
+      <pattern>|y|=|declare</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\OptionsDialog.html</fileName>
+      <pattern>|settings|dialog|path</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\Overview.html</fileName>
+      <pattern>|code|environment|vbscript</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageMngr.html</fileName>
+      <pattern>|package|sequence|name</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageMngr_Creation.html</fileName>
+      <pattern>|file|activate|log</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageMngr_DataFiles.html</fileName>
+      <pattern>|folder|data|project</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageMngr_Usage.html</fileName>
+      <pattern>|package|test|project</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageOptionsPlugins.html</fileName>
+      <pattern>|plugins|below|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\Plugins.html</fileName>
+      <pattern>|test|programs|activate</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PredefinedObjects.html</fileName>
+      <pattern>|node|programs|		</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ProjectManager.html</fileName>
+      <pattern>|files|test|programs</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PropertiesPage.html</fileName>
+      <pattern>|test|nodes|page</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ProtectFiles.html</fileName>
+      <pattern>|program|files|protect</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\RemoteClientDisconnecting.html</fileName>
+      <pattern>|server|disconnecting|remoting</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\RemoteClientSetup.html</fileName>
+      <pattern>|remote|server|menu</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\RemoteRunningTests.html</fileName>
+      <pattern>|tests|server|clients</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ReportCustomize.html</fileName>
+      <pattern>|xmlns:v="urn:schemas-microsoft-com:vml"/&gt;|report|&lt;v:f</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\RunningTestProgram.html</fileName>
+      <pattern>|program|running|ide</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SaveConfiguration.htm</fileName>
+      <pattern>|saving|
+	|load</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ScriptErrors.html</fileName>
+      <pattern>|errors|window|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ScriptTraceLogWindow.html</fileName>
+      <pattern>|trace|log|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ServerSide.html</fileName>
+      <pattern>|server|slots|setup</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\StartPage_pg2.htm</fileName>
+      <pattern>|title|start|page</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\StartupPage.html</fileName>
+      <pattern>|feeds|page|start</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SystemController.htm</fileName>
+      <pattern>|programs|ide|environment</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SystemController_pg2.htm</fileName>
+      <pattern>|system|systemcontrol|module</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SystemController_pg3.htm</fileName>
+      <pattern>|//|driver|object</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\Templates.html</fileName>
+      <pattern>||files|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestNodeProps.html</fileName>
+      <pattern>|node|properties|type</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestNodeTemplates.htm</fileName>
+      <pattern>|templates|node|new</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestProgramManager.htm</fileName>
+      <pattern>|test|program|
+	</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestProgramProps.html</fileName>
+      <pattern>|program|properties|true</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestPrograms.html</fileName>
+      <pattern>|
+	|file|program</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestProgramTemplates.htm</fileName>
+      <pattern>|test|program|new</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResultProps_TestNodes.html</fileName>
+      <pattern>|properties|result|type</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResults.html</fileName>
+      <pattern>|results|printer|program</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResultsFile.html</fileName>
+      <pattern>|		|test|measurement</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResultsWindow.html</fileName>
+      <pattern>|results|window|default</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestSequenceView.html</fileName>
+      <pattern>|test|node|sequence</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestSequenceViewContextMenu.html</fileName>
+      <pattern>|test|method|group</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestTypes.html</fileName>
+      <pattern>|returns|value|function</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ToolsMenu.html</fileName>
+      <pattern>|user|change|
+	</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TracelogObject.html</fileName>
+      <pattern>|files|properties|log</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\UsingTheSDK.html</fileName>
+      <pattern>|class|visual|driver</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ViewingDrivers.htm</fileName>
+      <pattern>|drivers|tree|apis</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ViewMenu.html</fileName>
+      <pattern>|menu|windows|12/5/07</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\WatchWindow.html</fileName>
+      <pattern>|window|
+	|values</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\WindowMenu.html</fileName>
+      <pattern>|group|new|open</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\AddingDrivers.html</fileName>
+      <pattern>|classes|adding|assembly</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\AdvancedFeatures.html</fileName>
+      <pattern>|advanced|environment|updated</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ClientSide.html</fileName>
+      <pattern>|client|user|setup</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CommandWindow.html</fileName>
+      <pattern>|command|test|script</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ConstantDefinitions.html</fileName>
+      <pattern>|=|const|public</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CreatingDrivers.html</fileName>
+      <pattern>|gui|worker|creating</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CreatingDriversPart2.html</fileName>
+      <pattern>|enums|types|called</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CreatingDriversPart3.html</fileName>
+      <pattern>|object|class|gui</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CustomizeMenuItems.html</fileName>
+      <pattern>|items|button|click</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DebuggerCommands.html</fileName>
+      <pattern>|debugger|line|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DebuggerOverview.html</fileName>
+      <pattern>|programs|debugger|watch</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DeleteUser.html</fileName>
+      <pattern>|deleting|select||</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DeletingDrivers.htm</fileName>
+      <pattern>|deleting|button|changes</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DotNetTestPrograms.html</fileName>
+      <pattern>|programs|file|new</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DriverConfiguration.htm</fileName>
+      <pattern>|configuration|test|drivers</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\EditMenu_EditToolbar.html</fileName>
+      <pattern>|select|bookmarks|editor</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\EditUser.html</fileName>
+      <pattern>|editing|fields|updated</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ExecuteOnTerminating.html</fileName>
+      <pattern>|test|programs|call</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\FileMenu_StandardToolbar.html</fileName>
+      <pattern>|test|program|menu</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\GroupNodeProps.html</fileName>
+      <pattern>|properties|test|group</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\GroupNodeTemplates.htm</fileName>
+      <pattern>|group|node|new</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ImportScriptErrors.html</fileName>
+      <pattern>|script|file|imported</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ImportStatement.html</fileName>
+      <pattern>|files|y|</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\LocalsWindow.html</fileName>
+      <pattern>|watch|window|values</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\LoginManager.html</fileName>
+      <pattern>|accounts|administrator|manager</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\MacroRecord.html</fileName>
+      <pattern>|macro|method|calls</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\MenusAndToolbars.html</fileName>
+      <pattern>|menus|||files</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ModifiyingDrivers.htm</fileName>
+      <pattern>|driver|properties|name</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NewGroup.html</fileName>
+      <pattern>|nodes|new|name</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NewTest.html</fileName>
+      <pattern>|nodes|new|name</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NewTestProgram.html</fileName>
+      <pattern>|program|new|file</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NewUser.html</fileName>
+      <pattern>|new|password|adding</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NodeDragDrop.html</fileName>
+      <pattern>|test|program|group</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NullScriptName.html</fileName>
+      <pattern>|y|=|declare</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\OptionsDialog.html</fileName>
+      <pattern>|settings|dialog|path</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\Overview.html</fileName>
+      <pattern>|code|environment|vbscript</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageMngr.html</fileName>
+      <pattern>|package|sequence|name</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageMngr_Creation.html</fileName>
+      <pattern>|file|activate|log</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageMngr_DataFiles.html</fileName>
+      <pattern>|folder|data|project</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageMngr_Usage.html</fileName>
+      <pattern>|package|test|project</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageOptionsPlugins.html</fileName>
+      <pattern>|plugins|below|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\Plugins.html</fileName>
+      <pattern>|test|programs|activate</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PredefinedObjects.html</fileName>
+      <pattern>|node|programs|		</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ProjectManager.html</fileName>
+      <pattern>|files|test|programs</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PropertiesPage.html</fileName>
+      <pattern>|test|nodes|page</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ProtectFiles.html</fileName>
+      <pattern>|program|files|protect</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\RemoteClientDisconnecting.html</fileName>
+      <pattern>|server|disconnecting|remoting</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\RemoteClientSetup.html</fileName>
+      <pattern>|remote|server|menu</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\RemoteRunningTests.html</fileName>
+      <pattern>|tests|server|clients</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ReportCustomize.html</fileName>
+      <pattern>|xmlns:v="urn:schemas-microsoft-com:vml"/&gt;|report|&lt;v:f</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\RunningTestProgram.html</fileName>
+      <pattern>|program|running|ide</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SaveConfiguration.htm</fileName>
+      <pattern>|saving|
+	|load</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ScriptErrors.html</fileName>
+      <pattern>|errors|window|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ScriptTraceLogWindow.html</fileName>
+      <pattern>|trace|log|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ServerSide.html</fileName>
+      <pattern>|server|slots|setup</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\StartPage_pg2.htm</fileName>
+      <pattern>|title|start|page</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\StartupPage.html</fileName>
+      <pattern>|feeds|page|start</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SystemController.htm</fileName>
+      <pattern>|programs|ide|environment</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SystemController_pg2.htm</fileName>
+      <pattern>|system|systemcontrol|module</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SystemController_pg3.htm</fileName>
+      <pattern>|//|driver|object</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\Templates.html</fileName>
+      <pattern>||files|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestNodeProps.html</fileName>
+      <pattern>|node|properties|type</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestNodeTemplates.htm</fileName>
+      <pattern>|templates|node|new</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestProgramManager.htm</fileName>
+      <pattern>|test|program|
+	</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestProgramProps.html</fileName>
+      <pattern>|program|properties|true</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestPrograms.html</fileName>
+      <pattern>|
+	|file|program</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestProgramTemplates.htm</fileName>
+      <pattern>|test|program|new</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResultProps_TestNodes.html</fileName>
+      <pattern>|properties|result|type</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResults.html</fileName>
+      <pattern>|results|printer|program</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResultsFile.html</fileName>
+      <pattern>|		|test|measurement</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResultsWindow.html</fileName>
+      <pattern>|results|window|default</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestSequenceView.html</fileName>
+      <pattern>|test|node|sequence</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestSequenceViewContextMenu.html</fileName>
+      <pattern>|test|method|group</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestTypes.html</fileName>
+      <pattern>|returns|value|function</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ToolsMenu.html</fileName>
+      <pattern>|user|change|
+	</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TracelogObject.html</fileName>
+      <pattern>|files|properties|log</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\UsingTheSDK.html</fileName>
+      <pattern>|class|visual|driver</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ViewingDrivers.htm</fileName>
+      <pattern>|drivers|tree|apis</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ViewMenu.html</fileName>
+      <pattern>|menu|windows|12/5/07</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\WatchWindow.html</fileName>
+      <pattern>|window|
+	|values</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\WindowMenu.html</fileName>
+      <pattern>|group|new|open</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\AddingDrivers.html</fileName>
+      <pattern>driver|classes|adding|assembly|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\AdvancedFeatures.html</fileName>
+      <pattern>features|advanced|environment|updated|systems</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ClientSide.html</fileName>
+      <pattern>server|client|user|setup|side</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CommandWindow.html</fileName>
+      <pattern>window|command|test|script|execute</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ConstantDefinitions.html</fileName>
+      <pattern>///|=|const|public|/summary</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CreatingDrivers.html</fileName>
+      <pattern>class|gui|worker|creating|driver</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CreatingDriversPart2.html</fileName>
+      <pattern>threading|enums|types|called|mode</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CreatingDriversPart3.html</fileName>
+      <pattern>events|object|class|gui|=</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CustomizeMenuItems.html</fileName>
+      <pattern>menus|items|button|click|list</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DebuggerCommands.html</fileName>
+      <pattern>step|debugger|line|test|break</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DebuggerOverview.html</fileName>
+      <pattern>breakpoints|programs|debugger|watch|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DeleteUser.html</fileName>
+      <pattern>user|deleting|select|||button</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DeletingDrivers.htm</fileName>
+      <pattern>driver|deleting|button|changes|category</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DotNetTestPrograms.html</fileName>
+      <pattern>test|programs|file|new|creating</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DriverConfiguration.htm</fileName>
+      <pattern>driver|configuration|test|drivers|activate™</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\EditMenu_EditToolbar.html</fileName>
+      <pattern>currently|select|bookmarks|editor|text</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\EditUser.html</fileName>
+      <pattern>user|editing|fields|updated|changes</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ExecuteOnTerminating.html</fileName>
+      <pattern>		|test|programs|call|function</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\FileMenu_StandardToolbar.html</fileName>
+      <pattern>file|test|program|menu|save</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\GroupNodeProps.html</fileName>
+      <pattern>node|properties|test|group|name</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\GroupNodeTemplates.htm</fileName>
+      <pattern>templates|group|node|new|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ImportScriptErrors.html</fileName>
+      <pattern>errors|script|file|imported|program</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ImportStatement.html</fileName>
+      <pattern>import|files|y||test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\LocalsWindow.html</fileName>
+      <pattern>locals|watch|window|values|variables</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\LoginManager.html</fileName>
+      <pattern>user|accounts|administrator|manager|admin</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\MacroRecord.html</fileName>
+      <pattern>record|macro|method|calls|variable</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\MenusAndToolbars.html</fileName>
+      <pattern>toolbars|menus|||files|access</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ModifiyingDrivers.htm</fileName>
+      <pattern>
+	|driver|properties|name|		read/write</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NewGroup.html</fileName>
+      <pattern>group|nodes|new|name|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NewTest.html</fileName>
+      <pattern>test|nodes|new|name|function</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NewTestProgram.html</fileName>
+      <pattern>test|program|new|file|creating</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NewUser.html</fileName>
+      <pattern>user|new|password|adding|account</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NodeDragDrop.html</fileName>
+      <pattern>node|test|program|group|copied</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NullScriptName.html</fileName>
+      <pattern>|y|=|declare|imported</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\OptionsDialog.html</fileName>
+      <pattern>options|settings|dialog|path|application</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\Overview.html</fileName>
+      <pattern>test|code|environment|vbscript|development</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageMngr.html</fileName>
+      <pattern>file|package|sequence|name|short</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageMngr_Creation.html</fileName>
+      <pattern>package|file|activate|log|commands</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageMngr_DataFiles.html</fileName>
+      <pattern>files|folder|data|project|activate</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageMngr_Usage.html</fileName>
+      <pattern>file|package|test|project|manager</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageOptionsPlugins.html</fileName>
+      <pattern>package|plugins|below|test|options</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\Plugins.html</fileName>
+      <pattern>plugins|test|programs|activate|below</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PredefinedObjects.html</fileName>
+      <pattern>test|node|programs|		|example</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ProjectManager.html</fileName>
+      <pattern>class|files|test|programs|		</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PropertiesPage.html</fileName>
+      <pattern>properties|test|nodes|page|view</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ProtectFiles.html</fileName>
+      <pattern>test|program|files|protect|password</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\RemoteClientDisconnecting.html</fileName>
+      <pattern>clients|server|disconnecting|remoting|setup</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\RemoteClientSetup.html</fileName>
+      <pattern>client|remote|server|menu|systems</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\RemoteRunningTests.html</fileName>
+      <pattern>running|tests|server|clients|slots</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ReportCustomize.html</fileName>
+      <pattern>files|xmlns:v="urn:schemas-microsoft-com:vml"/&gt;|report|&lt;v:f|0</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\RunningTestProgram.html</fileName>
+      <pattern>test|program|running|ide|file</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SaveConfiguration.htm</fileName>
+      <pattern>configuration|saving|
+	|load|button</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ScriptErrors.html</fileName>
+      <pattern>script|errors|window|test|trace</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ScriptTraceLogWindow.html</fileName>
+      <pattern>script|trace|log|test|window</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ServerSide.html</fileName>
+      <pattern>client|server|slots|setup|side</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\StartPage_pg2.htm</fileName>
+      <pattern>file|title|start|page|change</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\StartupPage.html</fileName>
+      <pattern>rss|feeds|page|start|activate™</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SystemController.htm</fileName>
+      <pattern>test|programs|ide|environment|system</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SystemController_pg2.htm</fileName>
+      <pattern>test|system|systemcontrol|module|program</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SystemController_pg3.htm</fileName>
+      <pattern>events|//|driver|object|</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\Templates.html</fileName>
+      <pattern>templates||files|test|nodes</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestNodeProps.html</fileName>
+      <pattern>test|node|properties|type|branch</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestNodeTemplates.htm</fileName>
+      <pattern>test|templates|node|new|create</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestProgramManager.htm</fileName>
+      <pattern>		|test|program|
+	|=</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestProgramProps.html</fileName>
+      <pattern>test|program|properties|true|file</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestPrograms.html</fileName>
+      <pattern>test|
+	|file|program|group</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestProgramTemplates.htm</fileName>
+      <pattern>templates|test|program|new|create</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResultProps_TestNodes.html</fileName>
+      <pattern>test|properties|result|type|set</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResults.html</fileName>
+      <pattern>test|results|printer|program|ide</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResultsFile.html</fileName>
+      <pattern>			|		|test|measurement|			measurement</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResultsWindow.html</fileName>
+      <pattern>test|results|window|default|run</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestSequenceView.html</fileName>
+      <pattern>method|test|node|sequence|posttest</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestSequenceViewContextMenu.html</fileName>
+      <pattern>nodes|test|method|group|run</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestTypes.html</fileName>
+      <pattern>test|returns|value|function|properties</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ToolsMenu.html</fileName>
+      <pattern>test|user|change|
+	|programs</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TracelogObject.html</fileName>
+      <pattern>trace|files|properties|log|output</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\UsingTheSDK.html</fileName>
+      <pattern>activate|class|visual|driver|studio</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ViewingDrivers.htm</fileName>
+      <pattern>viewing|drivers|tree|apis|properties</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ViewMenu.html</fileName>
+      <pattern>view|menu|windows|12/5/07|updated</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\WatchWindow.html</fileName>
+      <pattern>watch|window|
+	|values|variable</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\WindowMenu.html</fileName>
+      <pattern>tab|group|new|open|documents</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\AddingDrivers.html</fileName>
+      <pattern>driver|classes|assembly|adding|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\AdvancedFeatures.html</fileName>
+      <pattern>features|advanced|environment|updated|systemslast</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ClientSide.html</fileName>
+      <pattern>client|server|setup|user|side</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CommandWindow.html</fileName>
+      <pattern>window|command|script|test|execute</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ConstantDefinitions.html</fileName>
+      <pattern>summary|const|summarypublic|int|string</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CreatingDrivers.html</fileName>
+      <pattern>class|gui|worker|creating|drivers</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CreatingDriversPart2.html</fileName>
+      <pattern>threading|enums|called|types|class</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CreatingDriversPart3.html</fileName>
+      <pattern>events|object|class|gui|}</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CustomizeMenuItems.html</fileName>
+      <pattern>menus|items|button|click|list</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DebuggerCommands.html</fileName>
+      <pattern>step|line|debug|test|break</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DebuggerOverview.html</fileName>
+      <pattern>breakpoints|programs|debugger|watch|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DeleteUser.html</fileName>
+      <pattern>user|deleting|select|application|button</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DeletingDrivers.htm</fileName>
+      <pattern>driver|deleting|button|changes|category</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DotNetTestPrograms.html</fileName>
+      <pattern>test|programs|file|creating|new</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DriverConfiguration.htm</fileName>
+      <pattern>configuration|test|drivers|driver|activate™</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\EditMenu_EditToolbar.html</fileName>
+      <pattern>currently|select|bookmarks|editor|text</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\EditUser.html</fileName>
+      <pattern>user|editing|fields|updated|select</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ExecuteOnTerminating.html</fileName>
+      <pattern>test|programs|call|function|stop</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\FileMenu_StandardToolbar.html</fileName>
+      <pattern>file|test|program|menu|save</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\GroupNodeProps.html</fileName>
+      <pattern>node|group|properties|test|method</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\GroupNodeTemplates.htm</fileName>
+      <pattern>templates|group|node|new|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ImportScriptErrors.html</fileName>
+      <pattern>errors|script|file|program|line</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ImportStatement.html</fileName>
+      <pattern>import|files|test|used|function</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\LocalsWindow.html</fileName>
+      <pattern>locals|watch|window|values|variables</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\LoginManager.html</fileName>
+      <pattern>user|administrator|accounts|manager|operator</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\MacroRecord.html</fileName>
+      <pattern>record|macro|method|calls|returns</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\MenusAndToolbars.html</fileName>
+      <pattern>toolbars|menus|access|files|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ModifiyingDrivers.htm</fileName>
+      <pattern>driver|properties|name|assembly|page</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NewGroup.html</fileName>
+      <pattern>group|nodes|new|name|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NewTest.html</fileName>
+      <pattern>test|nodes|name|new|function</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NewTestProgram.html</fileName>
+      <pattern>test|program|file|new|template</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NewUser.html</fileName>
+      <pattern>user|new|password|adding|account</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NodeDragDrop.html</fileName>
+      <pattern>node|test|program|group|script</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NullScriptName.html</fileName>
+      <pattern>|imported|class|declare|script</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\OptionsDialog.html</fileName>
+      <pattern>options|settings|dialog|path|application</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\Overview.html</fileName>
+      <pattern>test|code|program|development|environment</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageMngr.html</fileName>
+      <pattern>file|package|name|sequence|short</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageMngr_Creation.html</fileName>
+      <pattern>package|file|commands|activate|log</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageMngr_DataFiles.html</fileName>
+      <pattern>files|folder|data|project|activate</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageMngr_Usage.html</fileName>
+      <pattern>file|package|test|manager|loads</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PackageOptionsPlugins.html</fileName>
+      <pattern>package|plugins|below|options|test</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\Plugins.html</fileName>
+      <pattern>plugins|test|programs|activate|below</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PredefinedObjects.html</fileName>
+      <pattern>test|node|programs|loop|example</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ProjectManager.html</fileName>
+      <pattern>class|files|test|programs|partial</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PropertiesPage.html</fileName>
+      <pattern>properties|nodes|page|test|group</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ProtectFiles.html</fileName>
+      <pattern>test|program|files|protect|password</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\RemoteClientDisconnecting.html</fileName>
+      <pattern>clients|server|disconnecting|remoting|setup</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\RemoteClientSetup.html</fileName>
+      <pattern>client|remote|menu|server|setup</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\RemoteRunningTests.html</fileName>
+      <pattern>running|tests|server|clients|slots</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ReportCustomize.html</fileName>
+      <pattern>files|xmlns:v"urn:schemas-microsoft-com:vml|report|v:f|0</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\RunningTestProgram.html</fileName>
+      <pattern>test|program|running|ide|file</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SaveConfiguration.htm</fileName>
+      <pattern>configuration|saving|load|current|button</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ScriptErrors.html</fileName>
+      <pattern>script|errors|window|test|trace</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ScriptTraceLogWindow.html</fileName>
+      <pattern>script|trace|log|error|window</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ServerSide.html</fileName>
+      <pattern>client|server|slots|setup|side</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\StartPage_pg2.htm</fileName>
+      <pattern>file|title|start|page|change</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\StartupPage.html</fileName>
+      <pattern>rss|feeds|page|start|activate™</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SystemController.htm</fileName>
+      <pattern>test|programs|running|ide|environment</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SystemController_pg2.htm</fileName>
+      <pattern>test|systemcontrol|system|module|program</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SystemController_pg3.htm</fileName>
+      <pattern>events|object|driver|test|</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\Templates.html</fileName>
+      <pattern>templates||files|test|define</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestNodeProps.html</fileName>
+      <pattern>test|node|properties|type|description</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestNodeTemplates.htm</fileName>
+      <pattern>test|templates|node|new|create</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestProgramManager.htm</fileName>
+      <pattern>test|program|manager|file|set</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestProgramProps.html</fileName>
+      <pattern>test|program|properties|true|node</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestPrograms.html</fileName>
+      <pattern>test|file|program|nodes|group</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestProgramTemplates.htm</fileName>
+      <pattern>templates|test|program|new|create</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResultProps_TestNodes.html</fileName>
+      <pattern>test|properties|result|set|type</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResults.html</fileName>
+      <pattern>test|results|program|printer|default</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResultsFile.html</fileName>
+      <pattern>test|file|results|properties|details</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResultsWindow.html</fileName>
+      <pattern>test|results|window|run|column</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestSequenceView.html</fileName>
+      <pattern>method|node|test|posttest|pretest</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestSequenceViewContextMenu.html</fileName>
+      <pattern>nodes|test|group|run|method</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestTypes.html</fileName>
+      <pattern>test|returns|value|function|properties</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ToolsMenu.html</fileName>
+      <pattern>test|user|change|program|save</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TracelogObject.html</fileName>
+      <pattern>trace|files|properties|log|output</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\UsingTheSDK.html</fileName>
+      <pattern>activate|class|visual|driver|studio</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ViewingDrivers.htm</fileName>
+      <pattern>viewing|drivers|tree|apis|tools</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ViewMenu.html</fileName>
+      <pattern>view|menu|windows|12507|updated</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\WatchWindow.html</fileName>
+      <pattern>watch|window|variable|values|type</pattern>
+    </FileRegex>
+    <FileRegex>
+      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\WindowMenu.html</fileName>
+      <pattern>tab|group|new|open|documents</pattern>
+    </FileRegex>
   </filePatternsArray>
 </patterns>
