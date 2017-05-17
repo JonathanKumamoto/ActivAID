@@ -161,6 +161,7 @@ namespace Parser
             {
                 var temp = x;
                 new HTMLMessager().removeFromLine(ref temp);
+                temp = new Regex("[=\\|\n\t\r;'/,<>%!]").Replace(temp, "");
                 return temp;
             });
             // Need to change
