@@ -80,7 +80,7 @@ namespace Parser
             else
             {
                 action(filePath);
-            }
+            }                        
         }
 
         public ParserWrapper(List<string> filePaths)
@@ -111,7 +111,7 @@ namespace Parser
                     }
                     else
                     {
-
+                        
                         db.insertIntoElements(filePath, blockCount, element.data);
                     }
                     ++blockCount;
@@ -119,7 +119,7 @@ namespace Parser
             }
         }
 
-        private void insertHREFSOIntoDB(string filePath, List<string> hrefs)
+      private void insertHREFSOIntoDB(string filePath, List<string> hrefs)
         {
             foreach (string href in hrefs)
             {
@@ -127,37 +127,69 @@ namespace Parser
             }
         }
 
-        private string generateRegexPatterns(List<string> elementData)
+        private string[] splitFileName(string fileName)
         {
-            Func<string[], string[]> summarize = new Func<string[], string[]>((toSummarize) =>
+            List<string> retArray = new List<string>();
+            string aggregateString = "";
+            int check = 0;
+            foreach (char ch in fileName)
             {
-
-                Func<string, string> stringOp = new Func<string, string>((x) =>
+                if (ch < 97)
                 {
-                    var temp = x;
-                    new HTMLMessager().removeFromLine(ref temp);
-                    return temp;
-                });
-                // Need to change
-                List<string> sumList = new List<string>();
-                OpenTextSummarizer.SummarizerArguments args = new OpenTextSummarizer.SummarizerArguments();
-                args.InputString = String.Join(" ", toSummarize.Select((x) => stringOp(x)).ToArray());
-                OpenTextSummarizer.SummarizedDocument sd = OpenTextSummarizer.Summarizer.Summarize(args);
-                return sd.Concepts.Take(5).ToArray();
-            });
+                    aggregateString += (ch + 32);
+                    if (check == 0)
+                    {
+                        ++check;
+                    }
+                    else
+                    {
+                        retArray.Add(aggregateString);
+                        aggregateString = "";
+                    }
+                }
+                else
+                {
+                    aggregateString += ch;
+                }
+            }
+            return retArray.ToArray();
+        }
 
+        private string[] summarize(string[] toSummarize)
+        {
+            Func<string, string> stringOp = new Func<string, string>((x) =>
+            {
+                var temp = x;
+                new HTMLMessager().removeFromLine(ref temp);
+                return temp;
+            });
+            // Need to change
+            List<string> sumList = new List<string>();
+            OpenTextSummarizer.SummarizerArguments args = new OpenTextSummarizer.SummarizerArguments();
+            args.InputString = String.Join(" ", toSummarize.Select((x) => stringOp(x)).ToArray());
+            OpenTextSummarizer.SummarizedDocument sd = OpenTextSummarizer.Summarizer.Summarize(args);
+            return sd.Concepts.Take(5).ToArray();
+        }
+
+
+        private string generateRegexPatterns(string fileName, List<string> elementData)
+        {
             string regexPattern = "";
             int count = 0;
+            List<string> keyWords = new List<string>(summarize(elementData.ToArray()));
+            keyWords.AddRange(splitFileName(Path.GetFileName(fileName)));
             foreach (string str in summarize(elementData.ToArray()))
             {
                 if (count != 0)
                 {
-                    regexPattern += "|" + str;
+                    regexPattern += "|";
                 }
+                regexPattern += str;
                 ++count;
             }
             return regexPattern;
         }
+
 
         private List<string> aggregateElementData(List<List<Element>> blocks)
         {
@@ -185,13 +217,14 @@ namespace Parser
         private void getRegexPerFile(string filePath, List<List<Element>> blocks)
         {
             List<string> elementData = aggregateElementData(blocks);
-            string regex = generateRegexPatterns(elementData);
+            string regex = generateRegexPatterns(filePath, elementData);
             FileRegex fgex = new FileRegex();
             fgex.name = filePath;
             fgex.pattern = regex;
             fgexes.Add(fgex);
 
         }
+
         private void insertRegexIntoConfig()
         {
             using (Stream fileStream = new FileStream("config_patterns.xml", FileMode.Create, FileAccess.Write, FileShare.None))
@@ -200,6 +233,7 @@ namespace Parser
                 serializer.Serialize(fileStream, fgexes);
             }
         }
+
 
         public void persistData()
         {

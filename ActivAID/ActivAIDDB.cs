@@ -19,12 +19,12 @@ namespace ActivAID
         // private int elementCounter;
         public ActivAIDDB()
         {
-            dblocation = "Server=.;Database=ActivAID DB SecondTry;Integrated Security=true";
+            dblocation = "Server=.\\SQLEXPRESS;Database=ActivAID DB;Integrated Security=true";
             // elementCounter = 0;
             builder = new SqlConnectionStringBuilder();
-            builder.DataSource = @"LAPTOP-58D7RN3K (SQL Server 12.0.2000 - LAPTOP-58D7RN3K\Matthew)"; // CHANGE THIS TO YOUR OWN SERVER
+            builder.DataSource = @"DEVIIX\SQLEXPRESS"; // CHANGE THIS TO YOUR OWN SERVER
             //builder.DataSource = "IP Address\SQLEXPRESS, 49172"
-            builder.InitialCatalog = "ActivAID DB Full Backup";
+            builder.InitialCatalog = "ActivAID DB";
             builder.IntegratedSecurity = false;
             builder.UserID = "sa";
             builder.Password = "activaid";
@@ -74,6 +74,7 @@ namespace ActivAID
 
         public void insertIntoElements(string parentpath, int block, string data)
         {
+            // bug here, check what the parentpath is and how a parentId is determined
             // incElementCounter();
             int parentId = GetFileId(parentpath);
             Console.WriteLine(parentId);
@@ -216,12 +217,14 @@ namespace ActivAID
             using (conn = new SqlConnection(dblocation))
             {
                 //string getid = "SELECT fileId FROM Files WHERE filePath=@path";
-                string getid = "SELECT fileId FROM Files WHERE filePath LIKE '%' + @fname + '%'";
+                Console.WriteLine(filepath);
+                string getid = "SELECT fileId FROM Files WHERE filename LIKE '%' + @fname + '%'";
                 SqlCommand cmd = new SqlCommand(getid, conn);
                 cmd.Parameters.AddWithValue("@path", "'"+filepath.Replace(@"\",@"\\")+"'");
-                int start = filepath.Length - 8;
-                int end = 4;
-                cmd.Parameters.AddWithValue("@fname", filepath.Substring(start, end));
+                //int start = filepath.Length - 15;
+                //int end = 8;
+                string filename = System.IO.Path.GetFileNameWithoutExtension(filepath);
+                cmd.Parameters.AddWithValue("@fname", filename);
                 conn.Open();
                 //Console.WriteLine(filepath.Substring(start, end));
                 //Console.WriteLine(filepath);
