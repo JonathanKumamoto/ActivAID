@@ -74,7 +74,7 @@ namespace ActivAID
         {
             try
             {
-                System.IO.StreamReader str = new System.IO.StreamReader(@"config_patterns.xml");
+                System.IO.StreamReader str = new System.IO.StreamReader(@"config_patterns.config");
                 System.Xml.Serialization.XmlSerializer xSerializer = new System.Xml.Serialization.XmlSerializer(typeof(RegexList));
                 fgexes = (RegexList)xSerializer.Deserialize(str);
                 str.Close();
