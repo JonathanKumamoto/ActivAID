@@ -230,14 +230,6 @@
       <pattern>test|systemcontrol|system|module|program</pattern>
     </FileRegex>
     <FileRegex>
-      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SystemController_pg3.htm</fileName>
-      <pattern>events|object|driver|test|</pattern>
-    </FileRegex>
-    <FileRegex>
-      <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\Templates.html</fileName>
-      <pattern>templates||files|test|define</pattern>
-    </FileRegex>
-    <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestNodeProps.html</fileName>
       <pattern>test|node|properties|type|description</pattern>
     </FileRegex>

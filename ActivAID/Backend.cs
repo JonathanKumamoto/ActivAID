@@ -147,7 +147,7 @@ namespace ActivAID
                 check += 1;
             }
             pyListString += "]\"";
-            var command = "phrase_generator.py \"" + text.Replace("\n", "");
+            var command = "phrase_generator.py \"" + text.Replace("\n", "").Replace("\r", "");
             command = command.Replace("\r", "").Replace("\r\n", "").Replace("|", " ") + "\" ";
             command += pyListString;
             return command;
@@ -157,7 +157,8 @@ namespace ActivAID
         {
             Process pProcess = new Process();
             pProcess.StartInfo.FileName = "python.exe";
-            pProcess.StartInfo.Arguments = command;
+            pProcess.StartInfo.Arguments = command.Replace("\n"," ").Replace("\t", " ").Replace("\r", " ");
+
             pProcess.StartInfo.UseShellExecute = false;
             pProcess.StartInfo.CreateNoWindow = true;
             pProcess.StartInfo.RedirectStandardOutput = true;
@@ -212,7 +213,7 @@ namespace ActivAID
 
         public static List<string> getPhrases(string strOutput)
         {
-            IronPython.Runtime.PythonGenerator gen = (IronPython.Runtime.PythonGenerator)phrase_generator.eval_string(strOutput);
+                IronPython.Runtime.PythonGenerator gen = (IronPython.Runtime.PythonGenerator)phrase_generator.eval_string(strOutput);
             List<string> phraseList = new List<string>();
             foreach (string str in gen.Cast<string>())
             {
@@ -234,14 +235,14 @@ namespace ActivAID
                 //dynamic a = phrase_generator.text_to_phrases(text, response.keywords);
                 //Console.WriteLine(IronPython.Modules.Builtin.len(a));
                 string strOutput = callPython(getCommand(response.keywords, text));
-
+               
                 /*var dict = new IronPython.Runtime.PythonDictionary();
                 var scriptDomain = new IronPython.Runtime.ScriptDomainManager();
                 var pcontext = new IronPython.Runtime.PythonContext(scriptDomain);
                 var module = new IronPython.Runtime.ModuleContext(dict, pcontext);
                 dynamic retList = IronPython.Modules.Builtin.eval(new IronPython.Runtime.CodeContext(dict, module), strOutput);*/
 
-               // dynamic retList = engine.Execute("eval(\""+ strOutput + "\")");
+                // dynamic retList = engine.Execute("eval(\""+ strOutput + "\")");
                 List<string> phrases = getPhrases(strOutput);
 
                 rString = addKeywordsOrPhrases(response.keywords, phrases, rString);
@@ -251,6 +252,7 @@ namespace ActivAID
                 }
             }
             return rString;
+            
         }
     }
 }

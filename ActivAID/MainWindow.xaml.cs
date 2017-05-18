@@ -38,13 +38,17 @@ namespace ActivAID
         public RegexList fgexes;
         SpeechRecognitionEngine sRecognize; //-----intialize speech recogniztion
 
+        public string TEST_INPUT_FOR_BACKEND;
+
         public MainWindow()
         {
-           
-            
-            
+
+
             BackEnd.loadIronPython();
             initializeFGEXES();
+
+            TEST_INPUT_FOR_BACKEND = getMaxRegexMatchesFile("new user");
+
             InitializeComponent();
             InputBox.TextChanged += OnTextChangedHandler;
             //Chatbot = new SimlBot();
@@ -87,10 +91,7 @@ namespace ActivAID
             int max = -99;
             foreach (var fgex in fgexes.filePatternsArray)
             {
-                int matches = new Regex(fgex.pattern).Matches(check).Count;
-                Console.WriteLine(matches);
-                Console.WriteLine(fgex.pattern);
-                Console.WriteLine(new Regex(fgex.pattern.Replace(" ","")).IsMatch(check));
+                int matches = new Regex(fgex.pattern.Replace(" ", "")).Matches(check).Count;              
                 if (matches > max)
                 {
                     max = matches;
@@ -265,21 +266,28 @@ namespace ActivAID
 
             
             SendButton_actionBOT();
-            if (!unixCommands(outPut))//checks for specific responses by the bot to perform functions
+            
+        }
+
+        private void setOutPut(string command, ref TextBlock outputToUI)
+        {
+            if (!unixCommands(command))//checks for specific responses by the bot to perform functions
             {
-                Console.WriteLine(outPut + "reponse\n\n\n");
+                Console.WriteLine(command + "reponse\n\n\n");
                 try
                 {
-                    txtBlockbot.Text = BackEnd.backendCommand(InputBox.Text);
+                    //if (command == null)
+                    //{
+                    //    throw new NoFileMatchException();
+                    //}
+                    outputToUI.Text = BackEnd.backendCommand(TEST_INPUT_FOR_BACKEND);//command);
                 }
-                catch(NoFileMatchException)
+                catch (NoFileMatchException)
                 {
-                    txtBlockbot.Text = "i'm hearing ya... i just don't getcha. can you make your request more specific?";
+                    outputToUI.Text = "i'm hearing ya... i just don't getcha. can you make your request more specific?";
                 }
-                //console.writeline(inputbox.text+"::: yo");
             }
-           InputBox.Text = string.Empty;
-           //unixcommands(output);
+            InputBox.Text = string.Empty;
         }
 
         private async void SendButton_actionBOT()
@@ -296,8 +304,9 @@ namespace ActivAID
             //int milliseconds = 1000;
             //Thread.Sleep(milliseconds);
             //-----------------------------------------------------------------------------------------
-            txtBlockbot.Text = result;//result.BotMessage;
-            outPut = result;//result.BotMessage;
+            setOutPut(result, ref txtBlockbot);
+
+            //txtBlockbot.Text = result;//result.BotMessage;
             botmsg = new Label();
             botmsg.Name = "botmsg";   //bot's response box
             botmsg.Target = OutputBox;
