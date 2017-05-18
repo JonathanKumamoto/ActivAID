@@ -13,6 +13,9 @@ using System.Speech.Synthesis;
 using System.Speech.Recognition;
 using System.Threading;
 using System.Threading.Tasks;
+using static Common.FileRegex;
+using static Common.RegexList;
+using System.Text.RegularExpressions;
 
 namespace ActivAID
 {
@@ -32,6 +35,7 @@ namespace ActivAID
         public Boolean RobotResponding;
         public Func<string, string> stringOp;
         public Func<string[], string[]> summarize;
+        public RegexList fgexes;
         SpeechRecognitionEngine sRecognize; //-----intialize speech recogniztion
 
         public MainWindow()
@@ -40,10 +44,11 @@ namespace ActivAID
             
             
             BackEnd.loadIronPython();
+            initializeFGEXES();
             InitializeComponent();
             InputBox.TextChanged += OnTextChangedHandler;
-            Chatbot = new SimlBot();
-            Chatbot.PackageManager.LoadFromString(File.ReadAllText("Knowledge.simlpk"));
+            //Chatbot = new SimlBot();
+            //Chatbot.PackageManager.LoadFromString(File.ReadAllText("Knowledge.simlpk"));
             ColorBOT = "#FF4A4B53"; // Color of Bot message rectangle
             ColorUser = "#FF5383AD"; // Color of User message rectangle
             FontColor = "#FFFFFF"; // Font color for text in Chat
@@ -59,6 +64,47 @@ namespace ActivAID
             DataAccess dA = new DataAccessDB();
             queryHandler = new QueryHandler(dA, uib, stringOp, summarize);
             MainWindow_Creator();
+        }
+
+        private void initializeFGEXES()
+        {
+            try
+            {
+                System.IO.StreamReader str = new System.IO.StreamReader(@"config_patterns.xml");
+                System.Xml.Serialization.XmlSerializer xSerializer = new System.Xml.Serialization.XmlSerializer(typeof(RegexList));
+                fgexes = (RegexList)xSerializer.Deserialize(str);
+                str.Close();
+            }
+            catch (Exception ex)
+            {
+                fgexes = new RegexList();
+            }
+        }
+
+        private string getMaxRegexMatchesFile(string check)
+        {
+            string maxString = "";
+            int max = -99;
+            foreach (var fgex in fgexes.filePatternsArray)
+            {
+                int matches = new Regex(fgex.pattern).Matches(check).Count;
+                Console.WriteLine(matches);
+                Console.WriteLine(fgex.pattern);
+                Console.WriteLine(new Regex(fgex.pattern.Replace(" ","")).IsMatch(check));
+                if (matches > max)
+                {
+                    max = matches;
+                    maxString = fgex.name;
+                }
+            }
+            if (max > 1)
+            {
+                return maxString;
+            }
+            else
+            {
+                return "No Acceptable Match Found";
+            }
         }
 
         private void defineFunctionObjects()
@@ -241,7 +287,7 @@ namespace ActivAID
             await Task.Delay(500);
             TextBlock txtBlockbot = new TextBlock();
             txtBlockbot.TextWrapping = TextWrapping.Wrap;
-            var result = Chatbot.Chat(InputBox.Text);
+            var result = getMaxRegexMatchesFile(InputBox.Text);//Chatbot.Chat(InputBox.Text);
             //----------------------------------------------------------------------------------------
             /*
              * ADD: Timer to have robot wait and no immediately reply to the user.
@@ -250,8 +296,8 @@ namespace ActivAID
             //int milliseconds = 1000;
             //Thread.Sleep(milliseconds);
             //-----------------------------------------------------------------------------------------
-            txtBlockbot.Text = result.BotMessage;
-            outPut = result.BotMessage;
+            txtBlockbot.Text = result;//result.BotMessage;
+            outPut = result;//result.BotMessage;
             botmsg = new Label();
             botmsg.Name = "botmsg";   //bot's response box
             botmsg.Target = OutputBox;

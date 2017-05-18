@@ -112,7 +112,7 @@ namespace ActivAID
                     str.Add(concept);
                 }
 
-                return str.Take(5).ToArray();
+                return str.Take(8).ToArray();
             });
 
 

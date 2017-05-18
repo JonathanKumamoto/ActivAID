@@ -143,7 +143,10 @@ namespace Parser
                     }
                     else
                     {
-                        retArray.Add(aggregateString);
+                        if (aggregateString.Length > 1 && !(new Regex("[=\\|\n\t\r;\\-:'/,<>%!]").IsMatch(aggregateString)))
+                        {
+                            retArray.Add(aggregateString);
+                        }
                         aggregateString = "";
                     }
                 }
@@ -161,7 +164,6 @@ namespace Parser
             {
                 var temp = x;
                 new HTMLMessager().removeFromLine(ref temp);
-                temp = new Regex("[=\\|\n\t\r;'/,<>%!]").Replace(temp, "");
                 return temp;
             });
             // Need to change
@@ -169,7 +171,7 @@ namespace Parser
             OpenTextSummarizer.SummarizerArguments args = new OpenTextSummarizer.SummarizerArguments();
             args.InputString = String.Join(" ", toSummarize.Select((x) => stringOp(x)).ToArray());
             OpenTextSummarizer.SummarizedDocument sd = OpenTextSummarizer.Summarizer.Summarize(args);
-            return sd.Concepts.Take(5).ToArray();
+            return sd.Concepts.Take(8).ToArray();
         }
 
 
@@ -181,6 +183,10 @@ namespace Parser
             keyWords.AddRange(splitFileName(Path.GetFileName(fileName)));
             foreach (string str in summarize(elementData.ToArray()))
             {
+                if (str == null)
+                {
+                    continue;
+                }
                 if (count != 0)
                 {
                     regexPattern += "|";
