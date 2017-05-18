@@ -15,11 +15,11 @@
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CommandWindow.html</fileName>
-      <pattern>window|command|test|script|execute|||lines</pattern>
+      <pattern>window|command|test|script|execute|lines</pattern>
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ConstantDefinitions.html</fileName>
-      <pattern>///|=|const|public|/summary|summary</pattern>
+      <pattern>const|public|summary</pattern>
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CreatingDrivers.html</fileName>
@@ -31,7 +31,7 @@
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CreatingDriversPart3.html</fileName>
-      <pattern>events|object|class|gui|=|creating|data</pattern>
+      <pattern>events|object|class|gui|creating|data</pattern>
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\CustomizeMenuItems.html</fileName>
@@ -47,7 +47,7 @@
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DeleteUser.html</fileName>
-      <pattern>user|deleting|select|||button|manager|login|application</pattern>
+      <pattern>user|deleting|select|button|manager|login|application</pattern>
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DeletingDrivers.htm</fileName>
@@ -55,7 +55,7 @@
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DotNetTestPrograms.html</fileName>
-      <pattern>test|programs|file|new|creating|sequence|</pattern>
+      <pattern>test|programs|file|new|creating|sequence</pattern>
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\DriverConfiguration.htm</fileName>
@@ -71,7 +71,7 @@
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ExecuteOnTerminating.html</fileName>
-      <pattern>|test|programs|call|function||stop</pattern>
+      <pattern>test|programs|call|function|stop</pattern>
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\FileMenu_StandardToolbar.html</fileName>
@@ -91,7 +91,7 @@
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ImportStatement.html</fileName>
-      <pattern>import|files|y||test|function</pattern>
+      <pattern>import|files|test|function</pattern>
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\LocalsWindow.html</fileName>
@@ -107,11 +107,11 @@
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\MenusAndToolbars.html</fileName>
-      <pattern>toolbars|menus|||files|access|visibility|change|test</pattern>
+      <pattern>toolbars|menus|files|access|visibility|change|test</pattern>
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ModifiyingDrivers.htm</fileName>
-      <pattern>|driver|properties|name|read/write|the</pattern>
+      <pattern>driver|properties|name</pattern>
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NewGroup.html</fileName>
@@ -135,7 +135,7 @@
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\NullScriptName.html</fileName>
-      <pattern>|y|=|declare|imported|class</pattern>
+      <pattern>declare|imported|class</pattern>
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\OptionsDialog.html</fileName>
@@ -171,11 +171,11 @@
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PredefinedObjects.html</fileName>
-      <pattern>test|node|programs||example|loops</pattern>
+      <pattern>test|node|programs|example|loops</pattern>
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ProjectManager.html</fileName>
-      <pattern>class|files|test|programs||partial</pattern>
+      <pattern>class|files|test|programs|partial</pattern>
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\PropertiesPage.html</fileName>
@@ -199,7 +199,7 @@
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ReportCustomize.html</fileName>
-      <pattern>files|xmlns:v="urn:schemas-microsoft-com:vml"/&gt;|report|&lt;v:f|0|logo|</pattern>
+      <pattern>files|report|logo</pattern>
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\RunningTestProgram.html</fileName>
@@ -207,7 +207,7 @@
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SaveConfiguration.htm</fileName>
-      <pattern>configuration|saving||load|button|configurations|current</pattern>
+      <pattern>configuration|saving|load|button|configurations|current</pattern>
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ScriptErrors.html</fileName>
@@ -239,11 +239,11 @@
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\SystemController_pg3.htm</fileName>
-      <pattern>events|//|driver|object||test</pattern>
+      <pattern>events|driver|object|test</pattern>
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\Templates.html</fileName>
-      <pattern>templates||files|test|nodes|define</pattern>
+      <pattern>templates|files|test|nodes|define</pattern>
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestNodeProps.html</fileName>
@@ -255,7 +255,7 @@
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestProgramManager.htm</fileName>
-      <pattern>|test|program||=|manager</pattern>
+      <pattern>test|program|manager</pattern>
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestProgramProps.html</fileName>
@@ -263,7 +263,7 @@
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestPrograms.html</fileName>
-      <pattern>test||file|program|group|nodes</pattern>
+      <pattern>test|file|program|group|nodes</pattern>
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestProgramTemplates.htm</fileName>
@@ -279,7 +279,7 @@
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResultsFile.html</fileName>
-      <pattern>||test|measurement|measurement|4|5|vdc</pattern>
+      <pattern>test|measurement</pattern>
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TestResultsWindow.html</fileName>
@@ -299,7 +299,7 @@
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ToolsMenu.html</fileName>
-      <pattern>test|user|change||programs|save|password|</pattern>
+      <pattern>test|user|change|programs|save|password</pattern>
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\TracelogObject.html</fileName>
@@ -311,15 +311,15 @@
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ViewingDrivers.htm</fileName>
-      <pattern>viewing|drivers|tree|apis|properties|type|tools|</pattern>
+      <pattern>viewing|drivers|tree|apis|properties|type|tools</pattern>
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\ViewMenu.html</fileName>
-      <pattern>view|menu|windows|12/5/07|updated|systems|test|astronics</pattern>
+      <pattern>view|menu|windows|updated|systems|test|astronics</pattern>
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\WatchWindow.html</fileName>
-      <pattern>watch|window||values|variable|</pattern>
+      <pattern>watch|window|values|variable</pattern>
     </FileRegex>
     <FileRegex>
       <fileName>C:\Users\Tony\Desktop\Main Help\Help Html\WindowMenu.html</fileName>
