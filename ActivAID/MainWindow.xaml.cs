@@ -48,8 +48,15 @@ namespace ActivAID
             initializeFGEXES();
 
             TEST_INPUT_FOR_BACKEND = getMaxRegexMatchesFile("new user");
+            using (System.IO.StreamWriter file =
+                new System.IO.StreamWriter(@"C:\Users\Matthew\Desktop\INPUT4BEND.txt"))
+            {
+                //   string maxString = "";
+                //int max = -99;
+                file.WriteLine(TEST_INPUT_FOR_BACKEND);
+            }
 
-            InitializeComponent();
+                InitializeComponent();
             InputBox.TextChanged += OnTextChangedHandler;
             //Chatbot = new SimlBot();
             //Chatbot.PackageManager.LoadFromString(File.ReadAllText("Knowledge.simlpk"));
@@ -74,33 +81,93 @@ namespace ActivAID
         {
             try
             {
-                System.IO.StreamReader str = new System.IO.StreamReader(@"config_patterns.config");
+                System.IO.StreamReader str = new System.IO.StreamReader(@"Patterns.exe.config");
                 System.Xml.Serialization.XmlSerializer xSerializer = new System.Xml.Serialization.XmlSerializer(typeof(RegexList));
                 fgexes = (RegexList)xSerializer.Deserialize(str);
                 str.Close();
             }
             catch (Exception ex)
             {
+              
                 fgexes = new RegexList();
             }
         }
 
-        private string getMaxRegexMatchesFile(string check)
+        private bool isAcceptableKeyWord(string potentialKeyWord)
         {
-            string maxString = "";
-            int max = -99;
-            foreach (var fgex in fgexes.filePatternsArray)
+            return potentialKeyWord.Length > 1 && !(new Regex(@"[=\|\n\t\r;\-:'\/\,<\>%\!]|[0-9]").IsMatch(potentialKeyWord));
+        }
+
+        private string splitFileNamePattern(string fileName)
+        {
+            List<string> retArray = new List<string>();
+            string aggregateString = "";
+            int check = 0;
+            foreach (char ch in fileName)
             {
-                int matches = new Regex(fgex.pattern.Replace(" ", "")).Matches(check).Count;              
+                if (ch < 97)
+                {
+                    aggregateString += (ch + 32);
+                    if (check == 0)
+                    {
+                        ++check;
+                    }
+                    else
+                    {
+                        if (isAcceptableKeyWord(aggregateString))
+                        {
+                            retArray.Add(aggregateString);
+                        }
+                        aggregateString = "";
+                    }
+                }
+                else
+                {
+                    aggregateString += ch;
+                }
+            }
+            return String.Join("|", retArray.ToArray());
+        }
+
+        private string handleTie(string check, List<string> tiedStrings)
+        {
+            int max = -99;
+            string maxString = "";
+            foreach (string fileName in tiedStrings)
+            {
+                int matches = Regex.Matches(check, splitFileNamePattern(fileName).Replace(" ", "")).Count;
                 if (matches > max)
                 {
                     max = matches;
-                    maxString = fgex.name;
+                    maxString = fileName;
                 }
             }
-            if (max > 1)
+            return maxString;
+        }
+
+        private string getMaxRegexMatchesFile(string check)
+        {
+            int max = -99;
+            List<string> maxStrings = new List<string>();
+            foreach (var fgex in fgexes.filePatternsArray)
             {
-                return maxString;
+                int matches = Regex.Matches(check, fgex.pattern.Replace(" ", "")).Count;
+
+
+                if (matches == max)
+                {
+                    maxStrings.Add(fgex.name);
+                }
+                if (matches > max)
+                {
+                    max = matches;
+                    maxStrings = new List<string>();
+                    maxStrings.Add(fgex.name);
+                }
+            }
+            if (max > 0)
+            {
+                return handleTie(check, maxStrings);
             }
             else
             {
@@ -295,7 +362,7 @@ namespace ActivAID
             await Task.Delay(500);
             TextBlock txtBlockbot = new TextBlock();
             txtBlockbot.TextWrapping = TextWrapping.Wrap;
-            var result = getMaxRegexMatchesFile(InputBox.Text);//Chatbot.Chat(InputBox.Text);
+            var result = "this needs to be uncommented";// getMaxRegexMatchesFile(InputBox.Text);//Chatbot.Chat(InputBox.Text);
             //----------------------------------------------------------------------------------------
             /*
              * ADD: Timer to have robot wait and no immediately reply to the user.
