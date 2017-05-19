@@ -193,7 +193,7 @@ namespace ActivAID
                 rString += checkForPhrase(kw, rString, phrases);
                 ++count;
             }
-            return rString;
+            return new Regex("[\n\r]{2,}").Replace(rString, "");
         }
 
         private static string addHrefs(List<string> hrefs, string rString)
@@ -213,7 +213,7 @@ namespace ActivAID
 
         public static List<string> getPhrases(string strOutput)
         {
-                IronPython.Runtime.PythonGenerator gen = (IronPython.Runtime.PythonGenerator)phrase_generator.eval_string(strOutput);
+            IronPython.Runtime.PythonGenerator gen = (IronPython.Runtime.PythonGenerator)phrase_generator.eval_string(strOutput);
             List<string> phraseList = new List<string>();
             foreach (string str in gen.Cast<string>())
             {
