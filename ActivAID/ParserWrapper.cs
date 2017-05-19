@@ -46,7 +46,7 @@ namespace Parser
         {
             try
             {
-                System.IO.StreamReader str = new System.IO.StreamReader(@"config_patterns.xml");
+                System.IO.StreamReader str = new System.IO.StreamReader(@"Patterns.exe.config");
                 System.Xml.Serialization.XmlSerializer xSerializer = new System.Xml.Serialization.XmlSerializer(typeof(RegexList));
                 fgexes = (RegexList)xSerializer.Deserialize(str);
                 str.Close();
@@ -80,7 +80,7 @@ namespace Parser
             else
             {
                 action(filePath);
-            }                        
+            }
         }
 
         public ParserWrapper(List<string> filePaths)
@@ -111,7 +111,7 @@ namespace Parser
                     }
                     else
                     {
-                        
+
                         db.insertIntoElements(filePath, blockCount, element.data);
                     }
                     ++blockCount;
@@ -119,12 +119,17 @@ namespace Parser
             }
         }
 
-      private void insertHREFSOIntoDB(string filePath, List<string> hrefs)
+        private void insertHREFSOIntoDB(string filePath, List<string> hrefs)
         {
             foreach (string href in hrefs)
             {
                 db.insertIntoHyperlinks(filePath, href);
             }
+        }
+
+        private bool isAcceptableKeyWord(string potentialKeyWord)
+        {
+            return potentialKeyWord.Length > 1 && !(new Regex(@"[=\|\n\t\r;\-:'\/\,<\>%\!]|[0-9]").IsMatch(potentialKeyWord));
         }
 
         private string[] splitFileName(string fileName)
@@ -143,7 +148,7 @@ namespace Parser
                     }
                     else
                     {
-                        if (aggregateString.Length > 1 && !(new Regex("[=\\|\n\t\r;\\-:'/,<>%!]").IsMatch(aggregateString)))
+                        if (isAcceptableKeyWord(aggregateString))
                         {
                             retArray.Add(aggregateString);
                         }
@@ -183,7 +188,7 @@ namespace Parser
             keyWords.AddRange(splitFileName(Path.GetFileName(fileName)));
             foreach (string str in summarize(elementData.ToArray()))
             {
-                if (str == null)
+                if (str.Trim() == null || !isAcceptableKeyWord(str))
                 {
                     continue;
                 }
@@ -191,7 +196,7 @@ namespace Parser
                 {
                     regexPattern += "|";
                 }
-                regexPattern += str;
+                regexPattern += str.Trim();
                 ++count;
             }
             return regexPattern;
