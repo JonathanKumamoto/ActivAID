@@ -13,8 +13,6 @@ using System.Speech.Synthesis;
 using System.Speech.Recognition;
 using System.Threading;
 using System.Threading.Tasks;
-using static Common.FileRegex;
-using static Common.RegexList;
 using System.Text.RegularExpressions;
 
 namespace ActivAID
@@ -35,28 +33,16 @@ namespace ActivAID
         public Boolean RobotResponding;
         public Func<string, string> stringOp;
         public Func<string[], string[]> summarize;
-        public RegexList fgexes;
         SpeechRecognitionEngine sRecognize; //-----intialize speech recogniztion
-
-        public string TEST_INPUT_FOR_BACKEND;
 
         public MainWindow()
         {
 
 
             BackEnd.loadIronPython();
-            initializeFGEXES();
+            
 
-            TEST_INPUT_FOR_BACKEND = getMaxRegexMatchesFile("new user");
-            using (System.IO.StreamWriter file =
-                new System.IO.StreamWriter(@"C:\Users\Matthew\Desktop\INPUT4BEND.txt"))
-            {
-                //   string maxString = "";
-                //int max = -99;
-                file.WriteLine(TEST_INPUT_FOR_BACKEND);
-            }
-
-                InitializeComponent();
+            InitializeComponent();
             InputBox.TextChanged += OnTextChangedHandler;
             //Chatbot = new SimlBot();
             //Chatbot.PackageManager.LoadFromString(File.ReadAllText("Knowledge.simlpk"));
@@ -75,104 +61,6 @@ namespace ActivAID
             DataAccess dA = new DataAccessDB();
             queryHandler = new QueryHandler(dA, uib, stringOp, summarize);
             MainWindow_Creator();
-        }
-
-        private void initializeFGEXES()
-        {
-            try
-            {
-                System.IO.StreamReader str = new System.IO.StreamReader(@"Patterns.exe.config");
-                System.Xml.Serialization.XmlSerializer xSerializer = new System.Xml.Serialization.XmlSerializer(typeof(RegexList));
-                fgexes = (RegexList)xSerializer.Deserialize(str);
-                str.Close();
-            }
-            catch (Exception ex)
-            {
-              
-                fgexes = new RegexList();
-            }
-        }
-
-        private bool isAcceptableKeyWord(string potentialKeyWord)
-        {
-            return potentialKeyWord.Length > 1 && !(new Regex(@"[=\|\n\t\r;\-:'\/\,<\>%\!]|[0-9]").IsMatch(potentialKeyWord));
-        }
-
-        private string splitFileNamePattern(string fileName)
-        {
-            List<string> retArray = new List<string>();
-            string aggregateString = "";
-            int check = 0;
-            foreach (char ch in fileName)
-            {
-                if (ch < 97)
-                {
-                    aggregateString += (ch + 32);
-                    if (check == 0)
-                    {
-                        ++check;
-                    }
-                    else
-                    {
-                        if (isAcceptableKeyWord(aggregateString))
-                        {
-                            retArray.Add(aggregateString);
-                        }
-                        aggregateString = "";
-                    }
-                }
-                else
-                {
-                    aggregateString += ch;
-                }
-            }
-            return String.Join("|", retArray.ToArray());
-        }
-
-        private string handleTie(string check, List<string> tiedStrings)
-        {
-            int max = -99;
-            string maxString = "";
-            foreach (string fileName in tiedStrings)
-            {
-                int matches = Regex.Matches(check, splitFileNamePattern(fileName).Replace(" ", "")).Count;
-                if (matches > max)
-                {
-                    max = matches;
-                    maxString = fileName;
-                }
-            }
-            return maxString;
-        }
-
-        private string getMaxRegexMatchesFile(string check)
-        {
-            int max = -99;
-            List<string> maxStrings = new List<string>();
-            foreach (var fgex in fgexes.filePatternsArray)
-            {
-                int matches = Regex.Matches(check, fgex.pattern.Replace(" ", "")).Count;
-
-
-                if (matches == max)
-                {
-                    maxStrings.Add(fgex.name);
-                }
-                if (matches > max)
-                {
-                    max = matches;
-                    maxStrings = new List<string>();
-                    maxStrings.Add(fgex.name);
-                }
-            }
-            if (max > 0)
-            {
-                return handleTie(check, maxStrings);
-            }
-            else
-            {
-                return "No Acceptable Match Found";
-            }
         }
 
         private void defineFunctionObjects()
@@ -340,14 +228,9 @@ namespace ActivAID
         {
             if (!unixCommands(command))//checks for specific responses by the bot to perform functions
             {
-                Console.WriteLine(command + "reponse\n\n\n");
                 try
                 {
-                    //if (command == null)
-                    //{
-                    //    throw new NoFileMatchException();
-                    //}
-                    outputToUI.Text = BackEnd.backendCommand(TEST_INPUT_FOR_BACKEND);//command);
+                    outputToUI.Text = BackEnd.backendCommand("new user");//command);
                 }
                 catch (NoFileMatchException)
                 {

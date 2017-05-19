@@ -52,7 +52,10 @@ def __find_candidates(ngram_list, check):
 def __find_phrases(lrm_filtered, candidates, templates):
     pos_tagged = []
     for n in candidates:
-        pos_tagged.append(pos_tag(lrm_filtered[n]))
+        try:
+            pos_tagged.append(pos_tag(lrm_filtered[n]))
+        except:
+            continue
     return [n for n in pos_tagged if __check_pos(n,templates)]
 
 #regex " "{2,*} -> " "

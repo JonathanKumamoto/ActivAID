@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using HrefsandBlocks = System.Tuple<string[], System.Collections.Generic.Dictionary<int, System.Collections.Generic.List<string>>>;
 
 namespace ActivAID
@@ -16,21 +12,14 @@ namespace ActivAID
             db = new ActivAIDDB();
         }
 
-        private Dictionary<int, List<string>> getBlocks(Query query) // might change to filenames instead
-        {
-            string current_directory = System.IO.Directory.GetCurrentDirectory() + (char)92;
-            string helplocation = current_directory + "help" + (char)92 + "Help HTML" + (char)92;
-            string filepath = helplocation + query.attributeList[0].value;
-            return db.getAllElements(filepath);
+        private Dictionary<int, List<string>> getBlocks(Query query)
+        { 
+            return db.getAllElements(query.attributeList[0].value);
         }
 
-        private string[] getHrefs(Query query) // might change to filenames instead
+        private string[] getHrefs(Query query)
         {
-            string current_directory = System.IO.Directory.GetCurrentDirectory() + (char)92;
-            string helplocation = current_directory + "help" + (char)92 + "Help HTML" + (char)92;
-            string filepath = helplocation + query.attributeList[0].value;
-            Console.WriteLine("\n\n" + filepath + "\n\n");
-            return db.getHyperlinks(filepath);
+            return db.getHyperlinks(query.attributeList[0].value);
         }
         public HrefsandBlocks query(Query query)
         {

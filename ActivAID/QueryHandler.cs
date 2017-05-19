@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using OpenTextSummarizer;
 using System.Text.RegularExpressions;
 using QueryResponseTup = System.Tuple<string[], System.Collections.Generic.List<System.Tuple<string, string[]>>>;
 using BlockDataAndKeyWords = System.Collections.Generic.List<System.Tuple<string[], string[]>>;
@@ -131,6 +129,7 @@ namespace ActivAID
             {
                 qr.keywords = new List<string>(summarize(qr.elements.Select((x) => stringOp(x)).ToArray()));
                 handledQueries.Add(qr);
+
             }
             return handledQueries;
         }

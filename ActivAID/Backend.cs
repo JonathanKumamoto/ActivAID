@@ -1,18 +1,12 @@
 ﻿using System;
-using System.IO;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using HtmlAgilityPack;
 using System.Text.RegularExpressions;
 using IronPython.Hosting;
-using Microsoft.Scripting;
 using Microsoft.Scripting.Hosting;
 using BlockDataAndKeyWords = System.Collections.Generic.List<System.Tuple<string[], string[]>>;
 using System.Diagnostics;
-
-//using Trainer.
 
 namespace ActivAID
 {
@@ -133,7 +127,7 @@ namespace ActivAID
             return text;
         }
 
-        private static string getCommand(List<string> keywords, string text)
+        private static string getCommand(string text, List<string> keywords)
         {
             string pyListString = "\"[";
             int check = 0;
@@ -234,7 +228,7 @@ namespace ActivAID
                 string text = getFullText(response.elements);
                 //dynamic a = phrase_generator.text_to_phrases(text, response.keywords);
                 //Console.WriteLine(IronPython.Modules.Builtin.len(a));
-                string strOutput = callPython(getCommand(response.keywords, text));
+                string strOutput = callPython(getCommand(text, response.keywords));
                
                 /*var dict = new IronPython.Runtime.PythonDictionary();
                 var scriptDomain = new IronPython.Runtime.ScriptDomainManager();

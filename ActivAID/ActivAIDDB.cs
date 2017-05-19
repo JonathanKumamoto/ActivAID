@@ -161,7 +161,7 @@ namespace ActivAID
             {
                 string getElements = "SELECT blockNumber, data FROM Elements WHERE fileId=@id";
                 SqlCommand cmd = new SqlCommand(getElements, conn);
-                cmd.Parameters.AddWithValue("@id", fileid);
+                    cmd.Parameters.AddWithValue("@id", fileid);
                 conn.Open();
                 using (SqlDataReader eReader = cmd.ExecuteReader())
                 {

@@ -5,89 +5,121 @@ using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using Common;
 
 namespace ActivAID
 {
-    //put in common folder
-    [XmlRoot(ElementName = "file")]
-    public class FileRegex
-    {
-        [XmlElement(ElementName = "fileName")]
-        public string name { get; set; }
-
-        [XmlElement(ElementName = "pattern")]
-        public string pattern { get; set; }
-
-    }
-
-    [XmlRoot(ElementName = "patterns")]
-    public class RegexList
-    {
-        public RegexList()
-        {
-            filePatternsArray = new List<FileRegex>();
-        }
-        public void Add(FileRegex fgex)
-        {
-            filePatternsArray.Add(fgex);
-        }
-        [XmlArrayItem()]
-        public List<FileRegex> filePatternsArray { set; get; }
-    }
 
     public class UserInputBoiler
     {
-        /*public string boilDown(string sentence)
+        private RegexList fgexes;
+
+        private void initializeFGEXES()
         {
-            RegexList fgexes = new RegexList();
             try
             {
-                System.IO.StreamReader str = new System.IO.StreamReader(@"config_patterns.xml");
+                System.IO.StreamReader str = new System.IO.StreamReader(@"Patterns.exe.config");
                 System.Xml.Serialization.XmlSerializer xSerializer = new System.Xml.Serialization.XmlSerializer(typeof(RegexList));
                 fgexes = (RegexList)xSerializer.Deserialize(str);
                 str.Close();
             }
             catch (Exception ex)
             {
+
                 fgexes = new RegexList();
             }
-            FileRegex maxFgex = new FileRegex();
-            int max = -99;
-            foreach(var fgex in fgexes.filePatternsArray)
+        }
+
+        private bool isAcceptableKeyWord(string potentialKeyWord)
+        {
+            return potentialKeyWord.Length > 1 && !(new Regex(@"[=\|\n\t\r;\-:'\/\,<\>%\!]|[0-9]").IsMatch(potentialKeyWord));
+        }
+
+        private string splitFileNamePattern(string fileName)
+        {
+            List<string> retArray = new List<string>();
+            string aggregateString = "";
+            int check = 0;
+            foreach (char ch in fileName)
             {
-                Regex pattern = new Regex(fgex.pattern);
-                int numMatches = pattern.Matches(sentence).Count;
-                if (numMatches > max)
+                if (ch < 97)
                 {
-                    max = numMatches;
-                    maxFgex = fgex;
+                    aggregateString += (ch + 32);
+                    if (check == 0)
+                    {
+                        ++check;
+                    }
+                    else
+                    {
+                        if (isAcceptableKeyWord(aggregateString))
+                        {
+                            retArray.Add(aggregateString);
+                        }
+                        aggregateString = "";
+                    }
+                }
+                else
+                {
+                    aggregateString += ch;
                 }
             }
-            return max <= 0 ? null : maxFgex.name;
-        }*/
+            return String.Join("|", retArray.ToArray());
+        }
+
+        private string handleTie(string check, List<string> tiedStrings)
+        {
+            int max = -99;
+            string maxString = "";
+            foreach (string fileName in tiedStrings)
+            {
+                int matches = Regex.Matches(check, splitFileNamePattern(fileName).Replace(" ", "")).Count;
+                if (matches > max)
+                {
+                    max = matches;
+                    maxString = fileName;
+                }
+            }
+            return maxString;
+        }
+
+        private string getMaxRegexMatchesFile(string check)
+        {
+            int max = -99;
+            List<string> maxStrings = new List<string>();
+            foreach (var fgex in fgexes.filePatternsArray)
+            {
+                int matches = Regex.Matches(check, fgex.pattern.Replace(" ", "")).Count;
+
+
+                if (matches == max)
+                {
+                    maxStrings.Add(fgex.name);
+                }
+                if (matches > max)
+                {
+                    max = matches;
+                    maxStrings = new List<string>();
+                    maxStrings.Add(fgex.name);
+                }
+            }
+            if (max > 0)
+            {
+                return handleTie(check, maxStrings);
+            }
+            else
+            {
+                return "No Acceptable Match Found";
+            }
+        }
         public string boilDown(string sentence)
         {
-            int max = -1;
-            string maxFile = "";
-            string path = "..\\..\\SynBotDir";
-            foreach (string fileName in System.IO.Directory.EnumerateFiles(path)) //maybe don't hard code
+            initializeFGEXES();
+            string retString = getMaxRegexMatchesFile(sentence);
+            if (retString == "No Acceptable Match Found")
             {
-                SimlBot Chatbot = new SimlBot();
-                Chatbot.PackageManager.LoadFromString(File.ReadAllText(fileName));
-                var result = Chatbot.Chat(sentence);
-                string outString = result.BotMessage;
-                if (!outString.Contains(";"))
-                {
-                    continue;
-                }                
-                string[] output = result.BotMessage.Split(';');
-                var lastString = output[output.Length-2];
-                var response = lastString.Split(':');
-                int test = Convert.ToInt32(response[0]);
-                maxFile = max < test ? response[1] : maxFile;
-                max = max < test ? test : max;
+                throw new NoFileMatchException();
             }
-            return maxFile;
+            return retString;
         }
     }
 }
