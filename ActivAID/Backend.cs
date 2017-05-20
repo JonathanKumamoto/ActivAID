@@ -254,11 +254,11 @@ namespace ActivAID
                         //rString += prevString;
                         rString += "\n";
                        
-                        rString += "\t" + String.Join(" ", removedTrailingWhiteSpace);
+                        rString += "\n" + String.Join(" ", removedTrailingWhiteSpace);
                     }
                     else
                     {
-                        rString += "\t" + removedTrailingWhiteSpace.Last();
+                        rString += "\n" + removedTrailingWhiteSpace.Last();
                     }
                     ++count;
                 }

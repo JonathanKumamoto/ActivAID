@@ -364,7 +364,8 @@ namespace ActivAID
 
         private bool isUnixCommand(string botOutput)
         {
-            if (botOutput == "Application closed." || botOutput == "Cleared." || botOutput == "Astronics homepage.")
+           // if (botOutput == "Application closed." || botOutput == "Cleared." || botOutput == "Astronics homepage.")
+            if(botOutput.ToLower() == "clear")
             {
                 return true;
             }
@@ -381,7 +382,7 @@ namespace ActivAID
                 Application.Current.Shutdown();
                 return true;
             }
-            else if (botOutput == "Cleared.") //clear all the text
+            else if (botOutput.ToLower() == "clear") //clear all the text
             {
                 OutputBox.Items.Clear();
                 MainWindow_Creator();
@@ -390,7 +391,7 @@ namespace ActivAID
                  */
                 return true;
             }
-            else if (botOutput == "Astronics homepage.") //sends users to the astronics homepage
+            else if (botOutput.ToLower() == "astronics homepage") //sends users to the astronics homepage
             {
                 System.Diagnostics.Process.Start("http://astronicstestsystems.com/");
                 return true;
