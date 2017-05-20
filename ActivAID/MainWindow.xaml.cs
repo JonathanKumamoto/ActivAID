@@ -227,16 +227,15 @@ namespace ActivAID
 
         private void setOutPut(string command, ref TextBlock outputToUI, ref TextBox tb)
         {
-            Console.WriteLine(command+" "+outputToUI.Text+"\n\n\n\n");
             if (!unixCommands(command))//checks for specific responses by the bot to perform functions
             {
                 try
                 {
-                    outputToUI.Text = BackEnd.backendCommand(command);//tb.Text);//BackEnd.backendCommand("new user");//command);
+                    outputToUI.Text = BackEnd.backendCommand(command.ToLower(), "steps");//mode);
                 }
                 catch (NoFileMatchException)
                 {
-                    outputToUI.Text = "i'm hearing ya... i just don't getcha. can you make your request more specific?";
+                    outputToUI.Text = "I'm hearing ya... I just don't getcha. Can you make your request more specific?";
                 }
             }
             tb.Text = string.Empty;

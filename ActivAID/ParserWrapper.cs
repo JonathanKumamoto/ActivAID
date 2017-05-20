@@ -260,28 +260,7 @@ namespace Parser
             }
             insertRegexIntoConfig();
         }
-
-        /*public void genModel()
-        {
-            List<List<string>> fileKeyWords = new List<List<string>>();
-            List<string> responseFileNames = new List<string>();
-            string response;
-            foreach (var pair in parsedCHMs)
-            {
-                List<string> keywords = new List<string>(); 
-                responseFileNames.Add(pair.Key);
-                keywords.AddRange(KeyWordFinder.handleLineKeyWords(5,pair.Value.title));//keywords weighted by ordering in which they appear in list
-                keywords.AddRange(KeyWordFinder.concatAllKeyWords(5, pair.Value.blocks, keywords));
-                fileKeyWords.Add(keywords);
-            }
-            response = String.Join(";", responseFileNames.ToArray());
-            //aggregateKeyWords(fileKeyWords)
-            //Console.WriteLine(response);
-            foreach (string keyword in keywords)
-            {
-                Console.WriteLine(keyword);
-            }
-        }*/
+        
     }
 }
 

@@ -60,7 +60,7 @@ namespace ActivAID
             {
                 hrefList.Add(href);
             }
-            return new QueryResponse(q.originalSentence, hrefList, elements, null);
+            return new QueryResponse(q.originalSentence, hrefList, elements, null, qResponse.Item2);
         }
 
         /// <summary>

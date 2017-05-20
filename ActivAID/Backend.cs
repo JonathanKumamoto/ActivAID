@@ -216,34 +216,89 @@ namespace ActivAID
             return phraseList;
         }
 
-        public static string backendCommand(string paragraph)
+        private static void getKeyWords(QueryResponse response, ref string rString)
+        {
+            string text = getFullText(response.elements);
+            string strOutput = callPython(getCommand(text, response.keywords));
+            List<string> phrases = getPhrases(strOutput);
+
+            rString = addKeywordsOrPhrases(response.keywords, phrases, rString);
+            if (response.hrefs.Count() > 1)
+            {
+                rString = addHrefs(response.hrefs, rString);
+            }
+        }
+
+        private static void getSteps(QueryResponse response, ref string rString)
+        {
+            Func<string, string>stringOp = new Func<string, string>((x) =>
+            {
+                var temp = x;
+                new HTMLMessager().removeFromLine(ref temp);
+                return temp;
+            });
+            int prev = -99;
+            string prevString ="";
+            bool foundSteps = false;
+            int count = 0;
+
+            foreach (var kv in response.blocks)
+            {
+                if (kv.Key != prev)
+                {
+                    var messageStep = kv.Value.Select((x) => { return stringOp(x); }).ToList();
+                    var removedTrailingWhiteSpace = messageStep.Select((x) => { return x.Trim(); }).ToArray();
+                    foundSteps = true;
+                    if (count != 0)
+                    {
+                        //rString += prevString;
+                        rString += "\n";
+                       
+                        rString += String.Join(" ", removedTrailingWhiteSpace);
+                    }
+                    else
+                    {
+                        rString += removedTrailingWhiteSpace.Last();
+                    }
+                    ++count;
+                }
+                else if (foundSteps)
+                {
+                    break; 
+                }
+                prev = kv.Key;
+                var prevMessageStep = kv.Value.Select((x) => { return stringOp(x); }).ToList();
+                var prevRemovedTrailingWhiteSpace = prevMessageStep.Select((x) => { return x.Trim(); }).ToArray();
+                prevString = String.Join(" ", prevRemovedTrailingWhiteSpace);
+            }
+            
+        }
+
+        private static string getInitialStringFromMode(string mode)
+        {
+            if (mode == "keywords")
+            { return "This article covers topics and keywords related to: \n"; }
+            else if (mode == "steps")
+            { return "Here are some steps that are relevant to your request: \n"; }
+            else { return ""; }
+        }
+
+        public static string backendCommand(string paragraph, string mode)
         {
             phrase_generator = phrase_generator_task.Result;
-            //will not handle ands and such since it just takes paragraph
-            string rString = "This article covers topics and keywords related to: \n";
+            string rString = getInitialStringFromMode(mode);
             var responses = getNewQueryHandler().handleQuery(new string[] { paragraph });
             foreach (var response in responses)
             {
-
-                string text = getFullText(response.elements);
-                //dynamic a = phrase_generator.text_to_phrases(text, response.keywords);
-                //Console.WriteLine(IronPython.Modules.Builtin.len(a));
-                string strOutput = callPython(getCommand(text, response.keywords));
-               
-                /*var dict = new IronPython.Runtime.PythonDictionary();
-                var scriptDomain = new IronPython.Runtime.ScriptDomainManager();
-                var pcontext = new IronPython.Runtime.PythonContext(scriptDomain);
-                var module = new IronPython.Runtime.ModuleContext(dict, pcontext);
-                dynamic retList = IronPython.Modules.Builtin.eval(new IronPython.Runtime.CodeContext(dict, module), strOutput);*/
-
-                // dynamic retList = engine.Execute("eval(\""+ strOutput + "\")");
-                List<string> phrases = getPhrases(strOutput);
-
-                rString = addKeywordsOrPhrases(response.keywords, phrases, rString);
-                if (response.hrefs.Count() > 1)
+                if (mode == "keywords")
                 {
-                    rString = addHrefs(response.hrefs, rString);
+                    getKeyWords(response, ref rString);
                 }
+                else if (mode == "steps")
+                {
+                    getSteps(response, ref rString);
+                }
+               
             }
             return rString;
             

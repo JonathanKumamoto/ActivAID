@@ -13,13 +13,17 @@ namespace ActivAID
         public List<string> elements { get; set; }
         public List<string> keywords { get; set; }
 
+        public Dictionary<int, List<string>> blocks { get; set; }
+
         public QueryResponse(string originalSentence, List<string> hrefs,
-                             List<string> element, List<string> keywords)
+                             List<string> element, List<string> keywords,
+                             Dictionary<int, List<string>> blocks)
         {
             this.originalSentence = originalSentence;
             this.hrefs = hrefs;
             this.elements = element;
             this.keywords = keywords;
+            this.blocks = blocks;
         }
     }
 }
