@@ -184,7 +184,7 @@ namespace ActivAID
                 {
                     rString += "\n";
                 }
-                rString += checkForPhrase(kw, rString, phrases);
+                rString += "\t" + checkForPhrase(kw, rString, phrases);
                 ++count;
             }
             return new Regex("[\n\r]{2,}").Replace(rString, "");
@@ -254,11 +254,11 @@ namespace ActivAID
                         //rString += prevString;
                         rString += "\n";
                        
-                        rString += String.Join(" ", removedTrailingWhiteSpace);
+                        rString += "\t" + String.Join(" ", removedTrailingWhiteSpace);
                     }
                     else
                     {
-                        rString += removedTrailingWhiteSpace.Last();
+                        rString += "\t" + removedTrailingWhiteSpace.Last();
                     }
                     ++count;
                 }
