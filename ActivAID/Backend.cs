@@ -251,7 +251,6 @@ namespace ActivAID
                     foundSteps = true;
                     if (count != 0)
                     {
-                        //rString += prevString;
                         rString += "\n";
                        
                         rString += "\n" + String.Join(" ", removedTrailingWhiteSpace);
@@ -266,10 +265,6 @@ namespace ActivAID
                 {
                     break; 
                 }
-                prev = kv.Key;
-                var prevMessageStep = kv.Value.Select((x) => { return stringOp(x); }).ToList();
-                var prevRemovedTrailingWhiteSpace = prevMessageStep.Select((x) => { return x.Trim(); }).ToArray();
-                prevString = String.Join(" ", prevRemovedTrailingWhiteSpace);
             }
             
         }
