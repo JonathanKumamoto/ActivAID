@@ -10,6 +10,8 @@ using System.Diagnostics;
 
 namespace ActivAID
 {
+    delegate void ActionRef(QueryResponse qr, ref string item);
+
     public class BackEnd
     {
         //private static ScriptScope builtinscope;
@@ -278,22 +280,28 @@ namespace ActivAID
             else { return ""; }
         }
 
-        public static string backendCommand(string paragraph, string mode)
+        private static void aggregateReturnString(List<QueryResponse> responses, ActionRef aggregateFunction, ref string rString)
         {
-            phrase_generator = phrase_generator_task.Result;
-            string rString = getInitialStringFromMode(mode);
-            var responses = getNewQueryHandler().handleQuery(new string[] { paragraph });
             foreach (var response in responses)
             {
-                if (mode == "keywords")
-                {
-                    getKeyWords(response, ref rString);
-                }
-                else if (mode == "steps")
-                {
-                    getSteps(response, ref rString);
-                }
-               
+                aggregateFunction(response, ref rString);
+            }
+        }
+
+        public static string backendCommand(string paragraph)
+        {
+            phrase_generator = phrase_generator_task.Result;
+            string rString = "";//getInitialStringFromMode(mode);
+            var responses = getNewQueryHandler().handleQuery(new string[] { paragraph });
+            aggregateReturnString(responses, getSteps, ref rString);
+            if (rString.Trim() == null)
+            {
+                rString = "This article covers topics and keywords related to: \n";
+                aggregateReturnString(responses, getKeyWords, ref rString);
+            }
+            else
+            {
+                rString = "Here are some steps that are relevant to your request: \n" + rString;
             }
             return rString;
             
