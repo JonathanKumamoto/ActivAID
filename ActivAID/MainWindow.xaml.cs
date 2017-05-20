@@ -132,7 +132,7 @@ namespace ActivAID
         private void voiceControl_OnClick(object sender, RoutedEventArgs e)
         {
             sRecognize = new SpeechRecognitionEngine();
-            InputBox.Clear();
+            //InputBox.Clear();
             mic.Visibility = System.Windows.Visibility.Collapsed;
             mic.IsEnabled = false;
             Choices sList = new Choices();
@@ -219,28 +219,30 @@ namespace ActivAID
             OutputBox.SelectedItem = OutputBox.Items.CurrentItem;
             OutputBox.ScrollIntoView(OutputBox.Items.CurrentItem);
 
-            
-            SendButton_actionBOT();
+            Console.WriteLine(InputBox.Text);
+            string WILLBEDELETED = InputBox.Text;
+            SendButton_actionBOT(InputBox, WILLBEDELETED);
             
         }
 
-        private void setOutPut(string command, ref TextBlock outputToUI)
+        private void setOutPut(string command, ref TextBlock outputToUI, ref TextBox tb)
         {
+            Console.WriteLine(command+" "+outputToUI.Text+"\n\n\n\n");
             if (!unixCommands(command))//checks for specific responses by the bot to perform functions
             {
                 try
                 {
-                    outputToUI.Text = BackEnd.backendCommand("new user");//command);
+                    outputToUI.Text = BackEnd.backendCommand(command);//tb.Text);//BackEnd.backendCommand("new user");//command);
                 }
                 catch (NoFileMatchException)
                 {
                     outputToUI.Text = "i'm hearing ya... i just don't getcha. can you make your request more specific?";
                 }
             }
-            InputBox.Text = string.Empty;
+            tb.Text = string.Empty;
         }
 
-        private async void SendButton_actionBOT()
+        private async void SendButton_actionBOT(TextBox tb, string WILLBEDELETED)
         {
             await Task.Delay(500);
             TextBlock txtBlockbot = new TextBlock();
@@ -254,7 +256,9 @@ namespace ActivAID
             //int milliseconds = 1000;
             //Thread.Sleep(milliseconds);
             //-----------------------------------------------------------------------------------------
-            setOutPut(result, ref txtBlockbot);
+            Console.WriteLine("hello "+tb.Text+"\n\n\n\n\n\n");
+
+            setOutPut(WILLBEDELETED,ref txtBlockbot ,ref tb);
 
             //txtBlockbot.Text = result;//result.BotMessage;
             botmsg = new Label();
