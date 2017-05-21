@@ -148,7 +148,7 @@ namespace ActivAID
                 {
                     rString += "\n";
                 }
-                rString += "      " + checkForPhrase(kw, rString, phrases);
+                rString += "     " + checkForPhrase(kw, rString, phrases);
                 ++count;
             }
             return new Regex("[\n\r]{2,}").Replace(rString, "");
