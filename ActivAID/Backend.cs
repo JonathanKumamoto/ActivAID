@@ -232,6 +232,23 @@ namespace ActivAID
             
         }
 
+        private List<List<string>> getBlockWithKeyWord(QueryResponse response, string keyword)
+        {
+            List<List<string>> retStrings = new List<List<string>>();
+            foreach (var block in response.blocks)
+            {
+                foreach (string element in block.Value)
+                {
+                    if (Regex.Match(element, keyword).Success)
+                    {
+                        retStrings.Add(block.Value);
+                        break;
+                    }
+                }
+            }
+            return retStrings;
+        }
+
         private static void aggregateReturnString(List<QueryResponse> responses, ActionRef aggregateFunction, ref string rString)
         {
             foreach (var response in responses)
