@@ -53,16 +53,11 @@ namespace ActivAID
                     ScriptEngine engine = Python.CreateEngine(options);
                     //points to python site-packages
                     string spackagespath = Environment.GetEnvironmentVariable("SPACKAGES");
-                    //points to python libs
-                    string libspath = Environment.GetEnvironmentVariable("LIBS");
-                    //points to phrase generator script
-                    string codepath = Environment.GetEnvironmentVariable("CODE");
+                    //points to iron python lib folder
+                    string libpath = Environment.GetEnvironmentVariable("LIB");
                     var searchpaths = engine.GetSearchPaths();
-                    //path to site-packages
-                    //searchpaths.add(codepath);
-                    searchpaths.Add(codepath);
                     searchpaths.Add(spackagespath);
-                    searchpaths.Add(libspath);
+                    searchpaths.Add(libpath);
                     engine.SetSearchPaths(searchpaths);
                     return engine.ImportModule("phrase_generator");
                 });
@@ -129,39 +124,6 @@ namespace ActivAID
             return text;
         }
 
-        private static string getCommand(string text, List<string> keywords)
-        {
-            string pyListString = "\"[";
-            int check = 0;
-            foreach (var kw in keywords)
-            {
-                if (check != 0)
-                {
-                    pyListString += ",";
-                }
-                pyListString += "'" + kw + "'";
-                check += 1;
-            }
-            pyListString += "]\"";
-            var command = "phrase_generator.py \"" + text.Replace("\n", "").Replace("\r", "");
-            command = command.Replace("\r", "").Replace("\r\n", "").Replace("|", " ") + "\" ";
-            command += pyListString;
-            return command;
-        }
-
-        private static string callPython(string command)
-        {
-            Process pProcess = new Process();
-            pProcess.StartInfo.FileName = "python.exe";
-            pProcess.StartInfo.Arguments = command.Replace("\n"," ").Replace("\t", " ").Replace("\r", " ");
-
-            pProcess.StartInfo.UseShellExecute = false;
-            pProcess.StartInfo.CreateNoWindow = true;
-            pProcess.StartInfo.RedirectStandardOutput = true;
-            pProcess.Start();
-            return pProcess.StandardOutput.ReadToEnd();
-        }
-
         private static string checkForPhrase(string kw, string rString, List<string> phrases)
         {
             int count = 0;
@@ -186,7 +148,7 @@ namespace ActivAID
                 {
                     rString += "\n";
                 }
-                rString += "\t" + checkForPhrase(kw, rString, phrases);
+                rString += "      " + checkForPhrase(kw, rString, phrases);
                 ++count;
             }
             return new Regex("[\n\r]{2,}").Replace(rString, "");
@@ -207,9 +169,9 @@ namespace ActivAID
             return rString;
         }
 
-        public static List<string> getPhrases(string strOutput)
+        public static List<string> getPhrases(string text, List<string> keywords)
         {
-            IronPython.Runtime.PythonGenerator gen = (IronPython.Runtime.PythonGenerator)phrase_generator.eval_string(strOutput);
+            IronPython.Runtime.PythonGenerator gen = (IronPython.Runtime.PythonGenerator)phrase_generator.gen_phrases(text, keywords);
             List<string> phraseList = new List<string>();
             foreach (string str in gen.Cast<string>())
             {
@@ -221,8 +183,7 @@ namespace ActivAID
         private static void getKeyWords(QueryResponse response, ref string rString)
         {
             string text = getFullText(response.elements);
-            string strOutput = callPython(getCommand(text, response.keywords));
-            List<string> phrases = getPhrases(strOutput);
+            List<string> phrases = getPhrases(text, response.keywords);
 
             rString = addKeywordsOrPhrases(response.keywords, phrases, rString);
             if (response.hrefs.Count() > 1)
@@ -271,15 +232,6 @@ namespace ActivAID
             
         }
 
-        private static string getInitialStringFromMode(string mode)
-        {
-            if (mode == "keywords")
-            { return "This article covers topics and keywords related to: \n"; }
-            else if (mode == "steps")
-            { return "Here are some steps that are relevant to your request: \n"; }
-            else { return ""; }
-        }
-
         private static void aggregateReturnString(List<QueryResponse> responses, ActionRef aggregateFunction, ref string rString)
         {
             foreach (var response in responses)
@@ -293,8 +245,8 @@ namespace ActivAID
             phrase_generator = phrase_generator_task.Result;
             string rString = "";//getInitialStringFromMode(mode);
             var responses = getNewQueryHandler().handleQuery(new string[] { paragraph });
-            aggregateReturnString(responses, getSteps, ref rString);
-            if (rString.Trim() == null)
+            //aggregateReturnString(responses, getSteps, ref rString);
+            if (rString.Trim() == "")
             {
                 rString = "This article covers topics and keywords related to: \n";
                 aggregateReturnString(responses, getKeyWords, ref rString);

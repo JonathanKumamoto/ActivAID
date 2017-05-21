@@ -62,7 +62,7 @@ def __find_phrases(lrm_filtered, candidates, templates):
 def __change_to_lower(text, keywords):
     return text.lower(), list(map(lambda x: x.lower(), keywords))
 
-def text_to_phrases(text, keywords):
+def __text_to_phrases(text, keywords):
     text, keywords = __change_to_lower(text, keywords)
     only_keyword_tups= resolve_keywords_only_keyword_tups(keywords)
     lrm = LogicalRemoveMonad(text) | remove_punctuation | only_keyword_tups | remove_useless_tups | to_lower
@@ -73,11 +73,7 @@ def text_to_phrases(text, keywords):
     check = __get_max_scores(__get_scores(lrm.logically_removed[0], keywords))
     candidates = __find_candidates(lrm.logically_removed[0], dict(check))
     return __find_phrases(lrm_filtered, candidates, sentence_templates)
- 
- 
-def eval_string(x):
-	for tup in eval(x):
-		yield tup[0][0]+ " "+tup[1][0]+" "+tup[2][0]
 
-if __name__ == "__main__":
-    print(text_to_phrases(sys.argv[1], eval(sys.argv[2])))
+def gen_phrases(text, keywords):
+	for phrase in __text_to_phrases(text, keywords):
+		yield phrase[0][0] + " " + phrase[1][0] + " " + phrase[2][0]
