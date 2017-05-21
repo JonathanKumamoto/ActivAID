@@ -245,7 +245,7 @@ namespace ActivAID
             phrase_generator = phrase_generator_task.Result;
             string rString = "";//getInitialStringFromMode(mode);
             var responses = getNewQueryHandler().handleQuery(new string[] { paragraph });
-            //aggregateReturnString(responses, getSteps, ref rString);
+            aggregateReturnString(responses, getSteps, ref rString);
             if (rString.Trim() == "")
             {
                 rString = "This article covers topics and keywords related to: \n";
