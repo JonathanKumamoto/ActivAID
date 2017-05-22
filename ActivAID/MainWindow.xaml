@@ -6,8 +6,19 @@
         xmlns:local="clr-namespace:ActivAID"
         mc:Ignorable="d"
         WindowStyle="None"
+        Opacity="0"
         Name="main"
         Title="ActivAID" Height="541.264" Width="536.861" WindowStartupLocation="Manual" FontFamily="Arial" Background="Transparent" AllowsTransparency="True">
+
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Window.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Duration="00:00:03" Storyboard.TargetProperty="Opacity" To="1" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
     <Window.Resources>
         <!-- Put in any styles needed for window. Similar to that of an HTML <header> area  -->
 
@@ -69,15 +80,15 @@
 
     </Window.Resources>
 
-    <Border BorderThickness="3" CornerRadius="4" BorderBrush="#35517b" Background="#35517b">
+    <Border BorderThickness="3" CornerRadius="4" BorderBrush="#284167" Background="#284167">
         <Grid x:Name="grid1">
             <!--<Frame x:Name="frame" HorizontalAlignment="Left" Height="109" Margin="0,426,0,0" VerticalAlignment="Top" Width="530" Background="transparent"/>-->
-            <Frame x:Name="frame" HorizontalAlignment="Left" Height="439" Margin="-6,45,-5,0" VerticalAlignment="Top" Width="542" Background="#284167"/>
+            <Frame x:Name="frame" HorizontalAlignment="Left" Height="439" Margin="-6,45,-5,0" VerticalAlignment="Top" Width="542" Background="#4c6181"/>
 
             <Label x:Name="label" Content="ActivAID" HorizontalAlignment="Center" Margin="22,4,399,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="24" Foreground="White" FontWeight="Bold" Height="32" Width="110"/>
 
-            <Button x:Name="close" Click="CloseButton_OnClick" Margin="492,3,4,498" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" BorderBrush="{x:Null}" Background="{x:Null}" Width="35" Height="34">
-                <Image x:Name="closeImage" HorizontalAlignment="Center" Height="21" VerticalAlignment="Center" Width="27" Grid.Column="1" Source="/Media/iconClose2.png" Opacity="1" Cursor="Hand"/>
+            <Button x:Name="close" Click="CloseButton_OnClick" Margin="492,3,4,498" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" BorderBrush="{x:Null}" Background="{x:Null}" Width="45" Height="45">
+                <Image x:Name="closeImage" HorizontalAlignment="Center" VerticalAlignment="Center" Height="35" Width="35" Grid.Column="1" Source="/Media/iconClose2.png" Opacity="1" Cursor="Hand"/>
             </Button>
 
             <TextBox x:Name="InputBox" Margin="39,495,60,12" MaxLength="180" Padding="10,5,40,0" SelectionOpacity="-1" Text="Search..." FontFamily="Century Gothic" Background="#FFF" Foreground="#FF9C9C9C" GotFocus="TextBox_GotFocus" KeyUp="OnKeyUpHandler">
@@ -92,7 +103,7 @@
 
             <Button x:Name="Search" Content="Send" Click="SendButton_OnClick" Margin="476,495,10,12" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" BorderBrush="{x:Null}" Background="{x:Null}" Width="45" Height="28" FontFamily="Century Gothic" FontSize="15" Foreground="White" FontWeight="Bold">
             </Button>
-            <Image x:Name="image1" HorizontalAlignment="Left" Height="24" Margin="463,8,0,0" VerticalAlignment="Top" Width="25" Source="/Media/iconSettings.png" MouseLeftButtonDown="SettingsButton_OnClick"/>
+            <Image x:Name="image1" HorizontalAlignment="Left" Height="30" Margin="449,5,0,0" VerticalAlignment="Top" Width="30" Source="/Media/iconSettings.png" MouseLeftButtonDown="SettingsButton_OnClick"/>
 
             <ListBox x:Name="OutputBox" SelectedItem="{Binding checkedListBox1__SelectedIndexChanged, Mode=TwoWay}" ScrollViewer.CanContentScroll="False" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden" Margin="22,66,22,87" Background="{x:Null}" BorderBrush="{x:Null}" ItemContainerStyle="{StaticResource ListBoxtemStyleNoHighlighting}">
                 

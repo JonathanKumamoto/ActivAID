@@ -44,8 +44,8 @@ namespace ActivAID
                         (window as MainWindow).grid1.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF284167"));
                         //(window as MainWindow).close.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF5383AD"));
                         //(window as MainWindow).firstBOT.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF4A4B53"));
-                        (window as MainWindow).ColorBOT = "#FF4A4B53";
-                        (window as MainWindow).ColorUser = "#FF5383AD";
+                        (window as MainWindow).ColorBOT = "#232c3a";
+                        (window as MainWindow).ColorUser = "#40464e";
                         foreach (Object block in (window as MainWindow).OutputBox.Items)
                         {
                             if (block.GetType() == typeof(Label))
@@ -54,15 +54,15 @@ namespace ActivAID
 
                                 if (newblock.Name == "botmsg" || newblock.Name == "botmsgGold")
                                 {
-                                    newblock.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF4A4B53"));
+                                    newblock.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#232c3a"));
                                 }
                                 else if (newblock.Name == "usermsg")
                                 {
-                                    newblock.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF5383AD"));
+                                    newblock.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#40464e"));
                                 }
                                 else if (newblock.Name == "mainmsg")
                                 {
-                                    newblock.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF4A4B53"));
+                                    newblock.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#232c3a"));
                                 }
                                 newblock.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFFFFF"));
                                 newblock.FontSize = Convert.ToInt32(textBoxfont.Text);

@@ -19,14 +19,14 @@ namespace ActivAID
         // private int elementCounter;
         public ActivAIDDB()
         {
-            string dbName = Environment.GetEnvironmentVariable("DBNAME");
-            string serverName = Environment.GetEnvironmentVariable("SERVERNAME");
-            dblocation = "Server=.;Database="+dbName+";Integrated Security=true";
+            //string dbName = Environment.GetEnvironmentVariable("DBNAME");
+            //string serverName = Environment.GetEnvironmentVariable("SERVERNAME");
+            dblocation = "Server=.\\SQLEXPRESS;Database=ActivAID DB;Integrated Security=true";
             // elementCounter = 0;
             builder = new SqlConnectionStringBuilder();
-            builder.DataSource = serverName; // CHANGE THIS TO YOUR OWN SERVER
+            //builder.DataSource = serverName; // CHANGE THIS TO YOUR OWN SERVER
             //builder.DataSource = "IP Address\SQLEXPRESS, 49172"
-            builder.InitialCatalog = dbName;
+            //builder.InitialCatalog = dbName;
             builder.IntegratedSecurity = false;
             //builder.UserID = "sa";
             //builder.Password = "activaid";

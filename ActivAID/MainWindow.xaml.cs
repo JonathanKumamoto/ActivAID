@@ -46,8 +46,8 @@ namespace ActivAID
             InputBox.TextChanged += OnTextChangedHandler;
             //Chatbot = new SimlBot();
             //Chatbot.PackageManager.LoadFromString(File.ReadAllText("Knowledge.simlpk"));
-            ColorBOT = "#FF4A4B53"; // Color of Bot message rectangle
-            ColorUser = "#FF5383AD"; // Color of User message rectangle
+            ColorBOT = "#232c3a"; // Color of Bot message rectangle
+            ColorUser = "#40464e"; // Color of User message rectangle
             FontColor = "#FFFFFF"; // Font color for text in Chat
             AppWindow = this;
             MouseDown += delegate { DragMove(); };
