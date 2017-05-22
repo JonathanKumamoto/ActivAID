@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ActivAID
 {
-    class QueryResponse
+    public class QueryResponse
     {
         public string originalSentence { get; set; }
         public List<string> hrefs { get; set; }

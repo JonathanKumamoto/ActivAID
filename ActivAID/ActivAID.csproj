@@ -124,7 +124,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ActivAIDDB.cs" />
+    <Compile Include="Clickable.cs" />
     <Compile Include="ConfigXML.cs" />
+    <Compile Include="HrefsClickable.cs" />
+    <Compile Include="KeyWordClickable.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -136,6 +139,7 @@
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
     <Compile Include="QueryResponse.cs" />
+    <Compile Include="StepsClickable.cs" />
     <Compile Include="UserInputBoiler.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>

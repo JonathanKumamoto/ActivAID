@@ -231,7 +231,8 @@ namespace ActivAID
             {
                 try
                 {
-                    outputToUI.Text = BackEnd.backendCommand(command.ToLower());//mode);
+                    //outputToUI.Text = BackEnd.backendCommand(ref outputToUI, command.ToLower());//mode);
+                    BackEnd.backendCommand(ref outputToUI, command.ToLower());//mode);
                 }
                 catch (NoFileMatchException)
                 {

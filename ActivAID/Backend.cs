@@ -7,6 +7,7 @@ using IronPython.Hosting;
 using Microsoft.Scripting.Hosting;
 using BlockDataAndKeyWords = System.Collections.Generic.List<System.Tuple<string[], string[]>>;
 using System.Diagnostics;
+using System.Windows.Controls;
 
 namespace ActivAID
 {
@@ -232,23 +233,6 @@ namespace ActivAID
             
         }
 
-        private List<List<string>> getBlockWithKeyWord(QueryResponse response, string keyword)
-        {
-            List<List<string>> retStrings = new List<List<string>>();
-            foreach (var block in response.blocks)
-            {
-                foreach (string element in block.Value)
-                {
-                    if (Regex.Match(element, keyword).Success)
-                    {
-                        retStrings.Add(block.Value);
-                        break;
-                    }
-                }
-            }
-            return retStrings;
-        }
-
         private static void aggregateReturnString(List<QueryResponse> responses, ActionRef aggregateFunction, ref string rString)
         {
             foreach (var response in responses)
@@ -257,8 +241,51 @@ namespace ActivAID
             }
         }
 
-        public static string backendCommand(string paragraph)
+        private static List<string> getStepsList(List<QueryResponse> responses)
         {
+            List<string> rList = new List<string>();
+            foreach (var response in responses)
+            {
+                Func<string, string> stringOp = new Func<string, string>((x) =>
+                {
+                    var temp = x;
+                    new HTMLMessager().removeFromLine(ref temp);
+                    return temp;
+                });
+                int prev = -99;
+                string prevString = "";
+                bool foundSteps = false;
+                int count = 0;
+
+                foreach (var kv in response.blocks)
+                {
+                    if (kv.Key != prev)
+                    {
+                        var messageStep = kv.Value.Select((x) => { return stringOp(x); }).ToList();
+                        var removedTrailingWhiteSpace = messageStep.Select((x) => { return x.Trim(); }).ToArray();
+                        foundSteps = true;
+                        if (count != 0)
+                        {
+                            rList.Add(String.Join(" ", removedTrailingWhiteSpace));
+                        }
+                        else
+                        {
+                            rList.Add(removedTrailingWhiteSpace.Last());
+                        }
+                        ++count;
+                    }
+                    else if (foundSteps)
+                    {
+                        break;
+                    }
+                }
+            }
+            return rList;
+        }
+
+        public static List<Clickable> backendCommand(ref TextBlock tb, string paragraph)
+        {
+            List<Clickable> rList = new List<Clickable>();
             phrase_generator = phrase_generator_task.Result;
             string rString = "";//getInitialStringFromMode(mode);
             var responses = getNewQueryHandler().handleQuery(new string[] { paragraph });
@@ -266,14 +293,15 @@ namespace ActivAID
             if (rString.Trim() == "")
             {
                 rString = "This article covers topics and keywords related to: \n";
-                aggregateReturnString(responses, getKeyWords, ref rString);
+               // aggregateReturnStringList(responses, getKeyWords, ref rString);
             }
             else
             {
-                rString = "Here are some steps that are relevant to your request: \n" + rString;
+                List<string> steps = getStepsList(responses);
+                rString = "Here are some steps that are relevant to your request: \n" + steps.First();
+                rList.Add(new StepsClickable(ref tb, rString, steps, responses.First()));
             }
-            return rString;
-            
+            return rList;
         }
     }
 }
