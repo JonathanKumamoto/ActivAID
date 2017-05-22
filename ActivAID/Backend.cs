@@ -12,6 +12,7 @@ using System.Windows.Controls;
 namespace ActivAID
 {
     delegate void ActionRef(QueryResponse qr, ref string item);
+    delegate void ActionRefList(QueryResponse qr, ref List<string> rList);
 
     public class BackEnd
     {
@@ -140,19 +141,14 @@ namespace ActivAID
             return kw;
         }
 
-        private static string addKeywordsOrPhrases(List<string> keywords, List<string> phrases, string rString)
+        private static void addKeywordsOrPhrases(List<string> keywords, List<string> phrases, string rString, ref List<string> rList)
         {
-            int count = 0;
-            foreach (var kw in keywords)
-            {
-                if (count != 0)
-                {
-                    rString += "\n";
-                }
-                rString += "     " + checkForPhrase(kw, rString, phrases);
-                ++count;
-            }
-            return new Regex("[\n\r]{2,}").Replace(rString, "");
+             foreach (var kw in keywords)
+             {
+                 rString = checkForPhrase(kw, rString, phrases);
+                 rString = new Regex("[\n\r]{2,}").Replace(rString, "");
+                 rList.Add(rString);
+             }
         }
 
         private static string addHrefs(List<string> hrefs, string rString)
@@ -179,18 +175,6 @@ namespace ActivAID
                 phraseList.Add(str);
             }
             return phraseList;
-        }
-
-        private static void getKeyWords(QueryResponse response, ref string rString)
-        {
-            string text = getFullText(response.elements);
-            List<string> phrases = getPhrases(text, response.keywords);
-
-            rString = addKeywordsOrPhrases(response.keywords, phrases, rString);
-            if (response.hrefs.Count() > 1)
-            {
-                rString = addHrefs(response.hrefs, rString);
-            }
         }
 
         private static void getSteps(QueryResponse response, ref string rString)
@@ -241,65 +225,89 @@ namespace ActivAID
             }
         }
 
-        private static List<string> getStepsList(List<QueryResponse> responses)
+        private static List<string> aggregateReturnList(List<QueryResponse> responses, ActionRefList aggregateFunction)
         {
             List<string> rList = new List<string>();
             foreach (var response in responses)
             {
-                Func<string, string> stringOp = new Func<string, string>((x) =>
-                {
-                    var temp = x;
-                    new HTMLMessager().removeFromLine(ref temp);
-                    return temp;
-                });
-                int prev = -99;
-                string prevString = "";
-                bool foundSteps = false;
-                int count = 0;
-
-                foreach (var kv in response.blocks)
-                {
-                    if (kv.Key != prev)
-                    {
-                        var messageStep = kv.Value.Select((x) => { return stringOp(x); }).ToList();
-                        var removedTrailingWhiteSpace = messageStep.Select((x) => { return x.Trim(); }).ToArray();
-                        foundSteps = true;
-                        if (count != 0)
-                        {
-                            rList.Add(String.Join(" ", removedTrailingWhiteSpace));
-                        }
-                        else
-                        {
-                            rList.Add(removedTrailingWhiteSpace.Last());
-                        }
-                        ++count;
-                    }
-                    else if (foundSteps)
-                    {
-                        break;
-                    }
-                }
+                aggregateFunction(response, ref rList);
             }
             return rList;
         }
 
-        public static List<Clickable> backendCommand(ref TextBlock tb, string paragraph)
+        private static void aggSteps(QueryResponse response, ref List<string> rList)
         {
-            List<Clickable> rList = new List<Clickable>();
-            phrase_generator = phrase_generator_task.Result;
-            string rString = "";//getInitialStringFromMode(mode);
-            var responses = getNewQueryHandler().handleQuery(new string[] { paragraph });
-            aggregateReturnString(responses, getSteps, ref rString);
-            if (rString.Trim() == "")
+            Func<string, string> stringOp = new Func<string, string>((x) =>
             {
-                rString = "This article covers topics and keywords related to: \n";
-               // aggregateReturnStringList(responses, getKeyWords, ref rString);
+                var temp = x;
+                new HTMLMessager().removeFromLine(ref temp);
+                return temp;
+            });
+            int prev = -99;
+            string prevString = "";
+            bool foundSteps = false;
+            int count = 0;
+
+            foreach (var kv in response.blocks)
+            {
+                if (kv.Key != prev)
+                {
+                    var messageStep = kv.Value.Select((x) => { return stringOp(x); }).ToList();
+                    var removedTrailingWhiteSpace = messageStep.Select((x) => { return x.Trim(); }).ToArray();
+                    foundSteps = true;
+                    if (count != 0)
+                    {
+                        rList.Add(String.Join(" ", removedTrailingWhiteSpace));
+                    }
+                    else
+                    {
+                        rList.Add(removedTrailingWhiteSpace.Last());
+                    }
+                    ++count;
+                }
+                else if (foundSteps)
+                {
+                    break;
+                }
+            }
+        }
+
+        public static void aggKeywords(QueryResponse response, ref List<string> rList)
+        {
+            string text = getFullText(response.elements);
+            List<string> phrases = getPhrases(text, response.keywords);
+            addKeywordsOrPhrases(response.keywords, phrases, String.Join(" ", rList), ref rList);
+        }
+
+        public static List<TextBlock> backendCommand(string paragraph)
+        {
+            List<TextBlock> rList = new List<TextBlock>();
+            phrase_generator = phrase_generator_task.Result;
+            string fString = "";//getInitialStringFromMode(mode);
+            var responses = getNewQueryHandler().handleQuery(new string[] { paragraph });
+            aggregateReturnString(responses, getSteps, ref fString);
+            if (fString.Trim() == "")
+            {
+                fString = "This article covers topics and keywords related to: \n";
+                var tb = new TextBlock();
+                tb.Text = fString;
+                rList.Add(tb);
+                // aggregateReturnStringList(responses, getKeyWords, ref rString);
+                List<string> kwList = aggregateReturnList(responses, aggKeywords);
+                foreach (var kw in kwList)
+                {
+                    tb = new TextBlock();
+                    new KeyWordClickable(ref tb, kw, responses.First());
+                    rList.Add(tb);
+                }
             }
             else
             {
-                List<string> steps = getStepsList(responses);
-                rString = "Here are some steps that are relevant to your request: \n" + steps.First();
-                rList.Add(new StepsClickable(ref tb, rString, steps, responses.First()));
+                List<string> steps = aggregateReturnList(responses, aggSteps);
+                fString = "Here are some steps that are relevant to your request: \n" + steps.First();
+                var tb = new TextBlock();
+                new StepsClickable(ref tb, fString, steps, responses.First());
+                rList.Add(tb);
             }
             return rList;
         }

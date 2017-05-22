@@ -169,7 +169,7 @@ namespace ActivAID
             mainmsg.FontFamily = new FontFamily("Candara");
             mainmsg.Margin = new Thickness(50, -40, 0, 0);
             UserBubble_Creator(true);
-            OutputBox.Items.Add(mainmsg); // Add to ListBox
+            OutputBox.Items.Add(mainmsg); // Add textblock to ListBox
         }
         private void UserBubble_Creator(bool bot)
         {
@@ -232,7 +232,26 @@ namespace ActivAID
                 try
                 {
                     //outputToUI.Text = BackEnd.backendCommand(ref outputToUI, command.ToLower());//mode);
-                    BackEnd.backendCommand(ref outputToUI, command.ToLower());//mode);
+                    foreach(var textBlock in BackEnd.backendCommand(command.ToLower()))
+                    {
+                        Label botmsg = new Label();
+                        UserBubble_Creator(true);
+                        botmsg.Name = "botmsg";   //bot's response box
+                        botmsg.Target = OutputBox;
+                        botmsg.Content = textBlock;
+                        botmsg.BorderThickness = new Thickness(1);
+                        botmsg.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(ColorBOT));
+                        botmsg.HorizontalAlignment = HorizontalAlignment.Center;
+                        botmsg.VerticalAlignment = VerticalAlignment.Top;
+                        botmsg.MaxWidth = 220;
+                        botmsg.Width = textBlock.Width;
+                        botmsg.Width = 210;
+                        botmsg.Margin = new Thickness(50, -40, 0, 0);
+                        botmsg.FontFamily = new FontFamily("Candara");
+                        botmsg.FontSize = 16;
+                        botmsg.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom(FontColor));
+                        OutputBox.Items.Add(botmsg);
+                    }
                 }
                 catch (NoFileMatchException)
                 {
@@ -255,8 +274,7 @@ namespace ActivAID
              */
             //int milliseconds = 1000;
             //Thread.Sleep(milliseconds);
-            //-----------------------------------------------------------------------------------------
-            Console.WriteLine("hello "+tb.Text+"\n\n\n\n\n\n");
+            //----------------------------------------------------------------------------------------
 
             setOutPut(WILLBEDELETED,ref txtBlockbot ,ref tb);
 
