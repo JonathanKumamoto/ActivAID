@@ -128,6 +128,7 @@ namespace ActivAID
 
         private static string checkForPhrase(string kw, string rString, List<string> phrases)
         {
+            Console.WriteLine("\n\n\n"+String.Join("\n\n\n", phrases));
             int count = 0;
             foreach(var phrase in phrases)
             {
@@ -186,7 +187,6 @@ namespace ActivAID
                 return temp;
             });
             int prev = -99;
-            string prevString ="";
             bool foundSteps = false;
             int count = 0;
 
@@ -276,6 +276,7 @@ namespace ActivAID
         {
             string text = getFullText(response.elements);
             List<string> phrases = getPhrases(text, response.keywords);
+            Console.WriteLine(String.Join("\n\n\n\n",phrases));
             addKeywordsOrPhrases(response.keywords, phrases, String.Join(" ", rList), ref rList);
         }
 
