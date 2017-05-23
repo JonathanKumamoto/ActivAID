@@ -41,7 +41,7 @@ namespace ActivAID
                 {
                     if (ClickedButton.Name == "Buttonsch1")
                     {
-                        (window as MainWindow).grid1.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF284167"));
+                        (window as MainWindow).grid1.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF284167")); //Dark Blue
                         //(window as MainWindow).close.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF5383AD"));
                         //(window as MainWindow).firstBOT.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF4A4B53"));
                         (window as MainWindow).ColorBOT = "#232c3a";
