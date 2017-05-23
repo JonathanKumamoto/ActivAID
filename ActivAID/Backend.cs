@@ -49,19 +49,26 @@ namespace ActivAID
                 phrase_generator_task = Task<dynamic>.Factory.StartNew
                 (() =>
                 {
-                    var options = new Dictionary<string, object>();
-                    options["Frames"] = true;
-                   options["FullFrames"] = true;
-                    ScriptEngine engine = Python.CreateEngine(options);
-                    //points to python site-packages
-                    string spackagespath = Environment.GetEnvironmentVariable("SPACKAGES");
-                    //points to iron python lib folder
-                    string libpath = Environment.GetEnvironmentVariable("LIB");
-                    var searchpaths = engine.GetSearchPaths();
-                    searchpaths.Add(spackagespath);
-                    searchpaths.Add(libpath);
-                    engine.SetSearchPaths(searchpaths);
-                    return engine.ImportModule("phrase_generator");
+                    try
+                    {
+                        var options = new Dictionary<string, object>();
+                        options["Frames"] = true;
+                        options["FullFrames"] = true;
+                        ScriptEngine engine = Python.CreateEngine(options);
+                        //points to python site-packages
+                        string spackagespath = Environment.GetEnvironmentVariable("SPACKAGES");
+                        //points to iron python lib folder
+                        string libpath = Environment.GetEnvironmentVariable("LIB");
+                        var searchpaths = engine.GetSearchPaths();
+                        searchpaths.Add(spackagespath);
+                        searchpaths.Add(libpath);
+                        engine.SetSearchPaths(searchpaths);
+                        return engine.ImportModule("phrase_generator");
+                    }
+                    catch(Exception)
+                    {
+                        return null;
+                    }
                 });
 
 
@@ -128,7 +135,6 @@ namespace ActivAID
 
         private static string checkForPhrase(string kw, string rString, List<string> phrases)
         {
-            Console.WriteLine("\n\n\n"+String.Join("\n\n\n", phrases));
             int count = 0;
             foreach(var phrase in phrases)
             {
@@ -169,13 +175,20 @@ namespace ActivAID
 
         public static List<string> getPhrases(string text, List<string> keywords)
         {
-            IronPython.Runtime.PythonGenerator gen = (IronPython.Runtime.PythonGenerator)phrase_generator.gen_phrases(text, keywords);
-            List<string> phraseList = new List<string>();
-            foreach (string str in gen.Cast<string>())
+            try
             {
-                phraseList.Add(str);
+                IronPython.Runtime.PythonGenerator gen = (IronPython.Runtime.PythonGenerator)phrase_generator.gen_phrases(text, keywords);
+                List<string> phraseList = new List<string>();
+                foreach (string str in gen.Cast<string>())
+                {
+                    phraseList.Add(str);
+                }
+                return phraseList;
             }
-            return phraseList;
+            catch (Exception)
+            {
+                return new List<string>();
+            }
         }
 
         private static void getSteps(QueryResponse response, ref string rString)
@@ -244,7 +257,6 @@ namespace ActivAID
                 return temp;
             });
             int prev = -99;
-            string prevString = "";
             bool foundSteps = false;
             int count = 0;
 
@@ -276,7 +288,6 @@ namespace ActivAID
         {
             string text = getFullText(response.elements);
             List<string> phrases = getPhrases(text, response.keywords);
-            Console.WriteLine(String.Join("\n\n\n\n",phrases));
             addKeywordsOrPhrases(response.keywords, phrases, String.Join(" ", rList), ref rList);
         }
 
@@ -284,7 +295,7 @@ namespace ActivAID
         {
             List<TextBlock> rList = new List<TextBlock>();
             phrase_generator = phrase_generator_task.Result;
-            string fString = "";//getInitialStringFromMode(mode);
+            string fString = "";
             var responses = getNewQueryHandler().handleQuery(new string[] { paragraph });
             aggregateReturnString(responses, getSteps, ref fString);
             if (fString.Trim() == "")
@@ -293,7 +304,6 @@ namespace ActivAID
                 var tb = new TextBlock();
                 tb.Text = fString;
                 rList.Add(tb);
-                // aggregateReturnStringList(responses, getKeyWords, ref rString);
                 List<string> kwList = aggregateReturnList(responses, aggKeywords);
                 foreach (var kw in kwList)
                 {
