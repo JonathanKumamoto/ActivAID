@@ -160,8 +160,11 @@ namespace ActivAID
         private void MainWindow_Creator()
         {
             Label mainmsg = new Label(); //Default main BOT message creator
+            TextBlock txtBlockbot = new TextBlock();
+            txtBlockbot.TextWrapping = TextWrapping.Wrap;
+            txtBlockbot.Text = "Hello, what are you looking for?";
             mainmsg.Name = "mainmsg";
-            mainmsg.Content = "Hello, what are you looking for?";
+            mainmsg.Content = txtBlockbot;
             mainmsg.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(ColorBOT));
             mainmsg.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom(FontColor));
             mainmsg.Width = 230;
@@ -231,11 +234,9 @@ namespace ActivAID
             {
                 try
                 {
-                    //outputToUI.Text = BackEnd.backendCommand(ref outputToUI, command.ToLower());//mode);
                     foreach (var textBlock in BackEnd.backendCommand(command.ToLower()))
                     {
                         textBlock.TextWrapping = TextWrapping.Wrap;
-                        Console.WriteLine("HEYYy"+textBlock.Text+"<<");
                         Label botmsg = new Label();
                         UserBubble_Creator(true);
                         botmsg.Name = "botmsg";   //bot's response box
@@ -250,7 +251,7 @@ namespace ActivAID
                         botmsg.Width = 210;
                         botmsg.Margin = new Thickness(50, -40, 0, 0);
                         botmsg.FontFamily = new FontFamily("Candara");
-                        botmsg.FontSize = 16;
+                        botmsg.FontSize = fontSize;
                         botmsg.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom(FontColor));
                         OutputBox.Items.Add(botmsg);
                     }

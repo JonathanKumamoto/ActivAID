@@ -16,7 +16,7 @@
         <TextBox Name="textBoxfont" HorizontalAlignment="Left" Height="23" Margin="113,88,0,0" TextWrapping="Wrap" Text="16" VerticalAlignment="Top" Width="25"/>
         <Label x:Name="label" Content="Settings" HorizontalAlignment="Center"  VerticalAlignment="Top" FontWeight="Bold" BorderThickness="0" Margin="0" Width="69"/>
         <Button x:Name="save" Content="Save" HorizontalAlignment="Center" Margin="0,142,0,5.4" VerticalAlignment="Center" Click="SaveButton_OnClose" Cursor="Hand" Width="49"/>
-        <Button Name="Buttonsch1" Margin="118,49,111,96.4"  Height="22" Width="24" Cursor="Hand" BorderThickness="2" Click="colorsch_OnClick">
+        <Button Name="Buttonsch1" Margin="118,49,111,96.4"  Height="22" Width="24" Cursor="Hand" Click="colorsch_OnClick">
             <Button.Background>
                 <ImageBrush ImageSource="/Media/ColorScheme1.png"/>
             </Button.Background>
