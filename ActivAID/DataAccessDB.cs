@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using HrefsandBlocks = System.Tuple<string[], System.Collections.Generic.Dictionary<int, System.Collections.Generic.List<string>>>;
+using HrefsandBlocks = System.Tuple<System.Tuple<string,string>[], System.Collections.Generic.Dictionary<int, System.Collections.Generic.List<string>>>;
 
 namespace ActivAID
 {
@@ -17,7 +17,7 @@ namespace ActivAID
             return db.getAllElements(query.attributeList[0].value);
         }
 
-        private string[] getHrefs(Query query)
+        private System.Tuple<string,string>[] getHrefs(Query query)
         {
             return db.getHyperlinks(query.attributeList[0].value);
         }

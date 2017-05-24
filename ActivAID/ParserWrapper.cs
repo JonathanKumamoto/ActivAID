@@ -246,7 +246,7 @@ namespace Parser
                 getRegexPerFile(pair.Key, pair.Value.blocks);
                 insertBlocksIntoDB(pair.Key, pair.Value.blocks);
                 //insertHREFSOIntoDB(pair.Value.title, pair.Value.hrefs);
-                insertHREFSOIntoDB(pair.Key, pair.Value.hrefs);
+               // insertHREFSOIntoDB(pair.Key, pair.Value.hrefs);
             }
             insertRegexIntoConfig();
         }

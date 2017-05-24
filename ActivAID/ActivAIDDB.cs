@@ -20,17 +20,15 @@ namespace ActivAID
         public ActivAIDDB()
         {
             string dbName = Environment.GetEnvironmentVariable("DBNAME");
-            //string serverName = Environment.GetEnvironmentVariable("SERVERNAME");
-            dblocation = "Server=.\\SQLEXPRESS;Database=ActivAID DB;Integrated Security=true";
-            //dblocation = "Server=.\\SQLEXPRESS;Database=" + dbName + ";Integrated Security=true";
-            // elementCounter = 0;
+            string serverName = Environment.GetEnvironmentVariable("SERVERNAME");
+            dblocation = "Server=.;Database=" + dbName + ";Integrated Security=true";
             builder = new SqlConnectionStringBuilder();
-            builder.DataSource = @"DEVIIX\SQLEXPRESS"; // CHANGE THIS TO YOUR OWN SERVER
+            //builder.DataSource = serverName; // CHANGE THIS TO YOUR OWN SERVER
             //builder.DataSource = "IP Address\SQLEXPRESS, 49172"
-            builder.InitialCatalog = "ActivAID DB";
+            //builder.InitialCatalog = dbName;
             builder.IntegratedSecurity = false;
-            builder.UserID = "sa";
-            builder.Password = "activaid";
+            //builder.UserID = "sa";
+            //builder.Password = "activaid";
 
         }
 
@@ -189,14 +187,14 @@ namespace ActivAID
             return elementList;
         }
 
-        public string[] getHyperlinks(string filepath)
+        public Tuple<string,string>[] getHyperlinks(string filepath)
         {
 
-            List<string> hyperlist = new List<string>();
+            List<Tuple<string,string>> hyperlist = new List<Tuple<string,string>>();
             int fileid = GetFileId(filepath);
             using (conn = new SqlConnection(dblocation))
             {
-                string getHyperlinks = "SELECT filePath FROM Hyperlinks WHERE fileId=@id";
+                string getHyperlinks = "SELECT text, filePath FROM Hyperlinks WHERE fileId=@id";
                 SqlCommand cmd = new SqlCommand(getHyperlinks, conn);
                 cmd.Parameters.AddWithValue("@id", fileid);
                 conn.Open();
@@ -204,12 +202,13 @@ namespace ActivAID
                 {
                     while (hReader.Read())
                     {
-                        string href = hReader["filePath"].ToString();
-                        hyperlist.Add(href);
+                        string text = hReader["text"].ToString();
+                        string link = hReader["filePath"].ToString();                        
+                        hyperlist.Add(new Tuple<string, string>(text, link));
                     }
                 }
             }
-            string[] hrefs = hyperlist.ToArray() as string[];
+            Tuple<string,string>[] hrefs = hyperlist.ToArray() as Tuple<string,string>[];
             return hrefs;
         }
 

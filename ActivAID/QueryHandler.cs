@@ -49,18 +49,18 @@ namespace ActivAID
         //private QueryResponseTup aggregateQueryResults(Query q)
         private QueryResponse aggregateQueryResults(Query q)
         {
-            List<string> hrefList = new List<string>();
+            List<Tuple<string,string>> hrefList = new List<Tuple<string,string>>();
             List<string> elements = new List<string>();
             var qResponse = dA.query(q);
             foreach (var kvpair in qResponse.Item2)
             {
                 elements.AddRange(kvpair.Value.ToArray());
             }
-            foreach (string href in qResponse.Item1)
+            foreach (Tuple<string,string> href in qResponse.Item1)
             {
                 hrefList.Add(href);
             }
-            return new QueryResponse(q.originalSentence, hrefList, elements, null, qResponse.Item2);
+            return new QueryResponse(q.attributeList.First().value, q.originalSentence, hrefList, elements, null, qResponse.Item2);
         }
 
         /// <summary>

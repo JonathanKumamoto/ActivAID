@@ -284,7 +284,7 @@ namespace ActivAID
             }
         }
 
-        public static void aggKeywords(QueryResponse response, ref List<string> rList)
+        private static void aggKeywords(QueryResponse response, ref List<string> rList)
         {
             string text = getFullText(response.elements);
             List<string> phrases = getPhrases(text, response.keywords);
@@ -304,11 +304,17 @@ namespace ActivAID
                     var tb = new TextBlock();
                     tb.Text = "Here are the links associated with your request: \n";
                     rList.Add(tb);
-                    foreach (var href in aggregateReturnList(hrefResponses, aggKeywords))
+                    List<Tuple<string, string>> aggHrefs = new List<Tuple<string, string>>();
+                    aggHrefs.Add(new Tuple<string, string>(hrefResponses.First().originalSentence, hrefResponses.First().responseHTML));
+                    foreach (var response in hrefResponses)
+                    {
+                        aggHrefs.AddRange(response.hrefs);
+                    }
+                    foreach (var hrefTup in aggHrefs)
                     {
                         tb = new TextBlock();
                         rList.Add(tb);
-                        //new HrefsClickable(ref tb, href, link);                        
+                        new HrefsClickable(ref tb, hrefTup.Item1, hrefTup.Item2);                        
                     }
                 }
                 catch (IndexOutOfRangeException)
