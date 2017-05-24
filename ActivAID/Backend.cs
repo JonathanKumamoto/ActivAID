@@ -293,10 +293,32 @@ namespace ActivAID
 
         public static List<TextBlock> backendCommand(string paragraph)
         {
-            List<TextBlock> rList = new List<TextBlock>();
-            phrase_generator = phrase_generator_task.Result;
             string fString = "";
+            List<TextBlock> rList = new List<TextBlock>();
+            if (Regex.IsMatch(paragraph.ToLower(), "href:"))
+            {
+                try
+                {
+                    string fileToGet = paragraph.Split(':')[1];
+                    var hrefResponses = getNewQueryHandler().handleQuery(new string[] { fileToGet });                    
+                    var tb = new TextBlock();
+                    tb.Text = "Here are the links associated with your request: \n";
+                    rList.Add(tb);
+                    foreach (var href in aggregateReturnList(hrefResponses, aggKeywords))
+                    {
+                        tb = new TextBlock();
+                        rList.Add(tb);
+                        //new HrefsClickable(ref tb, href, link);                        
+                    }
+                }
+                catch (IndexOutOfRangeException)
+                {
+                    throw new NoFileMatchException();
+                }
+                return rList;
+            }
             var responses = getNewQueryHandler().handleQuery(new string[] { paragraph });
+            phrase_generator = phrase_generator_task.Result;
             aggregateReturnString(responses, getSteps, ref fString);
             if (fString.Trim() == "")
             {
