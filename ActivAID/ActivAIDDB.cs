@@ -20,15 +20,17 @@ namespace ActivAID
         public ActivAIDDB()
         {
             string dbName = Environment.GetEnvironmentVariable("DBNAME");
-            string serverName = Environment.GetEnvironmentVariable("SERVERNAME");
-            dblocation = "Server=.;Database=" + dbName + ";Integrated Security=true";
+            //string serverName = Environment.GetEnvironmentVariable("SERVERNAME");
+            dblocation = "Server=.\\SQLEXPRESS;Database=ActivAID DB;Integrated Security=true";
+            //dblocation = "Server=.\\SQLEXPRESS;Database=" + dbName + ";Integrated Security=true";
+            // elementCounter = 0;
             builder = new SqlConnectionStringBuilder();
-            //builder.DataSource = serverName; // CHANGE THIS TO YOUR OWN SERVER
+            builder.DataSource = @"DEVIIX\SQLEXPRESS"; // CHANGE THIS TO YOUR OWN SERVER
             //builder.DataSource = "IP Address\SQLEXPRESS, 49172"
-            //builder.InitialCatalog = dbName;
+            builder.InitialCatalog = "ActivAID DB";
             builder.IntegratedSecurity = false;
-            //builder.UserID = "sa";
-            //builder.Password = "activaid";
+            builder.UserID = "sa";
+            builder.Password = "activaid";
 
         }
 
@@ -50,7 +52,7 @@ namespace ActivAID
             }
         }
 
-        public void insertIntoHyperlinks(string parentpath, string filepath)
+        public void insertIntoHyperlinks(string parentpath, string text, string filepath)
         {
             int parentId = GetFileId(parentpath);
             if (parentId > 0)
@@ -59,12 +61,13 @@ namespace ActivAID
                 using (conn = new SqlConnection())
                 {
                     conn.ConnectionString = builder.ConnectionString;
-                    string hyperQuery = "INSERT INTO Hyperlinks (fileId, filePath, filename) VALUES (@id, @path, @fname)";
+                    string hyperQuery = "INSERT INTO Hyperlinks (fileId, filePath, filename, text) VALUES (@id, @path, @fname, @text)";
                     SqlCommand cmd = new SqlCommand(hyperQuery, conn);
                     cmd.Parameters.AddWithValue("@id", parentId);
                     cmd.Parameters.AddWithValue("@path", filepath);
                     string fname = System.IO.Path.GetFileName(filepath);
                     cmd.Parameters.AddWithValue("@fname", fname);
+                    cmd.Parameters.AddWithValue("@text", text);
                     cmd.Connection = conn;
                     conn.Open();
                     cmd.ExecuteNonQuery();
@@ -162,7 +165,7 @@ namespace ActivAID
             {
                 string getElements = "SELECT blockNumber, data FROM Elements WHERE fileId=@id";
                 SqlCommand cmd = new SqlCommand(getElements, conn);
-                    cmd.Parameters.AddWithValue("@id", fileid);
+                cmd.Parameters.AddWithValue("@id", fileid);
                 conn.Open();
                 using (SqlDataReader eReader = cmd.ExecuteReader())
                 {
@@ -188,26 +191,26 @@ namespace ActivAID
 
         public string[] getHyperlinks(string filepath)
         {
-
-             List<string> hyperlist = new List<string>();
-             int fileid = GetFileId(filepath);
-             using (conn = new SqlConnection(dblocation))
-             {
-                 string getHyperlinks = "SELECT filePath FROM Hyperlinks WHERE fileId=@id";
-                 SqlCommand cmd = new SqlCommand(getHyperlinks, conn);
-                 cmd.Parameters.AddWithValue("@id", fileid);
-                 conn.Open();
-                 using (SqlDataReader hReader = cmd.ExecuteReader())
-                 {
-                     while (hReader.Read())
-                     {
-                         string href = hReader["filePath"].ToString();
-                         hyperlist.Add(href);
-                     }
-                 }
-             }
-             string[] hrefs = hyperlist.ToArray() as string[];
-             return hrefs;
+            
+            List<string> hyperlist = new List<string>();
+            int fileid = GetFileId(filepath);
+            using (conn = new SqlConnection(dblocation))
+            {
+                string getHyperlinks = "SELECT filePath FROM Hyperlinks WHERE fileId=@id";
+                SqlCommand cmd = new SqlCommand(getHyperlinks, conn);
+                cmd.Parameters.AddWithValue("@id", fileid);
+                conn.Open();
+                using (SqlDataReader hReader = cmd.ExecuteReader())
+                {
+                    while (hReader.Read())
+                    {
+                        string href = hReader["filePath"].ToString();
+                        hyperlist.Add(href);
+                    }
+                }
+            }
+            string[] hrefs = hyperlist.ToArray() as string[];
+            return hrefs;
         }
 
         // Utility Methods

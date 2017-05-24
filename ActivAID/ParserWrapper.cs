@@ -46,7 +46,7 @@ namespace Parser
         {
             try
             {
-                System.IO.StreamReader str = new System.IO.StreamReader(@"Patterns.exe.config");
+                System.IO.StreamReader str = new System.IO.StreamReader(@"config_patterns.xml");
                 System.Xml.Serialization.XmlSerializer xSerializer = new System.Xml.Serialization.XmlSerializer(typeof(RegexList));
                 fgexes = (RegexList)xSerializer.Deserialize(str);
                 str.Close();
@@ -80,7 +80,7 @@ namespace Parser
             else
             {
                 action(filePath);
-            }
+            }                        
         }
 
         public ParserWrapper(List<string> filePaths)
@@ -111,7 +111,7 @@ namespace Parser
                     }
                     else
                     {
-
+                        
                         db.insertIntoElements(filePath, blockCount, element.data);
                     }
                     ++blockCount;
@@ -119,17 +119,12 @@ namespace Parser
             }
         }
 
-        private void insertHREFSOIntoDB(string filePath, List<string> hrefs)
+      private void insertHREFSOIntoDB(string filePath, List<Tuple<string,string>> hrefs)
         {
-            foreach (string href in hrefs)
+            foreach (Tuple<string, string> href in hrefs)
             {
-                db.insertIntoHyperlinks(filePath, href);
+                db.insertIntoHyperlinks(filePath, href.Item1, href.Item2);
             }
-        }
-
-        private bool isAcceptableKeyWord(string potentialKeyWord)
-        {
-            return potentialKeyWord.Length > 1 && !(new Regex(@"[=\|\n\t\r;\-:'\/\,<\>%\!]|[0-9]").IsMatch(potentialKeyWord));
         }
 
         private string[] splitFileName(string fileName)
@@ -148,10 +143,7 @@ namespace Parser
                     }
                     else
                     {
-                        if (isAcceptableKeyWord(aggregateString))
-                        {
-                            retArray.Add(aggregateString);
-                        }
+                        retArray.Add(aggregateString);
                         aggregateString = "";
                     }
                 }
@@ -169,6 +161,7 @@ namespace Parser
             {
                 var temp = x;
                 new HTMLMessager().removeFromLine(ref temp);
+                temp = new Regex("[=\\|\n\t\r;'/,<>%!]").Replace(temp, "");
                 return temp;
             });
             // Need to change
@@ -176,7 +169,7 @@ namespace Parser
             OpenTextSummarizer.SummarizerArguments args = new OpenTextSummarizer.SummarizerArguments();
             args.InputString = String.Join(" ", toSummarize.Select((x) => stringOp(x)).ToArray());
             OpenTextSummarizer.SummarizedDocument sd = OpenTextSummarizer.Summarizer.Summarize(args);
-            return sd.Concepts.Take(8).ToArray();
+            return sd.Concepts.Take(5).ToArray();
         }
 
 
@@ -188,15 +181,11 @@ namespace Parser
             keyWords.AddRange(splitFileName(Path.GetFileName(fileName)));
             foreach (string str in summarize(elementData.ToArray()))
             {
-                if (str.Trim() == null || !isAcceptableKeyWord(str))
-                {
-                    continue;
-                }
                 if (count != 0)
                 {
                     regexPattern += "|";
                 }
-                regexPattern += str.Trim();
+                regexPattern += str;
                 ++count;
             }
             return regexPattern;
@@ -256,11 +245,33 @@ namespace Parser
             {
                 getRegexPerFile(pair.Key, pair.Value.blocks);
                 insertBlocksIntoDB(pair.Key, pair.Value.blocks);
-                insertHREFSOIntoDB(pair.Value.title, pair.Value.hrefs);
+                //insertHREFSOIntoDB(pair.Value.title, pair.Value.hrefs);
+                insertHREFSOIntoDB(pair.Key, pair.Value.hrefs);
             }
             insertRegexIntoConfig();
         }
-        
+
+        /*public void genModel()
+        {
+            List<List<string>> fileKeyWords = new List<List<string>>();
+            List<string> responseFileNames = new List<string>();
+            string response;
+            foreach (var pair in parsedCHMs)
+            {
+                List<string> keywords = new List<string>(); 
+                responseFileNames.Add(pair.Key);
+                keywords.AddRange(KeyWordFinder.handleLineKeyWords(5,pair.Value.title));//keywords weighted by ordering in which they appear in list
+                keywords.AddRange(KeyWordFinder.concatAllKeyWords(5, pair.Value.blocks, keywords));
+                fileKeyWords.Add(keywords);
+            }
+            response = String.Join(";", responseFileNames.ToArray());
+            //aggregateKeyWords(fileKeyWords)
+            //Console.WriteLine(response);
+            foreach (string keyword in keywords)
+            {
+                Console.WriteLine(keyword);
+            }
+        }*/
     }
 }
 
