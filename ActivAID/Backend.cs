@@ -259,10 +259,11 @@ namespace ActivAID
             int prev = -99;
             bool foundSteps = false;
             int count = 0;
+            int outerCounter = 0;
 
             foreach (var kv in response.blocks)
             {
-                if (kv.Key != prev)
+                if (kv.Key != prev && outerCounter != 0)
                 {
                     var messageStep = kv.Value.Select((x) => { return stringOp(x); }).ToList();
                     var removedTrailingWhiteSpace = messageStep.Select((x) => { return x.Trim(); }).ToArray();
@@ -281,6 +282,8 @@ namespace ActivAID
                 {
                     break;
                 }
+                prev = kv.Key;
+                ++outerCounter;
             }
         }
 
@@ -323,8 +326,29 @@ namespace ActivAID
             }
             var responses = getNewQueryHandler().handleQuery(new string[] { paragraph });
             phrase_generator = phrase_generator_task.Result;
-            aggregateReturnString(responses, getSteps, ref fString);
-            if (fString.Trim() == "")
+            try
+            {
+                List<string> steps = aggregateReturnList(responses, aggSteps);
+                fString = "Here are some steps that are relevant to your request: \n" + steps.First();
+                var tb = new TextBlock();
+                new StepsClickable(ref tb, fString, steps, responses.First());
+                rList.Add(tb);
+            }
+            catch (Exception)
+            {
+                fString = "This article covers topics and keywords related to: ";
+                var tb = new TextBlock();
+                tb.Text = fString;
+                rList.Add(tb);
+                List<string> kwList = aggregateReturnList(responses, aggKeywords);
+                foreach (var kw in kwList)
+                {
+                    tb = new TextBlock();
+                    new KeyWordClickable(ref tb, kw, responses.First());
+                    rList.Add(tb);
+                }
+            }
+            /*if (fString.Trim() == "")
             {
                 fString = "This article covers topics and keywords related to: \n";
                 var tb = new TextBlock();
@@ -345,7 +369,7 @@ namespace ActivAID
                 var tb = new TextBlock();
                 new StepsClickable(ref tb, fString, steps, responses.First());
                 rList.Add(tb);
-            }
+            }*/
             return rList;
         }
     }

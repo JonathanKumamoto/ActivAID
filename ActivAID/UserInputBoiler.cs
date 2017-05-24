@@ -102,7 +102,7 @@ namespace ActivAID
                     maxStrings.Add(fgex.name);
                 }
             }
-            if (max > 0)
+            if (max > 1)
             {
                 return handleTie(check, maxStrings);
             }

@@ -40,7 +40,7 @@ namespace ActivAID
                     end = true;
                 }
             }
-            tb.Text = tb.Text + '\n' + toUI.Trim();
+            tb.Text = tb.Text + (toUI.Trim() == "" ? "" : '\n' + toUI.Trim());
         }
 
         private Stack<string> getRelatedBlocks(string keyword, QueryResponse response)
