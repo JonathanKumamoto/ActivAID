@@ -9,16 +9,15 @@ namespace ActivAID
 {
     public class HrefsClickable : Clickable
     {
-        List<TextBlock> tbList;
+        TextBlock tb;
         string link;
         public HrefsClickable(ref TextBlock tb, string outputToUI, string link)
         {
             this.outputToUI = outputToUI;
             this.link = link;
-            tbList = new List<TextBlock>();
-            tbList.Add(tb);
             tb.Text = outputToUI;
             tb.MouseUp += callback;
+            this.tb = tb;
         }
         public override void callback(Object sender, System.Windows.Input.MouseButtonEventArgs e)
         {

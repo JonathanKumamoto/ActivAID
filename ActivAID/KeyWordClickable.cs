@@ -12,16 +12,16 @@ namespace ActivAID
     public class KeyWordClickable : Clickable
     {
         Stack<string> relatedBlocks;
-        List<TextBlock> tbList;
+        TextBlock tb;
+        bool end = false;
 
         public KeyWordClickable(ref TextBlock tb, string outputToUI, QueryResponse qr)
         {
             this.outputToUI = outputToUI;
             relatedBlocks = getRelatedBlocks(outputToUI, qr);
-            tbList = new List<TextBlock>();
-            tbList.Add(tb);
             tb.Text = outputToUI;
             tb.MouseUp += callback;
+            this.tb = tb;
         }
 
         public override void callback(Object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -31,11 +31,16 @@ namespace ActivAID
             {
                 toUI = relatedBlocks.Pop();
             }
-            catch(InvalidOperationException)
+            catch (InvalidOperationException)
             {
-                toUI = "\n-END-";
+                toUI = "";
+                if (!end)
+                { 
+                    toUI = "\n-END-";
+                    end = true;
+                }
             }
-            tbList.First().Text = tbList.First().Text + '\n' + toUI.Trim();
+            tb.Text = tb.Text + '\n' + toUI.Trim();
         }
 
         private Stack<string> getRelatedBlocks(string keyword, QueryResponse response)

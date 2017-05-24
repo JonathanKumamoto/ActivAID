@@ -189,25 +189,26 @@ namespace ActivAID
         public string[] getHyperlinks(string filepath)
         {
 
-             List<string> hyperlist = new List<string>();
-             int fileid = GetFileId(filepath);
-             using (conn = new SqlConnection(dblocation))
-             {
-                 string getHyperlinks = "SELECT filePath FROM Hyperlinks WHERE fileId=@id";
-                 SqlCommand cmd = new SqlCommand(getHyperlinks, conn);
-                 cmd.Parameters.AddWithValue("@id", fileid);
-                 conn.Open();
-                 using (SqlDataReader hReader = cmd.ExecuteReader())
-                 {
-                     while (hReader.Read())
-                     {
-                         string href = hReader["filePath"].ToString();
-                         hyperlist.Add(href);
-                     }
-                 }
-             }
-             string[] hrefs = hyperlist.ToArray() as string[];
-             return hrefs;
+            /*List<string> hyperlist = new List<string>();
+            int fileid = GetFileId(filepath);
+            using (conn = new SqlConnection(dblocation))
+            {
+                string getHyperlinks = "SELECT filePath FROM Hyperlinks WHERE fileId=@id";
+                SqlCommand cmd = new SqlCommand(getHyperlinks, conn);
+                cmd.Parameters.AddWithValue("@id", fileid);
+                conn.Open();
+                using (SqlDataReader hReader = cmd.ExecuteReader())
+                {
+                    while (hReader.Read())
+                    {
+                        string href = hReader["filePath"].ToString();
+                        hyperlist.Add(href);
+                    }
+                }
+            }
+            string[] hrefs = hyperlist.ToArray() as string[];
+            return hrefs;*/
+            return new string[] { };
         }
 
         // Utility Methods

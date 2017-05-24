@@ -1,9 +1,5 @@
-
 from logical_remove_monad import *
-#from nltk.probability import *
 from nltk import pos_tag
-#from nltk.stem import WordNetLemmatizer
-#from nltk.stem import LancasterStemmer
 from copy import copy
 from itertools import combinations
 from nltk.parse.util import TestGrammar
@@ -11,7 +7,6 @@ import re
 import sys
 
 def __valid_sentence(pos, template):
-    #print("".join(template), pos)
     return re.compile("".join(template)).match(pos)
 
 def __check_pos(sentence,templates):
@@ -42,11 +37,9 @@ def __get_max_scores(score_dict):#bingo non
 
 def __find_candidates(ngram_list, check):
     candidates = []
-    #print(check)
     for j, n in enumerate(ngram_list):
         if n in check:
             candidates.append(j)
-    #print(len(candidates))
     return candidates
     
 def __find_phrases(lrm_filtered, candidates, templates):
@@ -58,7 +51,6 @@ def __find_phrases(lrm_filtered, candidates, templates):
             continue
     return [n for n in pos_tagged if __check_pos(n,templates)]
 
-#regex " "{2,*} -> " "
 def __change_to_lower(text, keywords):
     return text.lower(), list(map(lambda x: x.lower(), keywords))
 
@@ -75,5 +67,6 @@ def __text_to_phrases(text, keywords):
     return __find_phrases(lrm_filtered, candidates, sentence_templates)
 
 def gen_phrases(text, keywords):
-	for phrase in __text_to_phrases(text, keywords):
-		yield phrase[0][0] + " " + phrase[1][0] + " " + phrase[2][0]
+        for phrase in __text_to_phrases(text, keywords):
+                yield phrase[0][0] + " " + phrase[1][0] + " " + phrase[2][0]
+            

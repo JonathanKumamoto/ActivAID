@@ -11,17 +11,17 @@ namespace ActivAID
     public class StepsClickable : Clickable
     {
         Stack<string> steps;
-        List<TextBlock> tbList;
+        TextBlock tb;
+        bool end = false;
 
         public StepsClickable(ref TextBlock tb, string outputToUI, List<string> steps, QueryResponse qr)
         {
             this.outputToUI = outputToUI;
             this.steps = new Stack<string>(steps);
             this.steps.Pop();
-            tbList = new List<TextBlock>();
-            tbList.Add(tb);
             tb.Text = outputToUI;
             tb.MouseUp += this.callback;
+            this.tb = tb;
         }
 
         public override void callback(Object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -33,9 +33,14 @@ namespace ActivAID
             }
             catch (InvalidOperationException)
             {
-                toUI = "\n- END -";
+                toUI = "";
+                if (!end)
+                {
+                    toUI = "\n- END -";
+                    end = true;
+                }
             }
-            tbList.First().Text = tbList.First().Text + '\n' + toUI.Trim();
+            tb.Text = tb.Text + (toUI.Trim() == "" ? "" : "\n" + toUI.Trim());
         }
     }
 }
