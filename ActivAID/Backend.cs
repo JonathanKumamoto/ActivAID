@@ -305,7 +305,7 @@ namespace ActivAID
             
                 var hrefResponses = getNewQueryHandler().handleQuery(new string[] { fileToGet });                    
                 var tb = new TextBlock();
-                tb.Text = "Here are the links associated with your request: \n";
+                tb.Text = "Here are the links associated with your request: ";
                 rList.Add(tb);
                 List<Tuple<string, string>> aggHrefs = new List<Tuple<string, string>>();
                 aggHrefs.Add(new Tuple<string, string>(hrefResponses.First().originalSentence, hrefResponses.First().responseHTML));
