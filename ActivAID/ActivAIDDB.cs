@@ -20,15 +20,17 @@ namespace ActivAID
         public ActivAIDDB()
         {
             string dbName = Environment.GetEnvironmentVariable("DBNAME");
-            string serverName = Environment.GetEnvironmentVariable("SERVERNAME");
-            dblocation = "Server=.;Database=" + dbName + ";Integrated Security=true";
+            //string serverName = Environment.GetEnvironmentVariable("SERVERNAME");
+            dblocation = "Server=.\\SQLEXPRESS;Database=ActivAID DB;Integrated Security=true";
+            //dblocation = "Server=.\\SQLEXPRESS;Database=" + dbName + ";Integrated Security=true";
+            // elementCounter = 0;
             builder = new SqlConnectionStringBuilder();
-            //builder.DataSource = serverName; // CHANGE THIS TO YOUR OWN SERVER
+            builder.DataSource = @"DEVIIX\SQLEXPRESS"; // CHANGE THIS TO YOUR OWN SERVER
             //builder.DataSource = "IP Address\SQLEXPRESS, 49172"
-            //builder.InitialCatalog = dbName;
+            builder.InitialCatalog = "ActivAID DB";
             builder.IntegratedSecurity = false;
-            //builder.UserID = "sa";
-            //builder.Password = "activaid";
+            builder.UserID = "sa";
+            builder.Password = "activaid";
 
         }
 
@@ -46,11 +48,11 @@ namespace ActivAID
                 cmd.Connection = conn;
                 conn.Open();
                 cmd.ExecuteNonQuery();
-               
+
             }
         }
 
-        public void insertIntoHyperlinks(string parentpath, string filepath)
+        public void insertIntoHyperlinks(string parentpath, string text, string filepath)
         {
             int parentId = GetFileId(parentpath);
             if (parentId > 0)
@@ -59,12 +61,13 @@ namespace ActivAID
                 using (conn = new SqlConnection())
                 {
                     conn.ConnectionString = builder.ConnectionString;
-                    string hyperQuery = "INSERT INTO Hyperlinks (fileId, filePath, filename) VALUES (@id, @path, @fname)";
+                    string hyperQuery = "INSERT INTO Hyperlinks (fileId, filePath, filename, text) VALUES (@id, @path, @fname, @text)";
                     SqlCommand cmd = new SqlCommand(hyperQuery, conn);
                     cmd.Parameters.AddWithValue("@id", parentId);
                     cmd.Parameters.AddWithValue("@path", filepath);
                     string fname = System.IO.Path.GetFileName(filepath);
                     cmd.Parameters.AddWithValue("@fname", fname);
+                    cmd.Parameters.AddWithValue("@text", text);
                     cmd.Connection = conn;
                     conn.Open();
                     cmd.ExecuteNonQuery();
@@ -80,7 +83,7 @@ namespace ActivAID
             int parentId = GetFileId(parentpath);
             Console.WriteLine(parentId);
             if (parentId > 0)
-            { 
+            {
                 using (conn = new SqlConnection())
                 {
                     conn.ConnectionString = builder.ConnectionString;
@@ -109,7 +112,7 @@ namespace ActivAID
                 cmd.Connection = conn;
                 conn.Open();
                 cmd.ExecuteNonQuery();
-           
+
             }
         }
 
@@ -131,10 +134,10 @@ namespace ActivAID
             return fileid;
         }
 
-        public int queryFileId(string [] keywords)
+        public int queryFileId(string[] keywords)
         {
             List<int> matchingIds = new List<int>();
-           
+
             using (conn = new SqlConnection(dblocation))
             {
                 conn.Open();
@@ -156,13 +159,13 @@ namespace ActivAID
         public Dictionary<int, List<string>> getAllElements(string filepath)
         {
             Dictionary<int, List<string>> elementList = new Dictionary<int, List<string>>();
-          
+
             int fileid = GetFileId(filepath);
             using (conn = new SqlConnection(dblocation))
             {
                 string getElements = "SELECT blockNumber, data FROM Elements WHERE fileId=@id";
                 SqlCommand cmd = new SqlCommand(getElements, conn);
-                    cmd.Parameters.AddWithValue("@id", fileid);
+                cmd.Parameters.AddWithValue("@id", fileid);
                 conn.Open();
                 using (SqlDataReader eReader = cmd.ExecuteReader())
                 {
@@ -189,7 +192,7 @@ namespace ActivAID
         public string[] getHyperlinks(string filepath)
         {
 
-            /*List<string> hyperlist = new List<string>();
+            List<string> hyperlist = new List<string>();
             int fileid = GetFileId(filepath);
             using (conn = new SqlConnection(dblocation))
             {
@@ -207,8 +210,7 @@ namespace ActivAID
                 }
             }
             string[] hrefs = hyperlist.ToArray() as string[];
-            return hrefs;*/
-            return new string[] { };
+            return hrefs;
         }
 
         // Utility Methods
@@ -222,7 +224,7 @@ namespace ActivAID
                 Console.WriteLine(filepath);
                 string getid = "SELECT fileId FROM Files WHERE filename LIKE '%' + @fname + '%'";
                 SqlCommand cmd = new SqlCommand(getid, conn);
-                cmd.Parameters.AddWithValue("@path", "'"+filepath.Replace(@"\",@"\\")+"'");
+                cmd.Parameters.AddWithValue("@path", "'" + filepath.Replace(@"\", @"\\") + "'");
                 //int start = filepath.Length - 15;
                 //int end = 8;
                 string filename = System.IO.Path.GetFileNameWithoutExtension(filepath);
@@ -237,7 +239,7 @@ namespace ActivAID
                     Console.WriteLine(fReader[0]);
                     fileid = fReader.GetInt32(0);
                     */
-                    
+
                     if (fReader.Read())
                     {
                         fileid = fReader.GetInt32(0);
@@ -250,12 +252,12 @@ namespace ActivAID
 
                     //fileid = -1;
                 }
-              
+
             }
             return fileid;
         }
 
-        public int MostCommon( List<int> list)
+        public int MostCommon(List<int> list)
         {
             return (from i in list
                     group i by i into grp
@@ -270,14 +272,12 @@ namespace ActivAID
             a boolean flag indicating it is an image element is 
             detected. Boolean flag would be passed from the Parser.
         }
-
         private void incElementCounter()
         {
             increments the element counter according to how
             each element id is incremented in the database table.
             Called everytime an element is added into the database.
         }
-
                 
         */
     }
