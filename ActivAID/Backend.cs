@@ -297,29 +297,27 @@ namespace ActivAID
             List<TextBlock> rList = new List<TextBlock>();
             if (Regex.IsMatch(paragraph.ToLower(), "href:"))
             {
-                try
-                {
-                    string fileToGet = paragraph.Split(':')[1];
-                    var hrefResponses = getNewQueryHandler().handleQuery(new string[] { fileToGet });                    
-                    var tb = new TextBlock();
-                    tb.Text = "Here are the links associated with your request: \n";
-                    rList.Add(tb);
-                    List<Tuple<string, string>> aggHrefs = new List<Tuple<string, string>>();
-                    aggHrefs.Add(new Tuple<string, string>(hrefResponses.First().originalSentence, hrefResponses.First().responseHTML));
-                    foreach (var response in hrefResponses)
-                    {
-                        aggHrefs.AddRange(response.hrefs);
-                    }
-                    foreach (var hrefTup in aggHrefs)
-                    {
-                        tb = new TextBlock();
-                        rList.Add(tb);
-                        new HrefsClickable(ref tb, hrefTup.Item1, hrefTup.Item2);                        
-                    }
-                }
-                catch (IndexOutOfRangeException)
+                string fileToGet = paragraph.Split(':')[1];
+                if (fileToGet.Trim() == "")
                 {
                     throw new NoFileMatchException();
+                }
+            
+                var hrefResponses = getNewQueryHandler().handleQuery(new string[] { fileToGet });                    
+                var tb = new TextBlock();
+                tb.Text = "Here are the links associated with your request: \n";
+                rList.Add(tb);
+                List<Tuple<string, string>> aggHrefs = new List<Tuple<string, string>>();
+                aggHrefs.Add(new Tuple<string, string>(hrefResponses.First().originalSentence, hrefResponses.First().responseHTML));
+                foreach (var response in hrefResponses)
+                {
+                    aggHrefs.AddRange(response.hrefs);
+                }
+                foreach (var hrefTup in aggHrefs)
+                {
+                    tb = new TextBlock();
+                    rList.Add(tb);
+                    new HrefsClickable(ref tb, hrefTup.Item1, hrefTup.Item2);                        
                 }
                 return rList;
             }
