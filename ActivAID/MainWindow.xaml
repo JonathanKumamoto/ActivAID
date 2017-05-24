@@ -85,7 +85,7 @@
             <!--<Frame x:Name="frame" HorizontalAlignment="Left" Height="109" Margin="0,426,0,0" VerticalAlignment="Top" Width="530" Background="transparent"/>-->
             <Frame x:Name="frame" HorizontalAlignment="Left" Height="439" Margin="-6,45,-5,0" VerticalAlignment="Top" Width="542" Background="#4c6181"/>
 
-            <Label x:Name="label" Content="ActivAID" HorizontalAlignment="Center" Margin="22,4,399,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="24" Foreground="White" FontWeight="Bold" Height="32" Width="110"/>
+            <Label x:Name="label" Content="ActivAID" HorizontalAlignment="Center" Margin="22,4,399,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="24" Foreground="White" FontWeight="Bold" Height="35" Width="110"/>
 
             <Button x:Name="close" Click="CloseButton_OnClick" Margin="492,3,4,498" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" BorderBrush="{x:Null}" Background="{x:Null}" Width="45" Height="45">
                 <Image x:Name="closeImage" HorizontalAlignment="Center" VerticalAlignment="Center" Height="35" Width="35" Grid.Column="1" Source="/Media/iconClose2.png" Opacity="1" Cursor="Hand"/>

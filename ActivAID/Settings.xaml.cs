@@ -41,7 +41,8 @@ namespace ActivAID
                 {
                     if (ClickedButton.Name == "Buttonsch1")
                     {
-                        (window as MainWindow).grid1.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF284167"));
+                        (window as MainWindow).grid1.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF284167")); //Dark Blue
+                        (window as MainWindow).frame.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF4C6181")); //Light blue
                         //(window as MainWindow).close.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF5383AD"));
                         //(window as MainWindow).firstBOT.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF4A4B53"));
                         (window as MainWindow).ColorBOT = "#232c3a";
@@ -72,7 +73,8 @@ namespace ActivAID
                     else if (ClickedButton.Name == "Buttonsch2")
                     {
                         (window as MainWindow).grid1.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#4A4B53"));
-                       // (window as MainWindow).close.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF000000"));
+                        (window as MainWindow).frame.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#4A4B53"));
+                        // (window as MainWindow).close.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF000000"));
                         //(window as MainWindow).close.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFFFFF"));
                         //(window as MainWindow).firstBOT.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
                         (window as MainWindow).ColorBOT = "#000000";
@@ -104,6 +106,7 @@ namespace ActivAID
                     {
 
                         (window as MainWindow).grid1.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#C39428"));
+                        (window as MainWindow).frame.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#C39428"));
                         //(window as MainWindow).close.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
                         //(window as MainWindow).firstBOT.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
                         (window as MainWindow).ColorBOT = "#000000";
@@ -146,7 +149,7 @@ namespace ActivAID
         {
             ClickedButton.IsDefault = false;
             ClickedButton = (sender as Button);
-            (sender as Button).IsDefault = true;
+            ClickedButton.IsDefault = true;
         }
     }
 }

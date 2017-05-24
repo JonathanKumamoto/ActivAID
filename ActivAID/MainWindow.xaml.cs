@@ -160,8 +160,11 @@ namespace ActivAID
         private void MainWindow_Creator()
         {
             Label mainmsg = new Label(); //Default main BOT message creator
+            TextBlock txtBlockbot = new TextBlock();
+            txtBlockbot.TextWrapping = TextWrapping.Wrap;
+            txtBlockbot.Text = "Hello, what are you looking for?";
             mainmsg.Name = "mainmsg";
-            mainmsg.Content = "Hello, what are you looking for?";
+            mainmsg.Content = txtBlockbot;
             mainmsg.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(ColorBOT));
             mainmsg.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom(FontColor));
             mainmsg.Width = 230;
@@ -178,7 +181,7 @@ namespace ActivAID
             userimage.ImageSource = (bot ? new BitmapImage(new Uri(@"Media\iconBot.png", UriKind.Relative)) : new BitmapImage(new Uri(@"Media\iconCustomer.png", UriKind.Relative)));
             user.Height = 38;
             user.Width = 38;
-            user.Margin = (bot ? new Thickness(0, 0, 0, 0) : new Thickness(370, 10, 0, 0));
+            user.Margin = (bot ? new Thickness(0, 0, 0, 0) : new Thickness(430, 10, 0, 0));
             user.Fill = userimage;
             user.HorizontalAlignment = HorizontalAlignment.Right;
             OutputBox.Items.Add(user);// Add to ListBox
@@ -203,12 +206,12 @@ namespace ActivAID
             usermsg.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(ColorUser));
             usermsg.HorizontalAlignment = HorizontalAlignment.Center;
             usermsg.VerticalAlignment = VerticalAlignment.Top;
-            usermsg.MaxWidth = 120;
+            usermsg.MaxWidth = 150;
             usermsg.FontFamily = new FontFamily("Candara");
             usermsg.FontSize = 16;
             usermsg.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom(FontColor));
             usermsg.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
-            int ActualWidth = 360 - ((int)usermsg.DesiredSize.Width); //Algorithm to calcualte margin for every user message
+            int ActualWidth = 420 - ((int)usermsg.DesiredSize.Width); //Algorithm to calcualte margin for every user message
             usermsg.Margin = new Thickness(ActualWidth, -30, 25, 10);
             Mouse.OverrideCursor = null;
             UserBubble_Creator(false);
@@ -231,9 +234,9 @@ namespace ActivAID
             {
                 try
                 {
-                    //outputToUI.Text = BackEnd.backendCommand(ref outputToUI, command.ToLower());//mode);
-                    foreach(var textBlock in BackEnd.backendCommand(command.ToLower()))
+                    foreach (var textBlock in BackEnd.backendCommand(command.ToLower()))
                     {
+                        textBlock.TextWrapping = TextWrapping.Wrap;
                         Label botmsg = new Label();
                         UserBubble_Creator(true);
                         botmsg.Name = "botmsg";   //bot's response box
@@ -248,7 +251,7 @@ namespace ActivAID
                         botmsg.Width = 210;
                         botmsg.Margin = new Thickness(50, -40, 0, 0);
                         botmsg.FontFamily = new FontFamily("Candara");
-                        botmsg.FontSize = 16;
+                        botmsg.FontSize = fontSize;
                         botmsg.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom(FontColor));
                         OutputBox.Items.Add(botmsg);
                     }
@@ -256,30 +259,47 @@ namespace ActivAID
                 catch (NoFileMatchException)
                 {
                     outputToUI.Text = "I'm hearing ya... I just don't getcha. Can you make your request more specific?";
+                    Label botmsg = new Label();
+                    botmsg.Name = "botmsg";   //bot's response box
+                    botmsg.Target = OutputBox;
+                    botmsg.Content = outputToUI;
+                    botmsg.BorderThickness = new Thickness(1);
+                    botmsg.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(ColorBOT));
+                    botmsg.HorizontalAlignment = HorizontalAlignment.Center;
+                    botmsg.VerticalAlignment = VerticalAlignment.Top;
+                    botmsg.MaxWidth = 220;
+                    botmsg.Width = outputToUI.Width;
+                    botmsg.Width = 210;
+                    botmsg.Margin = new Thickness(50, -40, 0, 0);
+                    botmsg.FontFamily = new FontFamily("Candara");
+                    botmsg.FontSize = 16;
+                    botmsg.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom(FontColor));
+                    UserBubble_Creator(true);
+                    OutputBox.Items.Add(botmsg);
                 }
             }
-            tb.Text = string.Empty;
-        }
+        tb.Text = string.Empty;
+    }
 
-        private async void SendButton_actionBOT(TextBox tb, string WILLBEDELETED)
-        {
-            await Task.Delay(500);
-            TextBlock txtBlockbot = new TextBlock();
-            txtBlockbot.TextWrapping = TextWrapping.Wrap;
-            var result = "this needs to be uncommented";// getMaxRegexMatchesFile(InputBox.Text);//Chatbot.Chat(InputBox.Text);
-            //----------------------------------------------------------------------------------------
-            /*
-             * ADD: Timer to have robot wait and no immediately reply to the user.
-             * 
-             */
-            //int milliseconds = 1000;
-            //Thread.Sleep(milliseconds);
-            //----------------------------------------------------------------------------------------
+    private async void SendButton_actionBOT(TextBox tb, string WILLBEDELETED)
+    {
+        await Task.Delay(500);
+        TextBlock txtBlockbot = new TextBlock();
+        txtBlockbot.TextWrapping = TextWrapping.Wrap;
+        var result = "this needs to be uncommented";// getMaxRegexMatchesFile(InputBox.Text);//Chatbot.Chat(InputBox.Text);
+        //----------------------------------------------------------------------------------------
+        /*
+         * ADD: Timer to have robot wait and no immediately reply to the user.
+         * 
+         */
+                //int milliseconds = 1000;
+                //Thread.Sleep(milliseconds);
+                //----------------------------------------------------------------------------------------
 
-            setOutPut(WILLBEDELETED,ref txtBlockbot ,ref tb);
+                setOutPut(WILLBEDELETED,ref txtBlockbot ,ref tb);
 
             //txtBlockbot.Text = result;//result.BotMessage;
-            botmsg = new Label();
+            Label botmsg = new Label();
             botmsg.Name = "botmsg";   //bot's response box
             botmsg.Target = OutputBox;
             botmsg.Content = txtBlockbot;
@@ -294,9 +314,8 @@ namespace ActivAID
             botmsg.FontFamily = new FontFamily("Candara");
             botmsg.FontSize = 16;
             botmsg.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom(FontColor));
-            UserBubble_Creator(true);
-            OutputBox.Items.Add(botmsg); // Adding to Listbox
-
+           // UserBubble_Creator(true);
+           // OutputBox.Items.Add(botmsg); // Adding to Listbox
             OutputBox.Items.MoveCurrentToLast();
             OutputBox.SelectedItem = OutputBox.Items.CurrentItem;
             OutputBox.ScrollIntoView(OutputBox.Items.CurrentItem);
