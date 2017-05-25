@@ -16,7 +16,6 @@ namespace ActivAID
 
     public class BackEnd
     {
-        //private static ScriptScope builtinscope;
         private static Task<dynamic> phrase_generator_task;
         private static dynamic phrase_generator;
 
@@ -41,9 +40,8 @@ namespace ActivAID
             return maxStrings;
         }
 
-       public static void loadIronPython()//tuple<scriptengine, scriptscope> loadironpython()
+       public static void loadIronPython()
         {
-            //if (builtinscope == null && phrase_generator == null)
             if (phrase_generator_task == null)
             {
                 phrase_generator_task = Task<dynamic>.Factory.StartNew
@@ -70,12 +68,7 @@ namespace ActivAID
                         return null;
                     }
                 });
-
-
-                //builtinscope = python.getbuiltinmodule(engine);
-                //phrase_generator = engine.importmodule("phrase_generator");
             }
-            //return new tuple<scriptengine, scriptscope>(phrase_generator, builtinscope);
         }
 
         private static BlockDataAndKeyWords getTupList(List<Tuple<string, string[]>> block)
@@ -91,8 +84,6 @@ namespace ActivAID
 
         private static QueryHandler getNewQueryHandler()
         {
-            //ScriptEngine engine = Python.CreateEngine();
-            //dynamic phrase_generator = engine.ImportModule("phrase_generator");
             Func<string, string> func = new Func<string, string>((x) =>
             {
                 var temp = x;
@@ -230,14 +221,6 @@ namespace ActivAID
             
         }
 
-        private static void aggregateReturnString(List<QueryResponse> responses, ActionRef aggregateFunction, ref string rString)
-        {
-            foreach (var response in responses)
-            {
-                aggregateFunction(response, ref rString);
-            }
-        }
-
         private static List<string> aggregateReturnList(List<QueryResponse> responses, ActionRefList aggregateFunction)
         {
             List<string> rList = new List<string>();
@@ -348,28 +331,6 @@ namespace ActivAID
                     rList.Add(tb);
                 }
             }
-            /*if (fString.Trim() == "")
-            {
-                fString = "This article covers topics and keywords related to: \n";
-                var tb = new TextBlock();
-                tb.Text = fString;
-                rList.Add(tb);
-                List<string> kwList = aggregateReturnList(responses, aggKeywords);
-                foreach (var kw in kwList)
-                {
-                    tb = new TextBlock();
-                    new KeyWordClickable(ref tb, kw, responses.First());
-                    rList.Add(tb);
-                }
-            }
-            else
-            {
-                List<string> steps = aggregateReturnList(responses, aggSteps);
-                fString = "Here are some steps that are relevant to your request: \n" + steps.First();
-                var tb = new TextBlock();
-                new StepsClickable(ref tb, fString, steps, responses.First());
-                rList.Add(tb);
-            }*/
             return rList;
         }
     }
