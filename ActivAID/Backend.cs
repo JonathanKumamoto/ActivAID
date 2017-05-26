@@ -243,10 +243,11 @@ namespace ActivAID
             bool foundSteps = false;
             int count = 0;
             int outerCounter = 0;
+            
 
             foreach (var kv in response.blocks)
-            {
-                if (kv.Key != prev)
+            {   
+                if (kv.Key != prev )//&& outerCounter != 0)
                 {
                     var messageStep = kv.Value.Select((x) => { return stringOp(x); }).ToList();
                     var removedTrailingWhiteSpace = messageStep.Select((x) => { return x.Trim(); }).ToArray();
@@ -266,6 +267,7 @@ namespace ActivAID
                     break;
                 }
                 prev = kv.Key;
+                //++outerCounter;
             }
         }
 
@@ -313,6 +315,10 @@ namespace ActivAID
                 List<string> steps = aggregateReturnList(responses, aggSteps);
                 fString = "Here are some steps that are relevant to your request: \n" + steps.First();
                 var tb = new TextBlock();
+                if (steps.Count() <= 1)
+                {
+                    throw new Exception();
+                }
                 new StepsClickable(ref tb, fString, steps, responses.First());
                 rList.Add(tb);
             }
