@@ -108,18 +108,13 @@ namespace ActivAID
             }
             else
             {
-                return "No Acceptable Match Found";
+                throw new NoFileMatchException();
             }
         }
         public string boilDown(string sentence)
         {
             initializeFGEXES();
-            string retString = getMaxRegexMatchesFile(sentence);
-            if (retString == "No Acceptable Match Found")
-            {
-                throw new NoFileMatchException();
-            }
-            return retString;
+            return getMaxRegexMatchesFile(sentence);
         }
     }
 }

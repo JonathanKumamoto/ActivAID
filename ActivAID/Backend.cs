@@ -242,7 +242,6 @@ namespace ActivAID
             int prev = -99;
             bool foundSteps = false;
             int count = 0;
-            int outerCounter = 0;
             
 
             foreach (var kv in response.blocks)
