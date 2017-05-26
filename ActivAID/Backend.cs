@@ -246,7 +246,7 @@ namespace ActivAID
 
             foreach (var kv in response.blocks)
             {
-                if (kv.Key != prev && outerCounter != 0)
+                if (kv.Key != prev)
                 {
                     var messageStep = kv.Value.Select((x) => { return stringOp(x); }).ToList();
                     var removedTrailingWhiteSpace = messageStep.Select((x) => { return x.Trim(); }).ToArray();
@@ -266,7 +266,6 @@ namespace ActivAID
                     break;
                 }
                 prev = kv.Key;
-                ++outerCounter;
             }
         }
 
