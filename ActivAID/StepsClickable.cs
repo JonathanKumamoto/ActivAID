@@ -12,35 +12,43 @@ namespace ActivAID
     {
         Stack<string> steps;
         TextBlock tb;
-        bool end = false;
+        string endText;
 
         public StepsClickable(ref TextBlock tb, string outputToUI, List<string> steps, QueryResponse qr)
         {
             this.outputToUI = outputToUI;
             this.steps = new Stack<string>(steps);
             this.steps.Pop();
-            tb.Text = outputToUI;
-            tb.MouseUp += this.callback;
+            endText = steps.Count() == 0 ? "\n - END -" : "\n - CLICK FOR MORE INFO -";
+            tb.Text = outputToUI + endText;
+            tb.MouseUp += callback;
+            tb.MouseLeftButtonUp += activATECallback;
             this.tb = tb;
+        }
+
+        public void activATECallback(Object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            ;
         }
 
         public override void callback(Object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             string toUI;
+            string tbText;
             try
             {
                 toUI = steps.Pop();
+                tbText = Regex.Replace(tb.Text,"- CLICK FOR MORE INFO -", "");
+                Console.WriteLine(tbText);
+                endText = steps.Count() == 0 ? "\n - END -" : "\n - CLICK FOR MORE INFO -";
+                toUI = toUI + endText;
             }
             catch (InvalidOperationException)
             {
+                tbText = tb.Text;
                 toUI = "";
-                if (!end)
-                {
-                    toUI = "\n- END -";
-                    end = true;
-                }
             }
-            tb.Text = tb.Text + (toUI.Trim() == "" ? "" : "\n" + toUI.Trim());
+            tb.Text = tbText.Trim() + (toUI.Trim() == "" ? "" : "\n" + toUI.Trim());
         }
     }
 }
