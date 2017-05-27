@@ -330,6 +330,10 @@ namespace ActivAID
                 List<string> kwList = aggregateReturnList(responses, aggKeywords);
                 foreach (var kw in kwList)
                 {
+                    if (kw.Trim().Count() <= 2)
+                    {
+                        continue;
+                    }
                     tb = new TextBlock();
                     new KeyWordClickable(ref tb, kw, responses.First());
                     rList.Add(tb);
