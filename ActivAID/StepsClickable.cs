@@ -39,7 +39,6 @@ namespace ActivAID
             {
                 toUI = steps.Pop();
                 tbText = Regex.Replace(tb.Text,"- CLICK FOR MORE INFO -", "");
-                Console.WriteLine(tbText);
                 endText = steps.Count() == 0 ? "\n - END -" : "\n - CLICK FOR MORE INFO -";
                 toUI = toUI + endText;
             }
