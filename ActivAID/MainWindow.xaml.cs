@@ -19,6 +19,7 @@ namespace ActivAID
 {
     public partial class MainWindow
     {
+        const string DEFAULTFILE = @"C:\Program Files\ActivATE\ActivATE 5.x\Logs\ACLLog_";
         public string outPut;
         public SimlBot Chatbot; //the SimlBot variable
         public Label usermsg;
@@ -40,7 +41,7 @@ namespace ActivAID
 
 
             BackEnd.loadIronPython();
-            
+
 
             InitializeComponent();
             InputBox.TextChanged += OnTextChangedHandler;

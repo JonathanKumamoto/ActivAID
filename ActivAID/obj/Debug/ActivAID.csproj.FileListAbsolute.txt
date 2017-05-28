@@ -180,3 +180,7 @@ C:\Users\Matthew\Desktop\ActivAID\ActivAID\bin\Debug\Microsoft.Scripting.Metadat
 C:\Users\Matthew\Desktop\ActivAID\ActivAID\obj\Debug\Settings.g.cs
 C:\Users\Matthew\Desktop\ActivAID\ActivAID\obj\Debug\ActivAID_Content.g.cs
 C:\Users\Matthew\Desktop\ActivAID\ActivAID\obj\Debug\Settings.baml
+C:\Users\Matthew\Desktop\ActivAID\ActivAID\bin\Debug\Interfaces.dll
+C:\Users\Matthew\Desktop\ActivAID\ActivAID\bin\Debug\LoginMngr.dll
+C:\Users\Matthew\Desktop\ActivAID\ActivAID\bin\Debug\SystemController.dll
+C:\Users\Matthew\Desktop\ActivAID\ActivAID\bin\Debug\ActivATE.exe
