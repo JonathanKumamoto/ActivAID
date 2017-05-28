@@ -277,69 +277,151 @@ namespace ActivAID
             addKeywordsOrPhrases(response.keywords, phrases, String.Join(" ", rList), ref rList);
         }
 
+        private static List<TextBlock> handleHrefCommand(string paragraph)
+        {
+            List<TextBlock> rList = new List<TextBlock>();
+            string fileToGet = paragraph.Split(':')[1];
+            if (fileToGet.Trim() == "")
+            {
+                throw new NoFileMatchException();
+            }
+
+            var hrefResponses = getNewQueryHandler().handleQuery(new string[] { fileToGet });
+            var tb = new TextBlock();
+            tb.Text = "Here are the links associated with your request: ";
+            rList.Add(tb);
+            List<Tuple<string, string>> aggHrefs = new List<Tuple<string, string>>();
+            aggHrefs.Add(new Tuple<string, string>(hrefResponses.First().originalSentence, hrefResponses.First().responseHTML));
+            foreach (var response in hrefResponses)
+            {
+                aggHrefs.AddRange(response.hrefs);
+            }
+            foreach (var hrefTup in aggHrefs)
+            {
+                tb = new TextBlock();
+                rList.Add(tb);
+                new HrefsClickable(ref tb, hrefTup.Item1, hrefTup.Item2);
+            }
+            return rList;
+        }
+
+        private static List<TextBlock> handleStepsCase(string paragraph, List<QueryResponse> responses)
+        {
+            List<TextBlock> rList = new List<TextBlock>();
+            List<string> steps = aggregateReturnList(responses, aggSteps);
+            string fString = "Here are some steps that are relevant to your request: \n" + steps.First();
+            var tb = new TextBlock();
+            if (steps.Count() <= 1)
+            {
+                throw new Exception();
+            }
+            new StepsClickable(ref tb, fString, steps, responses.First());
+            rList.Add(tb);
+            return rList;
+        }
+
+        private static List<TextBlock> handleKWCase(string paragraph, List<QueryResponse> responses)
+        {
+            string fString = "This article covers topics and keywords related to: ";
+            var tb = new TextBlock();
+            List<TextBlock> rList = new List<TextBlock>();
+            tb.Text = fString;
+            rList.Add(tb);
+            List<string> kwList = aggregateReturnList(responses, aggKeywords);
+            foreach (var kw in kwList)
+            {
+                if (kw.Trim().Count() <= 2)
+                {
+                    continue;
+                }
+                tb = new TextBlock();
+                new KeyWordClickable(ref tb, kw, responses.First());
+                rList.Add(tb);
+            }
+            return rList;
+        }
+
+        private static List<TextBlock> handleDoCommand(string paragraph, QueryResponse responseToDo)
+        {
+            var rList = new List<TextBlock>();
+            if (hasActivATEHook(responseToDo.responseHTML))
+            {
+                var tb = new TextBlock();
+                tb.Text = "Taking Care Of It...";
+                rList.Add(tb);
+            }
+            return rList;
+        }
+
+        private static bool hasActivATEHook(string filePath)
+        {
+            System.IO.FileInfo f = new System.IO.FileInfo(filePath);
+            string fileName = f.Name;
+            return fileName == "EditUser.html" || fileName == "NewTestProgram.html";
+        }
+
+        private static void callActivATE(QueryResponse qr)
+        {
+            if (hasActivATEHook(qr.responseHTML))
+            {
+                System.IO.FileInfo f = new System.IO.FileInfo(qr.responseHTML);
+                string fileName = f.Name;
+                var aInterface = new ActivateInterface();
+                aInterface.Init();
+                if (fileName == "NewTestProgram.html")
+                {
+                    aInterface.LaunchNewTP();
+                }
+                else if (fileName == "EditUser.html")
+                {
+                    aInterface.LaunchEditUsers();
+                }
+                else if (fileName == "CHANGE")
+                {
+                    aInterface.LaunchChangeUser();
+                }
+            }
+        }
+
         public static List<TextBlock> backendCommand(string paragraph)
         {
-            string fString = "";
-            List<TextBlock> rList = new List<TextBlock>();
-            if (Regex.IsMatch(paragraph.ToLower(), "href:"))
+            if (Regex.IsMatch(paragraph, "href:"))
             {
-                string fileToGet = paragraph.Split(':')[1];
-                if (fileToGet.Trim() == "")
-                {
-                    throw new NoFileMatchException();
-                }
-            
-                var hrefResponses = getNewQueryHandler().handleQuery(new string[] { fileToGet });                    
-                var tb = new TextBlock();
-                tb.Text = "Here are the links associated with your request: ";
-                rList.Add(tb);
-                List<Tuple<string, string>> aggHrefs = new List<Tuple<string, string>>();
-                aggHrefs.Add(new Tuple<string, string>(hrefResponses.First().originalSentence, hrefResponses.First().responseHTML));
-                foreach (var response in hrefResponses)
-                {
-                    aggHrefs.AddRange(response.hrefs);
-                }
-                foreach (var hrefTup in aggHrefs)
-                {
-                    tb = new TextBlock();
-                    rList.Add(tb);
-                    new HrefsClickable(ref tb, hrefTup.Item1, hrefTup.Item2);                        
-                }
-                return rList;
+                return handleHrefCommand(paragraph);
             }
+
+            if (Regex.IsMatch(paragraph.ToLower(), "do:"))
+            {
+                List<QueryResponse> responsesToDo;
+                if (paragraph == "do: change user")
+                {
+                    responsesToDo = new List<QueryResponse>();
+                    var qr = new QueryResponse("CHANGE",null,null,null,null,null);
+                    responsesToDo.Add(qr);
+                }
+                else
+                {
+                    string fileToGet = paragraph.Split(':')[1];
+                    responsesToDo = getNewQueryHandler().handleQuery(new string[] { fileToGet });
+                }
+                var rList = handleDoCommand(paragraph, responsesToDo.First());
+                if (rList.Count() > 0)
+                {
+                    callActivATE(responsesToDo.First());
+                    return rList;
+                }
+            }
+
             var responses = getNewQueryHandler().handleQuery(new string[] { paragraph });
             phrase_generator = phrase_generator_task.Result;
             try
             {
-                List<string> steps = aggregateReturnList(responses, aggSteps);
-                fString = "Here are some steps that are relevant to your request: \n" + steps.First();
-                var tb = new TextBlock();
-                if (steps.Count() <= 1)
-                {
-                    throw new Exception();
-                }
-                new StepsClickable(ref tb, fString, steps, responses.First());
-                rList.Add(tb);
+                return handleStepsCase(paragraph, responses);
             }
             catch (Exception)
             {
-                fString = "This article covers topics and keywords related to: ";
-                var tb = new TextBlock();
-                tb.Text = fString;
-                rList.Add(tb);
-                List<string> kwList = aggregateReturnList(responses, aggKeywords);
-                foreach (var kw in kwList)
-                {
-                    if (kw.Trim().Count() <= 2)
-                    {
-                        continue;
-                    }
-                    tb = new TextBlock();
-                    new KeyWordClickable(ref tb, kw, responses.First());
-                    rList.Add(tb);
-                }
+                return handleKWCase(paragraph, responses);
             }
-            return rList;
         }
     }
 }

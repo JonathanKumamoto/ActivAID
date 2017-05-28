@@ -235,6 +235,11 @@ namespace ActivAID
             {
                 try
                 {
+                    if("make a new test program" == command.ToLower() || "set up a new test program" == command.ToLower())
+                    {
+                        command = "do: new test program template";
+                    }
+
                     foreach (var textBlock in BackEnd.backendCommand(command.ToLower()))
                     {
                         textBlock.TextWrapping = TextWrapping.Wrap;

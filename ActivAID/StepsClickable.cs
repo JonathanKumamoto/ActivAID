@@ -15,7 +15,7 @@ namespace ActivAID
         TextBlock tb;
         string endText;
         QueryResponse qr;
-        const string DEFAULTFILE = @"C:\Program Files\ActivATE\ActivATE 5.x\Logs\ACLLog_";
+        //const string DEFAULTFILE = @"C:\Program Files\ActivATE\ActivATE 5.x\Logs\ACLLog_";
         
 
         public StepsClickable(ref TextBlock tb, string outputToUI, List<string> steps, QueryResponse qr)
@@ -31,7 +31,7 @@ namespace ActivAID
             this.qr = qr;
         }
 
-        public bool hasActivAIDHook(string filePath)
+        private bool hasActivATEHook(string filePath)
         {
             System.IO.FileInfo f = new System.IO.FileInfo(filePath);
             string fileName = f.Name;
@@ -40,10 +40,8 @@ namespace ActivAID
 
         public void activATECallback(Object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            Console.WriteLine("\n\n"+qr.responseHTML+"\n\n"+hasActivAIDHook(qr.responseHTML));
-            if (hasActivAIDHook(qr.responseHTML))
+            if (hasActivATEHook(qr.responseHTML))
             {
-                Console.WriteLine("\n\nHI\n\n");
                 System.IO.FileInfo f = new System.IO.FileInfo(qr.responseHTML);
                 string fileName = f.Name;
                 var aInterface = new ActivateInterface();
@@ -55,7 +53,7 @@ namespace ActivAID
                 else if (fileName == "EditUser.html")
                 {
                     aInterface.LaunchEditUsers();
-                }
+                }                
             }
         }
 

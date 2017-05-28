@@ -107,15 +107,27 @@ namespace ActivAID
 
         public void LaunchChangeUser()
         {
-            _systemControl.CLChangeUser();
+            Thread mythread = new Thread(CUThread);
+            mythread.Start();
         }
         public void LaunchNewTP()
         {
-            _systemControl.CLNewTestProgram();
+            Thread mythread = new Thread(TPThread);
+            mythread.Start();
         }
         public void EUThread(object obj)
         {
             _systemControl.CLEditUsers();
+        }
+
+        public void CUThread(object obj)
+        {
+            _systemControl.CLChangeUser();
+        }
+
+        public void TPThread(object obj)
+        {
+            _systemControl.CLNewTestProgram();
         }
 
     }
