@@ -1,6 +1,3 @@
-import sys
-#sys.path.append("C:\\Users\\Matthew\\Desktop\\191B\\model_for_trigram_output\\site-packages")
-sys.path.append("C:\\Users\\Matthew\\Desktop\\191B\\model_for_trigram_output\\Lib")
 from nltk.util import ngrams as get_ngrams
 from nltk import word_tokenize as tokenize
 import re
@@ -36,11 +33,10 @@ class LogicalRemoveMonad:
         return LogicalRemoveMonad(*args)
 
     @staticmethod
-    def __logical_remove(text):#use stemmer and lemmatizer at probability part
+    def __logical_remove(text):
         removed_list = []
         tok_list = []
         for ngram in get_ngrams(tokenize(text), LogicalRemoveMonad.n):
-            #if tok in LogicalRemoveMonad.__tokens_to_remove:
             accum = tuple()
             remove = []
             for i, tok in enumerate(ngram):
