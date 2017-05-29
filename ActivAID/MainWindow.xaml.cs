@@ -137,7 +137,7 @@ namespace ActivAID
             mic.Visibility = System.Windows.Visibility.Collapsed;
             mic.IsEnabled = false;
             Choices sList = new Choices();
-            sList.Add(new string[] {"Reset my drivers", "take me to the astronics website","voice", "recognition", "hello", "astronics", "bot", "can", "website", "how", "are", "you", "the", "help"});
+            sList.Add(new string[] {"Reset my drivers", "take me to the astronics website","make a new test program","make me a new test program","new test program","voice", "recognition", "hello", "astronics", "bot", "can", "website", "how", "are", "you", "the", "help"});
             Grammar gr = new Grammar(new GrammarBuilder(sList));
             try
             {
@@ -235,7 +235,8 @@ namespace ActivAID
             {
                 try
                 {
-                    if("make a new test program" == command.ToLower() || "set up a new test program" == command.ToLower())
+                    var trimLower = command.ToLower().Trim();
+                    if("make a new test program" == trimLower || "set up a new test program" == trimLower || "make me a new test program" == trimLower || "new test program" == trimLower)
                     {
                         command = "do: new test program template";
                     }
