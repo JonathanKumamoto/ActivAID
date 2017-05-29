@@ -435,7 +435,7 @@ namespace ActivAID
                  */
                 return true;
             }
-            else if (botOutput.ToLower() == "astronics homepage") //sends users to the astronics homepage
+            else if (botOutput.ToLower() == "astronics homepage" || botOutput.ToLower() == "astronics website") //sends users to the astronics homepage
             {
                 System.Diagnostics.Process.Start("http://astronicstestsystems.com/");
                 return true;
