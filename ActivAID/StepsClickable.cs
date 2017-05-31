@@ -23,6 +23,11 @@ namespace ActivAID
             this.outputToUI = outputToUI;
             this.steps = new Stack<string>(steps);
             this.steps.Pop();
+            if (Regex.IsMatch(outputToUI.ToLower(), "last updated on.*by"))
+            {
+                outputToUI = "Here are some steps that are relevant to your request: \n" + this.steps.Pop().Trim();
+            }
+            
             endText = steps.Count() == 0 ? "\n - END -" : "\n - CLICK FOR MORE INFO -";
             tb.Text = outputToUI + endText;
             tb.MouseLeftButtonUp += callback;

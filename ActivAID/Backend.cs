@@ -298,9 +298,12 @@ namespace ActivAID
             }
             foreach (var hrefTup in aggHrefs)
             {
-                tb = new TextBlock();
-                rList.Add(tb);
-                new HrefsClickable(ref tb, hrefTup.Item1, hrefTup.Item2);
+                if (!hrefTup.Item2.Contains("#"))
+                {
+                    tb = new TextBlock();
+                    rList.Add(tb);
+                    new HrefsClickable(ref tb, hrefTup.Item1, hrefTup.Item2);
+                }
             }
             return rList;
         }

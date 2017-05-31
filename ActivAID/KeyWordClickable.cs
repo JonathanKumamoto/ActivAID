@@ -67,10 +67,10 @@ namespace ActivAID
                     temp.Add(element);
 
                     if(prev == block.Key)
-                    {                        
+                    {
                         if (containsKeyWord)
                         {
-                            retStrings.Add(String.Join(" ", temp.ToArray()));
+                            retStrings.Add(String.Join(" ", temp.Select((x) => { return Regex.Replace(x, @"[\r\n\t]| {2,}", ""); }).ToArray()));
                         }
                         temp = new List<string>();
                         containsKeyWord = false;
