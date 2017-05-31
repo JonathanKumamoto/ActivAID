@@ -21,7 +21,12 @@ namespace ActivAID
         }
         public override void callback(Object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            System.Diagnostics.Process.Start(link);
+            try
+            {
+                System.Diagnostics.Process.Start(link);
+            }
+            catch
+            {; }
         }
     }
 }
