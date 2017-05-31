@@ -8,6 +8,7 @@ using Microsoft.Scripting.Hosting;
 using BlockDataAndKeyWords = System.Collections.Generic.List<System.Tuple<string[], string[]>>;
 using System.Diagnostics;
 using System.Windows.Controls;
+using System.Runtime.Serialization;
 
 namespace ActivAID
 {
@@ -360,7 +361,7 @@ namespace ActivAID
         {
             System.IO.FileInfo f = new System.IO.FileInfo(filePath);
             string fileName = f.Name;
-            return fileName == "EditUser.html" || fileName == "NewTestProgram.html";
+            return fileName == "EditUser.html" || fileName == "NewTestProgram.html" || fileName == "CHANGE";
         }
 
         private static void callActivATE(QueryResponse qr)
@@ -399,21 +400,37 @@ namespace ActivAID
                 if (paragraph == "do: change user")
                 {
                     responsesToDo = new List<QueryResponse>();
-                    var qr = new QueryResponse("CHANGE",null,null,null,null,null);
+                    var qr = new QueryResponse("CHANGE",null,null,null,null, new Dictionary<int, List<string>>());
                     responsesToDo.Add(qr);
                 }
                 else
                 {
                     string fileToGet = paragraph.Split(':')[1];
-                    responsesToDo = getNewQueryHandler().handleQuery(new string[] { fileToGet });
+                    try
+                    {
+                        responsesToDo = getNewQueryHandler().handleQuery(new string[] { fileToGet });
+                    }
+                    catch (NoFileMatchException)
+                    {
+                        responsesToDo = new List<QueryResponse>();
+                        responsesToDo.Add(new QueryResponse("Bad Command", null, null, null, null, new Dictionary<int, List<string>>()));
+                    }
                 }
                 var rList = handleDoCommand(paragraph, responsesToDo.First());
                 if (rList.Count() > 0)
                 {
                     callActivATE(responsesToDo.First());
-                    return rList;
                 }
+                else
+                { 
+                    rList.Clear();
+                    var tb = new TextBlock();
+                    tb.Text = ":( :( :( DON'T BE A TWIT! You just entered an invalid command to ActivAID :( :( :(";
+                    rList.Add(tb);
+                }
+                return rList;
             }
+        
 
             var responses = getNewQueryHandler().handleQuery(new string[] { paragraph });
             phrase_generator = phrase_generator_task.Result;
@@ -425,6 +442,26 @@ namespace ActivAID
             {
                 return handleKWCase(paragraph, responses);
             }
+        }
+    }
+
+    [Serializable]
+    internal class NoCommandException : Exception
+    {
+        public NoCommandException()
+        {
+        }
+
+        public NoCommandException(string message) : base(message)
+        {
+        }
+
+        public NoCommandException(string message, Exception innerException) : base(message, innerException)
+        {
+        }
+
+        protected NoCommandException(SerializationInfo info, StreamingContext context) : base(info, context)
+        {
         }
     }
 }
