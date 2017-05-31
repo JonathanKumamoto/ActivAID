@@ -236,7 +236,7 @@ namespace ActivAID
                 try
                 {
                     var trimLower = command.ToLower().Trim();
-                    if("make a new test program" == trimLower || "set up a new test program" == trimLower || "make me a new test program" == trimLower || "new test program" == trimLower)
+                    if("new test program waddup" == trimLower || "make a new test program" == trimLower || "set up a new test program" == trimLower || "make me a new test program" == trimLower || "new test program" == trimLower)
                     {
                         command = "do: new test program template";
                     }
