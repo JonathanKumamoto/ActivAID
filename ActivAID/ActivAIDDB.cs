@@ -15,28 +15,18 @@ namespace ActivAID
     {
         private SqlConnection conn;
         private string dblocation;
-        private SqlConnectionStringBuilder builder;
         // private int elementCounter;
         public ActivAIDDB()
         {
-            string dbName = Environment.GetEnvironmentVariable("DBNAME");
-            string serverName = Environment.GetEnvironmentVariable("SERVERNAME");
-            dblocation = "Server=.;Database=" + dbName + ";Integrated Security=true";
-            builder = new SqlConnectionStringBuilder();
-            //builder.DataSource = serverName; // CHANGE THIS TO YOUR OWN SERVER
-            //builder.DataSource = "IP Address\SQLEXPRESS, 49172"
-            //builder.InitialCatalog = dbName;
-            builder.IntegratedSecurity = false;
-            //builder.UserID = "sa";
-            //builder.Password = "activaid";
-
+            string dbName = "ActivAID DB";
+            string serverName = "localhost\\SQLEXPRESS";
+            dblocation = "Server="+serverName+";Database=" + dbName + ";Integrated Security=true";
         }
 
         public void insertIntoFiles(string filepath)// string keywords)
         {
-            using (conn = new SqlConnection())
+            using (conn = new SqlConnection(dblocation))
             {
-                conn.ConnectionString = builder.ConnectionString;
                 string fileQuery = "INSERT INTO Files (filePath, filename) VALUES (@file, @filename)";
                 SqlCommand cmd = new SqlCommand(fileQuery, conn);
                 cmd.Parameters.AddWithValue("@file", filepath);
@@ -56,9 +46,8 @@ namespace ActivAID
             if (parentId > 0)
             {
 
-                using (conn = new SqlConnection())
+                using (conn = new SqlConnection(dblocation))
                 {
-                    conn.ConnectionString = builder.ConnectionString;
                     string hyperQuery = "INSERT INTO Hyperlinks (fileId, filePath, filename, text) VALUES (@id, @path, @fname, @text)";
                     SqlCommand cmd = new SqlCommand(hyperQuery, conn);
                     cmd.Parameters.AddWithValue("@id", parentId);
@@ -82,9 +71,8 @@ namespace ActivAID
             Console.WriteLine(parentId);
             if (parentId > 0)
             {
-                using (conn = new SqlConnection())
+                using (conn = new SqlConnection(dblocation))
                 {
-                    conn.ConnectionString = builder.ConnectionString;
                     string elementQuery = "INSERT INTO Elements (fileId, blockNumber, data) VALUES (@id, @block, @dat)";
                     SqlCommand cmd = new SqlCommand(elementQuery, conn);
                     cmd.Parameters.AddWithValue("@id", parentId);
@@ -100,9 +88,8 @@ namespace ActivAID
 
         public void insertIntoImages(int elid, string elpath)
         {
-            using (conn = new SqlConnection())
+            using (conn = new SqlConnection(dblocation))
             {
-                conn.ConnectionString = builder.ConnectionString;
                 string imageQuery = "INSERT INTO Images (elementId, elementImg) VALUES (@id, @path)";
                 SqlCommand cmd = new SqlCommand(imageQuery, conn);
                 cmd.Parameters.AddWithValue("@id", elid);
