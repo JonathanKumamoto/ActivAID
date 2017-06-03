@@ -229,14 +229,24 @@ namespace ActivAID
             
         }
 
+        private bool isTestProgramPattern(string pattern)
+        {
+            var trimLower = pattern.ToLower().Trim();
+            if (Regex.IsMatch(pattern, "do *:"))
+            {
+                trimLower = pattern.Split(':')[1].ToLower().Trim();
+            }
+            return  "new test program waddup" == trimLower || "make a new test program" == trimLower || "set up a new test program" == trimLower || "make me a new test program" == trimLower || "new test program" == trimLower;
+        }
+
         private void setOutPut(string command, ref TextBlock outputToUI, ref TextBox tb)
         {
             if (!unixCommands(command))//checks for specific responses by the bot to perform functions
             {
                 try
                 {
-                    var trimLower = command.ToLower().Trim();
-                    if("new test program waddup" == trimLower || "make a new test program" == trimLower || "set up a new test program" == trimLower || "make me a new test program" == trimLower || "new test program" == trimLower)
+                    
+                    if(isTestProgramPattern(command))
                     {
                         command = "do: new test program template";
                     }
