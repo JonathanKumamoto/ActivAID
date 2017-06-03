@@ -425,7 +425,7 @@ namespace ActivAID
                 { 
                     rList.Clear();
                     var tb = new TextBlock();
-                    tb.Text = ":( :( :( DON'T BE A TWIT! You just entered an invalid command to ActivAID :( :( :(";
+                    tb.Text = ":( :( :( YOU REALLY CONFUSED ME! You just asked me to do something I can not do :( :( :(";
                     rList.Add(tb);
                 }
                 return rList;
