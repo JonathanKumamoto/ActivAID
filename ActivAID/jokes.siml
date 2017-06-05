@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Siml>
+  <Concept Name="Introduction">
+  
+  <Model>   
+    <Pattern>
+        <Item>hello</Item>
+        <Item>hi</Item>
+        <Item>hey</Item>
+        <Item>hello activaid</Item>
+    </Pattern>
+  	<Response>
+    	<Random>
+	      	<Item>Hi There!</Item>
+	      	<Item>Waddup Bruh</Item>
+	      	<Item>Hello</Item>
+	      	<Item>Hey</Item>
+	      	<Item>Ello Gov'na</Item>
+    	</Random>  
+	</Response>  
+	</Model>
+	
+	<Model>   
+    <Pattern>
+        <Item>what time is it?</Item>
+        <Item>what time is it</Item>
+    </Pattern>
+  	<Response>
+    	<Random>
+	      	<Item>It's Howdy Doody Time!</Item>
+    	</Random>  
+	</Response>  
+	</Model>
+	
+	<Model>   
+    <Pattern>
+        <Item>tell me about who made you</Item>
+        <Item>who made you</Item>
+        <Item>who made you?</Item>
+    </Pattern>
+  	<Response>
+    	<Random>
+	      	<Item>6 lil' angels made me</Item>
+	      	<Item>I was made by the greatest developers in the whole wide world</Item>
+	      	<Item>Jess, Frankie, and PetaBytes. And they are totally zany</Item>
+    	</Random>  
+	</Response>  
+	</Model>
+	
+	<Model>   
+    <Pattern>
+        <Item>how are you</Item>
+        <Item>how are you?</Item>
+        <Item>how is it going?</Item>
+        <Item>how is it going</Item>
+        <Item>how's it going?</Item>
+        <Item>how's it going</Item>
+    </Pattern>
+  	<Response>
+    	<Random>
+	      	<Item>Doing swell, thanks for asking</Item>
+	      	<Item>Good</Item>
+	      	<Item>Absolutely amazing!</Item>
+    	</Random>  
+	</Response>  
+	</Model>
+	
+  <Model>
+    <Pattern>
+        <Item>is ska good</Item>
+        <Item>is ska good?</Item>
+        <Item>what do you think about ska?</Item>
+        <Item>what do you think about ska</Item>
+    </Pattern>
+    <Response>
+    	<Random>
+	      	<Item>It is the single most heart warming form of music I can think of...</Item>
+	      	<Item>I &lt;3 ska</Item>
+	      	<Item>To me, ska is passion. The purest form of poetry</Item>
+    	</Random>  
+	</Response>
+   </Model>
+   
+   <Model>
+    <Pattern>
+    <Item>bye</Item>
+    <Item>bye activaid</Item>
+    <Item>see ya</Item>
+    </Pattern>
+    <Response>
+		 <Random>
+      	<Item>Buh bye</Item>
+      	<Item>Have a good one</Item>
+      	<Item>See ya</Item>
+      	<Item>See you later</Item>
+      	<Item>Bye</Item>
+    	</Random>
+	</Response>	
+	</Model>
+   
+   
+   <Model>
+    <Pattern>
+    <Item>who are you?</Item>
+    <Item>who are you</Item>
+    <Item>what is your sex</Item>
+    <Item>what is your sex?</Item>
+    <Item>are you a boy or girl?</Item>
+    <Item>are you a boy or girl</Item>
+    <Item>where are you from?</Item>
+    <Item>where are you from</Item>
+    <Item>are you a real person?</Item>
+    <Item>are you a real person</Item>
+    <Item>what is your birthday</Item>
+    <Item>what is your birthday?</Item>
+    <Item>what's your favorite color</Item>
+    <Item>what's your favorite color?</Item>
+    <Item>what is your favorite color</Item>
+    <Item>what is your favorite color?</Item>
+    </Pattern>
+    <Response>
+		 <Random>
+      	<Item>I don't have time for such tomfoolery. My mind is on other things.</Item>
+      	<Item>Stop messing around and ask me a real question</Item>
+      	<Item>So... Are you going to ask me something or not?</Item>
+      	<Item>This is how it works. You ask me GOOD questions and I promise I'll answer. It's as simple as that.</Item>
+    	</Random>
+	</Response>	
+	</Model>
+   
+	<Model>
+    <Pattern>thank you *</Pattern>
+    <Response>
+		 <Random>
+      	<Item>np</Item>
+      	<Item>You're Welcome!</Item>
+      	<Item>My Pleasure!</Item>
+      	<Item>It was nothing</Item>
+      	<Item>No. Thank You.</Item>
+    	</Random>
+	</Response>	
+	</Model>
+	
+	<Model>
+	<Pattern>
+		 <Item>thanks</Item>
+        <Item>thank you</Item>
+	</Pattern>
+	<Response>
+		 <Random>
+      	<Item>np</Item>
+      	<Item>You're Welcome!</Item>
+      	<Item>My Pleasure!</Item>
+      	<Item>It was nothing</Item>
+      	<Item>No. Thank You.</Item>
+    	</Random>
+	</Response>	
+	</Model> 
+	
+	<Model>
+    <Pattern>
+        <Item>what is the weather like</Item>
+        <Item>tell me what the weather is like</Item>
+        <Item>what's the weather like</Item>
+    </Pattern>
+  	<Response>
+  	  	<Random>
+  	  	<Item>How would I know bro?</Item>
+  	  	<Item>Not my job...</Item>
+  	  	<Item>Go outside and check, then you can let me know too</Item>
+  	  	</Random>
+  	 </Response>    	
+	</Model> 
+	
+	  <Model>
+        <Pattern>
+        <Item>tell a joke</Item>
+        <Item>tell me a joke</Item>
+        <Item>I want to hear a joke</Item>
+        </Pattern>
+        <Response>Im not supposed to tell jokes</Response>
+      </Model>
+      
+      <Model>
+        <Pattern>
+        <Item>activaid help</Item>
+        <Item>i'm lost</Item>
+        <Item>i want help</Item>
+        <Item>can you help me?</Item>
+        <Item>can you help me</Item>
+        <Item>can you help me please</Item>
+        <Item>can you help me please?</Item>
+        <Item>i need help</Item>
+        <Item>how does this work</Item>
+        <Item>how does this work?</Item>
+        </Pattern>
+        <Response>All queries you write are free form! Type in whatever. If I don't understand you, I will let you know|Some useful commands to know:|do: &lt;your query&gt;|- this will try to use your query to complete an action with ActivATE||href: &lt;your query&gt;|- this will try to use your query to pull hyperlinks from a resource||image: &lt;name of help image you want to see&gt;|- this will grab the image specified by the user and display it on the UI||clear|- this will clear the message bubbles from the UI||-ls|- this will show you the top level contents of the Media folder</Response>
+      </Model>
+
+
+  </Concept>
+</Siml>
