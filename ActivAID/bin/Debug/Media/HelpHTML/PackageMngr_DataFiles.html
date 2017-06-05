@@ -1,0 +1,52 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Package Manager</title>
+<link rel="stylesheet" type="text/css" href="help.css">
+    <style type="text/css">
+        .style3
+        {
+            width: 897px;
+            height: 566px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Package Manager - Data Files</h1>
+<p>The new package feature becomes helpful in conjunction with ActivATE Project Manager 
+supporting the concept of Data Files. </p>
+<p>As implemented now, a Data File can be any file whose extension is different 
+than the typical source file extension (.cs for CSharp projects, or .vb for 
+VBDotNet projects). VBScript projects do not support Data Files. At build time, 
+the data files are recognized after their extension, and not involved in the 
+compilation process. However, when a Package is created for deployment, they are 
+included while the source files are excluded.</p>
+<p>The distribution of the source and data files in the ActivATE IDE Project 
+Manager may now be structured in a multilevel folder structure.</p>
+<p>The multilevel folder structure in ActivATE IDE must always be relative to the 
+root folder of the project, which is the folder parent of sequence file.</p>
+<p>A multilevel folder structure may be easily created by dragging any folder 
+structure from Microsoft Explorer and dropping it on an ActivATE Project Manager 
+folder or its root. At drop time, a copy operation occurrs of the dragged 
+folder(s) to the folder target in ActivATE folder.</p>
+<p>In the picture below, two folders of data files were dragged from Microsoft 
+Explorer and dropped on the ActivATE root folder:</p>
+<p>&nbsp;</p>
+<p>
+<img alt="Data files in ActivATE" src="bin/PackageMngr_DataFiles.PNG"></p>
+
+        <p><strong>Other links:</strong></p>
+    <p><a href="PackageMngr.html">Introduction</a>
+	<a href="PackageMngr_Creation.html">Package Creation</a>
+	<a href="PackageMngr_Usage.html">Package Usage</a></p>
+<hr>
+<p><i><font face="Verdana" size="1">Astronics Test Systems<br>
+Last updated on 2/27/16 I. Zolog</font></i></p>
+
+</body>
+
+</html>

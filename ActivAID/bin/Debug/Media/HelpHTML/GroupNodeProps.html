@@ -1,0 +1,128 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 12.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Group Node Properties</title>
+    <style type="text/css">
+        .style1
+        {
+            width: 292px;
+            height: 601px;
+        }
+        .style2
+        {
+            font-size: xx-small;
+        }
+    </style>
+</head>
+
+<body>
+
+<p><b><font face="Verdana" size="3"><a name="Top">Group Node Properties</a></font></b></p>
+<p><font face="Verdana" size="2">The group node properties apply specifically to
+group nodes.&nbsp; Each node has its own unique set of properties.&nbsp; To view
+a group node's properties in the Properties Page, click on the node in the Test
+Sequence View.&nbsp; If the Properties Page is not visible, right-click anywhere
+in the Test Sequence View and click &quot;Node Properties&quot; or select &quot;Properties 
+Page&quot; from the View menu.&nbsp; The following shows
+an example of the properties for a group node:</font></p>
+<p><img border="0" src="bin/PropertiesPage5b.PNG" width="263" height="280"></p>
+<p><font face="Verdana" size="2">
+Click on the following links for a detailed description of each property.</font></p>
+<table border="1" width="75%">
+  <tr>
+    <td width="21%"><font face="Verdana" size="2">&nbsp;<a href="#BranchOnFailNode">BranchOnFailNode</a></font></td>
+    <td width="21%"><font face="Verdana" size="2">&nbsp;<a href="#Description">Description</a></font></td>
+    <td width="20%"><font face="Verdana" size="2">&nbsp;<a href="#Enable">Enable</a></font></td>
+    <td width="22%"><font face="Verdana" size="2">&nbsp;<a href="#GroupName">GroupName</a></font></td>
+    <td width="22%"><font face="Verdana" size="2">&nbsp;<a href="#LoopCount">LoopCount</a></font></td>
+  </tr>
+  <tr>
+    <td width="21%">&nbsp;<font face="Verdana" size="2"><a href="#NodeType">NodeType</a></font></td>
+    <td width="21%"><font face="Verdana" size="2">&nbsp;<a href="#PostTestName">PostTestName</a></font></td>
+    <td width="20%"><font face="Verdana" size="2">&nbsp;<a href="#PreTestName">PreTestName</a></font></td>
+    <td width="22%"><font face="Verdana" size="2">&nbsp;<a href="#Tag">Tag</a></font></td>
+    <td width="22%"><font face="Verdana" size="2">&nbsp;</font></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<hr>
+<p><font face="Verdana" size="2"><b><a name="BranchOnFailNode">BranchOnFailNode</a></b></font></p>
+<p><font face="Verdana" size="2">The node to branch to if this group fails.&nbsp;
+A group will fail if <i>any </i>of the tests within the group fail.&nbsp; The default value is &quot;None&quot;.&nbsp; To change this property, select a
+node from the drop-down list.&nbsp; As shown in the example below, all group and 
+test nodes in the test program are listed as available branch nodes.&nbsp;</font></p>
+<p><font face="Verdana" size="2">
+    <img alt="" class="style1" src="bin/PropertiesPage7.png" />&nbsp;</font></p>
+<p><font face="Verdana" size="2"><i>Note: </i>Care should be taken when
+selecting a branch node to avoid an infinite loop during test execution.&nbsp;
+For example, using the above illustration, if FSODemo's branch node is set to 
+ExcelDemo and if FSODemo fails every time, then there will be an infinite loop 
+between ExcelDemo and FSODemo.</font></p>
+<hr>
+<p><b><font face="Verdana" size="2"><a name="Description">Description</a></font></b></p>
+<p><font face="Verdana" size="2">An optional, brief description of the group node.&nbsp; If a description was entered while
+<a href="NewGroup.html">adding a
+new group node</a>, it will appear here.&nbsp; To change this property, simply
+delete the current description and type in a new description.</font></p>
+<hr>
+<p><font face="Verdana" size="2"><b><a name="Enable">Enable</a></b></font></p>
+<p><font face="Verdana" size="2">If true, the node is enabled.&nbsp; If false,
+the node is disabled.&nbsp; When a node is disabled,
+it is not executed when the test program is run and appears grayed out in the
+Test Sequence View.&nbsp; If the test node belongs to a group node that is
+disabled, the test node will not be executed regardless of whether or not the
+test is enabled.</font></p>
+<hr>
+<p><font face="Verdana" size="2"><b><a name="GroupName">GroupName</a></b></font></p>
+<p><font face="Verdana" size="2">The name of the group node.&nbsp; This property
+is read-only</font></p>
+<hr>
+<p><b><font face="Verdana" size="2"><a name="LoopCount">LoopCount</a></font></b></p>
+<p><font face="Verdana" size="2">The number of times the group node will loop.&nbsp; 
+The default is 1 loop.&nbsp; The node, including all enabled child nodes, will 
+be executed the number of times specified by this property before moving on to 
+the next node in the test sequence.&nbsp; If a test node in this group fails and 
+the branch node for that node is not within this group node, the looping will 
+terminate and the branch node will be executed.</font></p>
+<hr>
+<p><font face="Verdana" size="2"><b><a name="NodeType">NodeType</a></b></font></p>
+<p><font face="Verdana" size="2">The type of node selected, either
+&quot;Root&quot;, &quot;Group&quot;, or &quot;Test&quot;.&nbsp; This property is
+read-only.</font></p>
+<hr>
+<p><font face="Verdana" size="2"><b><a name="PostTestName">PostTestName</a></b></font></p>
+<p><font face="Verdana" size="2">The name of the VBScript method that will be
+executed after all nodes in this group are executed.&nbsp; To change this
+property, delete the current method name and type in the new method name.&nbsp;
+It is the user's responsibility to ensure that this property contains the name
+of an existing method in the test script.&nbsp; If the script engine is unable
+to find the specified method, an &quot;Unknown name&quot; error will be
+generated.</font></p>
+<hr>
+<p><font face="Verdana" size="2"><b><a name="PreTestName">PreTestName</a></b></font></p>
+<p><font face="Verdana" size="2">The name of the VBScript method that will be
+executed before any nodes in this group are executed. To change this property,
+delete the current method name and type in the new method name.&nbsp; It is the
+user's responsibility to ensure that this property contains the name of an
+existing method in the test script.&nbsp; If the script engine is unable to find
+the specified method, an &quot;Unknown name&quot; error will be generated.</font></p>
+<hr>
+<p><b><font face="Verdana" size="2"><a name="Tag">Tag</a></font></b></p>
+<p><font face="Verdana" size="2">Any user defined data associated with the test 
+node.</font></p>
+<hr>
+<p>&nbsp;</p>
+<p><b><font face="Verdana" size="2">See Also</font></b></p>
+<p>&nbsp;&nbsp; <font face="Verdana" size="2"><a href="PropertiesPage.html">Properties
+Page</a> | <a href="TestProgramProps.html">Test
+Program Properties</a> | <a href="TestNodeProps.html">Test Node Properties</a></font></p>
+<p><font size="2" face="Verdana"><a href="#Top">Back to Top</a></font></p>
+<p><i><font face="Verdana" size="1">Astronics Test Systems<br>
+Last updated on </font><span class="style2">11/17/14 by M.Buccat</span></i></p>
+
+</body>
+
+</html>

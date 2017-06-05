@@ -1,0 +1,280 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="en-us" http-equiv="Content-Language" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Creating .NET Drivers for ActivATE - Overview</title>
+<style type="text/css">
+.auto-style1 {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: medium;
+}
+.auto-style2 {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: small;
+}
+.auto-style3 {
+	font-size: small;
+}
+.auto-style4 {
+	text-align: left;
+	direction: ltr;
+	vertical-align: baseline;
+	font-family: "Courier New";
+	color: #003478;
+	font-size: small;
+	margin-top: 0pt;
+	margin-bottom: 0pt;
+}
+.auto-style5 {
+	font-family: "Courier New", Courier, monospace;
+}
+.auto-style6 {
+	color: #0000FF;
+}
+.auto-style7 {
+	font-size: medium;
+}
+.auto-style9 {
+	text-align: left;
+	direction: ltr;
+	vertical-align: baseline;
+	color: #003478;
+	font-size: small;
+	margin-top: 0pt;
+	margin-bottom: 0pt;
+}
+</style>
+</head>
+
+<body>
+
+<h1 class="auto-style1">Creating .NET Drivers for ActivATE- An Overview</h1>
+<p class="auto-style2">There is nothing special about drivers and add-in modules 
+used in the ActivATE Test Platform.&nbsp; ActivATE will easily use any .NET 
+class library or COM object.&nbsp;&nbsp; The class library can be simple or 
+complex.&nbsp; We recommend using the <a href="UsingTheSDK.html">ActivATE SDK</a> 
+to create drivers but this is not required at all.&nbsp; For example:&nbsp; The 
+following C# code is a simple example of a class library that will compile to a 
+DLL.&nbsp; </p>
+<p style="language: en-US; margin-top: 0pt; margin-bottom: 0pt; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline">
+<span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: blue; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-color: blue; mso-style-textfill-fill-alpha: 100.0%">
+using</span><span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: #003478; mso-color-index: 1; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-themecolor: text1; mso-style-textfill-fill-color: #003478; mso-style-textfill-fill-alpha: 100.0%"> 
+System;</span></p>
+<p style="language: en-US; margin-top: 0pt; margin-bottom: 0pt; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline">
+<span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: blue; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-color: blue; mso-style-textfill-fill-alpha: 100.0%">
+using</span><span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: #003478; mso-color-index: 1; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-themecolor: text1; mso-style-textfill-fill-color: #003478; mso-style-textfill-fill-alpha: 100.0%"> 
+System.Collections.Generic;</span></p>
+<p style="language: en-US; margin-top: 0pt; margin-bottom: 0pt; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline">
+<span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: blue; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-color: blue; mso-style-textfill-fill-alpha: 100.0%">
+using</span><span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: #003478; mso-color-index: 1; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-themecolor: text1; mso-style-textfill-fill-color: #003478; mso-style-textfill-fill-alpha: 100.0%"> 
+System.Text;</span></p>
+<p style="language: en-US; margin-top: 0pt; margin-bottom: 0pt; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline">
+</p>
+<p style="language: en-US; margin-top: 0pt; margin-bottom: 0pt; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline">
+<span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: #003478; mso-color-index: 1; mso-font-kerning: 12.0pt; language: en-US; mso-style-textfill-type: solid; mso-style-textfill-fill-themecolor: text1; mso-style-textfill-fill-color: #003478; mso-style-textfill-fill-alpha: 100.0%">
+[</span><span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: blue; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-color: blue; mso-style-textfill-fill-alpha: 100.0%">Serializable</span><span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: #003478; mso-color-index: 1; mso-font-kerning: 12.0pt; language: en-US; mso-style-textfill-type: solid; mso-style-textfill-fill-themecolor: text1; mso-style-textfill-fill-color: #003478; mso-style-textfill-fill-alpha: 100.0%">]</span></p>
+<p style="language: en-US; margin-top: 0pt; margin-bottom: 0pt; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline">
+<span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: blue; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-color: blue; mso-style-textfill-fill-alpha: 100.0%">
+namespace</span><span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: #003478; mso-color-index: 1; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-themecolor: text1; mso-style-textfill-fill-color: #003478; mso-style-textfill-fill-alpha: 100.0%"> 
+Racal.Tools</span></p>
+<p class="auto-style4" style="language: en-US; unicode-bidi: embed; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; mso-color-index: 1; mso-font-kerning: 12.0pt; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-themecolor: text1; mso-style-textfill-fill-color: #003478; mso-style-textfill-fill-alpha: 100.0%;">
+{</p>
+<p style="language: en-US; margin-top: 0pt; margin-bottom: 0pt; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline">
+<span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: #003478; mso-color-index: 1; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-themecolor: text1; mso-style-textfill-fill-color: #003478; mso-style-textfill-fill-alpha: 100.0%">
+<span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span></span>
+<span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: blue; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-color: blue; mso-style-textfill-fill-alpha: 100.0%">
+public class</span><span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: #003478; mso-color-index: 1; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-themecolor: text1; mso-style-textfill-fill-color: #003478; mso-style-textfill-fill-alpha: 100.0%"> 
+MyTool</span></p>
+<p style="language: en-US; margin-top: 0pt; margin-bottom: 0pt; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline">
+<span style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: #003478; mso-color-index: 1; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-themecolor: text1; mso-style-textfill-fill-color: #003478; mso-style-textfill-fill-alpha: 100.0%">
+<span class="auto-style3" style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>
+</span>
+<span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: #003478; mso-color-index: 1; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-themecolor: text1; mso-style-textfill-fill-color: #003478; mso-style-textfill-fill-alpha: 100.0%">
+{</span></p>
+<p style="language: en-US; margin-top: 0pt; margin-bottom: 0pt; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline">
+<span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: #003478; mso-color-index: 1; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-themecolor: text1; mso-style-textfill-fill-color: #003478; mso-style-textfill-fill-alpha: 100.0%">
+<span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>
+<span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: blue; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-color: blue; mso-style-textfill-fill-alpha: 100.0%">
+public int</span><span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: #003478; mso-color-index: 1; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-themecolor: text1; mso-style-textfill-fill-color: #003478; mso-style-textfill-fill-alpha: 100.0%">
+</span>
+<span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: blue; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-color: blue; mso-style-textfill-fill-alpha: 100.0%">
+HelloWorld(int</span><span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: #003478; mso-color-index: 1; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-themecolor: text1; mso-style-textfill-fill-color: #003478; mso-style-textfill-fill-alpha: 100.0%"> 
+someNumber, </span>
+<span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: blue; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-color: blue; mso-style-textfill-fill-alpha: 100.0%">
+ref int</span><span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: #003478; mso-color-index: 1; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-themecolor: text1; mso-style-textfill-fill-color: #003478; mso-style-textfill-fill-alpha: 100.0%"> 
+someNumberDoubled)</span></p>
+<p style="language: en-US; margin-top: 0pt; margin-bottom: 0pt; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline">
+<span style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: #003478; mso-color-index: 1; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-themecolor: text1; mso-style-textfill-fill-color: #003478; mso-style-textfill-fill-alpha: 100.0%">
+<span class="auto-style3" style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>
+<span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: #003478; mso-color-index: 1; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-themecolor: text1; mso-style-textfill-fill-color: #003478; mso-style-textfill-fill-alpha: 100.0%">
+{</span></p>
+<p style="language: en-US; margin-top: 0pt; margin-bottom: 0pt; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline">
+<span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: #003478; mso-color-index: 1; mso-font-kerning: 12.0pt; language: en-US; font-weight: bold; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-themecolor: text1; mso-style-textfill-fill-color: #003478; mso-style-textfill-fill-alpha: 100.0%">
+<span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>
+<span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: #339933; mso-font-kerning: 12.0pt; language: en-US; font-weight: bold; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-color: #339933; mso-style-textfill-fill-alpha: 100.0%">
+// API's should always return an error code indicating</span></p>
+<p style="language: en-US; margin-top: 0pt; margin-bottom: 0pt; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline">
+<span style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: #339933; mso-font-kerning: 12.0pt; language: en-US; font-weight: bold; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-color: #339933; mso-style-textfill-fill-alpha: 100.0%">
+<span class="auto-style3" style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>
+<span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: #339933; mso-font-kerning: 12.0pt; language: en-US; font-weight: bold; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-color: #339933; mso-style-textfill-fill-alpha: 100.0%">
+// whether or not the API was successful.</span></p>
+<p style="language: en-US; margin-top: 0pt; margin-bottom: 0pt; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline">
+<span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: #003478; mso-color-index: 1; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-themecolor: text1; mso-style-textfill-fill-color: #003478; mso-style-textfill-fill-alpha: 100.0%">
+<span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>
+<span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: blue; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-color: blue; mso-style-textfill-fill-alpha: 100.0%">
+int</span><span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: #003478; mso-color-index: 1; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-themecolor: text1; mso-style-textfill-fill-color: #003478; mso-style-textfill-fill-alpha: 100.0%"> 
+errCode = 0;</span></p>
+<p style="language: en-US; margin-top: 0pt; margin-bottom: 0pt; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline">
+</p>
+<p style="language: en-US; margin-top: 0pt; margin-bottom: 0pt; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline">
+<span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: #003478; mso-color-index: 1; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-themecolor: text1; mso-style-textfill-fill-color: #003478; mso-style-textfill-fill-alpha: 100.0%">
+<span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>
+<span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: #339933; mso-font-kerning: 12.0pt; language: en-US; font-weight: bold; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-color: #339933; mso-style-textfill-fill-alpha: 100.0%">
+// Do some work</span></p>
+<p style="language: en-US; margin-top: 0pt; margin-bottom: 0pt; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline">
+<span style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: #003478; mso-color-index: 1; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-themecolor: text1; mso-style-textfill-fill-color: #003478; mso-style-textfill-fill-alpha: 100.0%">
+<span class="auto-style3" style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>
+<span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: #003478; mso-color-index: 1; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-themecolor: text1; mso-style-textfill-fill-color: #003478; mso-style-textfill-fill-alpha: 100.0%">
+someNumberDoubled </span>
+<span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: blue; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-color: blue; mso-style-textfill-fill-alpha: 100.0%">
+=</span><span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: #003478; mso-color-index: 1; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-themecolor: text1; mso-style-textfill-fill-color: #003478; mso-style-textfill-fill-alpha: 100.0%"> 
+someNumber </span>
+<span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: blue; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-color: blue; mso-style-textfill-fill-alpha: 100.0%">
+*</span><span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: #003478; mso-color-index: 1; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-themecolor: text1; mso-style-textfill-fill-color: #003478; mso-style-textfill-fill-alpha: 100.0%"> 
+2;</span></p>
+<p style="language: en-US; margin-top: 0pt; margin-bottom: 0pt; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline">
+</p>
+<p style="language: en-US; margin-top: 0pt; margin-bottom: 0pt; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline">
+<span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: #003478; mso-color-index: 1; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-themecolor: text1; mso-style-textfill-fill-color: #003478; mso-style-textfill-fill-alpha: 100.0%">
+<span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>
+<span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: blue; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-color: blue; mso-style-textfill-fill-alpha: 100.0%">
+return</span><span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: #003478; mso-color-index: 1; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-themecolor: text1; mso-style-textfill-fill-color: #003478; mso-style-textfill-fill-alpha: 100.0%"> 
+errCode;</span></p>
+<p style="language: en-US; margin-top: 0pt; margin-bottom: 0pt; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline">
+<span style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: #003478; mso-color-index: 1; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-themecolor: text1; mso-style-textfill-fill-color: #003478; mso-style-textfill-fill-alpha: 100.0%">
+<span class="auto-style3" style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>
+<span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: #003478; mso-color-index: 1; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-themecolor: text1; mso-style-textfill-fill-color: #003478; mso-style-textfill-fill-alpha: 100.0%">
+}</span></p>
+<p style="language: en-US; margin-top: 0pt; margin-bottom: 0pt; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline">
+<span style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: #003478; mso-color-index: 1; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-themecolor: text1; mso-style-textfill-fill-color: #003478; mso-style-textfill-fill-alpha: 100.0%">
+<span class="auto-style3" style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>
+</span>
+<span class="auto-style3" style="font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: #003478; mso-color-index: 1; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-themecolor: text1; mso-style-textfill-fill-color: #003478; mso-style-textfill-fill-alpha: 100.0%">
+}</span></p>
+<p style="language: en-US; margin-top: 0pt; margin-bottom: 0pt; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline">
+<span style="font-size: 12.0pt; font-family: &quot;Courier New&quot;; mso-ascii-font-family: &quot;Courier New&quot;; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; color: #003478; mso-color-index: 1; mso-font-kerning: 12.0pt; language: en-US; mso-no-proof: yes; mso-style-textfill-type: solid; mso-style-textfill-fill-themecolor: text1; mso-style-textfill-fill-color: #003478; mso-style-textfill-fill-alpha: 100.0%">
+}</span></p>
+<p style="language: en-US; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline; margin-top: 0pt; margin-bottom: 0pt">
+&nbsp;</p>
+<p style="language: en-US; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline; margin-top: 0pt; margin-bottom: 0pt">
+Note: <span class="auto-style5"><strong>&nbsp;ComVisible(</strong><span class="auto-style6"><strong>true</strong></span><strong>)
+</strong></span>should be added to the assembly to make your class visible to 
+VBScript.</p>
+<p style="language: en-US; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline; margin-top: 0pt; margin-bottom: 0pt">
+&nbsp;</p>
+<p style="language: en-US; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline; margin-top: 0pt; margin-bottom: 0pt">
+If we add the object as "Tool7" in the ActivATE Configuration Tab, then the test 
+program would see the "HelloWorld" API.</p>
+<p style="language: en-US; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline; margin-top: 0pt; margin-bottom: 0pt">
+<img alt="HelloWorld" height="146" src="bin/HelloWorld.JPG" width="499" /></p>
+<p class="auto-style2" style="language: en-US; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline; margin-top: 0pt; margin-bottom: 0pt">
+Recall that ActivATE has both a back-end runtime process and a front-end GUI 
+process.&nbsp; Creating a class library such as the example above will run just 
+fine in the back-end runtime process - and this may be all wee need.&nbsp; 
+However, if we want a GUI to interact with the MyTool class, then we should add 
+another class to peform this task.&nbsp; Drivers may also employ
+<a href="CreatingDriversPart2.html#Using_Enum_Types">enum types</a>,
+<a href="CreatingDriversPart2.html#Threading">threading</a>, 
+<a href="CreatingDriversPart3.html#Catching_Events">events</a>, and a host 
+of other techniques. A brief architectural overview of an add-in or driver 
+follows:</p>
+<p style="language: en-US; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline; margin-top: 0pt; margin-bottom: 0pt">
+&nbsp;</p>
+<p class="auto-style7" style="language: en-US; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline; margin-top: 0pt; margin-bottom: 0pt">
+<strong><a name="Driver_Architecture">Driver Architecture</a>:</strong></p>
+<p class="auto-style2" style="language: en-US; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline; margin-top: 0pt; margin-bottom: 0pt">&nbsp;<span style="mso-no-proof:yes"><span class="auto-style2">Instrument 
+drivers should be broken down into at least two classes: a worker class and a 
+GUI </span><span class="auto-style2" style="mso-spacerun:yes">&nbsp;</span><span class="auto-style2">(Graphical 
+User Interface) class.</span><span class="auto-style2" style="mso-spacerun:yes">&nbsp;
+</span><span class="auto-style2">The worker class will do the hardware 
+interfacing to the instrument.</span><span class="auto-style2" style="mso-spacerun:yes">&nbsp;
+</span><span class="auto-style2">It contains the setup functions, the instrument 
+control, intialization, constants, enum types, and pretty much everything else 
+that is required to interface with the hardware.</span><span class="auto-style2" style="mso-spacerun:yes">&nbsp;
+</span><span class="auto-style2">The worker class never interfaces with the GUI 
+components directly and infact, shouldn’t</span><span class="auto-style2" style="mso-spacerun:yes">&nbsp;
+</span><span class="auto-style2">even know the GUI class exists.</span><span class="auto-style2" style="mso-spacerun:yes">&nbsp;
+</span><span class="auto-style2">Rather, the worker class should fire off events 
+to update the user interface (more on events in
+<a href="CreatingDriversPart3.html">Part 3</a>).</span><span class="auto-style2" style="mso-spacerun:yes">&nbsp;&nbsp;
+</span><o:p></o:p></span></p>
+<p align="left" class="auto-style2" style="mso-no-proof: yes"><o:p>&nbsp;</o:p><span style="mso-no-proof:yes"><span class="auto-style2">The 
+worker class methods are called directly, either from the GUI or some other 
+client (typically a test program). Using this model, we can add as many GUI 
+classes (or forms) as we wish, with no impact to the actual hardware driver (see 
+Figure 1.). </span><span class="auto-style2" style="mso-spacerun:yes">&nbsp;</span><span class="auto-style2">Likewise, 
+the GUI class never directly interfaces with hardware, but simply calls the 
+driver class methods to do its bidding.</span><span class="auto-style2" style="mso-spacerun:yes">&nbsp;
+</span><o:p></o:p></span></p>
+<p style="language: en-US; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline; margin-top: 0pt; margin-bottom: 0pt">
+<img alt="DriverGuiRelationship" height="289" src="bin/DriverGuiRelationship.JPG" width="582" /></p>
+<p class="MsoNormal"><span style="mso-no-proof:yes"><span class="auto-style2">
+The GUI class will never create or instantiate the worker class.</span><span class="auto-style2" style="mso-spacerun:yes">&nbsp;
+</span><span class="auto-style2">The GUI is handed the worker class object by 
+the host application - in this case, ActivATE.</span><span class="auto-style2" style="mso-spacerun:yes">&nbsp;
+</span><span class="auto-style2">It is up to the host application to create the 
+driver and then create as many GUI classes as desired, usually on demand from 
+the user.</span><span class="auto-style2" style="mso-spacerun:yes">&nbsp; </span>
+<span class="auto-style2">As new GUI classes are created, the host application 
+simply hands over the worker class object to the GUI. </span>
+<span class="auto-style2" style="mso-spacerun:yes">&nbsp;</span></span></p>
+<p class="MsoNormal"><span style="mso-no-proof:yes"><span class="auto-style2">
+The GUI class should play three main roles and only three roles: </span>
+<span class="auto-style2" style="mso-spacerun:yes">&nbsp;</span><span class="auto-style2">1) 
+it will display information about the instrument, 2) it receives input from the 
+user via mouse-clicks and keyboard entry, and 3) it sinks events from the worker 
+class.</span><span class="auto-style2" style="mso-spacerun:yes">&nbsp; </span>
+<span class="auto-style2">The GUI class should never do any real work such as 
+managing and processing data files or dealing with hardware directly.</span><span class="auto-style2" style="mso-spacerun:yes">&nbsp;
+</span><span class="auto-style2">We want to be able to swap GUI classes in and 
+out with very little impact to the underlying operation of the driver.</span><span class="auto-style2" style="mso-spacerun:yes">&nbsp;&nbsp;
+</span><span class="auto-style2">Keeping to this architecture allows us to 
+compa</span></span></p>
+<p class="MsoNormal"><span style="mso-no-proof:yes"><span class="auto-style2">rtmentalize instrument driver roles and to keep software maintenance costs 
+down.</span><span class="auto-style2" style="mso-spacerun:yes">&nbsp; &nbsp;</span><span class="auto-style2">Using 
+this model, we can in fact, use GUI classes from different DLLs.</span><span class="auto-style2" style="mso-spacerun:yes">&nbsp;
+</span><span class="auto-style2">With .NET remoting,</span><span class="auto-style2" style="mso-spacerun:yes">&nbsp;
+</span><span class="auto-style2">the GUI class can even be in a different 
+process space and/or machine than the back-end worker class.</span><span class="auto-style2" style="mso-spacerun:yes">&nbsp;
+</span><span class="auto-style2">In a web-centric world, this is a great </span>
+<span class="auto-style2" style="mso-spacerun:yes">&nbsp;</span><span class="auto-style2">advantage.</span><o:p></o:p></span></p>
+<p class="auto-style2" style="language: en-US; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline; margin-top: 0pt; margin-bottom: 0pt">
+<a href="Overview.html">Back To Main</a></p>
+<p class="auto-style2" style="language: en-US; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline; margin-top: 0pt; margin-bottom: 0pt">
+&nbsp;</p>
+<p class="auto-style2" style="language: en-US; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline; margin-top: 0pt; margin-bottom: 0pt">
+see also: <a href="CreatingDriversPart2.html">Creating .NET Drivers - Part 2</a> 
+| <a href="CreatingDriversPart3.html">Creating .NET Drivers - Part 3</a> |
+<a href="UsingTheSDK.html">Using the SDK</a> | <span class="auto-style9">
+<a href="ConstantDefinitions.html">Constants</a></span><span class="auto-style4"><span class="auto-style5"> 
+</span></span></p>
+<p style="language: en-US; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline; margin-top: 0pt; margin-bottom: 0pt">
+&nbsp;</p>
+<p style="language: en-US; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline; margin-top: 0pt; margin-bottom: 0pt"><i><font face="Verdana" size="1">
+Astronics Test Systems<br>
+Last updated on August 12, 2015 by D. Ignacio</font></i></p>
+
+</body>
+
+</html>

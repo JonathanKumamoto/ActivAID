@@ -1,0 +1,1255 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 12">
+<meta name=Originator content="Microsoft Word 12">
+<link rel=File-List href="DebuggerCommands_files/filelist.xml">
+<link rel=Edit-Time-Data href="DebuggerCommands_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Debugger Commands</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Lao, Sok</o:Author>
+  <o:LastAuthor>Lao, Sok</o:LastAuthor>
+  <o:Revision>3</o:Revision>
+  <o:TotalTime>5</o:TotalTime>
+  <o:Created>2010-10-29T16:54:00Z</o:Created>
+  <o:LastSaved>2010-10-29T17:20:00Z</o:LastSaved>
+  <o:Pages>3</o:Pages>
+  <o:Words>1123</o:Words>
+  <o:Characters>6403</o:Characters>
+  <o:Company>EADS North America Test and Services</o:Company>
+  <o:Lines>53</o:Lines>
+  <o:Paragraphs>15</o:Paragraphs>
+  <o:CharactersWithSpaces>7511</o:CharactersWithSpaces>
+  <o:Version>12.00</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<link rel=themeData href="DebuggerCommands_files/themedata.thmx">
+<link rel=colorSchemeMapping
+href="DebuggerCommands_files/colorschememapping.xml">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-US</w:LidThemeOther>
+  <w:LidThemeAsian>X-NONE</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:DontVertAlignCellWithSp/>
+   <w:DontBreakConstrainedForcedTables/>
+   <w:DontVertAlignInTxbx/>
+   <w:Word11KerningPairs/>
+   <w:CachedColBalance/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="267">
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="1" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="59" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+<link rel=Stylesheet type="text/css" media=all href=help.css>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;
+	mso-font-charset:1;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:0 0 0 0 0 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-520081665 -1073717157 41 0 66047 0;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-1593833729 1073750107 16 0 415 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+h1
+	{mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-link:"Heading 1 Char";
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:12.0pt;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Balloon Text Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Heading 1";
+	mso-ansi-font-size:14.0pt;
+	mso-bidi-font-size:14.0pt;
+	font-family:"Cambria","serif";
+	mso-ascii-font-family:Cambria;
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-font-family:Cambria;
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:major-bidi;
+	color:#365F91;
+	mso-themecolor:accent1;
+	mso-themeshade:191;
+	font-weight:bold;}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Balloon Text";
+	mso-ansi-font-size:8.0pt;
+	mso-bidi-font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-ascii-font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Tahoma;
+	mso-bidi-font-family:Tahoma;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:10.0pt;
+	mso-ansi-font-size:10.0pt;
+	mso-bidi-font-size:10.0pt;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="3074"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.5in'>
+
+<div class=WordSection1>
+
+<h1><a name=Top><span style='mso-fareast-font-family:"Times New Roman"'>Debugger
+Commands</span></a><span style='mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></h1>
+
+<p><span style='font-size:10.0pt;font-family:"Verdana","sans-serif"'>The
+debugger controls can be accessed from either the debug menu or the debug
+toolbar.&nbsp; If the debug toolbar is not visible, right-click anywhere at the
+top of the screen where the menus and toolbars are located to display the
+toolbars menu and select Debug.<o:p></o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0 width=435 style='width:326.25pt;
+ mso-cellspacing:1.5pt;mso-yfti-tbllook:1184;mso-padding-alt:0in 5.4pt 0in 5.4pt'
+ id=table1 height=194>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=261 style='width:195.75pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman";mso-no-proof:yes'><img width=232
+  height=154 id="_x0000_i1058" src="bin/debugger1.png"></span><span
+  style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman"'>Select Debug from the toolbars
+  menu to show the Debug toolbar.<o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+mso-fareast-font-family:"Times New Roman";display:none;mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0 width=400 style='width:300.0pt;
+ mso-cellspacing:1.5pt;mso-yfti-tbllook:1184;mso-padding-alt:0in 5.4pt 0in 5.4pt'
+ id=table2 height=202>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=260 style='width:195.0pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman";mso-no-proof:yes'><img width=235
+  height=235 id="_x0000_i1057" src="bin/Debugger2.png"></span><span
+  style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman"'>The Debug menu.<o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+mso-fareast-font-family:"Times New Roman";display:none;mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0 width=434 style='width:325.5pt;
+ mso-cellspacing:1.5pt;mso-yfti-tbllook:1184;mso-padding-alt:0in 5.4pt 0in 5.4pt'
+ id=table3>
+<!-- MSTableType="nolayout" -->
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=286 style='width:214.5pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman";mso-no-proof:yes'><img width=266
+  height=47 id="_x0000_i1056" src="bin/Debugger3.png"></span><span
+  style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman"'>The Debug toolbar.<o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p><span style='font-size:10.0pt;font-family:"Verdana","sans-serif"'><br>
+Click on the following links for a detailed description of the debugger
+commands.<o:p></o:p></span></p>
+
+<table class=MsoNormalTable border=1 cellpadding=0 style='mso-cellspacing:1.5pt;
+ mso-yfti-tbllook:1184;mso-padding-alt:0in 5.4pt 0in 5.4pt' id=table18>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width=309 style='width:231.75pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman"'>&nbsp;<a href="#Start_the_Debugger">Start
+  the Debugger</a><o:p></o:p></span></p>
+  </td>
+  <td width=309 style='width:231.75pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman"'>&nbsp;<a href="#Pause_the_Debugger">Pause
+  the Debugger</a><o:p></o:p></span></p>
+  </td>
+  <td width=309 style='width:231.75pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman"'>&nbsp;<a href="#Stop_the_Debugger">Stop
+  the Debugger</a><o:p></o:p></span></p>
+  </td>
+  <td width=310 style='width:232.5pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman"'>&nbsp;<a href="#Step_Into">Step
+  Into</a><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width=309 style='width:231.75pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman"'>&nbsp;<a href="#Step_Over">Step
+  Over</a><o:p></o:p></span></p>
+  </td>
+  <td width=309 style='width:231.75pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman"'>&nbsp;<a href="#Step_Out_Of">Step
+  Out Of</a><o:p></o:p></span></p>
+  </td>
+  <td width=309 style='width:231.75pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman"'>&nbsp;<a href="#Toggle_Breakpoint">Toggle
+  Breakpoint </a><o:p></o:p></span></p>
+  </td>
+  <td width=310 style='width:232.5pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman"'>&nbsp;<a href="#Clear_Breakpoints">Clear
+  All Breakpoints</a><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2;mso-yfti-lastrow:yes'>
+  <td width=309 style='width:231.75pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman"'>&nbsp;<a href="#HEX">HEX</a><o:p></o:p></span></p>
+  </td>
+  <td width=309 style='width:231.75pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman"'>&nbsp;<a href="#Show_Watch_Window">View
+  Watch Window</a><o:p></o:p></span></p>
+  </td>
+  <td width=309 style='width:231.75pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman"'>&nbsp;<a href="#Show_Locals_Window">View
+  Locals Window</a><o:p></o:p></span></p>
+  </td>
+  <td width=310 style='width:232.5pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman"'>&nbsp;<a
+  href="#Show_Command_Window">View Command Window</a><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p><b><span style='font-size:10.0pt;font-family:"Verdana","sans-serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></b><span style='font-size:10.0pt;font-family:"Verdana","sans-serif"'><o:p></o:p></span></p>
+
+<div class=MsoNormal align=center style='text-align:center'><span
+style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+"Times New Roman"'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<table class=MsoNormalTable border=0 cellpadding=0 width="27%"
+ style='width:27.0%;mso-cellspacing:1.5pt;mso-yfti-tbllook:1184;mso-padding-alt:
+ 0in 5.4pt 0in 5.4pt' id=table4>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=31 style='width:23.25pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman";mso-no-proof:yes'><img border=0
+  width=17 height=18 id="_x0000_i1055" src="bin/startdebug.png"></span><span
+  style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><a name="Start_the_Debugger"><b><span style='font-size:
+  10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:"Times New Roman"'>Start
+  the Debugger</span></b></a><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p><span class=GramE><span style='font-size:10.0pt;font-family:"Verdana","sans-serif"'>Starts
+the test in debug mode.</span></span><span style='font-size:10.0pt;font-family:
+"Verdana","sans-serif"'>&nbsp; If any breakpoints are set, the test will break,
+or pause, at each breakpoint until the user resumes the test by clicking this
+button again.&nbsp; The shortcut key is F5.<o:p></o:p></span></p>
+
+<div class=MsoNormal align=center style='text-align:center'><span
+style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+"Times New Roman"'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<table class=MsoNormalTable border=0 cellpadding=0 width="27%"
+ style='width:27.0%;mso-cellspacing:1.5pt;mso-yfti-tbllook:1184;mso-padding-alt:
+ 0in 5.4pt 0in 5.4pt' id=table11>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=31 style='width:23.25pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman";mso-no-proof:yes'><img border=0
+  width=17 height=19 id="_x0000_i1054" src="bin/debugpause.png"></span><span
+  style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><a name="Pause_the_Debugger"><b><span style='font-size:
+  10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:"Times New Roman"'>Pause
+  the Debugger</span></b></a><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p><span class=GramE><span style='font-size:10.0pt;font-family:"Verdana","sans-serif"'>Pauses</span></span><span
+style='font-size:10.0pt;font-family:"Verdana","sans-serif"'> the test.&nbsp; To
+resume the test, click the Start the Debugger button.<o:p></o:p></span></p>
+
+<div class=MsoNormal align=center style='text-align:center'><span
+style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+"Times New Roman"'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<table class=MsoNormalTable border=0 cellpadding=0 width="27%"
+ style='width:27.0%;mso-cellspacing:1.5pt;mso-yfti-tbllook:1184;mso-padding-alt:
+ 0in 5.4pt 0in 5.4pt' id=table12>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=31 style='width:23.25pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman";mso-no-proof:yes'><img border=0
+  width=19 height=16 id="_x0000_i1053" src="bin/debugstop.png"></span><span
+  style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><a name="Stop_the_Debugger"><b><span style='font-size:
+  10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:"Times New Roman"'>Stop
+  the Debugger</span></b></a><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p><span class=GramE><span style='font-size:10.0pt;font-family:"Verdana","sans-serif"'>Stops
+execution of the test program if it was run in debug mode.</span></span><span
+style='font-size:10.0pt;font-family:"Verdana","sans-serif"'>&nbsp; If the test
+program is in a break state, the program will stop immediately.&nbsp; If the program
+is running, it will not stop until the end of the current node unless the
+VBScript test script checks for <span class=SpellE>Sequencer.Terminating</span>
+= true.<o:p></o:p></span></p>
+
+<div class=MsoNormal align=center style='text-align:center'><span
+style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+"Times New Roman"'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<table class=MsoNormalTable border=0 cellpadding=0 width="27%"
+ style='width:27.0%;mso-cellspacing:1.5pt;mso-yfti-tbllook:1184;mso-padding-alt:
+ 0in 5.4pt 0in 5.4pt' id=table5>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=31 style='width:23.25pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman";mso-no-proof:yes'><img border=0
+  width=23 height=18 id="_x0000_i1052" src="bin/StepInto.png"></span><span
+  style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><a name="Step_Into"><b><span style='font-size:10.0pt;
+  font-family:"Verdana","sans-serif";mso-fareast-font-family:"Times New Roman"'>Step
+  Into</span></b></a><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p><span style='font-size:10.0pt;font-family:"Verdana","sans-serif"'>Step into
+the next line of code.&nbsp; In other words, if the next line of code is a
+procedure call, the debugger will break at the first line of that procedure's
+code as long as it is defined in either the main test script file or the <span
+class=SpellE>globals</span> file.&nbsp; The debugger will not step into a
+procedure defined inside an import file.&nbsp; If the next line of code is not
+a procedure call, this command behaves like Step Over.&nbsp; The shortcut key
+is F11.<o:p></o:p></span></p>
+
+<p><b><span style='font-size:10.0pt;font-family:"Verdana","sans-serif"'>Example:</span></b><span
+style='font-size:10.0pt;font-family:"Verdana","sans-serif"'><o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:"Verdana","sans-serif"'>The
+program shown below is paused in a break state on line 61 which is a call to
+the function <span class=SpellE><span class=GramE>myFunction</span></span><span
+class=GramE>(</span>).&nbsp; If we click Step Into, the program will break on
+line 67 which is the first line of <span class=SpellE><span class=GramE>myFunction</span></span><span
+class=GramE>(</span>) and the next executable line of code.&nbsp; <o:p></o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0 width="66%"
+ style='width:66.0%;mso-cellspacing:1.5pt;mso-yfti-tbllook:1184;mso-padding-alt:
+ 0in 5.4pt 0in 5.4pt' id=table16>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width=418 style='width:313.5pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman"'>&nbsp;Before Step Into:</span></b><span
+  style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman"'>&nbsp;After Step Into:</span></b><span
+  style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+  <td width=418 style='width:313.5pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman";mso-no-proof:yes'><img border=0
+  width=391 height=166 id="_x0000_i1051" src="bin/Debugger4.jpg"></span><span
+  style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman";mso-no-proof:yes'><img border=0
+  width=380 height=169 id="_x0000_i1050" src="bin/Debugger6.jpg"></span><span
+  style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p><span style='font-size:10.0pt;font-family:"Verdana","sans-serif"'>&nbsp;<o:p></o:p></span></p>
+
+<div class=MsoNormal align=center style='text-align:center'><span
+style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+"Times New Roman"'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<table class=MsoNormalTable border=0 cellpadding=0 width="27%"
+ style='width:27.0%;mso-cellspacing:1.5pt;mso-yfti-tbllook:1184;mso-padding-alt:
+ 0in 5.4pt 0in 5.4pt' id=table19>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=31 style='width:23.25pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman";mso-no-proof:yes'><img border=0
+  width=23 height=21 id="_x0000_i1049" src="bin/stepover.png"></span><span
+  style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><a name="Step_Over"><b><span style='font-size:10.0pt;
+  font-family:"Verdana","sans-serif";mso-fareast-font-family:"Times New Roman"'>Step
+  Over</span></b></a><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p><span style='font-size:10.0pt;font-family:"Verdana","sans-serif"'>Step over
+the next line of code.&nbsp; In other words, if the next line of code is a
+procedure call, the debugger will not break at the first line of the
+procedure's code.&nbsp; Instead it will execute the code and break at the line
+following the procedure call.&nbsp; The shortcut key is F10.<o:p></o:p></span></p>
+
+<p><b><span style='font-size:10.0pt;font-family:"Verdana","sans-serif"'>Example:
+</span></b><span style='font-size:10.0pt;font-family:"Verdana","sans-serif"'><o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:"Verdana","sans-serif"'>The
+program shown below is paused in a break state on line 61 which is a call to
+the function <span class=SpellE><span class=GramE>myFunction</span></span><span
+class=GramE>(</span>).&nbsp; If we click Step Over, the program will not break
+on the next line that is executed, line 67, because it is contained in another
+function.&nbsp; Instead, the code in <span class=SpellE><span class=GramE>myFunction</span></span><span
+class=GramE>(</span>) will be executed and the program will break on line 62.<o:p></o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0 width="67%"
+ style='width:67.0%;mso-cellspacing:1.5pt;mso-yfti-tbllook:1184;mso-padding-alt:
+ 0in 5.4pt 0in 5.4pt' id=table20>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width=417 style='width:312.75pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman"'>&nbsp;<b>Before Step Over:</b><o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman"'>&nbsp;<b>After Step Over:</b><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+  <td width=417 style='width:312.75pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman";mso-no-proof:yes'><img border=0
+  width=391 height=166 id="_x0000_i1048" src="bin/Debugger4.jpg"></span><span
+  style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman";mso-no-proof:yes'><img border=0
+  width=404 height=169 id="_x0000_i1047" src="bin/Debugger5.jpg"></span><span
+  style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p><span style='font-size:10.0pt;font-family:"Verdana","sans-serif"'>&nbsp;<o:p></o:p></span></p>
+
+<div class=MsoNormal align=center style='text-align:center'><span
+style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+"Times New Roman"'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<table class=MsoNormalTable border=0 cellpadding=0 width="27%"
+ style='width:27.0%;mso-cellspacing:1.5pt;mso-yfti-tbllook:1184;mso-padding-alt:
+ 0in 5.4pt 0in 5.4pt' id=table14>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=31 style='width:23.25pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman";mso-no-proof:yes'><img border=0
+  width=23 height=20 id="_x0000_i1046" src="bin/stepout.png"></span><span
+  style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><a name="Step_Out_Of"><b><span style='font-size:10.0pt;
+  font-family:"Verdana","sans-serif";mso-fareast-font-family:"Times New Roman"'>Step
+  Out Of</span></b></a><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p><span style='font-size:10.0pt;font-family:"Verdana","sans-serif"'>Step out
+of the current procedure.&nbsp; When stepping through a procedure that was
+previously stepped into, click Step Out Of to stop stepping through the
+procedure and break on the next line in the calling procedure.&nbsp; The
+shortcut key is Shift+F11.<o:p></o:p></span></p>
+
+<p><b><span style='font-size:10.0pt;font-family:"Verdana","sans-serif"'>Example:</span></b><span
+style='font-size:10.0pt;font-family:"Verdana","sans-serif"'><o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:"Verdana","sans-serif"'>The
+program shown below paused in a break state on line 61 which is a call to the
+function <span class=SpellE><span class=GramE>myFunction</span></span><span
+class=GramE>(</span>).&nbsp; We stepped into <span class=SpellE>myFunction</span>,
+but after stepping through the loop a couple times we decided it was not
+necessary to step through the remaining iterations.&nbsp; However, we do want
+to continue stepping through the calling function.&nbsp; Clicking Step Out Of
+will cause the program to finish executing <span class=SpellE><span
+class=GramE>myFunction</span></span><span class=GramE>(</span>) without
+breaking and then break at line 62 in Test2().<o:p></o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0 width="92%"
+ style='width:92.0%;mso-cellspacing:1.5pt;mso-yfti-tbllook:1184;mso-padding-alt:
+ 0in 5.4pt 0in 5.4pt' id=table17>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width=381 style='width:285.75pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman"'>&nbsp;Before step into:</span></b><span
+  style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td width=390 style='width:292.5pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman"'>&nbsp;After step into:</span></b><span
+  style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman"'>&nbsp;After step out of:</span></b><span
+  style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+  <td width=381 style='width:285.75pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman";mso-no-proof:yes'><img border=0
+  width=371 height=232 id="_x0000_i1045" src="bin/Debugger7.jpg"></span><span
+  style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td width=390 style='width:292.5pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman";mso-no-proof:yes'><img border=0
+  width=371 height=226 id="_x0000_i1044" src="bin/Debugger8.jpg"></span><span
+  style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman";mso-no-proof:yes'><img border=0
+  width=374 height=230 id="_x0000_i1043" src="bin/Debugger9.jpg"></span><span
+  style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p><span style='font-size:10.0pt;font-family:"Verdana","sans-serif"'>&nbsp;<o:p></o:p></span></p>
+
+<div class=MsoNormal align=center style='text-align:center'><span
+style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+"Times New Roman"'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<table class=MsoNormalTable border=0 cellpadding=0 width="27%"
+ style='width:27.0%;mso-cellspacing:1.5pt;mso-yfti-tbllook:1184;mso-padding-alt:
+ 0in 5.4pt 0in 5.4pt' id=table6>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=31 style='width:23.25pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman";mso-no-proof:yes'><img border=0
+  width=22 height=21 id="_x0000_i1042" src="bin/toggleBreakpoint.png"></span><span
+  style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><a name="Toggle_Breakpoint"><b><span style='font-size:
+  10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:"Times New Roman"'>Toggle
+  Breakpoint</span></b></a><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p><span style='font-size:10.0pt;font-family:"Verdana","sans-serif"'>Toggles a
+breakpoint on either a node in the Test Sequence View or a line in the test
+script, depending on which one has input focus when this button is
+clicked.&nbsp; The shortcut key is F9.&nbsp; A breakpoint in the test script
+can also be set by clicking in the margin to the left of the line number in
+either the Script View or <span class=SpellE>Globals</span> View.&nbsp; In the
+test script, a breakpoint can only be set on an executable line of code.&nbsp;
+It cannot be set on a line that contains only whitespace or a comment.<o:p></o:p></span></p>
+
+<div class=MsoNormal align=center style='text-align:center'><span
+style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+"Times New Roman"'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<table class=MsoNormalTable border=0 cellpadding=0 width="27%"
+ style='width:27.0%;mso-cellspacing:1.5pt;mso-yfti-tbllook:1184;mso-padding-alt:
+ 0in 5.4pt 0in 5.4pt' id=table7>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=31 style='width:23.25pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman";mso-no-proof:yes'><img border=0
+  width=22 height=21 id="_x0000_i1041" src="bin/ClearBreakpoints.png"></span><span
+  style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><a name="Clear_Breakpoints"><b><span style='font-size:
+  10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:"Times New Roman"'>Clear
+  All Breakpoints</span></b></a><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p><span class=GramE><span style='font-size:10.0pt;font-family:"Verdana","sans-serif"'>Deletes
+all breakpoints from the test program.</span></span><span style='font-size:
+10.0pt;font-family:"Verdana","sans-serif"'>&nbsp; This includes both script
+breakpoints and tree node breakpoints.<o:p></o:p></span></p>
+
+<div class=MsoNormal align=center style='text-align:center'><span
+style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+"Times New Roman"'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<table class=MsoNormalTable border=0 cellpadding=0 width="27%"
+ style='width:27.0%;mso-cellspacing:1.5pt;mso-yfti-tbllook:1184;mso-padding-alt:
+ 0in 5.4pt 0in 5.4pt' id=table8>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=31 style='width:23.25pt;padding:.75pt .75pt .75pt .75pt'>
+  <a name="HEX">
+  <img alt="HEX" height="28" src="bin/Hex.png" width="35"></a></td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman"'>Hex</span></b><span
+  style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p><span style='font-size:10.0pt;font-family:"Verdana","sans-serif"'>Toggles
+how Integer data types are displayed in the watch window, either as HEX values
+or Decimal values.<o:p></o:p></span></p>
+
+<div class=MsoNormal align=center style='text-align:center'><span
+style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+"Times New Roman"'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<table class=MsoNormalTable border=0 cellpadding=0 width="27%"
+ style='width:27.0%;mso-cellspacing:1.5pt;mso-yfti-tbllook:1184;mso-padding-alt:
+ 0in 5.4pt 0in 5.4pt' id=table8>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=31 style='width:23.25pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman";mso-no-proof:yes'><img border=0
+  width=20 height=19 id="_x0000_i1040" src="bin/watchWindow.png"></span><span
+  style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><a name="Show_Watch_Window"><b><span style='font-size:
+  10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:"Times New Roman"'>View
+  Watch Window</span></b></a><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p><span class=GramE><span style='font-size:10.0pt;font-family:"Verdana","sans-serif"'>Toggles
+the visibility of the <a href="WatchWindow.html">watch window</a>.</span></span><span
+style='font-size:10.0pt;font-family:"Verdana","sans-serif"'><o:p></o:p></span></p>
+
+<div class=MsoNormal align=center style='text-align:center'><span
+style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+"Times New Roman"'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<table class=MsoNormalTable border=0 cellpadding=0 width="27%"
+ style='width:27.0%;mso-cellspacing:1.5pt;mso-yfti-tbllook:1184;mso-padding-alt:
+ 0in 5.4pt 0in 5.4pt' id=table9>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=31 style='width:23.25pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman";mso-no-proof:yes'><img border=0
+  width=18 height=18 id="_x0000_i1039" src="bin/localsWindow.png"></span><span
+  style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><a name="Show_Locals_Window"><b><span style='font-size:
+  10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:"Times New Roman"'>View
+  Locals Window</span></b></a><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p><span class=GramE><span style='font-size:10.0pt;font-family:"Verdana","sans-serif"'>Toggles
+the visibility of the <a href="LocalsWindow.html">locals watch window</a>.</span></span><span
+style='font-size:10.0pt;font-family:"Verdana","sans-serif"'><o:p></o:p></span></p>
+
+<div class=MsoNormal align=center style='text-align:center'><span
+style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+"Times New Roman"'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<table class=MsoNormalTable border=0 cellpadding=0 width="27%"
+ style='width:27.0%;mso-cellspacing:1.5pt;mso-yfti-tbllook:1184;mso-padding-alt:
+ 0in 5.4pt 0in 5.4pt' id=table10>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=31 style='width:23.25pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman";mso-no-proof:yes'><img border=0
+  width=20 height=19 id="_x0000_i1038" src="bin/commandWindow.png"></span><span
+  style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><a name="Show_Command_Window"><b><span style='font-size:
+  10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:"Times New Roman"'>View
+  Command Window</span></b></a><span style='font-size:10.0pt;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p><span class=GramE><span style='font-size:10.0pt;font-family:"Verdana","sans-serif"'>Toggles
+the visibility of the <a href="CommandWindow.html">command window</a>.</span></span><span
+style='font-size:10.0pt;font-family:"Verdana","sans-serif"'><o:p></o:p></span></p>
+
+<div class=MsoNormal align=center style='text-align:center'><span
+style='font-size:10.0pt;font-family:"Verdana","sans-serif";mso-fareast-font-family:
+"Times New Roman"'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<p><b><span style='font-size:10.0pt;font-family:"Verdana","sans-serif"'>See Also</span></b><span
+style='font-size:10.0pt;font-family:"Verdana","sans-serif"'><o:p></o:p></span></p>
+
+<blockquote style='margin-top:5.0pt;margin-bottom:5.0pt'>
+
+<p><span style='font-size:10.0pt;font-family:"Verdana","sans-serif"'><a
+href="DebuggerOverview.html">Debugger Overview</a> |<span class=GramE>&nbsp; </span><a
+href="WatchWindow.html">Watch Window</a> | <a href="LocalsWindow.html">Locals
+Watch Window</a> | <a href="CommandWindow.html">Command Window</a><o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:"Verdana","sans-serif"'>&nbsp;<o:p></o:p></span></p>
+
+</blockquote>
+
+<p><span style='font-size:10.0pt;font-family:"Verdana","sans-serif"'><a
+href="#Top">Back to Top</a><o:p></o:p></span></p>
+
+<p><i><span style='font-size:7.5pt;font-family:"Verdana","sans-serif"'>EADS
+North America Test and Services<br>
+<span class=GramE>Last</span> updated on 10/29/10 by S. Lao</span></i><span
+style='font-size:10.0pt;font-family:"Verdana","sans-serif"'><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="en-us" http-equiv="Content-Language" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Execute on Terminating</title>
+<style type="text/css">
+.auto-style2 {
+	font-size: medium;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.auto-style3 {
+	font-size: small;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.auto-style4 {
+	margin-left: 40px;
+}
+.auto-style5 {
+	font-family: "Courier New", Courier, monospace;
+}
+.auto-style6 {
+	font-family: "Courier New", Courier, monospace;
+	font-size: small;
+}
+.auto-style7 {
+	font-size: small;
+}
+</style>
+</head>
+
+<body>
+
+<h1 class="auto-style2">Execute On Terminating</h1>
+<p class="auto-style3">When test programs are being debugged, it is often 
+necessary for the test engineer to stop the test program execution by pressing 
+the STOP button in the ActivATE test program IDE.&nbsp; When this occurs, the 
+test program will stop after completing the currently executing test node.&nbsp; 
+This may be dangerous in that power supplies could be turned on - switches are 
+closed, data files are open, etc.</p>
+<p class="auto-style3">ActivATE supports a function call that is automatically 
+called when the STOP button is pressed.&nbsp; The function name "OnTerminating" 
+is the same - no matter the test program language.&nbsp; For this function to be 
+called by the framework, the property "ExecuteOnTerminating" must be set to true 
+in the test program properties window. </p>
+<p class="auto-style3"><strong>This function is NOT created automatically. 
+Developers must create this method in their test program.</strong></p>
+<p class="auto-style3">In the example test program below, we open the Test 
+Program Properties window to toggle this flag.</p>
+<table style="width: 100%">
+	<tr>
+		<td style="width: 364px">
+		<img alt="Execute On Terminating" height="439" src="bin/OnTerminating2.PNG" width="341" /></td>
+		<td>
+		<img alt="Example Test Program" height="158" src="bin/OnTerminating1.PNG" width="219" /></td>
+	</tr>
+</table>
+<p class="auto-style3">Sample C# code for OnTerminating() is shown below.&nbsp; 
+Note that this method MUST return a value - typically Boolean, else it will 
+fail.</p>
+<table class="auto-style4" style="width: 100%">
+	<tr>
+		<td>
+		<p class="MsoNormal"><span class="auto-style6" style="color: gray">///</span><span class="auto-style6" style="color: green">
+		</span><span class="auto-style6" style="color: gray">&lt;summary&gt;</span><br class="auto-style6" />
+		<span class="auto-style6" style="color: gray">///</span><span class="auto-style7" style="font-family:
+&quot;Courier New&quot;;color:green"> </span>
+		<span class="auto-style5" style="color: green">
+		<span class="auto-style7">Peforms all clean up if the STOP button is 
+		pressed.</span><br class="auto-style7" />
+		</span><span class="auto-style6" style="color: gray">///</span><span class="auto-style6" style="color: green">
+		</span><span class="auto-style6" style="color: gray">&lt;/summary&gt;</span><br class="auto-style6" />
+		<span class="auto-style6" style="color: gray">///</span><span class="auto-style6" style="color: green">
+		</span><span class="auto-style6" style="color: gray">&lt;returns&gt;</span><span style="font-family:&quot;Courier New&quot;;
+color:gray"><span class="auto-style6" style="color: green">Returns true - always</span></span><span class="auto-style6" style="color: gray">&lt;/returns&gt;</span><br class="auto-style6" />
+		<span class="auto-style6" style="color: blue">public</span><span class="auto-style6" style="color: black">
+		</span><span class="auto-style6" style="color: blue">object</span><span class="auto-style7" style="font-family:&quot;Courier New&quot;;
+color:black"> </span><span class="auto-style5" style="color: black">
+		<span class="auto-style7">OnTerminating()</span><br class="auto-style7" />
+		</span>
+		<span class="auto-style7" style="font-family:
+&quot;Courier New&quot;;color:black">{</span><span style="color: black"><br class="auto-style6" />
+		</span><span style="font-family:
+&quot;Courier New&quot;;color:black">
+		<span class="auto-style6" style="color: black">&nbsp;&nbsp;&nbsp; 
+		TraceLog.WriteLine (</span></span><span class="auto-style7" style="font-family:&quot;Courier New&quot;;color:maroon">"</span><span class="auto-style6" style="color: maroon">OnTerminating() 
+		Called"</span><span class="auto-style5" style="color: black"><span class="auto-style7">);</span><br class="auto-style7" />
+		</span><span class="auto-style5" style="color: green">
+		<span class="auto-style7">&nbsp;&nbsp;&nbsp; // Call our Shutdown block 
+		to clean up</span><br class="auto-style7" />
+		</span><span class="auto-style5" style="color: black">
+		<span class="auto-style7">&nbsp;&nbsp;&nbsp; T2_1();</span><br class="auto-style7" />
+		<span class="auto-style7">&nbsp;&nbsp;&nbsp; T2_2();</span><br class="auto-style7" />
+		</span><span class="auto-style6" style="color: blue">&nbsp;&nbsp;&nbsp; 
+		return</span><span class="auto-style6" style="color: black"> </span>
+		<span class="auto-style6" style="color: blue">true</span><span class="auto-style7" style="font-family:&quot;Courier New&quot;;
+color:black">;</span><span style="color: black"><br class="auto-style6" />
+		</span><span class="auto-style6" style="color: black">}</span><o:p></o:p></p>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+</table>
+<p class="auto-style3">Sample VBScript Code is shown below.</p>
+<p class="auto-style4">
+<span style="font-family:
+&quot;Courier New&quot;;color:green"><span class="auto-style7">' Execute our 
+shutdown procedure if the user presses STOP</span><br class="auto-style7" />
+</span>
+<span class="auto-style7" style="font-family:
+&quot;Courier New&quot;;color:blue">Function</span><span style="font-family:&quot;Courier New&quot;;
+color:black"> <span class="auto-style7">OnTerminating()</span><br class="auto-style7" />
+</span>
+<span class="auto-style7" style="font-family:
+&quot;Courier New&quot;;color:black">&nbsp;&nbsp;&nbsp; TraceLog.WriteLine (</span><span style="font-family:&quot;Courier New&quot;;color:maroon">"<span class="auto-style7">OnTerminating() 
+Called"</span></span><span style="font-family:&quot;Courier New&quot;;color:black">)<br class="auto-style7" />
+</span><span style="font-family:&quot;Courier New&quot;;color:green">
+<span class="auto-style7">&nbsp;&nbsp;&nbsp; ' Call our shutdown functions to 
+clean up </span><br class="auto-style7" />
+</span>
+<span class="auto-style7" style="font-family:&quot;Courier New&quot;;color:blue">&nbsp;&nbsp;&nbsp; 
+call</span><span style="font-family:
+&quot;Courier New&quot;;color:black"><span class="auto-style7"> T2_1()</span><br class="auto-style7" />
+</span>
+<span class="auto-style7" style="font-family:&quot;Courier New&quot;;color:blue">&nbsp;&nbsp;&nbsp; 
+call</span><span style="font-family:
+&quot;Courier New&quot;;color:black"><span class="auto-style7"> T2_2()<br />
+<span style="font-family: &quot;Courier New&quot;; color: green">&nbsp;&nbsp; ' 
+Must always return a value</span></span><br class="auto-style7" />
+<span class="auto-style7">&nbsp;&nbsp;&nbsp; OnTerminating = </span></span>
+<span style="font-family:&quot;Courier New&quot;;color:blue">
+<span class="auto-style7">true</span><br class="auto-style7" />
+<span class="auto-style7">End Function</span></span><o:p></o:p></p>
+<p>&nbsp;</p>
+<p><span class="auto-style3"><a href="Overview.html">Back To Main</a></span></p>
+<p><span class="auto-style3">see also:</span></p>
+<p><i><font face="Verdana" size="1">Astronics Test Systems<br>
+Last updated on August 12, 2015 by D. Ignacio</font></i></p>
+
+</body>
+
+</html>

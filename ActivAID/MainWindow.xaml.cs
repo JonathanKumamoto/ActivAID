@@ -14,6 +14,7 @@ using System.Speech.Recognition;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using ActivAID.Properties;
 
 namespace ActivAID
 {
@@ -45,15 +46,15 @@ namespace ActivAID
 
             InitializeComponent();
             InputBox.TextChanged += OnTextChangedHandler;
-            //Chatbot = new SimlBot();
-            //Chatbot.PackageManager.LoadFromString(File.ReadAllText("Knowledge.simlpk"));
-            ColorBOT = "#232c3a"; // Color of Bot message rectangle
-            ColorUser = "#40464e"; // Color of User message rectangle
+            Chatbot = new SimlBot();
+            Chatbot.PackageManager.LoadFromString(File.ReadAllText("jokes.simlpk"));
+            ColorBOT = Properties.Settings.Default["ColorBOT"].ToString(); // Color of Bot message rectangle
+            ColorUser = Properties.Settings.Default["ColorUser"].ToString(); // Color of User message rectangle
             FontColor = "#FFFFFF"; // Font color for text in Chat
             AppWindow = this;
             MouseDown += delegate { DragMove(); };
             settwindow = new Settings();
-            fontSize = 16;
+            fontSize = (Int32)Properties.Settings.Default["Font"];
             GoldBOT = "botmsg";
             mainBOTmsg = true;
             RobotResponding = false;
@@ -63,7 +64,6 @@ namespace ActivAID
             queryHandler = new QueryHandler(dA, uib, stringOp, summarize);
             MainWindow_Creator();
         }
-
         private void defineFunctionObjects()
         {
             stringOp = new Func<string, string>((x) =>
@@ -169,7 +169,7 @@ namespace ActivAID
             mainmsg.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(ColorBOT));
             mainmsg.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom(FontColor));
             mainmsg.Width = 230;
-            mainmsg.FontSize = 16;
+            mainmsg.FontSize = fontSize;
             mainmsg.FontFamily = new FontFamily("Candara");
             mainmsg.Margin = new Thickness(50, -40, 0, 0);
             UserBubble_Creator(true);
@@ -209,7 +209,7 @@ namespace ActivAID
             usermsg.VerticalAlignment = VerticalAlignment.Top;
             usermsg.MaxWidth = 150;
             usermsg.FontFamily = new FontFamily("Candara");
-            usermsg.FontSize = 16;
+            usermsg.FontSize = fontSize;
             usermsg.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom(FontColor));
             usermsg.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
             int ActualWidth = 420 - ((int)usermsg.DesiredSize.Width); //Algorithm to calcualte margin for every user message
@@ -241,41 +241,105 @@ namespace ActivAID
 
         private void setOutPut(string command, ref TextBlock outputToUI, ref TextBox tb)
         {
-            if (!unixCommands(command))//checks for specific responses by the bot to perform functions
+            try
             {
-                try
+                if (!unixCommands(command))//checks for specific responses by the bot to perform functions
                 {
-                    
-                    if(isTestProgramPattern(command))
+                    try
                     {
-                        command = "do: new test program template";
-                    }
 
-                    foreach (var textBlock in BackEnd.backendCommand(command.ToLower()))
+                        if (isTestProgramPattern(command))
+                        {
+                            command = "do: new test program template";
+                        }
+
+                        var botOut = Chatbot.Chat(command);
+                        if (botOut.BotMessage != "Sorry, no response was generated.")
+                        {
+                            string toTBox;
+                            if (new Regex(@"\|").IsMatch(botOut.BotMessage))
+                            {
+                                toTBox = Regex.Replace(botOut.BotMessage, @"\|", "\n");
+                            }
+                            else
+                            {
+                                toTBox = botOut.BotMessage;
+                            }
+                            var tBox = new TextBlock();
+                            tBox.Text = toTBox;
+                            tBox.TextWrapping = TextWrapping.Wrap;
+                            Label botmsg = new Label();
+                            UserBubble_Creator(true);
+                            botmsg.Name = "botmsg";   //bot's response box
+                            botmsg.Target = OutputBox;
+                            botmsg.Content = tBox;
+                            botmsg.BorderThickness = new Thickness(1);
+                            botmsg.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(ColorBOT));
+                            botmsg.HorizontalAlignment = HorizontalAlignment.Center;
+                            botmsg.VerticalAlignment = VerticalAlignment.Top;
+                            botmsg.MaxWidth = 220;
+                            botmsg.Width = tBox.Width;
+                            botmsg.Width = 210;
+                            botmsg.Margin = new Thickness(50, -40, 0, 0);
+                            botmsg.FontFamily = new FontFamily("Candara");
+                            botmsg.FontSize = fontSize;
+                            botmsg.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom(FontColor));
+                            OutputBox.Items.Add(botmsg);
+                        }
+                        else
+                        {
+
+                            foreach (var textBlock in BackEnd.backendCommand(command.ToLower()))
+                            {
+                                textBlock.TextWrapping = TextWrapping.Wrap;
+                                Label botmsg = new Label();
+                                UserBubble_Creator(true);
+                                botmsg.Name = "botmsg";   //bot's response box
+                                botmsg.Target = OutputBox;
+                                botmsg.Content = textBlock;
+                                botmsg.BorderThickness = new Thickness(1);
+                                botmsg.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(ColorBOT));
+                                botmsg.HorizontalAlignment = HorizontalAlignment.Center;
+                                botmsg.VerticalAlignment = VerticalAlignment.Top;
+                                botmsg.MaxWidth = 220;
+                                botmsg.Width = textBlock.Width;
+                                botmsg.Width = 210;
+                                botmsg.Margin = new Thickness(50, -40, 0, 0);
+                                botmsg.FontFamily = new FontFamily("Candara");
+                                botmsg.FontSize = fontSize;
+                                botmsg.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom(FontColor));
+                                OutputBox.Items.Add(botmsg);
+                            }
+                        }
+                    }
+                    catch (NoFileMatchException)
                     {
-                        textBlock.TextWrapping = TextWrapping.Wrap;
+                        outputToUI.Text = "I'm hearing ya... I just don't getcha. Can you make your request more specific?";
                         Label botmsg = new Label();
-                        UserBubble_Creator(true);
                         botmsg.Name = "botmsg";   //bot's response box
                         botmsg.Target = OutputBox;
-                        botmsg.Content = textBlock;
+                        botmsg.Content = outputToUI;
                         botmsg.BorderThickness = new Thickness(1);
                         botmsg.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(ColorBOT));
                         botmsg.HorizontalAlignment = HorizontalAlignment.Center;
                         botmsg.VerticalAlignment = VerticalAlignment.Top;
                         botmsg.MaxWidth = 220;
-                        botmsg.Width = textBlock.Width;
+                        botmsg.Width = outputToUI.Width;
                         botmsg.Width = 210;
                         botmsg.Margin = new Thickness(50, -40, 0, 0);
                         botmsg.FontFamily = new FontFamily("Candara");
-                        botmsg.FontSize = fontSize;
+                        botmsg.FontSize = 16;
                         botmsg.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom(FontColor));
+                        UserBubble_Creator(true);
                         OutputBox.Items.Add(botmsg);
                     }
                 }
-                catch (NoFileMatchException)
+            }
+            catch (Exception e)
+            {
+                if (e is System.IO.FileNotFoundException)
                 {
-                    outputToUI.Text = "I'm hearing ya... I just don't getcha. Can you make your request more specific?";
+                    outputToUI.Text = "Aw man... I can't find that file.";
                     Label botmsg = new Label();
                     botmsg.Name = "botmsg";   //bot's response box
                     botmsg.Target = OutputBox;
@@ -289,11 +353,13 @@ namespace ActivAID
                     botmsg.Width = 210;
                     botmsg.Margin = new Thickness(50, -40, 0, 0);
                     botmsg.FontFamily = new FontFamily("Candara");
-                    botmsg.FontSize = 16;
+                    botmsg.FontSize = fontSize;
                     botmsg.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom(FontColor));
                     UserBubble_Creator(true);
                     OutputBox.Items.Add(botmsg);
                 }
+                else
+                { throw; }
             }
         tb.Text = string.Empty;
     }
@@ -329,7 +395,7 @@ namespace ActivAID
             botmsg.Width = 210;
             botmsg.Margin = new Thickness(50, -40, 0, 0);
             botmsg.FontFamily = new FontFamily("Candara");
-            botmsg.FontSize = 16;
+            botmsg.FontSize = fontSize;
             botmsg.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom(FontColor));
            // UserBubble_Creator(true);
            // OutputBox.Items.Add(botmsg); // Adding to Listbox
@@ -430,9 +496,54 @@ namespace ActivAID
             }
         }
 
+        private void produceImage(string name) //add stringpath, width, height here
+        {
+            String pathway = @"Media\HelpImages\"+name;
+            //~~~~~~~~~~~~~~~~~~~manipulate    THIS
+            if (!System.IO.File.Exists(pathway))
+            {
+                throw new System.IO.FileNotFoundException();
+            }
+            Rectangle image = new Rectangle();
+            ImageBrush userimage = new ImageBrush();
+            userimage.ImageSource = (new BitmapImage(new Uri(pathway, UriKind.Relative)));
+            image.Height = 200;                                                                  //~~~~~~~~~~~~~~~~~~~manipulate    THIS
+            image.Width = 200;                                                                   //~~~~~~~~~~~~~~~~~~~manipulate    THIS
+            image.Margin = (new Thickness(50, -40, 0, 0));
+            image.Fill = userimage;
+            image.HorizontalAlignment = HorizontalAlignment.Right;
+            OutputBox.Items.Add(image);// Add to ListBox
+
+        }
+
+        private void getfiles()
+        {
+            string[] dirs = Directory.GetFiles(@"Media\", "*.*", SearchOption.TopDirectoryOnly);           //~~~~~~~~~~~~~~~~~~~manipulate    THIS
+
+
+            //@"Media\"
+            foreach (string dir in dirs)
+            {
+                Label mainmsg = new Label(); //Default main BOT message creator
+                TextBlock txtBlockbot = new TextBlock();
+                txtBlockbot.TextWrapping = TextWrapping.Wrap;
+                txtBlockbot.Text = dir;
+                mainmsg.Name = "mainmsg";
+                mainmsg.Content = txtBlockbot;
+                mainmsg.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(ColorBOT));
+                mainmsg.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom(FontColor));
+                mainmsg.Width = 230;
+                mainmsg.FontSize = 16;
+                mainmsg.FontFamily = new FontFamily("Candara");
+                mainmsg.Margin = new Thickness(50, -40, 0, 0);
+                UserBubble_Creator(true);
+                OutputBox.Items.Add(mainmsg); // Add textblock to ListBox
+            }
+        }
+
         private bool unixCommands(string botOutput)
         {
-            if (botOutput == "Application closed.") //closes application window
+            if (botOutput.ToLower() == "application close" || botOutput.ToLower() == "activaid close") //closes application window
             {
                 Application.Current.Shutdown();
                 return true;
@@ -449,6 +560,22 @@ namespace ActivAID
             else if (botOutput.ToLower() == "astronics homepage" || botOutput.ToLower() == "astronics website") //sends users to the astronics homepage
             {
                 System.Diagnostics.Process.Start("http://astronicstestsystems.com/");
+                return true;
+            }
+            else if (Regex.IsMatch(botOutput.ToLower(),"image *:"))
+            {
+                produceImage(botOutput.Split(':')[1].Trim());
+                return true;
+            }
+            else if (botOutput.ToLower() == "-ls")
+            {
+                getfiles();
+                return true;
+            }
+            else if (botOutput.ToLower() == "-settings")
+            {
+                settwindow.Show();
+                settwindow.Topmost = true;
                 return true;
             }
             else

@@ -1,0 +1,253 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 12.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Test Sequence View Context Menu</title>
+<link rel="stylesheet" type="text/css" href="help.css">
+</head>
+
+<body>
+
+<p><b><font face="Verdana" size="3"><a name="Top">Test Sequence View Context
+Menu</a></font></b></p>
+<p><font face="Verdana" size="2">The Test Sequence View context menu displays
+all allowed operations for the tree view and its nodes.&nbsp; To view the
+context menu, right-click on any node.&nbsp; The context menu will look similar
+to the following example:</font></p>
+<p><img border="0" src="bin/testseqView2.png" width="328" height="486"></p>
+<p><font face="Verdana" size="2"><br>
+Click on the following links for a detailed description of each menu item.</font></p>
+<table border="1" width="100%">
+  <tr>
+    <td width="20%"><font face="Verdana" size="2">&nbsp;<a href="#New Group">New
+      Group</a></font></td>
+    <td width="20%"><font face="Verdana" size="2">&nbsp;<a href="#New Test">New
+      Test</a> </font></td>
+    <td width="20%"><font face="Verdana" size="2">&nbsp;<a href="#Run &lt;Node Name&gt;">Run
+      &lt;Node Name&gt;</a> </font></td>
+    <td width="20%"><font face="Verdana" size="2">&nbsp;<a href="#Run All">Run
+      All</a> </font></td>
+    <td width="20%"><font face="Verdana" size="2">&nbsp;<a href="#Toggle Breakpoint">Toggle
+      Breakpoint</a> </font></td>
+  </tr>
+  <tr>
+    <td width="20%"><font face="Verdana" size="2">&nbsp;<a href="#Enable/Disable &lt;Node Name&gt;">Enable/Disable
+      &lt;Node Name&gt;</a></font></td>
+    <td width="20%"><font face="Verdana" size="2">&nbsp;<a href="#Loop on &lt;Node Name&gt;">Loop
+      on &lt;Node Name&gt;</a></font></td>
+    <td width="20%"><font face="Verdana" size="2">&nbsp;<a href="#Debug_node_Node_Name">Debug 
+	node &lt;Node Name&gt;</a></font></td>
+    <td width="20%"><font face="Verdana" size="2">&nbsp;<a href="#Expand All">Expand
+      All</a>&nbsp; </font></td>
+    <td width="20%"><font face="Verdana" size="2">&nbsp;<a href="#Show_Node_Descriptions">Show 
+	Node Descriptions</a></font></td>
+  </tr>
+  <tr>
+    <td width="20%"><font face="Verdana" size="2">&nbsp;<a href="#Rename">Rename</a></font></td>
+    <td width="20%"><font face="Verdana" size="2">&nbsp;<a href="#Edit Source">Edit
+      Source</a></font></td>
+    <td width="20%"><font face="Verdana" size="2">&nbsp;<a href="#Node Properties">Node
+      Properties</a></font></td>
+    <td width="20%"><font face="Verdana" size="2">&nbsp;<a href="#Clear Nodes (pass/fail)">Clear
+      Nodes (pass/fail)</a></font></td>
+    <td width="20%"><font face="Verdana" size="2">&nbsp;<a href="#Clear ALL Flow Control Flags">Clear
+      ALL Flow Control Flags</a></font></td>
+  </tr>
+  <tr>
+    <td width="20%"><font face="Verdana" size="2">&nbsp;<a href="#Delete THIS Node">Delete
+      THIS Node</a></font></td>
+    <td width="20%"><font face="Verdana" size="2">&nbsp;<a href="#Enable Hard Abort">Enable
+      Hard Abort</a></font></td>
+    <td width="20%">&nbsp;</td>
+    <td width="20%">&nbsp;</td>
+    <td width="20%">&nbsp;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p><b><font face="Verdana" size="2"><a name="New Group">New Group</a></font></b></p>
+<p><font face="Verdana" size="2">Creates a new group node as a child of the
+currently selected node.&nbsp; This menu item will be disabled if a test node is
+right-clicked because group nodes can only be added to the root node or other
+group nodes.&nbsp; See <a href="NewGroup.html">Adding a new group</a> for more
+details.</font></p>
+<p><i><font face="Verdana" size="2">Note: This function is disabled while a test
+is running.</font></i></p>
+<hr>
+<p><b><font face="Verdana" size="2"><a name="New Test">New Test</a></font></b></p>
+<p><font face="Verdana" size="2">Creates a new test node as a child of the
+currently selected node.&nbsp; This menu item will be disabled if a test node is
+right-clicked because test nodes can only be added to the root node or group
+nodes.&nbsp; See <a href="NewTest.html">Adding a new test</a> for more details.</font></p>
+<p><i><font face="Verdana" size="2">Note: This function is disabled while a test
+is running.</font></i></p>
+<hr>
+<p><b><font face="Verdana" size="2"><a name="Run &lt;Node Name&gt;">Run &lt;Node
+Name&gt;</a></font></b></p>
+<p><font face="Verdana" size="2">Runs ONLY the currently selected node and its
+child nodes.&nbsp;&nbsp;</font></p>
+<p><font face="Verdana" size="2">If a test node is selected, the PreTest method
+of the root node will first be executed, followed by the test node's method, and
+finally the PostTest method of the root node.&nbsp; If the test node is a child
+of a group node, the group's PreTest and PostTest methods will NOT be
+executed.&nbsp;&nbsp;</font></p>
+<p><font face="Verdana" size="2">If a group node is selected, the PreTest method
+of the root node will first be executed, then the group node's PreTest method,
+then the methods of the group node's child nodes, followed by the group node's
+PostTest method, and finally the PostTest method of the root node.</font></p>
+<p><i><font face="Verdana" size="2">Note: This function is disabled while a test
+is running.</font></i></p>
+<hr>
+<p><b><font face="Verdana" size="2"><a name="Run All">Run All</a></font></b></p>
+<p><font face="Verdana" size="2">Runs the entire test program.&nbsp; This
+performs the same operation as clicking the Start button <img border="0" src="bin/StartButton.JPG" width="16" height="16">
+in the IDE.</font></p>
+<p><i><font face="Verdana" size="2">Note: This function is disabled while a test
+is running.</font></i></p>
+<hr>
+<p><b><font face="Verdana" size="2"><a name="Toggle Breakpoint">Toggle
+Breakpoint</a></font></b></p>
+<p><font face="Verdana" size="2">Adds or removes a breakpoint on the selected
+node.&nbsp; The keyboard shortcut for this operation is F9.&nbsp; When a
+node breakpoint is enabled and the test program is run in debug mode,&nbsp;the
+program will break at the first line of executable code in the node's VBScript
+method.&nbsp;&nbsp;</font></p>
+<hr>
+<p><b><font face="Verdana" size="2"><a name="Enable/Disable &lt;Node Name&gt;">Enable/Disable
+&lt;Node Name&gt;</a></font></b></p>
+<p><font face="Verdana" size="2">Toggles the enabled state of the node.&nbsp;
+All child nodes of the selected node are enabled or disabled as well.&nbsp; The
+keyboard shortcut for this operation is Ctrl+D.&nbsp; When a node is disabled,
+it is not executed when the test program is run and appears grayed out in the
+Test Sequence View.</font></p>
+<table border="0" width="43%">
+  <tr>
+    <td width="42%">
+	<img border="0" src="bin/testseqView3.png" width="193" height="171"></td>
+    <td width="50%"><font face="Verdana" size="2">Group2 and its child, Test3,
+      are disabled.</font></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<hr>
+<p><b><font face="Verdana" size="2"><a name="Loop on &lt;Node Name&gt;">Loop on
+&lt;Node Name&gt;</a></font></b></p>
+<p><font face="Verdana" size="2">Runs the selected node in a loop.&nbsp; Select
+the number of loop iterations from the submenu as shown below.</font></p>
+<p><img border="0" src="bin/testseqView4.png" width="366" height="197"></p>
+<p><i><font face="Verdana" size="2">Note: This function is disabled while a test
+is running.</font></i></p>
+<hr>
+<p><b><font face="Verdana" size="2"><a name="Debug_node_Node_Name">Debug node 
+&lt;Node Name&gt;</a></font></b></p>
+<p><font face="Verdana" size="2">Runs ONLY the currently selected node and its
+child nodes in debug mode.&nbsp; The debugger will break at any breakpoints set 
+in the executed code.</font></p>
+<p><font face="Verdana" size="2">If a test node is selected, the PreTest method
+of the root node will first be executed, followed by the test node's method, and
+finally the PostTest method of the root node.&nbsp; If the test node is a child
+of a group node, the group's PreTest and PostTest methods will NOT be
+executed.&nbsp;&nbsp;</font></p>
+<p><font face="Verdana" size="2">If a group node is selected, the PreTest method
+of the root node will first be executed, then the group node's PreTest method,
+then the methods of the group node's child nodes, followed by the group node's
+PostTest method, and finally the PostTest method of the root node.</font></p>
+<p><i><font face="Verdana" size="2">Note: This function is disabled while a test
+is running.</font></i></p>
+<hr>
+<p><b><font face="Verdana" size="2"><a name="Expand All">Expand All</a></font></b></p>
+<p><font face="Verdana" size="2">Expands the entire Test Sequence View tree so
+that every node is visible (i.e., no nodes are collapsed).</font></p>
+<hr>
+<p><b><font face="Verdana" size="2"><a name="Show_Node_Descriptions">Show Node 
+Descriptions</a></font></b></p>
+<p><font face="Verdana" size="2">If checked (default), the description for each group 
+and test node is displayed in the tree view next to the node name.</font></p>
+<p><b><font face="Verdana" size="2">Example:</font></b></p>
+<table border="0" width="56%" id="table1">
+	<tr>
+		<td width="366" height="31">ShowNodeDescriptions = true</td>
+		<td height="31">ShowNodeDescriptions = false</td>
+	</tr>
+	<tr>
+		<td width="366">
+		<img border="0" src="bin/nodeDescriptions1.png" width="323" height="250"></td>
+		<td>
+		<img border="0" src="bin/NodeDescriptions2.png" width="322" height="241"></td>
+	</tr>
+</table>
+<p>&nbsp;</p>
+<hr>
+<p><b><font face="Verdana" size="2"><a name="Rename">Rename</a></font></b></p>
+<p><font face="Verdana" size="2">Enables editing of the node name so that a new
+name may be entered.&nbsp; This does not affect the node's test method name, nor
+does it make any changes in the test script.&nbsp; The keyboard shortcut is F2.</font></p>
+<hr>
+<p><font face="Verdana" size="2"><b><a name="Edit Source">Edit Source</a></b></font></p>
+<p><font face="Verdana" size="2">Moves the cursor in the Script View to the
+beginning of the selected node's test method.&nbsp; If the node is the root node
+or a group node, the cursor will be at the beginning of the PreTest
+method.&nbsp; Double-clicking on the node in the Test Sequence View will have
+the same effect.</font></p>
+<hr>
+<p><b><font face="Verdana" size="2"><a name="Node Properties">Node Properties</a></font></b></p>
+<p><font face="Verdana" size="2">Toggles the visibility of the Properties Page
+window in the IDE.</font></p>
+<hr>
+<p><b><font face="Verdana" size="2"><a name="Clear Nodes (pass/fail)">Clear
+Nodes (pass/fail)</a></font></b></p>
+<p><font face="Verdana" size="2">Clears all the pass/fail flags from the
+previous test run from the nodes in the Test Sequence View.</font></p>
+<p><b><font face="Verdana" size="2">Example:</font></b></p>
+<table border="0" width="39%">
+  <tr>
+    <td width="58%"><font face="Verdana" size="2">Before clearing nodes:</font></td>
+    <td width="53%"><font face="Verdana" size="2">After clearing nodes:</font></td>
+  </tr>
+  <tr>
+    <td width="58%">
+	<img border="0" src="bin/TestSeqView5.png" width="182" height="171"></td>
+    <td width="53%">
+	<img border="0" src="bin/TestSeqView6.png" width="183" height="169"></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<hr>
+<p><b><font face="Verdana" size="2"><a name="Clear ALL Flow Control Flags">Clear
+ALL Flow Control Flags</a></font></b></p>
+<p><font face="Verdana" size="2">Resets the 
+<a href="TestNodeProps.html#BreakOnFail">BreakOnFail</a> property of ALL test
+nodes to false.</font></p>
+<hr>
+<p><b><font face="Verdana" size="2"><a name="Delete THIS Node">Delete THIS Node</a></font></b></p>
+<p><font face="Verdana" size="2">Deletes the selected test node or group node
+from the tree.&nbsp; The root node may not be deleted.&nbsp; This operation does
+not delete any VBScript code, so the deleted node's method(s) will still be
+present in the test script.</font></p>
+<p><i><font face="Verdana" size="2">Note: This function is disabled while a test
+is running.</font></i></p>
+<hr>
+<p><b><font face="Verdana" size="2"><a name="Enable Hard Abort">Enable Hard
+Abort</a></font></b></p>
+<p><font face="Verdana" size="2">Enables the Hard Abort button in the IDE.&nbsp;
+Clicking this button will immediately kill the scripting engine when a test is
+running.&nbsp;&nbsp;</font></p>
+<p><font face="Verdana" size="2"><b><font color="#FF0000">CAUTION:</font></b>
+This button should ONLY be used as a last resort if the test cannot be stopped
+normally.</font></p>
+<p><img border="0" src="bin/testseqView7.png" width="116" height="32"></p>
+<hr>
+<p><b><font face="Verdana" size="2">See Also</font></b></p>
+<p>&nbsp;&nbsp; <font face="Verdana" size="2"><a href="TestSequenceView.html">Test
+Sequence View</a> | <a href="NodeDragDrop.html">Node Drag-Drop</a></font></p>
+<p>&nbsp;</p>
+<p><font size="2" face="Verdana"><a href="#Top">Back to
+Top</a></font></p>
+<p><i><font face="Verdana" size="1">Astronics Test Systems<br>
+Last updated on 3/1/07 by L. Anhalt</font></i></p>
+
+</body>
+
+</html>

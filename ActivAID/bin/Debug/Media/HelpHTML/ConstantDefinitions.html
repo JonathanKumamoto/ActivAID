@@ -1,0 +1,423 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="en-us" http-equiv="Content-Language" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Constants</title>
+<style type="text/css">
+.auto-style1 {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: medium;
+}
+.auto-style3 {
+	font-size: small;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.auto-style4 {
+	font-size: small;
+}
+.auto-style5 {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.auto-style6 {
+	font-family: "Courier New", Courier, monospace;
+}
+.auto-style7 {
+	color: #0000FF;
+}
+.auto-style8 {
+	color: #008000;
+}
+.auto-style9 {
+	color: #000000;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: small;
+}
+.auto-style10 {
+	font-size: small;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	margin-left: 40px;
+}
+.auto-style11 {
+	color: #800000;
+}
+.auto-style12 {
+	font-size: small;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	margin-left: 40px;
+	margin-top: 0pt;
+	margin-bottom: 0pt;
+}
+.auto-style13 {
+	color: #808080;
+}
+</style>
+</head>
+
+<body>
+
+<h1 class="auto-style1">Constants</h1>
+<p class="auto-style3">If using the SDK to create drivers, you'll notice the 
+driver will reference the "Interfaces" dll in ActivATE.&nbsp; Interfaces exposes 
+a Constants class that has basic Constant error codes and strings.&nbsp; The 
+error codes start at -1 and go down from there.&nbsp;&nbsp; All error codes are 
+negative integers.&nbsp; When a new driver is created, the developer should 
+check the Constants class to see if there is a defined value that may be used 
+for that particular error.&nbsp; For example:</p>
+<p class="auto-style3"><span class="auto-style6">&nbsp;&nbsp;&nbsp;
+<span class="auto-style7">try</span><br />
+&nbsp;&nbsp;&nbsp; {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="auto-style8">// Do some 
+Work...</span><br />
+&nbsp;&nbsp;&nbsp; }<br />
+&nbsp;&nbsp;&nbsp; <span class="auto-style7">catch</span> (Exception ex)<br />
+&nbsp;&nbsp;&nbsp; {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; nErr = Constants.EXCEPTION_ERROR;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="auto-style7">string</span> 
+msg = <span class="auto-style7">string</span>.Format(<span class="auto-style7">CultureInfo</span>.CurrentCulture, 
+"Measure() Error: {0} ", ex.Message);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FireEvent(<span class="auto-style7">new</span> 
+DeviceEventArgs(DeviceEventAttribute.Status, msg));<br />
+&nbsp;&nbsp;&nbsp; </span>}</p>
+<p class="auto-style9">The API <span class="auto-style6"><strong>GetErrorMessage()</strong></span> 
+is an override in all drivers inheriting from the base class.&nbsp; This API 
+first checks the local driver class to see if there is a value for the error 
+code passed into the function.&nbsp; If not, it then checks the Constants class 
+in Interfaces.&nbsp; &nbsp;&nbsp;&nbsp;The SDK for creating new drivers does all this for you 
+of course.<o:p></o:p></p>
+<p class="auto-style3">Here's an example from the a VBScript test program:</p>
+<p class="auto-style10">errCode = PDB.ElectricalDisengage(2)<br />
+<span class="auto-style7">If</span> errCode != 0 <span class="auto-style7">Then</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp; TraceLog.WriteLine "<span class="auto-style11">ERROR: 
+Could not disengage -</span> " &amp; PDB.GetErrorMessage(errCode)<br />
+<span class="auto-style7">End If</span></p>
+<p class="auto-style3">When creating drivers, developers should create their own 
+error codes (starting at -300) and override <strong>GetErrorMessage()</strong>.&nbsp; 
+Note that if using the ActivATE Driver SDK to create drivers, GetErrorMessage is 
+implemented for you.&nbsp; Simply add your own constants to the case statement.</p>
+<p class="auto-style10">&nbsp;<span class="auto-style8">// Example Constants: 
+Developers can implement any error codes they wish, but should implement</span><br class="auto-style8" />
+<span class="auto-style8">// the error string in GetErrorMessage() as well&nbsp;&nbsp;
+</span>&nbsp;<br />
+<span class="auto-style7">const in</span>t ERR_CANNOT_OPEN_DEVICE = -300; <br />
+<span class="auto-style7">const int</span> ERR_INCORRECT_TERMCHAR = -301;<br />
+<span class="auto-style7">const int</span> ERR_INVALID_ADDR_SPACE = -302;<br />
+<span class="auto-style7">const int</span> ERR_INVALID_HEX_VALUE = -303;</p>
+<p class="auto-style10">&nbsp;<span class="auto-style7">public override string</span> 
+GetErrorMessage(int ErrorCode)<br />
+{<br />
+<span class="auto-style7">&nbsp;&nbsp;&nbsp; string</span> errMsg = "";<br />
+<br />
+<span class="auto-style7">&nbsp;&nbsp;&nbsp; try</span><br />
+&nbsp;&nbsp;&nbsp; {<br />
+<span class="auto-style7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; switch</span> 
+(ErrorCode)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
+<span class="auto-style7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+case</span> 0:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+errMsg = "No Error";<br />
+<span class="auto-style7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+break</span>;<br />
+<span class="auto-style7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+case</span> ERR_CANNOT_OPEN_DEVICE:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+errMsg = <span class="auto-style11">"Unable to open device"</span>;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;<br />
+<span class="auto-style7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+case</span> ERR_INCORRECT_TERMCHAR:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+errMsg = <span class="auto-style11">"Invalid TermChar parameter passed. Use 
+exactly 2 hex digits for the ASCII character."</span>;<br />
+<span class="auto-style7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+break</span>;<br />
+<span class="auto-style7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+case</span> ERR_INVALID_ADDR_SPACE:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+errMsg = <span class="auto-style11">"Invalid address space parameter. Valid 
+values are 16, 24 and 32, or 1, 2 and 3."</span>;<br />
+<span class="auto-style7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+break</span>;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case 
+ERR_INVALID_HEX_VALUE:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+errMsg =<span class="auto-style11"> "Invalid hexadecimal value. Value must be 1 
+to 32 bits."</span>;<br />
+<span class="auto-style7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+break</span>;<br />
+<span class="auto-style7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+default</span>:<br />
+<span class="auto-style8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+// Not one of our local error codes, so check if it belongs to our base class</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+errMsg = base.GetErrorMessage(nErrorCode);<br />
+<span class="auto-style7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+break</span>;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />
+&nbsp;&nbsp;&nbsp; }<br />
+<span class="auto-style7">&nbsp;&nbsp;&nbsp; catch</span> (Exception ex)<br />
+&nbsp;&nbsp;&nbsp; {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FireOnError(0, "GetErrorMessage()", 
+Constants.EXCEPTION_ERROR, ex.Message);<br />
+&nbsp;&nbsp;&nbsp; }<br />
+<br />
+&nbsp;&nbsp;&nbsp; <span class="auto-style7">return</span> errMsg ;<br />
+}</p>
+<p style="language: en-US; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline; margin-top: 0pt; margin-bottom: 0pt" class="auto-style3">
+<em><strong><a name="CONSTANT_DEFINITIONS_IN_INTERFACES_DLL">CONSTANT 
+DEFINITIONS IN INTERFACES DLL</a></strong></em></p>
+<p style="language: en-US; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline; margin-top: 0pt; margin-bottom: 0pt" class="auto-style3">
+&nbsp;</p>
+<p style="language: en-US; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline; " class="auto-style12">
+&nbsp;<span class="auto-style7">public const</span> string 
+SysControlEvent_ShowIDE = "ShowIDE";<br />
+<br />
+<span class="auto-style13">/// &lt;summary&gt;</span><br class="auto-style13" />
+<span class="auto-style13">/// Name of WantToClose event that is used in the 
+ISystemControl interface when</span><br class="auto-style13" />
+<span class="auto-style13">/// the user wants to close the SystemController. 
+Applies only when SystemController</span><br class="auto-style13" />
+<span class="auto-style13">/// is the main GUI app.</span><br class="auto-style13" />
+<span class="auto-style13">/// &lt;/summary&gt;</span><br />
+<span class="auto-style7">public const string </span>SysControlEvent_WantToClose 
+= <span class="auto-style11">"WantToClose";</span><br />
+<br />
+<span class="auto-style13">/// &lt;summary&gt;</span><br class="auto-style13" />
+<span class="auto-style13">/// </span><span class="auto-style8">Name of HideIDE 
+event that is used in the ISystemControl interface when</span><br class="auto-style13" />
+<span class="auto-style13">/// </span><span class="auto-style8">the user wants 
+to turn main application control over to the SystemController. </span>
+<br class="auto-style13" />
+<span class="auto-style13">/// &lt;/summary&gt;</span><br />
+<span class="auto-style7">public const string </span>SysControlEvent_HideIDE =
+<span class="auto-style11">"HideIDE";</span><br />
+<br />
+<span class="auto-style13">/// &lt;summary&gt;</span><br class="auto-style13" />
+<span class="auto-style13">/// </span><span class="auto-style8">Name of 
+SystemControlIsMain property that is used in the ISystemControl interface</span><br class="auto-style13" />
+<span class="auto-style13">/// &lt;/summary&gt;</span><br />
+<span class="auto-style7">public const string </span>
+SysControlAPI_SystemControlIsMain = "<span class="auto-style11">SystemControlIsMain</span>";<br />
+<br />
+<span class="auto-style13">/// &lt;summary&gt;</span><br class="auto-style13" />
+<span class="auto-style13">/// </span><span class="auto-style8">Name of 
+SystemControlIsMain property that is used in the ISystemControl interface</span><br class="auto-style13" />
+<span class="auto-style13">/// &lt;/summary&gt;</span><br />
+<span class="auto-style7">public const string</span> SysControlAPI_IsClosing =
+<span class="auto-style11">"IsClosing";</span><br />
+<br />
+<span class="auto-style13">/// &lt;summary&gt;</span><br class="auto-style13" />
+<span class="auto-style13">///</span><span class="auto-style8"> Name of API 
+implemented in Interfaces.IProgramEvents. This API is called</span><br class="auto-style13" />
+<span class="auto-style13">///</span><span class="auto-style8"> automatically 
+when the test program starts (if implemented).</span><br class="auto-style13" />
+<span class="auto-style13">/// &lt;/summary&gt;</span><br />
+<span class="auto-style7">public const</span> string TP_START =
+<span class="auto-style11">"ProgramStart";</span><br />
+<br />
+<span class="auto-style13">/// &lt;summary&gt;</span><br class="auto-style13" />
+<span class="auto-style13">/// </span><span class="auto-style8">Name of API 
+implemented in Interfaces.IProgramEvents. This API is called</span><br class="auto-style13" />
+<span class="auto-style13">/// </span><span class="auto-style8">automatically 
+when the test program STOPS (if implemented).</span><br class="auto-style13" />
+<span class="auto-style13">/// &lt;/summary&gt;</span><br />
+<span class="auto-style7">public const string</span>&nbsp; TP_STOP = "<span class="auto-style11">ProgramStopped</span>";<br />
+<br />
+<span class="auto-style13">/// &lt;summary&gt;</span><br class="auto-style13" />
+<span class="auto-style13">/// </span><span class="auto-style8">Name of API 
+implemented Interfaces.IProgramEvents. This API is called</span><br class="auto-style13" />
+<span class="auto-style13">/// </span><span class="auto-style8">automatically 
+when the user hits the STOP button (if implemented).</span><br class="auto-style13" />
+<span class="auto-style13">/// &lt;/summary&gt;</span><br />
+<span class="auto-style7">public const string</span>&nbsp; TP_REQUESTSTOP = "<span class="auto-style11">RequestToStop</span>";<br />
+<br />
+<span class="auto-style13">/// &lt;summary&gt;</span><br class="auto-style13" />
+<span class="auto-style13">///</span><span class="auto-style8"> The path root of 
+the ActivATE runtime directory.</span><br class="auto-style13" />
+<span class="auto-style13">/// &lt;/summary&gt;</span><br />
+<span class="auto-style7">public static readonly </span>string ROOT_DIR;<br />
+<br />
+<span class="auto-style13">/// &lt;summary&gt;</span><br class="auto-style13" />
+<span class="auto-style13">/// </span><span class="auto-style8">ActivATE 
+standard temp directory</span><br class="auto-style13" />
+<span class="auto-style13">/// &lt;/summary&gt;</span><br />
+<span class="auto-style7">public static readonly</span> string TEMP_DIR;<br />
+<br />
+<span class="auto-style13">/// &lt;summary&gt;</span><br class="auto-style13" />
+<span class="auto-style13">/// </span><span class="auto-style8">ActivATE 
+telemetry file directory path</span><br class="auto-style13" />
+<span class="auto-style13">/// &lt;/summary&gt;</span><br />
+<span class="auto-style7">public const string </span>TELEM_DIR =<span class="auto-style11"> 
+@"\TelemetryData</span>";<br />
+<br />
+<span class="auto-style13">/// &lt;summary&gt;</span><br class="auto-style13" />
+<span class="auto-style13">///</span><span class="auto-style8"> ActivATE trace 
+file directory path</span><br class="auto-style13" />
+<span class="auto-style13">/// &lt;/summary&gt;</span><br />
+<span class="auto-style7">public const string</span>TRACE_DIR =
+<span class="auto-style11">@"\TraceFiles";</span><br />
+<br />
+<span class="auto-style13">/// &lt;summary&gt;</span><br class="auto-style13" />
+<span class="auto-style13">/// </span><span class="auto-style8">ActivATE datalog 
+file directory path</span><br class="auto-style13" />
+<span class="auto-style13">/// &lt;/summary&gt;</span><br />
+<span class="auto-style7">public const string </span>DATALOG_DIR =
+<span class="auto-style11">@"\DataLogs</span>";<br />
+<br />
+<span class="auto-style13">/// &lt;summary&gt;</span><br class="auto-style13" />
+<span class="auto-style13">/// </span><span class="auto-style8">ActivATE Lot 
+file directory path</span><br class="auto-style13" />
+<span class="auto-style13">/// &lt;/summary&gt;</span><br />
+<span class="auto-style7">public const string</span> LOT_DIR =<span class="auto-style11"> 
+@"\LotFiles"</span>;<br />
+<br />
+<span class="auto-style13">/// &lt;summary&gt;</span><br class="auto-style13" />
+<span class="auto-style13">/// </span><span class="auto-style8">ActivATE test 
+program file directory path</span><br class="auto-style13" />
+<span class="auto-style13">/// &lt;/summary&gt;</span><br />
+<span class="auto-style7">public const string</span> TP_DIR =
+<span class="auto-style11">@"\TpFiles";</span><br />
+<br />
+<span class="auto-style13">/// &lt;summary&gt;</span><br class="auto-style13" />
+<span class="auto-style13">/// </span><span class="auto-style8">Number of TIUs 
+total</span><br class="auto-style13" />
+<span class="auto-style13">/// &lt;/summary&gt;</span><br />
+<span class="auto-style7">public const int</span> MAX_TIUS = 36;<br />
+<br />
+<span class="auto-style13">/// &lt;summary&gt;</span><br class="auto-style13" />
+<span class="auto-style13">/// </span><span class="auto-style8">Number of slots 
+total.</span><br class="auto-style13" />
+<span class="auto-style13">/// &lt;/summary&gt;</span><br />
+<span class="auto-style7">public const int</span> MAX_SLOTS = 36;<br />
+<br />
+<span class="auto-style8">// Driver warning code constants -1 to -99</span><br class="auto-style13" />
+<span class="auto-style13">/// &lt;summary&gt;</span><br class="auto-style13" />
+<span class="auto-style13">/// </span><span class="auto-style8">We have no 
+information about this error</span><br class="auto-style13" />
+<span class="auto-style13">/// &lt;/summary&gt;</span><br />
+<span class="auto-style7">public const int </span>UNKNOWN_ERROR = -1;<br />
+<br />
+<span class="auto-style13">/// &lt;summary&gt;</span><br class="auto-style13" />
+<span class="auto-style13">/// </span><span class="auto-style8">The Slot number 
+is invalid</span><br class="auto-style13" />
+<span class="auto-style13">/// &lt;/summary&gt;</span><br />
+<span class="auto-style7">public const int </span>INVALID_SLOT = -2;<br />
+<br />
+<span class="auto-style13">/// &lt;summary&gt;</span><br class="auto-style13" />
+<span class="auto-style13">/// The TIU number is invalid</span><br class="auto-style13" />
+<span class="auto-style13">/// &lt;/summary&gt;</span><br />
+<span class="auto-style7">public const int</span> INVALID_TIU = -2;<br />
+<br />
+<span class="auto-style13">/// &lt;summary&gt;</span><br class="auto-style13" />
+<span class="auto-style13">///</span><span class="auto-style8"> The DUT number 
+is invalid</span><br class="auto-style13" />
+<span class="auto-style13">/// &lt;/summary&gt;</span><br />
+<span class="auto-style7">public const int</span> INVALID_DUT = -3;<br />
+<br />
+<span class="auto-style13">/// &lt;summary&gt;</span><br class="auto-style13" />
+<span class="auto-style13">/// </span><span class="auto-style8">In general, a 
+parameter value is out of range or incorrect type.</span><br class="auto-style13" />
+<span class="auto-style13">/// &lt;/summary&gt;</span><br />
+<span class="auto-style7">public const int</span> INVALID_PARAMETER = -4;<br />
+<br />
+<span class="auto-style13">/// &lt;summary&gt;</span><br class="auto-style13" />
+<span class="auto-style13">///</span><span class="auto-style8"> Invalid data was 
+returned from an object</span><br class="auto-style13" />
+<span class="auto-style13">/// &lt;/summary&gt;</span><br />
+<span class="auto-style7">public const int</span> INVALID_DATA_RETURNED = -5;<br />
+<br />
+/<span class="auto-style13">// &lt;summary&gt;</span><br class="auto-style13" />
+<span class="auto-style13">/// </span><span class="auto-style8">There has been a 
+reference to a null object.</span><br class="auto-style13" />
+<span class="auto-style13">/// &lt;/summary&gt;</span><br />
+<span class="auto-style7">public const int</span> NULL_REFERENCE = -6;<br />
+<br />
+<span class="auto-style13">/// &lt;summary&gt;</span><br class="auto-style13" />
+<span class="auto-style13">/// </span><span class="auto-style8">The lot number 
+is not recognized by the Racal IC</span><br class="auto-style13" />
+<span class="auto-style13">/// &lt;/summary&gt;</span><br />
+<span class="auto-style7">public const int</span> UNKNOWN_LOT = -7;<br />
+<br />
+/<span class="auto-style13">// &lt;summary&gt;</span><br class="auto-style13" />
+<span class="auto-style13">/// </span><span class="auto-style8">There has been a 
+time-out on a threaded operation</span><br class="auto-style13" />
+<span class="auto-style13">/// &lt;/summary&gt;</span><br />
+<span class="auto-style7">public const int</span> THREAD_TIMEOUT = -8;<br />
+<br />
+<span class="auto-style13">/// &lt;summary&gt;</span><br class="auto-style13" />
+<span class="auto-style13">/// </span><span class="auto-style8">An exception has 
+been raised during the execution of the method</span><br class="auto-style13" />
+<span class="auto-style13">/// &lt;/summary&gt;</span><br />
+<span class="auto-style7">public const int</span> EXCEPTION_ERROR = -9;<br />
+<br />
+<span class="auto-style13">/// &lt;summary&gt;</span><br class="auto-style13" />
+<span class="auto-style13">///</span><span class="auto-style8"> Cannot copy the 
+file to the local destination</span><br class="auto-style13" />
+<span class="auto-style13">/// &lt;/summary&gt;</span><br />
+<span class="auto-style7">public const int</span> CANNOT_COPY_FILE = -10;<br />
+<br />
+<span class="auto-style13">/// &lt;summary&gt;</span><br class="auto-style13" />
+<span class="auto-style13">/// </span><span class="auto-style8">Cannot opent the 
+specified file (does it exist?)</span><br class="auto-style13" />
+<span class="auto-style13">/// &lt;/summary&gt;</span><br />
+<span class="auto-style7">public const int</span> CANNOT_OPEN_FILE = -11;<br />
+<br />
+<span class="auto-style13">/// &lt;summary&gt;</span><br class="auto-style13" />
+<span class="auto-style13">/// </span><span class="auto-style8">There has been a 
+read or write time-out on an instrument bus</span><br class="auto-style13" />
+<span class="auto-style13">///</span><span class="auto-style8"> This could mean 
+RS-485, GPIB, Ethernet, etc</span><br class="auto-style13" />
+<span class="auto-style13">/// &lt;/summary&gt; </span><br />
+<span class="auto-style7">public const int</span> BUS_TIMEOUT = -12; <br />
+<br />
+<span class="auto-style13">/// &lt;summary&gt;</span><br class="auto-style13" />
+<span class="auto-style13">/// Used to make warnings into errors.</span><br class="auto-style13" />
+<span class="auto-style13">/// &lt;/summary&gt;</span><br />
+<span class="auto-style7">public const int</span> SEVERE = -13;<br />
+<br />
+<span class="auto-style13">/// &lt;summary&gt;</span><br class="auto-style13" />
+<span class="auto-style13">/// </span><span class="auto-style8">An exception has 
+been raised in a driver</span><br class="auto-style13" />
+<span class="auto-style13">/// &lt;/summary&gt;</span><br />
+<span class="auto-style7">public const int</span> EXCEPTION_RAISED = -14;<br />
+<br />
+<span class="auto-style13">/// &lt;summary&gt;</span><br class="auto-style13" />
+<span class="auto-style13">/// </span><span class="auto-style8">Cannot open 
+port, instrument, device, etc</span><br class="auto-style13" />
+<span class="auto-style13">/// &lt;/summary&gt;</span><br />
+<span class="auto-style7">public const int</span> CANNOT_OPEN_DEVICE = -15;<br />
+<br />
+<span class="auto-style13">/// &lt;summary&gt;</span><br class="auto-style13" />
+<span class="auto-style13">/// </span><span class="auto-style8">Device is not 
+open</span><br class="auto-style13" />
+<span class="auto-style13">/// &lt;/summary&gt;</span></p>
+<p style="language: en-US; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline; " class="auto-style12">
+<span class="auto-style7">public const int</span> DEVICE_NOT_OPEN = -16;<br />
+<br />
+<span class="auto-style13">/// &lt;summary&gt;</span><br class="auto-style13" />
+<span class="auto-style13">/// </span><span class="auto-style8">Device is not 
+open</span><br class="auto-style13" />
+<span class="auto-style13">/// &lt;/summary&gt;</span><br />
+<span class="auto-style7">public const int</span> DEVICE_OFF_LINE = -17;</p>
+<p style="language: en-US; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline; margin-top: 0pt; margin-bottom: 0pt" class="auto-style3">
+&nbsp;</p>
+<p style="language: en-US; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline; margin-top: 0pt; margin-bottom: 0pt" class="auto-style3">
+<a href="Overview.html">Back To Main</a></p>
+<p style="language: en-US; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline; margin-top: 0pt; margin-bottom: 0pt" class="auto-style3">
+&nbsp;</p>
+<p style="language: en-US; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline; margin-top: 0pt; margin-bottom: 0pt">
+<span class="auto-style3">see also: <a href="CreatingDrivers.html">Creating .NET 
+Drivers - An Overview</a> | <a href="CreatingDrivers.html">Creating Drivers - 
+Part 1 </a>| </span><a href="CreatingDriversPart3.html">
+<span class="auto-style3">Creating .NET Drivers - Part 3</span></a><span class="auto-style4"><span class="auto-style5"> 
+| <a href="UsingTheSDK.html">Using the SDK</a> </span></span></p>
+<p style="language: en-US; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline; margin-top: 0pt; margin-bottom: 0pt">
+&nbsp;</p>
+<p style="language: en-US; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline; margin-top: 0pt; margin-bottom: 0pt"><i><font face="Verdana" size="1">
+Astronics Test Systems<br>
+Last updated on August 12, 2015 by D. Ignacio</font></i></p>
+
+</body>
+
+</html>

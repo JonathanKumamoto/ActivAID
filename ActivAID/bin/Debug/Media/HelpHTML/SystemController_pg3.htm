@@ -1,0 +1,264 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>System Controller</title>
+<link rel="stylesheet" type="text/css" href="help.css">
+</head>
+
+<body>
+
+<h1>System Controller - Page 3.&nbsp; OnConnection() and Driver Events.</h1>
+<p>The SystemController module has a number of methods that are important to the 
+ActivATE test environment startup.&nbsp; These methods are all under the C#<i> 
+region</i><b> </b>called &quot;Runtime Engine Initialization&quot;.&nbsp; The methods in this region 
+should not be changed else there is a risk of unexpected behavior during 
+application startup. However, there are exceptions.&nbsp; Users may want to 
+modify the SystemControl method called ConnectDevices() to intercept certain 
+events from their drivers or add-in modules.</p>
+<p>Any driver or add-in that inherits from GenericDriver (your project must 
+reference the &quot;Interfaces&quot; module to inherit from GenericDriver) may fire events to the SystemControl 
+module by using&nbsp; pre-defined methods in the driver base-class 
+called <font face="Courier New">FireOnInfo(), FireOnWarning(),</font> and
+<font face="Courier New">FireOnError()</font>. These methods will fire 
+pre-defined event types.&nbsp; However, developers can easily fire other events 
+by calling <font face="Courier New">FireSystemEvent()</font>.&nbsp;&nbsp; FireSystemEvent is a GenericDriver&nbsp; 
+base class method that takes RISystemEventArgs and fires a multi-cast event over 
+to the SystemController module.&nbsp; For example, from the driver class, one 
+might use something like:</p><font SIZE="3">
+<p></font><font face="Courier New"><font COLOR="#2b91af" size="2">
+RISystemEventArgs</font><font size="2"> args =<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font COLOR="#0000ff" size="2">new</font><font size="2">
+</font><font COLOR="#2b91af" size="2">RISystemEventArgs</font><font size="2">(</font><font COLOR="#2b91af" size="2">eSystemEventType</font><font size="2">.Error</font><font size="2">,
+</font><font COLOR="#a31515" size="2">&quot;MyMethhod&quot;</font></font><font face="Courier New" size="2">, 
+0, errCode, &quot;You got an error&quot;);<br>
+FireSystemEvent(args);</font></p>
+<p>Event types are:</p>
+<p><img border="0" src="bin/SystemEventTypes.PNG" width="751" height="179"></p>
+<p>The driver and add-in events get wired up when the SystemController calls 
+ConnectDevices() in the SystemControl class (see file 
+<a href="SystemController.htm">SystemController.cs</a>).&nbsp; Here is a typical 
+example of a SystemController's&nbsp; ConnectDevices API....</p>
+<font SIZE="3">
+<p></font><font face="Courier New"><font SIZE="2" COLOR="#0000ff">private</font><font SIZE="2">
+</font><font SIZE="2" COLOR="#0000ff">int</font><font SIZE="2"> ConnectDevices()<br>
+</font></font><font size="2" face="Courier New">{<br>
+&nbsp; ....<br>
+</font><font size="3">&nbsp;&nbsp;&nbsp; </font><font face="Courier New">
+<font SIZE="2" COLOR="#0000ff">foreach</font><font SIZE="2"> (</font><font SIZE="2" COLOR="#2b91af">Device</font><font SIZE="2"> 
+d </font><font SIZE="2" COLOR="#0000ff">in</font></font><font face="Courier New" size="2"> 
+_riRuntime.DeviceManager.Devices)&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _genericDvr = d.Object </font>
+<font face="Courier New"><font SIZE="2" COLOR="#0000ff">as</font><font SIZE="2">
+</font><font SIZE="2" COLOR="#2b91af">GenericDvr</font></font><font face="Courier New" SIZE="2">;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _genericDvr.SystemEvent += </font>
+<font face="Courier New"><font SIZE="2" COLOR="#0000ff">new</font><font SIZE="2">
+</font><font SIZE="2" COLOR="#2b91af">SystemEventHandler</font><font size="2">(dev_SystemEvent</font><font size="2">);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _genericDvr.OnConnection(d.Tag);<br>
+&nbsp;&nbsp;&nbsp; }<br>
+&nbsp; ....<br>
+</font>}</font></p>
+<p>Notice we can pass an object over to the driver when we call &lt;driverObj&gt;.OnConnection() 
+from the SystemControl class.&nbsp; In the above example, d.Tag is the default 
+object and is typically a null object.&nbsp; However, this object can be 
+anything we wish including a reference to the Test Program Manager (TPMngr), the 
+Runtime Engine, or most anything else.&nbsp; On the driver-side, which lives in 
+the back-end StationRuntime, the driver object can either ignore the object 
+passed into it or use that object as needed.&nbsp; For example, examining a 
+typical driver's OnConnection() method, we may see where the driver will use the 
+Test Program Manager object:</p><font SIZE="3">
+<p><span style="line-height: 115%; font-family: Courier New; color: green">
+<font size="2">// Define a TraceLog and TPMngr object<br>
+</font></span></font><font face="Courier New"><font SIZE="2" COLOR="#2b91af">
+TraceLog</font><font SIZE="2"> _traceLog = </font>
+<font SIZE="2" COLOR="#0000ff">null</font></font><font face="Courier New" size="2">;<br>
+</font><font face="Courier New"><font SIZE="2" COLOR="#2b91af">TPMngr</font><font SIZE="2">&nbsp;&nbsp; 
+_tpMngr = </font><font SIZE="2" COLOR="#0000ff">null</font></font><font SIZE="2"><font face="Courier New">;</font></p>
+</font>
+<p><span style="line-height: 115%; font-family: Courier New; color: green">
+<font size="2">// This driver-side OnConnection() is called from SystemControl</font></span><span style="font-family: Courier New; color: blue"><font size="2"><br>
+public</font></span><span style="font-family: Courier New"><font size="2">
+<span style="color:blue">override</span> <span style="color:blue">int</span> 
+OnConnection(<span style="color:blue">object</span> obj)<br>
+{<br>
+&nbsp;&nbsp;&nbsp; </font></span>
+<span style="font-family: Courier New; color: blue"><font size="2">int</font></span><span style="font-family: Courier New"><font size="2"> 
+errCode = 0;&nbsp;<span style="color:blue"><br>
+&nbsp; </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :<span style="color:blue"><br>
+</span> </font></span><span style="line-height: 115%; font-family: Courier New; color: green">
+<font size="2">&nbsp;&nbsp;&nbsp; //This driver expects to receive a TPManager 
+object when connected</font></span><span style="font-family: Courier New"><font size="2"><span style="color:blue"><br>
+&nbsp;&nbsp;&nbsp; if</span> (obj.GetType() == <span style="color:blue">typeof</span>(Racal.TPManager.<span style="color:#2B91AF">TPMngr</span>) 
+)<br>
+&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _tpMngr = obj
+<span style="color:blue">as</span> Racal.TPManager.<span style="color:#2B91AF">TPMngr</span>;<br>
+</font></span><span style="line-height: 115%; font-family: Courier New; color: green">
+<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Wire in the TPMngr 
+events so we can get event notification</font></span><span style="font-family: Courier New"><font size="2"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _tpMngr.TpMngrEvent +=
+<span style="color:blue">new</span> <span style="color:#2B91AF">TPMngr</span>.<span style="color:#2B91AF">TpMngrEventDel</span>(_tpMngr_TpMngrEvent);<br>
+&nbsp;&nbsp;&nbsp; }<br>
+</font>&nbsp;<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :<br>
+&nbsp;&nbsp;&nbsp; </font></span>
+<span style="font-family: Courier New; color: blue"><font size="2">return</font></span><span style="font-family: Courier New"><font size="2"> 
+errCode;<br>
+}</font></span></p><font SIZE="3">
+<p></font><font SIZE="2" COLOR="#008000" face="Courier New">// Event from the 
+TPManager. Pay attention ONLY to new Test Programs<br>
+// being loaded. We should ignore everything else. That is, don't<br>
+// try to hijack the TPMngr and take control (be passive).<br>
+// ---- This MUST BE PUBLIC --- because it is from a remote call<br>
+</font><font face="Courier New"><font SIZE="2" COLOR="#0000ff">public</font><font SIZE="2">
+</font><font SIZE="2" COLOR="#0000ff">void</font><font SIZE="2"> _tpMngr_TpMngrEvent(</font><font SIZE="2" COLOR="#0000ff">object</font><font SIZE="2"> 
+sender, </font><font SIZE="2" COLOR="#2b91af">TestStatusArgs</font></font><font face="Courier New" size="2"> 
+args)<br>
+{<br>
+</font><font face="Courier New"><font SIZE="2" COLOR="#0000ff">&nbsp; if</font><font SIZE="2"> 
+(args == </font><font SIZE="2" COLOR="#0000ff">null</font></font><font face="Courier New" size="2">)<br>
+</font><font SIZE="2" COLOR="#0000ff" face="Courier New">&nbsp;&nbsp;&nbsp; 
+return</font><font face="Courier New" size="2">;</font></p>
+<p><font face="Courier New">&nbsp; </font>
+<font SIZE="2" COLOR="#0000ff" face="Courier New">int</font><font face="Courier New" size="2"> 
+TIU = args.SlotID;<br>
+</font><font SIZE="2" COLOR="#0000ff" face="Courier New">&nbsp; switch</font><font face="Courier New" size="2"> 
+(args.Status)<br>
+&nbsp; {<br>
+</font><font face="Courier New"><font SIZE="2" COLOR="#0000ff">&nbsp;&nbsp;&nbsp; 
+case</font><font SIZE="2"> </font><font SIZE="2" COLOR="#2b91af">TPMngr</font><font SIZE="2">.</font><font SIZE="2" COLOR="#2b91af">eTestStatus</font><font size="2">.Loaded</font><font size="2">:</font></font><br>
+<font SIZE="2" COLOR="#008000" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+// NOTE: you still do not have a valid TraceLog object at this point.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // This is here just for debug purposes and to 
+show you can capture events<br>
+</font><font SIZE="2" COLOR="#0000ff" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+break</font><font face="Courier New" size="2">;<br>
+</font><font SIZE="2" COLOR="#008000" face="Courier New">&nbsp;&nbsp;&nbsp; // 
+Only when the test has started, are we guaranteed a new TraceLog object<br>
+</font><font face="Courier New"><font SIZE="2" COLOR="#0000ff">&nbsp;&nbsp;&nbsp; 
+case</font><font SIZE="2"> </font><font SIZE="2" COLOR="#2b91af">TPMngr</font><font SIZE="2">.</font><font SIZE="2" COLOR="#2b91af">eTestStatus</font></font><font face="Courier New" size="2">.Running:<br>
+</font><font SIZE="2" COLOR="#008000" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+// Note: Each TIU will have it's own TraceLog object. <br>
+</font><font face="Courier New" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+_traceLog = _tpMngr.GetTraceLog(TIU);<br>
+</font><font SIZE="2" COLOR="#0000ff" face="Courier New">&nbsp;&nbsp;&nbsp; 
+break</font><font face="Courier New" size="2">;<br>
+</font><font size="2"><font face="Courier New">&nbsp; }<br>
+}</font></p>
+</font><font SIZE="3">
+<p><font SIZE="2" COLOR="#008000" face="Courier New">// A typical API might want 
+to write to the TraceLog file<br>
+</font></font><font face="Courier New"><font SIZE="2" COLOR="#0000ff">public</font><font SIZE="2">
+</font><font SIZE="2" COLOR="#0000ff">int</font></font><font face="Courier New" size="2"> 
+DoWork()<br>
+{<br>
+</font><font SIZE="2" COLOR="#0000ff" face="Courier New">&nbsp; int</font><font face="Courier New" size="2"> 
+errorCode = 0;</font></p>
+<font SIZE="3">
+<p></p>
+<p></font><font face="Courier New"><font SIZE="2" COLOR="#0000ff">&nbsp; if</font><font SIZE="2"> 
+(_traceLog != </font><font SIZE="2" COLOR="#0000ff">null</font></font><font face="Courier New" size="2">)<br>
+&nbsp; </font><font face="Courier New" size="2">{<br>
+&nbsp;&nbsp;&nbsp; _traceLog.WriteLine(</font><font COLOR="#a31515" face="Courier New" size="2">&quot;Hello</font><font COLOR="#a31515" face="Courier New" size="2"> 
+from 'DoWork()' in MyDriver.DLL&quot;</font><font face="Courier New" size="2">);<br>
+&nbsp; }<br>
+</font><font SIZE="2" COLOR="#0000ff" face="Courier New">&nbsp; else<br>
+</font><font size="3">&nbsp; </font>
+<font SIZE="2" COLOR="#008000" face="Courier New">&nbsp; // Fire an event to 
+this driver's GUI (if up)<br>
+&nbsp; </font><font face="Courier New" SIZE="2">&nbsp; FireEvent(</font><font face="Courier New"><font SIZE="2" COLOR="#0000ff">new</font><font SIZE="2">
+</font><font SIZE="2" COLOR="#2b91af">DeviceEventArgs</font><font SIZE="2">((</font><font SIZE="2" COLOR="#0000ff">int</font><font SIZE="2">)</font><font SIZE="2" COLOR="#2b91af">eAttributes</font><font size="2">.Status</font><font size="2">,
+</font><font SIZE="2" COLOR="#a31515">&quot;No </font><font COLOR="#a31515" size="3">
+Tracelog</font><font SIZE="2" COLOR="#a31515"> object yet&quot;</font></font><font face="Courier New" size="2">));</font></p>
+<p><font SIZE="2" COLOR="#0000ff" face="Courier New">&nbsp; return</font><font face="Courier New" size="2"> 
+errorCode;<br>
+}</font></p>
+<table border="2" width="70%" bordercolorlight="#C0C0C0" bordercolordark="#000000">
+	<tr>
+		<td><font size="3"><b>NOTE: </b>The above example(s) only works when 
+		using the <i>Test Program Manager</i> to execute test programs. This 
+		methodology will not work on test programs that are executing from the 
+		IDE (that is, the development environment). Test programs operating from 
+		the IDE do not fire TPMngr events.</font></td>
+	</tr>
+</table>
+<hr>
+<p><b>Driver Event Handler Customization</b></p>
+<p>Certain drivers or add-ins may require special handling when they fire 
+events.&nbsp; Developers can check for known driver names and intercept the 
+events by adding their own event handler.&nbsp; From the SystemControl's 
+ConnectDevices() method example shown above, we might want to add a check for 
+the custom driver &quot;SimpleAddIn1&quot; and take special action should this driver fire 
+any events.</p>
+<p><font face="Courier New"><font SIZE="2" COLOR="#0000ff">foreach</font><font SIZE="2"> 
+(</font><font SIZE="2" COLOR="#2b91af">Device</font><font SIZE="2"> d </font>
+<font SIZE="2" COLOR="#0000ff">in</font></font><font face="Courier New" size="2"> 
+_riRuntime.DeviceManager.Devices)&nbsp;&nbsp;&nbsp; <br>
+{<br>
+&nbsp;&nbsp;&nbsp; </font><font SIZE="2" COLOR="#0000ff" face="Courier New">
+switch</font><font face="Courier New" size="2"> (d.Name)<br>
+&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+<font SIZE="2" COLOR="#008000" face="Courier New">// Add an event handler for 
+our special add-in driver <br>
+</font><font size="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font><font face="Courier New"><font SIZE="2" COLOR="#0000ff">case</font><font SIZE="2">
+</font><font SIZE="2" COLOR="#a31515">&quot;SimpleAddIn1&quot;</font></font><font face="Courier New" size="2">:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _genericDvr.SystemEvent 
++= </font><font face="Courier New"><font SIZE="2" COLOR="#0000ff">new</font><font SIZE="2">
+</font><font SIZE="2" COLOR="#2b91af">SystemEventHandler</font><font size="2">(MyAddIn_SystemEvent</font><font size="2">);</font></font><br>
+<font SIZE="2" COLOR="#008000" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+// OnConnection is looking for an object to be passed in. Send in the TPMngr 
+(example only)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+<font face="Courier New" SIZE="2">&nbsp;&nbsp;&nbsp; Racal.TPManager.</font><font face="Courier New"><font SIZE="2" COLOR="#2b91af">TPMngr</font><font SIZE="2"> 
+mngr = </font><font SIZE="2" COLOR="#2b91af">TPMngr</font><font size="2">.Acquire</font><font size="2">();</font></font><br>
+<font SIZE="3"><font face="Courier New" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+_genericDvr.OnConnection(mngr);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></font>
+<font SIZE="2" COLOR="#0000ff" face="Courier New">&nbsp;&nbsp;&nbsp; break</font><font SIZE="2" face="Courier New">;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+<font SIZE="2" COLOR="#008000" face="Courier New">// Otherwise, use the default 
+event handler</font><font face="Courier New" size="2"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+<font SIZE="2" COLOR="#0000ff" face="Courier New">default</font><font face="Courier New" size="2">:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+_genericDvr.SystemEvent += </font><font face="Courier New">
+<font SIZE="2" COLOR="#0000ff">new</font><font SIZE="2"> </font>
+<font SIZE="2" COLOR="#2b91af">SystemEventHandler</font><font size="2">(dev_SystemEvent);<br>
+&nbsp;&nbsp;&nbsp; </font></font><font face="Courier New" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+_genericDvr.OnConnection(d.Tag);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+<font SIZE="2" COLOR="#0000ff" face="Courier New">break</font><font face="Courier New" size="2">;<br>
+&nbsp;&nbsp;&nbsp; }<br>
+</font><font face="Courier New">}</font></p><font SIZE="3">
+<p><font SIZE="2" COLOR="#008000" face="Courier New">// Cross-process Event 
+Handlers MUST be public<br>
+</font></font><font face="Courier New"><font SIZE="2" COLOR="#0000ff">public</font><font SIZE="2">
+</font><font SIZE="2" COLOR="#0000ff">void</font><font SIZE="2"> 
+MyAddIn_SystemEvent(</font><font SIZE="2" COLOR="#0000ff">object</font><font SIZE="2"> 
+sender, </font><font SIZE="2" COLOR="#2b91af">RISystemEventArgs</font></font><font face="Courier New" size="2"> 
+args)<br>
+{<br>
+&nbsp;&nbsp; </font><font SIZE="2" COLOR="#008000" face="Courier New">// ToDo: 
+Handle event types here </font></p>
+<p><font SIZE="2" COLOR="#0000ff" face="Courier New">&nbsp;&nbsp;&nbsp; return</font><font face="Courier New" size="2">;<br>
+}</font></p>
+<p>&nbsp;</p>
+<hr>
+
+<p><b>See Also</b></p>
+<p><b>&nbsp;&nbsp;&nbsp; </b><a href="TestProgramManager.htm">Test Program 
+Manager</a> | <a href="SystemController.htm">System Controller - Page 1</a> |
+<a href="SystemController_pg2.htm">System Controller - Page 2</a> |
+<a href="TestProgramManager.htm">TestProgramManager</a></p>
+<p><i><font face="Verdana" size="1">Astronics Test Systems<br>
+Last updated on 9/24/09 by I. Williams</font></i></p>
+
+</body>
+
+</html>

@@ -1,0 +1,163 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>File Menu and Standard Toolbar</title>
+<link rel="stylesheet" type="text/css" href="help.css">
+    <style type="text/css">
+        .style1
+        {
+            font-size: xx-small;
+        }
+    </style>
+</head>
+
+<body>
+<h1><a name="Top">File Menu and Standard Toolbar</a></h1>
+<p>The File menu and the Standard toolbar (shown below) share much of their 
+functionality and are therefore both discussed here.&nbsp; The items on the menu 
+will vary depending on if a document is open and if so, whether that 
+document is a test program or a file.&nbsp; Therefore, your menu may 
+not always appear as it does in the images shown here.</p>
+<table border="0" width="40%" id="table1">
+  <tr>
+    <td width="287">
+    <img border="0" src="bin/FileMenu1.png" width="219" height="297"></td>
+    <td valign="top">
+	<img border="0" src="bin/StandardToolbar1.png" width="206" height="47"></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table border="1" id="table2">
+  <tr>
+    <td width="241">&nbsp;<a href="#Close">Close</a></td>
+    <td width="241">&nbsp;<a href="#Exit">Exit</a></td>
+    <td width="241">&nbsp;<a href="#New_File">New Document</a></td>
+    <td width="241">&nbsp;<a href="#New_Test_Program">New Test Program</a></td>
+  </tr>
+  <tr>
+    <td width="241">&nbsp;<a href="#Open">Open</a></td>
+    <td width="241">&nbsp;<a href="#Print">Print</a></td>
+    <td width="241">&nbsp;<a href="#Print_Preview">Print Preview</a></td>
+    <td width="241">&nbsp;<a href="#Recent_Files">Recent Files</a></td>
+  </tr>
+  <tr>
+    <td width="241">&nbsp;<a href="#Save">Save</a></td>
+    <td width="241">&nbsp;<a href="#Save_All">Save All</a> </td>
+    <td width="241">&nbsp;<a href="#Save_As">Save As</a></td>
+    <td width="241">&nbsp;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<hr>
+<p><b><a name="Close">Close</a>&nbsp; </b>(File Menu)</p>
+<p>Closes the currently selected document (either a single file or a test 
+program).&nbsp; If the document contains any unsaved changes, the user is 
+prompted to save them before closing.&nbsp; Shortcut key is Ctrl+W.&nbsp;
+</p>
+<hr>
+<p><b><a name="Exit">Exit</a>&nbsp; </b>(File Menu)</p>
+<p>Exits the entire application.&nbsp; If there are any documents opened with 
+unsaved changes, the user is prompted to save them before the application 
+closes. </p>
+<hr>
+<p><b><a name="New_File">New D</a>ocument&nbsp; </b>(File Menu)</p>
+<p>Creates a new file.&nbsp; Select the type of file to create from the submenu 
+that displays as shown below.&nbsp; The type of file will determine the keywords 
+to color-code in the editor and the default file extension to use when the file 
+is saved.&nbsp; </p>
+<p><b><i>NOTE:&nbsp; </i></b>The available file types do NOT imply that a test 
+program can be written and executed in any language other than VBScript.&nbsp; 
+The test sequencer can ONLY execute test programs written in VBScript.&nbsp; 
+These additional editors are only included as a convenience to the user.</p>
+<p><img border="0" src="bin/newFile1.png" width="373" height="284"></p>
+<hr>
+<table border="0" width="510" id="table3">
+  <tr>
+    <td width="387"><b><a name="New_Test_Program">New Test Program</a>&nbsp; </b>
+    (File Menu and Standard Toolbar)</td>
+    <td><img border="0" src="bin/newtpbutton.png" width="113" height="21"></td>
+  </tr>
+</table>
+<p><b>&nbsp;</b>Creates a new test program.&nbsp; For more information, see
+<a href="NewTestProgram.html">Creating a new test program</a>.</p>
+<hr>
+<table border="0" width="350" id="table4">
+  <tr>
+    <td width="303"><b><a name="Open">Open</a>&nbsp; </b>(File Menu and Standard 
+    Toolbar)</td>
+    <td><img border="0" src="bin/openButton.png" width="22" height="18"></td>
+  </tr>
+</table>
+<p>Opens an existing test program or file.&nbsp; A file browser dialog box 
+appears.&nbsp; By default, only test program files (those with the &quot;.seq&quot; 
+extension) are visible.&nbsp; To change this filter, select the file type from 
+the drop-down box at the bottom of the dialog window.</p>
+<p><img border="0" src="bin/OpenFile1.jpg" width="569" height="547"></p>
+<hr>
+<table border="0" width="312" id="table5">
+  <tr>
+    <td width="268"><b><a name="Print">Print</a>&nbsp; </b>(File Menu and Edit Toolbar)</td>
+    <td><img border="0" src="bin/printButton.png" width="22" height="20"></td>
+  </tr>
+</table>
+<p>Prints the selected document.&nbsp; If a test program window has the focus 
+when this button is clicked, select the test program's item to print from the 
+submenu as shown below.&nbsp; If a single document has the focus when the print 
+button is clicked, the submenu does not appear and the document itself is 
+printed.</p>
+<table border="0" width="90%" id="table6">
+  <tr>
+    <td width="189">
+    <img border="0" src="bin/printButton2.png" width="347" height="138"></td>
+    <td valign="top"><i>Script View</i>: Prints the main test script.<p><i>Test 
+    Results</i>: Prints the test results from the last test program run.&nbsp; 
+    If the program has not yet been run, nothing is sent to the printer.</p>
+    <p><i>Sequence View</i>: Prints the nodes in the Test Sequence View.</td>
+  </tr>
+</table>
+<hr>
+<table border="0" width="370" id="table7">
+  <tr>
+    <td width="326"><b><a name="Print_Preview">Print Preview</a> </b>(File Menu 
+	and Edit Toolbar)</td>
+    <td><img border="0" src="bin/printpreview.png" width="21" height="20"></td>
+  </tr>
+</table>
+<p>Opens a new window with a preview of the file to be printed.&nbsp; If a test 
+program window currently has the focus, the print preview shows a preview 
+of the test script.&nbsp; </p>
+<hr>
+<p><b><a name="Recent_Files">Recent Files</a> </b>&nbsp;(File Menu)</p>
+<p>Shows a list of the most recently opened files.&nbsp; Click on a file from 
+the list to quickly open that file.</p>
+<p><img border="0" src="bin/recentFiles.png" width="617" height="199"></p>
+<hr>
+<table border="0" width="300" id="table8">
+  <tr>
+    <td width="282"><b><a name="Save">Save</a>&nbsp; </b>(File Menu and Edit 
+    Toolbar)</td>
+    <td><img border="0" src="bin/savebutton.png" width="22" height="20"></td>
+  </tr>
+</table>
+<p>Saves the currently selected document.&nbsp; If the document is newly created 
+and has not been named, you will be prompted for a file path and file name.&nbsp; 
+If the document is a test program, all test program files (the main script file, 
+the sequence file, and the globals file if one exists) are saved.</p>
+<hr>
+<p><b><a name="Save_All">Save All</a>&nbsp; </b>(File Menu)</p>
+<p>Saves all files in the test program (the sequence file, test script, and 
+globals file).</p>
+<hr>
+<p><b><a name="Save_As">Save As</a>&nbsp; </b>(File Menu)</p>
+<p>Saves a copy of the current document under a new name.&nbsp; If the current 
+document is a test program, the sequence file, test script and globals file will 
+all be copied and saved.</p>
+<p>&nbsp;</p>
+<p><font size="2" face="Verdana"><a href="#Top">Back to Top</a></font></p>
+<p><i><font face="Verdana" size="1">Astronics Test Systems<br>
+Last updated on </font><span class="style1">11/17/14 by M. Buccat</span></i></p>
+
+</body>
+
+</html>

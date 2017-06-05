@@ -15,16 +15,13 @@ namespace ActivAID
     {
         private SqlConnection conn;
         private string dblocation;
-        private SqlConnectionStringBuilder builder;
         
         // private int elementCounter;
         public ActivAIDDB()
         {
             string dbName = "ActivAID DB";
-            string serverName = "localhost\\SQLEXPRESS";
-            dblocation = "Server="+serverName+";Database=" + dbName + ";Integrated Security=true";
-            builder = new SqlConnectionStringBuilder();
-            builder.IntegratedSecurity = false;
+            string serverName = Environment.GetEnvironmentVariable("SERVER");
+            dblocation = "Server="+serverName+";Database=" + dbName + ";Integrated Security=true";          
         }
 
         public void insertIntoFiles(string filepath)// string keywords)

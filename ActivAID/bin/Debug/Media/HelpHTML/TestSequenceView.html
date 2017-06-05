@@ -1,0 +1,64 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 12.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Test Sequence View</title>
+</head>
+
+<body>
+
+<p><font face="Verdana" size="3"><b><a name="Top">Test Sequence View</a></b></font></p>
+<p><font face="Verdana" size="2">The Test Sequence View is a tree view similar
+to the directory tree structure used in Microsoft Windows Explorer.&nbsp; It
+determines the sequence of the test program's execution.&nbsp; It minimally
+contains the root (top-level) test program node and may include any number of
+group and test nodes.&nbsp; When a test program is run, execution begins with
+the root node and follows the tree nodes down in the order they appear.&nbsp; If
+a PreTest method is specified for the root node, it will be the first method to
+execute.&nbsp; For each subsequent node, execution will be determined according
+to the type of node.&nbsp; For group nodes, the PreTest method (if specified)
+will execute first, followed by the test functions for each of the test nodes
+included in the group.&nbsp; After all the group's child nodes have completed,
+the group's PostTest method is executed.&nbsp; After all enabled nodes in the
+Test Sequence View have been executed, the PostTest method of the root node is
+run and the test program is complete.&nbsp;&nbsp;</font></p>
+<p><b><font face="Verdana" size="2">Example:&nbsp; Illustration of test sequence</font></b></p>
+<table border="0" width="58%">
+  <tr>
+    <td width="41%" valign="top">
+	<img border="0" src="bin/testseqView1.png" width="248" height="197"></td>
+    <td width="59%" valign="top"><font face="Verdana" size="2">Assuming all
+      nodes are enabled, this test program would be executed in the following
+      order:</font>
+      <blockquote>
+        <p><font face="Verdana" size="2">-MyTest PreTest method&nbsp;<br>
+        -Group1 PreTest method<br>
+        -Test1 method<br>
+        -Test2 method<br>
+        -Group2 PreTest method<br>
+        -Test3 method<br>
+        -Group2 PostTest method<br>
+        -Group1 PostTest method<br>
+        -Group3 PreTest method<br>
+        -Test4 method<br>
+        -Group3 PostTest method<br>
+        -MyTest PostTest method</font></p>
+      </blockquote>
+    </td>
+  </tr>
+</table>
+<p><b><font face="Verdana" size="2">See Also</font></b></p>
+<p>&nbsp;&nbsp; <font face="Verdana" size="2"><a href="TestSequenceViewContextMenu.html">Test
+Sequence View Context Menu</a> | <a href="NodeDragDrop.html">Node Drag-Drop</a></font></p>
+<p>&nbsp;</p>
+<p><font size="2" face="Verdana"><a href="#Top">Back to
+Top</a></font></p>
+<p><i><font face="Verdana" size="1">Astronics Test Systems<br>
+Last updated on 3/1/07 by L. Anhalt</font></i></p>
+
+</body>
+
+</html>

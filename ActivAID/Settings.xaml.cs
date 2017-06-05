@@ -24,12 +24,38 @@ namespace ActivAID
         public Settings()
         {
             InitializeComponent();
-            settingswindow.Buttonsch1.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
-            settingswindow.Buttonsch1.BorderThickness = new Thickness(2);
             MouseDown += delegate { DragMove(); };
-            settingswindow.Buttonsch1.Focus();
-            settingswindow.Buttonsch1.IsDefault=true;
             ClickedButton = settingswindow.Buttonsch1;
+            switch (Properties.Settings.Default["Color2"].ToString())
+            {
+                case "#FF4C6181":
+                    {
+                        settingswindow.Buttonsch1.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+                        settingswindow.Buttonsch1.BorderThickness = new Thickness(2);
+                        settingswindow.Buttonsch1.Focus();
+                        settingswindow.Buttonsch1.IsDefault = true;
+                        ClickedButton = settingswindow.Buttonsch1;
+                        break;
+                    }
+                case "#FF4A4B53":
+                    {
+                        settingswindow.Buttonsch2.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+                        settingswindow.Buttonsch2.BorderThickness = new Thickness(2);
+                        settingswindow.Buttonsch2.Focus();
+                        settingswindow.Buttonsch2.IsDefault = true;
+                        ClickedButton = settingswindow.Buttonsch2;
+                        break;
+                    }
+                case "#FFC39428":
+                    {
+                        settingswindow.Buttonsch3.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+                        settingswindow.Buttonsch3.BorderThickness = new Thickness(2);
+                        settingswindow.Buttonsch3.Focus();
+                        settingswindow.Buttonsch3.IsDefault = true;
+                        ClickedButton = settingswindow.Buttonsch3;
+                        break;
+                    }
+            }
         }
 
         private void SaveButton_OnClose(object sender, RoutedEventArgs e)
@@ -41,8 +67,8 @@ namespace ActivAID
                 {
                     if (ClickedButton.Name == "Buttonsch1")
                     {
-                        (window as MainWindow).grid1.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF284167")); //Dark Blue
-                        (window as MainWindow).frame.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF4C6181")); //Light blue
+                        (window as MainWindow).grid1.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#284167")); //Dark Blue
+                        (window as MainWindow).frame.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#4C6181")); //Light blue
                         //(window as MainWindow).close.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF5383AD"));
                         //(window as MainWindow).firstBOT.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF4A4B53"));
                         (window as MainWindow).ColorBOT = "#232c3a";
@@ -135,6 +161,12 @@ namespace ActivAID
                     }
 
                     (window as MainWindow).fontSize = Convert.ToInt32(textBoxfont.Text);
+                    Properties.Settings.Default["Color1"] = (window as MainWindow).grid1.Background.ToString();
+                    Properties.Settings.Default["Color2"] = (window as MainWindow).frame.Background.ToString();
+                    Properties.Settings.Default["ColorBOT"] = (window as MainWindow).ColorBOT;
+                    Properties.Settings.Default["ColorUser"] = (window as MainWindow).ColorUser;
+                    Properties.Settings.Default["Font"] = Convert.ToInt32(textBoxfont.Text);
+                    Properties.Settings.Default.Save();
                 }
 
             }
@@ -148,7 +180,12 @@ namespace ActivAID
         private void colorsch_OnClick(object sender, RoutedEventArgs e)
         {
             ClickedButton.IsDefault = false;
+            ClickedButton.BorderBrush = null;
+            ClickedButton.BorderThickness = new Thickness(1);
             ClickedButton = (sender as Button);
+            ClickedButton.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+            ClickedButton.BorderThickness = new Thickness(2);
+            ClickedButton.Focus();
             ClickedButton.IsDefault = true;
         }
     }

@@ -9,6 +9,7 @@ using BlockDataAndKeyWords = System.Collections.Generic.List<System.Tuple<string
 using System.Diagnostics;
 using System.Windows.Controls;
 using System.Runtime.Serialization;
+using System.IO;
 
 namespace ActivAID
 {
@@ -303,7 +304,7 @@ namespace ActivAID
                 {
                     tb = new TextBlock();
                     rList.Add(tb);
-                    new HrefsClickable(ref tb, hrefTup.Item1, hrefTup.Item2);
+                    new HrefsClickable(ref tb, hrefTup.Item1, @"Media\HelpHTML\"+Path.GetFileName(hrefTup.Item2));
                 }
             }
             return rList;
@@ -326,7 +327,7 @@ namespace ActivAID
 
         private static List<TextBlock> handleKWCase(string paragraph, List<QueryResponse> responses)
         {
-            string fString = "This article covers topics and keywords related to: ";
+            string fString = "The following clickable documents cover topics and keywords related to: ";
             var tb = new TextBlock();
             List<TextBlock> rList = new List<TextBlock>();
             tb.Text = fString;

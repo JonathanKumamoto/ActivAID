@@ -1,0 +1,368 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="en-us" http-equiv="Content-Language" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Creating .NET Drivers - Enums and Threading</title>
+<style type="text/css">
+.auto-style1 {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: medium;
+}
+.auto-style3 {
+	font-size: small;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.auto-style4 {
+	font-size: small;
+}
+.auto-style5 {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+h2
+	{margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:.2in;
+	text-indent:-.2in;
+	page-break-after:avoid;
+	tab-stops:list .25in;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";
+	font-weight:normal;
+	font-style:italic;
+	}
+.auto-style7 {
+	font-family: "Courier New", Courier, monospace;
+}
+.auto-style8 {
+	color: #0000FF;
+}
+.auto-style9 {
+	color: #008000;
+	font-size: small;
+}
+.auto-style11 {
+	color: #808080;
+	font-size: small;
+}
+.auto-style13 {
+	font-family: "Courier New", Courier, monospace;
+	font-size: small;
+}
+.auto-style14 {
+	color: #0000FF;
+	font-size: small;
+}
+.auto-style15 {
+	font-family: "Courier New", Courier, monospace;
+	margin-left: 40px;
+}
+.auto-style16 {
+	margin-left: 40px;
+}
+</style>
+</head>
+
+<body>
+
+<h1 class="auto-style1">Creating .NET Drivers - Part 2 (Enums and Threading)</h1>
+<p class="auto-style3">The best way to demonstrate driver development is to 
+perform a walk-through on a simple but common instrument, for example a Digital 
+Multi-Meter (DMM).<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>Assuming 
+that most readers are familiar with Visual Studio, we will create a class 
+library called MyDmm that has two classes: a worker class called DmmDvr 
+(DmmDvr.cs) and a form class for our GUI control called DmmCtrl (DmmCtrl.cs).</p>
+<h2 style="text-align:justify;text-justify:inter-ideograph;mso-list:l0 level2 lfo1">
+<span class="auto-style3"><strong><a name="Using_Enum_Types">Using Enum Types</a></strong></span><o:p></o:p></h2>
+<p class="MsoNormal"><span style="mso-no-proof:yes"><span class="auto-style3">C# 
+is a strongly typed language so it is always a good idea to use specific types 
+for parameters, such as an enum. </span>
+<span class="auto-style3" style="mso-spacerun:yes">&nbsp;</span><span class="auto-style3">In 
+days past,</span><span class="auto-style3" style="mso-spacerun:yes">&nbsp;
+</span><span class="auto-style3">integers were the rule rather than the 
+exception and were used for just about everything: instrument mode, setup, 
+measurement type, etc. Integer constants are most often used for this 
+methodology and often times frequently involved dozens (sometimes hundreds) of 
+different constants. This always makes it tough for the end-user to ascertain 
+the correct value to use for a particular driver method (or function). </span> <o:p></o:p>
+</span></p>
+<p class="auto-style3" style="mso-no-proof: yes"><span style="mso-no-proof:yes">
+<span class="auto-style3">Adding an enum significantly simplies the development 
+process, the end-user experience, and driver maintenance. Using enum types for 
+parameter values takes the guess work out of making a method call. </span>
+<span class="auto-style3" style="mso-spacerun:yes">&nbsp;</span><span class="auto-style3">The 
+compiler will force us to use</span><span class="auto-style3" style="mso-spacerun:yes">&nbsp;
+</span><span class="auto-style3">very select parameter values. </span>
+<span class="auto-style3" style="mso-spacerun:yes">&nbsp;</span><span class="auto-style3">For 
+example, since we are develping a DMM driver, we will add an enum type to the 
+worker class (DmmDvr) that reflects typical DMM measurement modes.</span><span class="auto-style3" style="mso-spacerun:yes">&nbsp;
+</span><span class="auto-style5"><span class="auto-style4">This enum type can be 
+used to make a call to </span><i style="mso-bidi-font-style:normal">
+<span class="auto-style4">SetDmmMode</span></i><span class="auto-style4">() and 
+to update the GUI state. We want these modes to be available to all users of the 
+class object, so the enum type is public.</span></span><span class="auto-style3" style="mso-spacerun:yes">&nbsp;&nbsp;
+</span><o:p></o:p></span></p>
+<p class="auto-style7" style="mso-no-proof: yes"><span class="auto-style15">
+<span class="auto-style11">/// &lt;summary&gt;</span><span class="auto-style8"><br class="auto-style4" />
+</span><span class="auto-style11">&nbsp;&nbsp;&nbsp;&nbsp; ///</span><span class="auto-style14">
+</span><span class="auto-style9">Defines DMM modes of operation</span><span class="auto-style8"><br class="auto-style4" />
+</span><span class="auto-style11">&nbsp;&nbsp;&nbsp;&nbsp; /// &lt;/summary&gt;</span><span class="auto-style8"><br class="auto-style4" />
+<span class="auto-style4">&nbsp;&nbsp;&nbsp;&nbsp; public enum</span></span><span class="auto-style4"> 
+DmmMode</span></span><br class="auto-style13" />
+&nbsp;&nbsp;&nbsp; {<br class="auto-style13" />
+<span class="auto-style13">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DCV, ACV, 
+Ohm2W, Ohm4W, Frequency, Period</span><br class="auto-style13" />
+<span class="auto-style7">&nbsp;&nbsp;&nbsp; }</span></p>
+<p class="MsoNormal"><span style="mso-no-proof:yes"><span class="auto-style3">
+Notice the triple-slash comments in the above enum.</span><span class="auto-style3" style="mso-spacerun:yes">&nbsp;
+</span><span class="auto-style3">Triple-slash comments are essentially embedded 
+XML statements that Visual Studio will parse real-time (as they are typed) and 
+embellish the tooltip help for the developer.</span><span class="auto-style3" style="mso-spacerun:yes">&nbsp;
+</span><span class="auto-style3">The comments can also be extracted via a number 
+of third-party tools and used to produce driver help files.</span><span class="auto-style3" style="mso-spacerun:yes">&nbsp;&nbsp;
+</span><span class="auto-style3">Developers should always add the triple-slash 
+comments to all data members whenever possible, private and public, but as a 
+minimum all public members should have the triple-slash comments.&nbsp; Visual 
+Studio will expose this information to the developer.</span></span></p>
+<p class="MsoNormal"><span class="auto-style3">Given that we have defined the 
+enum type for the DMM mode in the worker class, we will use this object to 
+populate the GUI with a DMM mode selection box.</span><span class="auto-style3" style="mso-spacerun:yes">&nbsp;
+</span><span class="auto-style3">Likewise, we can read the selection from the 
+GUI and make a method call back to the driver, <strong>all without hard-coding 
+any of the DMM modes in the GUI</strong>.</span><span class="auto-style3" style="mso-spacerun:yes">&nbsp;
+</span></p>
+<p class="auto-style3">Assuming we drop a System.Windows.Forms.ComboBox onto the 
+form class, we can populate all DMM modes into the box with one line of code:<o:p></o:p></p>
+<span style="mso-bidi-font-weight:normal">
+<p align="left" class="auto-style16">
+<span class="auto-style3" style="color: blue; mso-no-proof: yes">foreach</span><span class="auto-style3" style="mso-no-proof: yes"> 
+(<span style="color:blue">string</span> s <span style="color:blue">in</span></span></span><b style="mso-bidi-font-weight:normal"><span style="font-size:9.0pt;font-family:
+&quot;Courier New&quot;;mso-no-proof:yes"> </span></b>
+<span style="mso-bidi-font-weight:normal">
+<span class="auto-style3" style="color: #2B91AF; mso-no-proof: yes">Enum</span><span class="auto-style3" style="mso-no-proof: yes">.GetNames(<span style="color:blue">typeof</span>(<span style="color:#2B91AF">DmmDvr</span>.<span style="color:#2B91AF">DmmMode</span>)))<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span>
+<span style="mso-bidi-font-weight:
+normal"><span class="auto-style3" style="mso-no-proof: yes">
+comboBoxMode.Items.Add(s);</span></span></p>
+<p align="left" class="MsoNormal"><span class="auto-style3">The C# code will 
+iterate through each enum and pull out the named string for each item.</span><span class="auto-style3" style="mso-spacerun:yes">&nbsp;
+</span><span class="auto-style3">The named values are then placed in the combo 
+box.</span><span class="auto-style3" style="mso-spacerun:yes">&nbsp;&nbsp;
+</span><span class="auto-style5"><span class="auto-style4">Adding a </span>
+<i style="mso-bidi-font-style:normal"><span class="auto-style4">
+SelectedIndexChanged</span></i><span class="auto-style4"> event handler on the 
+ComboBox will allow us to extract the desired DMM mode and make a call back into 
+the worker class.</span></span><o:p></o:p></p>
+<span style="mso-bidi-font-weight:normal">
+<p align="left" class="MsoNormal">
+<span class="auto-style3" style="mso-no-proof: yes">
+<span style="mso-spacerun:yes">&nbsp;</span></span><span class="auto-style13" style="mso-no-proof: yes"><span style="color:blue">&nbsp;&nbsp;&nbsp; 
+private</span> <span style="color:blue">void</span></span></span><b style="mso-bidi-font-weight:normal"><span style="mso-no-proof:yes" class="auto-style13">
+</span></b><span style="mso-bidi-font-weight:normal">
+<span class="auto-style13" style="mso-no-proof: yes">
+comboBoxMode_SelectedIndexChanged(<span style="mso-spacerun:yes">
+</span><span style="color:blue">object</span> sender,
+<span style="color:#2B91AF">EventArgs</span> e)<br />
+</span></span><b style="mso-bidi-font-weight:normal">
+<span style="mso-no-proof:yes" class="auto-style13">&nbsp;&nbsp;&nbsp; 
+{<br />
+</span></b>
+<span style="mso-bidi-font-weight:normal">
+<span class="auto-style13" style="mso-no-proof: yes">
+<span style="mso-spacerun:yes">&nbsp;
+</span><span style="color:#2B91AF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DmmDvr</span>.<span style="color:#2B91AF">DmmMode</span> 
+mode = (<span style="color:#2B91AF">DmmDvr</span>.<span style="color:#2B91AF">DmmMode</span></span></span><b style="mso-bidi-font-weight:normal"><span style="mso-no-proof:yes" class="auto-style13">)</span></b><br class="auto-style13" />
+<span style="mso-bidi-font-weight:normal">
+<span class="auto-style13" style="color: blue; mso-no-proof: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+this</span></span><span style="mso-bidi-font-weight:
+normal"><span class="auto-style13" style="mso-no-proof: yes">.comboBoxMode.SelectedIndex;<br />
+&nbsp;&nbsp; </span></span><span style="mso-bidi-font-weight:normal">
+<span class="auto-style13" style="color: green; mso-no-proof: yes">&nbsp;&nbsp;&nbsp;&nbsp; 
+// We have the mode, now make the call<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<span class="auto-style13" style="mso-no-proof: yes">&nbsp;myDvr.SetDmmMode(mode)<br />
+</span><span class="auto-style13" style="line-height: 95%; mso-no-proof: yes">&nbsp;&nbsp;&nbsp; 
+}</span></span></p>
+<span class="auto-style3">As we continue our driver development and make 
+modifications to our code, we could perhaps add new enum values to the DmmMode 
+in the worker class (DmmDvr).</span><span class="auto-style3" style="mso-spacerun:yes">&nbsp;
+</span><span class="auto-style3">The ComboBox control in the GUI will <em>
+automatically</em> get these new values.</span><span class="auto-style3" style="mso-spacerun:yes">&nbsp;
+</span><span class="auto-style3">Absolutely no code change is required on the 
+GUI side to make this update. </span>
+<span class="auto-style3" style="mso-spacerun:yes">&nbsp;</span><span class="auto-style3">On 
+complex drivers, such as arbitrary waveform generators (AWG) or scopes, 
+implementing this methodology is a great time saver, helps eliminate bugs, and 
+provides for better maintenance.<br />
+<br />
+</span><u><span class="auto-style3">For example, if we add </span></u>
+<i style="mso-bidi-font-style:normal"><span class="auto-style3">Diode</span></i><span class="auto-style4"><span class="auto-style5"> 
+and <i style="mso-bidi-font-style:
+normal">Temperature</i> as new enum values to our DmmMode enum type, the 
+ComboBox will auto-update.</span></span><o:p></o:p><p class="MsoNormal">
+<span style="mso-bidi-font-weight:
+normal"><span class="auto-style5" style="color: blue; mso-no-proof: yes">
+<span class="auto-style4" style="mso-spacerun:yes">&nbsp;</span></span><span class="auto-style3" style="color: blue; mso-no-proof: yes">public</span></span><span class="auto-style3" style="mso-no-proof: yes"><b style="mso-bidi-font-weight:normal">
+</b><span style="mso-bidi-font-weight:normal"><span style="color:blue">enum</span>
+<span style="color:#2B91AF">DmmMode</span></span></span><span style="mso-bidi-font-weight:normal"><span style="font-size:9.0pt;font-family:
+&quot;Courier New&quot;;mso-no-proof:yes"><span class="auto-style3" style="mso-no-proof: yes"> 
+{ DCV, ACV, Ohm2W, Ohm4W,<o:p> Frequency, Period, Diode, Temperature }</o:p></span></span></p>
+</span>
+<p class="auto-style1">
+<img alt="EnumDmm" height="130" src="bin/EnumDmm.png" width="136" /></p>
+<h2 align="left"><span class="auto-style3"><strong><a name="Threading">Threading</a></strong></span><o:p></o:p></h2>
+<p align="left" class="auto-style4"><span class="auto-style5">There is nothing 
+worse than pressing a button on a GUI to perform,</span><span style="mso-spacerun:yes">&nbsp;
+</span>say a BIT test, and then watch your<span style="mso-spacerun:yes">&nbsp;
+</span>application just hang there while the driver does a one-minute 
+built-in-test from a blocking method call.<span style="mso-spacerun:yes">&nbsp;
+</span>A blocking method is one that does not return until the task is complete.<span style="mso-spacerun:yes">&nbsp;
+</span>Threading can solve this problem.<span style="mso-spacerun:yes">&nbsp; &nbsp;</span><o:p></o:p></p>
+<p align="left" class="auto-style4"><span class="auto-style5">UIs (User 
+Interfaces) should be snappy and responsive with no delays.</span><span style="mso-spacerun:yes" class="auto-style5">&nbsp;
+</span><span class="auto-style5">Any delay lasting longer than 30 milliseconds or so can be detected by 
+the user and soon becomes annoying.</span><span style="mso-spacerun:yes" class="auto-style5">&nbsp; </span>
+<span class="auto-style5">The solution is to fire off a worker thread to make that blocking method call, 
+leaving the UI free to handle other events such as mouse clicks.<o:p>&nbsp;</o:p></span></p>
+<p align="left" class="auto-style4"><span class="auto-style5">There are various 
+threading techniques in .NET and developers should be aware of threading issues 
+such as deadlock, thread locking, killing threads, thread synchronization, and 
+more.</span><span style="mso-spacerun:yes" class="auto-style5">&nbsp; </span>
+<span class="auto-style5">However, in general, 
+firing off a worker thread is quite simple.</span><span style="mso-spacerun:yes" class="auto-style5">&nbsp;
+</span><span class="auto-style5">We use the ThreadPool to manage the thread and supply a callback to do 
+our thread-work.</span><o:p></o:p></p>
+<p align="left" class="MsoNormal"><b style="mso-bidi-font-weight:
+normal">
+<span style="font-size:9.0pt;font-family:&quot;Courier New&quot;;color:#2B91AF;
+mso-no-proof:yes"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>
+ThreadPool</span></b><b style="mso-bidi-font-weight:normal"><span style="font-size:9.0pt;font-family:
+&quot;Courier New&quot;;mso-no-proof:yes">.QueueUserWorkItem</span></b><b style="mso-bidi-font-weight:
+normal"><span style="font-size:9.0pt;font-family:&quot;Courier New&quot;;mso-no-proof:
+yes">(<span style="color:blue"> new</span> <span style="color:#2B91AF">
+WaitCallback</span>(RunBitTest), <span style="color:blue">null</span>);</span></b><b style="mso-bidi-font-weight:normal"><span style="font-size:9.0pt"><o:p></o:p></span></b></p>
+<p align="left" class="MsoNormal"><o:p>&nbsp;</o:p><b style="mso-bidi-font-weight:normal"><span style="font-size:9.0pt;font-family:&quot;Courier New&quot;;color:blue;mso-no-proof:yes">&nbsp;&nbsp;&nbsp; 
+protected</span></b><b style="mso-bidi-font-weight:
+normal"><span style="font-size:9.0pt;font-family:&quot;Courier New&quot;;mso-no-proof:
+yes"> <span style="color:blue">void</span> RunBitTest(<span style="color:blue">object</span> 
+info)<br />
+</span></b><b style="mso-bidi-font-weight:normal">
+<span style="font-size:9.0pt;font-family:&quot;Courier New&quot;;mso-no-proof:yes">&nbsp;&nbsp;&nbsp;&nbsp; 
+{<span style="color:blue"><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int</span> result;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; myDvr.RunBit(result);<br />
+</span></b><b style="mso-bidi-font-weight:
+normal">
+<span style="font-size:9.0pt;font-family:&quot;Courier New&quot;;mso-no-proof:
+yes">&nbsp;&nbsp;&nbsp;&nbsp; }</span></b><span style="font-family:
+&quot;Courier New&quot;;mso-no-proof:yes"><o:p>&nbsp;</o:p></span></p>
+<p align="left" class="auto-style4"><span class="auto-style5">We can be more 
+explicit when creating the thread and the following code will give us the same 
+result.</span><span style="mso-spacerun:yes" class="auto-style5">&nbsp; </span>
+<span class="auto-style5">The advantage here is 
+that we have immediate control over the life of the thread and can kill it if we 
+wish.</span><span style="mso-spacerun:yes" class="auto-style5">&nbsp; </span>
+<span class="auto-style5">While killing threads is 
+generally not a good idea it is sometimes necessary.
+</span><span style="mso-spacerun:yes">
+<span style="mso-no-proof:
+yes" class="auto-style5">&nbsp;&nbsp; </span>
+<span style="font-family:&quot;Courier New&quot;;mso-no-proof:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+</span><o:p></o:p></p>
+<p align="left" class="MsoNormal">
+<b class="auto-style16" style="mso-bidi-font-weight: normal">
+<span style="font-size:9.0pt;font-family:&quot;Courier New&quot;;color:#2B91AF;mso-no-proof:
+yes">ThreadStart</span><span style="font-size:9.0pt;font-family:
+&quot;Courier New&quot;;mso-no-proof:yes"> _threadStart = </span>
+<span style="font-size:9.0pt;font-family:&quot;Courier New&quot;;mso-no-proof:yes">
+<span style="color:blue">new</span> <span style="color:#2B91AF">ThreadStart</span>(RunBitTest);<br />
+</span>
+<span style="font-size:9.0pt;font-family:&quot;Courier New&quot;;color:#2B91AF;mso-no-proof:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Thread</span><span style="font-size:9.0pt;font-family:
+&quot;Courier New&quot;;mso-no-proof:yes"> _thread = <span style="color:blue">
+new</span> <span style="color:#2B91AF">Thread</span>(_threadStart);<br />
+</span>
+<span style="font-size:9.0pt;font-family:&quot;Courier New&quot;;mso-no-proof:yes">&nbsp;&nbsp;&nbsp;&nbsp; 
+_thread.IsBackground = <b style="mso-bidi-font-weight:
+normal">
+<span style="font-size:9.0pt;font-family:&quot;Courier New&quot;;mso-no-proof:
+yes"> <span style="color:blue">true</span>
+</span></b>;
+</span></b><b style="mso-bidi-font-weight:
+normal">
+<span style="font-size:9.0pt;font-family:&quot;Courier New&quot;;mso-no-proof:
+yes">&nbsp;&nbsp;&nbsp;&nbsp; <br />
+&nbsp;&nbsp;&nbsp;&nbsp; _thread.Start();</span></b><b style="mso-bidi-font-weight:normal"><span style="font-size:9.0pt"><o:p></o:p></span></b></p>
+<p align="left" class="MsoNormal">
+<b class="auto-style16" style="mso-bidi-font-weight: normal">
+<span style="font-size:9.0pt;font-family:&quot;Courier New&quot;;color:blue;mso-no-proof:yes">
+protected</span></b><b style="mso-bidi-font-weight:
+normal"><span style="font-size:9.0pt;font-family:&quot;Courier New&quot;;mso-no-proof:
+yes"> <span style="color:blue">void</span> RunBitTest()<br />
+</span></b><b style="mso-bidi-font-weight:normal">
+<span style="font-size:9.0pt;font-family:&quot;Courier New&quot;;mso-no-proof:yes">&nbsp;&nbsp;&nbsp;&nbsp; 
+{<span style="color:blue"><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int</span> result;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; myDvr.RunBit(result);<br />
+</span></b><b style="mso-bidi-font-weight:
+normal">
+<span style="font-size:9.0pt;font-family:&quot;Courier New&quot;;mso-no-proof:
+yes">&nbsp;&nbsp;&nbsp;&nbsp; }<o:p></o:p></span></b></p>
+<p align="left" class="MsoNormal"><span class="auto-style3">One </span>
+<span class="auto-style3" style="mso-spacerun:yes">&nbsp;</span><span class="auto-style3">issue 
+to be aware of when using threading in drivers is to make sure the method that 
+is being called by the thread is <em>thread-safe.</em></span><span class="auto-style3" style="mso-spacerun:yes">&nbsp;
+</span><span class="auto-style3">That is, what if we have a GUI button that runs 
+a BIT test on a separate thread by calling RunBitTest in the backend worker 
+class?</span><span class="auto-style3" style="mso-spacerun:yes">&nbsp; </span>
+<span class="auto-style3">What if that same method is called at the same time by 
+a test program?</span><span class="auto-style3" style="mso-spacerun:yes">&nbsp;
+</span><span class="auto-style3">Unless the method manages the different 
+threads, there is a possibility of getting thread collision.</span><span class="auto-style3" style="mso-spacerun:yes">&nbsp;
+</span><span class="auto-style3">This problem is solved by locking the critical 
+code.</span><span class="auto-style3" style="mso-spacerun:yes">&nbsp; </span><o:p></o:p>
+</p>
+<p align="left" class="MsoNormal"><span class="auto-style3">A thread lock 
+requires a lock object that must be a reference type.</span><span class="auto-style3" style="mso-spacerun:yes">&nbsp;
+</span><span class="auto-style3">Again, not difficult using .NET.</span><o:p></o:p></p>
+<p align="left" class="MsoNormal">
+<b class="auto-style16" style="mso-bidi-font-weight: normal">
+<span style="font-size:9.0pt;font-family:&quot;Courier New&quot;;color:blue;mso-no-proof:yes">
+public</span><span style="font-size:9.0pt;font-family:
+&quot;Courier New&quot;;mso-no-proof:yes"> <span style="color:blue">void</span> 
+RunBitTest(<span style="color:blue">ref</span> <span style="color:blue">int</span> 
+result)<br />
+</span>
+<span style="font-size:9.0pt;font-family:&quot;Courier New&quot;;mso-no-proof:yes">&nbsp;&nbsp;&nbsp;&nbsp; 
+{<br />
+<span style="color:blue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lock</span> 
+(myLockObj)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; result = inst.RunBit();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<span style="color:blue"><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return</span>;<br />
+</span></b><b style="mso-bidi-font-weight:
+normal">
+<span style="font-size:9.0pt;font-family:&quot;Courier New&quot;;mso-no-proof:
+yes">&nbsp;&nbsp;&nbsp;&nbsp; }</span><span style="font-size:9.0pt"><o:p></o:p></span></b></p>
+<p style="language: en-US; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline; margin-top: 0pt; margin-bottom: 0pt" class="auto-style3">
+<a href="Overview.html">Back To Main</a></p>
+<p style="language: en-US; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline; margin-top: 0pt; margin-bottom: 0pt">
+<span class="auto-style3">see also: <a href="CreatingDrivers.html">Creating .NET 
+Drivers - An Overview</a> | <a href="CreatingDrivers.html">Creating Drivers - 
+Part 1 </a>| </span><a href="CreatingDriversPart3.html">
+<span class="auto-style3">Creating .NET Drivers - Part 3</span></a><span class="auto-style4"><span class="auto-style5"> 
+| <a href="UsingTheSDK.html">Using the SDK</a> | 
+<a href="ConstantDefinitions.html">Constants</a> </span></span></p>
+<p style="language: en-US; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline; margin-top: 0pt; margin-bottom: 0pt">
+&nbsp;</p>
+<p style="language: en-US; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline; margin-top: 0pt; margin-bottom: 0pt"><i><font face="Verdana" size="1">
+Astronics Test Systems<br>
+Last updated on August 12, 2015 by D. Ignacio</font></i></p>
+
+</body>
+
+</html>

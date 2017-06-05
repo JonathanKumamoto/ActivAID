@@ -1,0 +1,60 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Package Manager</title>
+<link rel="stylesheet" type="text/css" href="help.css">
+    <style type="text/css">
+        .style3
+        {
+            width: 897px;
+            height: 566px;
+        }
+    .auto-style1 {
+	text-decoration: underline;
+}
+    .auto-style3 {
+	text-align: left;
+}
+    </style>
+</head>
+
+<body>
+
+<h1 class="auto-style3">Package Manager - Introduction</h1>
+<p>A package entity is an archived file that contains all the assemblies and 
+data files needed to run an ActivATE project with <span class="auto-style1">
+ActivATE IDE</span>, <span class="auto-style1">System Controller</span> or
+<span class="auto-style1">Test Program Manager</span>. <em>Source code is never 
+included in the package.</em></p>
+<p>A package file name consists of the short name of the sequence file, with
+<strong>.package</strong> as extension. (Note: Although unusual, the short name 
+of the sequence file might be different than the short name of the tpf file.)</p>
+<p>The package file always gets created as sibling of the sequence file.</p>
+    <p>At any time, the content of a package file can be revealed by renaming 
+	the file to .zip, and expanding it with Microsoft Explorer or WinZip:
+  
+    </p>
+<p>
+<img alt="Package Inside Out" height="237" src="bin/PackageMngr_PackageInsideOut.PNG" width="573"></p>
+<p>&nbsp;</p>
+<p>As seen in the picture above, at minimum, a package file must contains the 
+following:</p>
+<ul>
+	<li>_md5_hash_values_in_package.xml;</li>
+	<li>Test Procedure Binary file (TestProjectForPowerSupply.dll);</li>
+	<li>The sequence file 
+(TestProjectForPowerSupply.pckseq).</li>
+</ul>
+    <p><strong>Other links:</strong></p>
+<p><a href="PackageMngr_DataFiles.html">Data Files In Project</a>
+	<a href="PackageMngr_Creation.html">Package Creation</a>
+	<a href="PackageMngr_Usage.html">Package Usage</a></p>
+<hr>
+<p><i><font face="Verdana" size="1">Astronics Test Systems<br>
+Last updated on 2/27/16 I. Zolog</font></i></p>
+
+</body>
+
+</html>

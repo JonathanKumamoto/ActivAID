@@ -1,0 +1,73 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>System Controller</title>
+<link rel="stylesheet" type="text/css" href="help.css">
+</head>
+
+<body>
+
+<h1>System Controller - Page 1</h1>
+<p>The System Controller module contains the &quot;business logic&quot; for the 
+ActivATE test 
+environment.&nbsp; Generally, users will never need or use this module.&nbsp; 
+However, some test applications may require more than just generic test execution.&nbsp; 
+Perhaps a SECS/GEM interface needs to be created or there is a requirement to 
+time schedule certain test programs.&nbsp; The System Control module (SystemController) 
+is designed for this type of customization. </p>
+<p><b>System Architecture:</b></p>
+<p>The ActivATE Integrated Test Environment consists of two applications running 
+simultaneously: ActivATE.EXE and StationRuntime.EXE.&nbsp; ActivATE.exe is considered the &quot;front-end&quot; GUI environment and 
+the StationRuntime.exe is considered the &quot;back-end&quot; test execution and 
+hardware interface environment. The 
+ActivATE application manages the user input, sinks events from the back-end 
+runtime devices, displays user information, and generally manages the overall test environment. The StationRuntime 
+application is responsible for executing the test programs, creating instrument 
+drivers and user defined add-in modules, and manages the test sequencer.</p>
+<p>There are two ways to run a test program in ActivATE.&nbsp; One way is 
+through the front-end IDE or Integrated Development Environment.&nbsp; Using the IDE is 
+the most common way if all we want to do is run one or two test programs.&nbsp; 
+Users can load, execute, debug, and edit test programs all from the IDE.&nbsp; 
+Test operators can also run test programs from the IDE, but test code is 
+hidden for an operator's level of access.&nbsp; If we load up three or four test 
+programs in the IDE simultaneously, we see the IDE starting to get 
+somewhat cluttered, so the other way to execute test programs is through the Test 
+Program Manager (TPMngr) as a background process.</p>
+<p>The TPMngr (Test Program Manager) is a module that lives in the front-end ActivATE.exe.&nbsp; 
+The TPMngr 
+creates and executes test programs as a background thread on the StationRuntime.&nbsp; GUI environments are inherently slow so the StationRuntime 
+was built as a console application.&nbsp; It is very efficient and capable of 
+running up to 36 test programs simultaneously and independently.&nbsp; When the 
+test program executes, the TestSequencer broadcasts events to all subscribers, 
+such as 'Passed', 'Failed', 'Running', 'LoadFailed', etc.&nbsp; If executing 
+tests from 
+the TPMngr, TestSequencer events are <i>asynchronous.&nbsp; </i>Asynchronous 
+events are cached and processed by the TPMngr in the order they arrived.&nbsp; 
+If running from the IDE, TestSequencer events are <i>synchronous</i>.&nbsp; This 
+is so the Test Sequencer View is synchronous with the actual test program 
+execution. </p>
+<p>The SystemControl module creates the TPMngr object, starts the 
+StationRuntime.exe, and connects all the drivers.&nbsp; If the driver inherits 
+from IDevice, then OnConnection()&nbsp; is called by the SystemControl to 
+perform any initialization of the driver. Developers wishing to customize this 
+behavior, have full access to the source code.</p>
+<p>The following is a high-level block diagram of the ActivATE 
+<a name="environment">environment</a>.&nbsp; 
+Take note of the SystemController. We will discuss this on the 
+<a href="SystemController_pg2.htm">next page</a>. </p>
+<p>&nbsp;</p>
+<p><img border="0" src="bin/Architecture.JPG" width="719" height="571"></p>
+
+<p><b>See Also</b></p>
+<p><b>&nbsp;&nbsp;&nbsp; </b><a href="TestProgramManager.htm">Test Program 
+Manager</a> | <a href="TestProgramManager.htm#Test_Program_Events">Test Program 
+Events</a> | <a href="SystemController_pg2.htm">System Controller - Page 2</a> |
+<a href="SystemController_pg3.htm">System Controller - Page 3</a></p>
+<p><i><font face="Verdana" size="1">Astronics Test Systems<br>
+Last updated on 8/23/09 by I. Williams</font></i></p>
+
+</body>
+
+</html>
