@@ -1,0 +1,45 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Deleting a Driver</title>
+<link rel="stylesheet" type="text/css" href="help.css">
+</head>
+
+<body>
+
+<h1><a name="Top">Deleting a Driver</a></h1>
+<p>To delete a driver from the current configuration, right-click on the driver 
+to be deleted in the tree view on the Configuration pane and select &quot;Delete&quot; 
+from the context menu.&nbsp; </p>
+
+<p><img border="0" src="bin/DeleteDriver.png" width="297" height="344"></p>
+<p>If a driver under the Devices category is deleted and this driver had an 
+associated UI object under the Controls category, both the device and the 
+control will be deleted.&nbsp; If a driver under the Controls category is 
+deleted, only the UI itself will be removed.&nbsp; The device driver will still 
+be present under the Devices category.&nbsp; </p>
+<p><i><b>Important: </b>&nbsp;<b>Committing Changes</b></i></p>
+<p align="left">After a driver has been deleted, the Reinitialize button on the 
+toolbar will be highlighted in yellow as shown below.&nbsp; The deleted driver 
+will still be available until the environment has been reinitialized or until 
+the application is restarted.&nbsp; To reinitialize, make sure all test programs 
+and driver UI's are closed and then click the Reinitialize button.<br>
+<br>
+<img border="0" src="bin/reinitializeButton.png" width="297" height="187"></p>
+<p align="left">If at any time you wish to cancel your changes, click the 
+Rollback button at the bottom of the properties page.&nbsp; This will undo all 
+changes that have been made since the last reinitialization.&nbsp; The Rollback 
+button is only enabled if there are uncommitted changes (until the system is 
+reinitialized or until the application is shut down).</p>
+<p align="left">
+<img border="0" src="bin/AddDriver4.png" width="194" height="375"></p>
+<p align="left">&nbsp;</p>
+<p><font size="2" face="Verdana"><a href="#Top">Back to Top</a></font></p>
+<p><i><font face="Verdana" size="1">Astronics Test Systems Test &amp; Services<br>
+Last updated on 2/27/07</font></i></p>
+
+</body>
+
+</html>

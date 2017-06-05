@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="en-us" http-equiv="Content-Language" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Creating .NET Test Programs in ActivATE</title>
+<style type="text/css">
+.auto-style2 {
+	font-size: medium;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.auto-style3 {
+	font-size: small;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.auto-style5 {
+	text-align: left;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.auto-style6 {
+	text-align: left;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: small;
+}
+.auto-style7 {
+	font-size: small;
+}
+</style>
+</head>
+
+<body>
+
+<h1 class="auto-style2">Creating .NET Test Programs in ActivATE</h1>
+<p class="auto-style3">Test engineers may create VBScript, C#, or VB.Net test 
+programs in ActivATE.&nbsp; Note that any combination of these test programs may 
+be executed simultaneously.&nbsp; In general, the VBScript test sequence and 
+.NET test program sequence will be exactly the same.&nbsp; In fact, operators 
+will not know the difference.&nbsp; However, for test developers, the test 
+program code and file structure is different. This walk-through will discuss 
+creating and running a .NET test program.&nbsp; </p>
+<table style="width: 100%">
+	<tr>
+		<td style="width: 233px">
+		<img alt="New Test CSharp" height="449" longdesc="New Test Program CSharp Dialog Box" src="bin/NewTestCSharp.PNG" width="344" /></td>
+		<td>
+		<ul>
+			<li class="auto-style6">Use the "New Test Program" main menu button 
+			or File&rarr;New Test Program to launch the New Test Program dialog 
+			box.</li>
+			<li class="auto-style6">Program Name is required.&nbsp; This will be 
+			the test program file name(s).&nbsp; There are always at least two 
+			files associated with a test program: the Sequence File (.SEQ) and 
+			the test code file (.TPF).&nbsp; Note the TPF file will always have 
+			the extension .TPF for any test program language (VBScript, C#, or 
+			VB.NET).</li>
+			<li class="auto-style6">Select the language of your choice using the 
+			drop-down Language combo-box.&nbsp; In this case, we are selecting a 
+			C# test program.</li>
+			<li class="auto-style6">.NET test programs do not have templates or 
+			global files so this option is disabled when selecting .NET 
+			languages.</li>
+			<li class="auto-style5"><span class="auto-style7">Pre-Test and 
+			Post-Test are functions that are created automatically.&nbsp; These 
+			functions are guaranteed to execute.&nbsp; The Pre-Test function 
+			will always be the first function to run in any test program and the 
+			Post-Test function will always be the last (with the exception of "</span><a href="ExecuteOnTerminating.html"><span class="auto-style7">ExecuteOnTerminating"</span></a><span class="auto-style7">).</span></li>
+			<li class="auto-style6">Press OK to create the C# test program 
+			template.</li>
+		</ul>
+		</td>
+	</tr>
+</table>
+<p class="auto-style3">After pressing OK, the ActivATE framework will create a 
+blank C# test program that contains a partial class with the same name as the 
+test program, a Test Sequence View, and a Project Manager Window.&nbsp; Adding
+<a href="NewGroup.html">new groups</a> and <a href="NewTest.html">new tests</a> 
+to the sequence view is exactly the same for all test programs; simply 
+right-mouse-click in the Sequence View Window.&nbsp; The
+<a href="ProjectManager.html">Project Manager</a> window allows test developers 
+to extend the partial class file or to add new class files.</p>
+<p class="auto-style3">Note the namespace.&nbsp; The namespace cannot be 
+changed.&nbsp; This will cause compile errors.&nbsp; To change a file name (and 
+the namespace) use the <em>File&rarr;Save As </em>menu item.&nbsp; </p>
+<p class="auto-style3">&nbsp;</p>
+<p class="auto-style3">
+<img alt="New Test Program CSharp" height="527" src="bin/NewTestCSharp2.PNG" width="926" /></p>
+<p><span class="auto-style3"><a href="Overview.html">Back To Main</a></span></p>
+<p><span class="auto-style3">see also: <a href="ProjectManager.html">Project 
+Manager</a> | <a href="NewGroup.html">New Groups</a> | <a href="NewTest.html">
+New Tests</a></span></p>
+<p><i><font face="Verdana" size="1">Astronics Test Systems<br>
+Last updated on August 12, 2015 by D. Ignacio</font></i></p>
+
+</body>
+
+</html>

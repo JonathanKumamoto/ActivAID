@@ -1,0 +1,58 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Remote Server Side</title>
+<link rel="stylesheet" type="text/css" href="help.css">
+    <style type="text/css">
+        .style3
+        {
+            width: 897px;
+            height: 566px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Remote Server Side</h1>
+<p>Initially, a user&#39;s computer acts as a server and it sees the server-side of the 
+    remoting setup.&nbsp; The server has the ability to assign and release slots to 
+    each client.</p>
+    <p>&nbsp;<a href="#Server Setup">Server Setup</a></td>
+    <td width="241">&nbsp;&nbsp;&nbsp;&nbsp; <a href="#Client Setup">Client Setup</a></td>
+  
+    </p>
+<p>
+    <img alt="" class="style3" src="bin/server_side_slots_reserved.PNG" /></p>
+
+        <p><b><a name="Server Setup">Server Setup</a></b></p>
+    <p>Checking &quot;Assign Client Connections&quot; gives the server the ability to assign 
+        available slots to all clients connected to the server.&nbsp; Note: the clients 
+        cannot reserve slots on their side if this is checked.</p>
+    <p>Checking &quot;Resolve DNS Names to IPAddr&quot; displays all client names as IP addresses.</p>
+    <p>The Disconnect Clients button sends a message to each client, telling them that 
+        the server has disconnected from them.&nbsp; This disconnection doesn't occur 
+        until the client restarts ActivATE, however.&nbsp; </p>
+        <p><b><a name="Client Setup">Client Setup</a></b></p>
+    <p>The client setup side of this page allows for servers to reserve and release 
+        desired slots.&nbsp; The status shows if a slot is already reserved.&nbsp; If 
+        the slot is reserved by a client, it is not visible to the server.&nbsp; The 
+        value in the Slot Number box selects which slot is reserved/released.</p>
+    <p>If changes in reservations in slots aren't being displayed to the user, the user 
+        should click on the &quot;Update Reservations&quot; button to update the displayed 
+        reservations.</p>
+    <p>&nbsp;</p>
+    <p><a href="MenusAndToolbars.html">Main Toolbar</a>&nbsp;&nbsp;
+        <a href="RemoteClientSetup.html">Remote Client Setup</a>&nbsp;
+        <a href="ClientSide.html">Client Side</a>&nbsp;
+        <a href="RemoteRunningTests.html">Running Tests</a>&nbsp;
+        <a href="RemoteClientDisconnecting.html">Disconnecting</a></p>
+<hr>
+<p><i><font face="Verdana" size="1">Astronics Test Systems<br>
+Last updated on 1/14/15 M. Buccat</font></i></p>
+
+</body>
+
+</html>

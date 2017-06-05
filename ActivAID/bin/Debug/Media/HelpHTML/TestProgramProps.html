@@ -1,0 +1,225 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 12.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Test Program Properties</title>
+<link rel="stylesheet" type="text/css" href="help.css">
+</head>
+
+<body>
+
+<p><b><font face="Verdana" size="3"><a name="Top">Test Program Properties</a></font></b></p>
+<p><font face="Verdana" size="2">The test program properties are those that
+relate to the program as a whole.&nbsp; To view them in the Properties Page,
+click on the root node in the Test Sequence View.&nbsp; If the Properties Page
+is not visible, right-click anywhere in the Test Sequence View and click Node
+Properties.&nbsp; The following shows an example of the properties for a test
+program:</font></p>
+<p><img border="0" src="bin/PropertiesPage1.png" width="393" height="534"></p>
+<p><font face="Verdana" size="2">
+Click on the following links for a detailed description of each property.</font></p>
+<p><font face="Verdana" size="2"><b>Node Settings:&nbsp;&nbsp;&nbsp;</b></font> <font face="Verdana" size="2"><a href="#Description">Description</a>
+| <a href="#NodeType">NodeType</a> | <a href="#PostTestName">PostTestName</a> | <a href="#PreTestName">PreTestName</a></font></p>
+<p><b><font face="Verdana" size="2">Program Settings:</font></b><font face="Verdana" size="2">&nbsp;&nbsp;&nbsp;</font>
+<font face="Verdana" size="2"><a href="#BreakOnEachNode">BreakOnEachNode</a> |
+<a href="#ExecuteOnTerminating">ExecuteOnTerminating</a> | <a href="#Globals File">GlobalsFile</a> | <a href="#ResetPassFailFlags">ResetPassFailFlags</a>
+| <a href="#SequenceFile">SequenceFile</a> | <a href="#ShowNodeDescriptions">ShowNodeDescriptions</a> | <a href="#TestFile">TestFile</a> | <a href="#TestProgramName">TestProgramName</a> 
+| <a href="#TestProgramVersion">TestProgramVersion</a></font></p>
+<p><b><font face="Verdana" size="2">Test Results:</font></b><font face="Verdana" size="2">&nbsp;&nbsp;&nbsp;</font>
+<font face="Verdana" size="2">See <a href="TestResultsFile.html">Test Results
+File</a></font></p>
+<p><b><font face="Verdana" size="2">Trace Settings:</font></b><font face="Verdana" size="2">&nbsp;&nbsp;&nbsp;</font>
+<font face="Verdana" size="2"><a href="#TraceDebugEnable">TraceDebugEnable</a> |
+<a href="#TraceEnable">TraceEnable</a> | <a href="#TraceFileEnable">TraceFileEnable</a>
+| <a href="#TraceFilePath">TraceFilePath</a> | <a href="#TraceNodeNames">TraceNodeNames</a>
+| <a href="#TraceTimeStamp">TraceTimeStamp</a></font></p>
+<hr>
+<p><b><font face="Verdana" size="2"><a name="Description">Description</a></font></b></p>
+<p><font face="Verdana" size="2">A brief description of the test program.&nbsp;
+If a description was entered while <a href="NewTestProgram.html">creating a new
+test program</a>, it will appear here.&nbsp; Otherwise the default description,
+&quot;VB Script Test Program&quot;, will be used.&nbsp; To change this property,
+simply delete the current description and type in a new description.</font></p>
+<hr>
+<p><font face="Verdana" size="2"><b><a name="NodeType">NodeType</a></b></font></p>
+<p><font face="Verdana" size="2">The type of node selected, either
+&quot;Root&quot;, &quot;Group&quot;, or &quot;Test&quot;.&nbsp; This property is
+read-only.</font></p>
+<hr>
+<p><b><font face="Verdana" size="2"><a name="PostTestName">PostTestName</a></font></b></p>
+<p><font face="Verdana" size="2">The name of the VBScript PostTest subroutine
+for the test program.&nbsp; This method is the last method to execute when the
+test program is run and is generally used to do any clean-up before exiting the
+program.</font></p>
+<hr>
+<p><b><font face="Verdana" size="2"><a name="PreTestName">PreTestName</a></font></b></p>
+<p><font face="Verdana" size="2">The name of the VBScript PreTest subroutine for
+the test program.&nbsp; This method is the first method to execute when the test
+program is run and is generally used to do any initialization at the beginning
+of the program.</font></p>
+<hr>
+<p><b><font face="Verdana"><a name="BreakOnEachNode">BreakOnEachNode</a></font></b></p>
+<p><font face="Verdana">If true, the test program will &quot;break&quot; before the first 
+line of executable code at the start of each test node.&nbsp; If the test was 
+run in debug mode, the user will have the same capabilities as when hitting a 
+breakpoint (i.e., watch window, step through code).&nbsp; If the test was run 
+normally (not in debug mode), the test will simply pause at the start of each 
+node.&nbsp; To resume the test program, simply click the run button again.</font></p>
+<hr>
+<p><b><font face="Verdana"><a name="ExecuteOnTerminating">ExecuteOnTerminating</a></font></b></p>
+<p><font face="Verdana">If true, the OnTerminating() function will be executed 
+if the user stops the test early (by clicking the stop button).&nbsp; It is up 
+to the user to define OnTerminating() in their test program, either in the main 
+test script file (.tpf) or in the globals file (.gtf).&nbsp; When the user 
+clicks stop, the current test node will finish executing and then OnTerminating() 
+will be called.&nbsp; It may be desirable to include important cleanup code in 
+OnTerminating(), such as resetting an instrument or releasing a VXI resource.&nbsp; 
+The function template that should be used for OnTerminating() is as follows:</font></p>
+  <div align="center">
+    <blockquote>
+		<table class="MsoNormalTable" border="0" cellpadding="0" width="90%" style="width:90.0%;mso-cellspacing:1.5pt;background:gainsboro;mso-padding-alt:
+ 0in 0in 0in 0in" id="table2">
+			<tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+				<td width="90%" style="width:90.0%;background:#E6E6E6;padding:.75pt .75pt .75pt .75pt">
+				<blockquote>
+					<p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none">
+					<font FACE="Courier New" SIZE="2" COLOR="#0000ff"><br>
+					Function</font><font FACE="Courier New" SIZE="2"> 
+					OnTerminating<br>
+					<br>
+					</font><font FACE="Courier New" SIZE="2" COLOR="#008000">&nbsp;&nbsp;&nbsp; 
+					' ToDo: Put your code here<br>
+					</font><font FACE="Courier New" SIZE="2"><br>
+&nbsp;&nbsp;&nbsp; OnTerminating = </font>
+					<font FACE="Courier New" SIZE="2" COLOR="#0000ff">True<br>
+					<br>
+					End Function</font><font SIZE="2"><br></p>
+				</blockquote>
+				</font></td>
+			</tr>
+		</table>
+	</blockquote>
+  </div>
+<hr>
+<p><b><font face="Verdana" size="2"><a name="Globals File">Globals File</a></font></b></p>
+<p><font face="Verdana" size="2">The full path of the test program's globals (.gtf)
+file.&nbsp; If no globals file is used, this field will be blank.&nbsp; This
+property is read-only.</font></p>
+<hr>
+<p><b><font face="Verdana" size="2"><a name="ResetPassFailFlags">ResetPassFailFlags</a></font></b></p>
+<p><font face="Verdana" size="2">If true, the previous test run's pass/fail
+flags for the test nodes in the Test Sequence View will be cleared at the start
+of each test program run.&nbsp; If false, the pass/fail flag for each test node
+will not be reset until the next time the node is executed.&nbsp; The default is
+true.</font></p>
+<hr>
+<p><font face="Verdana" size="2"><b><a name="SequenceFile">SequenceFile</a>&nbsp;</b></font></p>
+<p><font face="Verdana" size="2">The full path of the test program's sequence (.seq)
+file.&nbsp; This property is read-only.</font></p>
+<hr>
+<p><font face="Verdana" size="2"><b><a name="ShowNodeDescriptions">
+ShowNodeDescriptions</a>&nbsp;</b></font></p>
+<p><font face="Verdana" size="2">True to display the description for each group 
+and test node in the tree view next to the node name.&nbsp; The default is true.</font></p>
+<p><b><font face="Verdana" size="2">Example:</font></b></p>
+<table border="0" width="100%" id="table1">
+	<tr>
+		<td width="366" height="31">ShowNodeDescriptions = true</td>
+		<td height="31">ShowNodeDescriptions = false</td>
+	</tr>
+	<tr>
+		<td width="366">
+		<img border="0" src="bin/nodeDescriptions1.png" width="323" height="250"></td>
+		<td>
+		<img border="0" src="bin/NodeDescriptions2.png" width="322" height="241"></td>
+	</tr>
+</table>
+<hr>
+<p><b><font face="Verdana" size="2"><a name="TestFile">TestFile</a></font></b></p>
+<p><font face="Verdana" size="2">The full path of the test program's main
+VBScript test (.tpf) file.&nbsp; This property is read-only.</font></p>
+<hr>
+<p><font face="Verdana" size="2"><b><a name="TestProgramName">TestProgramName</a></b></font></p>
+<p><font face="Verdana" size="2">The name of the test program that was entered
+while </font><font face="Verdana" size="2"><a href="NewTestProgram.html">creating
+a new test program</a>.&nbsp; This property is read-only.</font></p>
+<hr>
+<p><font face="Verdana" size="2"><b><a name="TestProgramVersion">TestProgramVersion</a></b></font></p>
+<p><font face="Verdana" size="2">The version of the test program.&nbsp; The 
+default value is &quot;1.0.0&quot; when a new test program is created, but you may change 
+the version format as required.</font></p>
+<hr>
+<p><font face="Verdana" size="2"><b><a name="TraceDebugEnable">TraceDebugEnable</a></b>&nbsp;</font></p>
+<p><font face="Verdana" size="2">Enables/disables debug logging to the Script
+Trace Log window and trace file.&nbsp; If this property is set to true AND <a href="#TraceEnable">TraceEnable</a>
+is set to true, any Tracelog.Debug calls from the test script will be output to
+the Script Trace Log.&nbsp; If both this property and <a href="#TraceFileEnable">
+TraceFileEnable</a> are true, the Tracelog.Debug calls will also be written to 
+the trace file.&nbsp; The default is false.&nbsp; </font></p>
+<hr>
+<p><font face="Verdana" size="2"><b><a name="TraceEnable">TraceEnable</a></b>&nbsp;</font></p>
+<p><font face="Verdana" size="2">Enables/disables trace logging to the Script
+Trace Log window.&nbsp; If this property is set to false, any Tracelog.Writeline
+and Tracelog.Debug calls from the test script will not be output to the Script
+Trace Log.&nbsp; The default is true.</font></p>
+<hr>
+<p><font face="Verdana" size="2"><b><a name="TraceFileEnable">TraceFileEnable</a></b>&nbsp;</font></p>
+<p><font face="Verdana" size="2">Enables/disables trace logging to a file.&nbsp;
+If this property is set to true, any Tracelog.Writeline and Tracelog.Debug (if <a href="#TraceDebugEnable">TraceDebugEnable</a>
+is true) calls from the test script will be written to the file specified by <a href="#TraceFilePath">TraceFilePath</a>.&nbsp;
+The default is false.</font></p>
+<hr>
+<p><font face="Verdana" size="2"><b><a name="TraceFilePath">TraceFilePath</a></b>&nbsp;</font></p>
+<p><font face="Verdana" size="2">The path of the file written to when <a href="#TraceFileEnable">TraceFileEnable</a>
+is true.&nbsp; The default path is C:\Temp\ActivATE\TraceFiles.&nbsp; To change 
+this property, simply delete the current path and type in a new path.&nbsp; If a 
+folder in the path does not exist, it will automatically be created when the 
+file is written.&nbsp; The name of the file is predefined as &quot;Trace_TIU&lt;TIU
+#&gt;.txt&quot; and cannot be changed.&nbsp; For example, a test program that is 
+run on TIU 8 will write to a file named &quot;Trace_TIU8.txt&quot;.&nbsp; If the file does not exist, it will be
+created.&nbsp; If the file does exist, the new data is appended to the end of
+the existing file.&nbsp;&nbsp;</font></p>
+<hr>
+<p><font face="Verdana" size="2"><b><a name="TraceNodeNames">TraceNodeNames</a></b>&nbsp;</font></p>
+<p><font face="Verdana" size="2">If true, the name of the node whose function is
+making the Tracelog.Writeline or Tracelog.Debug call is included in the output
+line.&nbsp; If false, the node name is not included.&nbsp; The default is
+true.&nbsp;</font></p>
+<p><font face="Verdana" size="2"><b>Example:&nbsp;</b> A test node named Test1
+in Group1 makes the call </font><font size="2" face="Courier New">Tracelog.Writeline
+&quot;Hello World&quot;.</font></p>
+<blockquote>
+  <p><font face="Verdana" size="2">Output if TraceNodeNames =
+  true:&nbsp;&nbsp;&nbsp; </font><font face="Courier New" size="2">Group1.Test1:
+  Hello World</font></p>
+  <p><font face="Verdana" size="2">Output if TraceNodeNames =
+  false:&nbsp;&nbsp;&nbsp; </font><font face="Courier New" size="2">Hello World</font></p>
+</blockquote>
+<hr>
+<p><font face="Verdana" size="2"><b><a name="TraceTimeStamp">TraceTimeStamp</a></b></font></p>
+<p><font face="Verdana" size="2">If true, the current time is prepended to the
+output line.&nbsp; If false, the time is not included.&nbsp; The default is
+false.</font></p>
+<p><b><font face="Verdana" size="2">Example:&nbsp; </font></b><font face="Verdana" size="2">A
+test node named Test1 in Group1 makes the call </font><font size="2" face="Courier New">Tracelog.Writeline
+&quot;Hello World&quot;.</font></p>
+<p>&nbsp;&nbsp;&nbsp;<font size="2" face="Courier New"> </font><font size="2" face="Verdana">Output
+if TraceTimeStamp is false:&nbsp;&nbsp;&nbsp; </font><font face="Courier New" size="2">Group1.Test1:
+Hello World</font></p>
+<p>&nbsp;&nbsp;&nbsp;<font face="Courier New" size="2"> </font><font face="Verdana" size="2">Output
+if TraceTimeStamp is true:&nbsp;&nbsp;&nbsp; </font><font size="2" face="Courier New">5:41:53 PM Group1.Test1: Hello World&nbsp;&nbsp;&nbsp;&nbsp;</font></p>
+<hr>
+<p><b><font face="Verdana" size="2">See Also</font></b></p>
+<p>&nbsp;&nbsp; <font face="Verdana" size="2"><a href="PropertiesPage.html">Properties
+Page</a> | <a href="TestNodeProps.html">Test Node Properties</a> | <a href="GroupNodeProps.html">Group
+Node Properties</a></font></p>
+<p>&nbsp;</p>
+<p><font size="2" face="Verdana"><a href="#Top">Back to Top</a></font></p>
+<p><i><font face="Verdana" size="1">EADS North America Test and Services<br>
+Last updated on 3/27/08 by L. Anhalt</font></i></p>
+
+</body>
+
+</html>

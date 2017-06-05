@@ -1,0 +1,348 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 12.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Using the Tracelog Object</title>
+<link rel="stylesheet" type="text/css" href="help.css">
+<style type="text/css">
+.auto-style1 {
+	font-family: Verdana;
+	font-size: x-small;
+}
+</style>
+</head>
+
+<body>
+
+<p><font face="Verdana" size="3"><b><a name="Top">Using the Tracelog Object</a></b></font></p>
+<p>The Tracelog object is available to use in VBScript in the test program.&nbsp; 
+It gives access to the methods and properties used to control the output to the 
+Script Trace Log window and the trace files.&nbsp; From the test script, simply 
+type &quot;Tracelog&quot; followed by a period (&quot;.&quot;) and the method or property to use.&nbsp; 
+As shown below, IntelliSense<font face="Verdana">®</font> is available for the Tracelog object.&nbsp; </p>
+<p>
+<img border="0" src="bin/TracelogObject1.png" width="300" height="250"></p>
+<p><font face="Verdana" size="2">
+Click on the following links for a detailed description of each property or 
+method.</font></p>
+<table border="1" width="100%" id="table1">
+  <tr>
+    <td width="25%"><font size="2">&nbsp;<a href="#Clear">Clear</a></font></td>
+    <td width="25%"><font size="2">&nbsp;<a href="#Close">Close</a></font></td>
+    <td width="25%"><font size="2">&nbsp;<a href="#Debug">Debug</a></font></td>
+    <td width="25%"><font size="2">&nbsp;<a href="#EnableDebugTrace">EnableDebugTrace</a></font></td>
+  </tr>
+  <tr>
+    <td width="25%"><font size="2">&nbsp;<a href="#EnableFileLogging">EnableFileLogging</a></font></td>
+    <td width="25%"><font size="2">&nbsp;<a href="#EnableTimeStamp">EnableTimeStamp</a></font></td>
+    <td width="25%"><font size="2">&nbsp;<a href="#EnableUITrace">EnableUITrace</a></font></td>
+    <td width="25%"><font size="2">&nbsp;<a href="#FileNameBM">FileName</a></font></td>
+  </tr>
+  <tr>
+    <td width="25%"><font size="2">&nbsp;<a href="#GetPath">GetPath</a></font></td>
+    <td width="25%"><font size="2">&nbsp;<a href="#SetPath">SetPath</a></font></td>
+    <td width="25%"><font size="2">&nbsp;<a href="#WriteLine">WriteLine</a></font></td>
+    <td width="25%">&nbsp;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<hr>
+<p><b><a name="Clear">Clear</a></b></p>
+<p><font color="#0000FF">void</font> Clear()</p>
+<p><font size="2">Clears all text from the Script Trace Log window.&nbsp; This 
+function has no effect any text written to the trace file.</font></p>
+<p><b><font size="2" face="Verdana">Example VBScript call:</font></b>&nbsp;&nbsp;</p>
+  <div align="center">
+    <table class="MsoNormalTable" border="0" cellpadding="0" width="90%" style="width:90.0%;mso-cellspacing:1.5pt;background:gainsboro;mso-padding-alt:
+ 0in 0in 0in 0in" id="table11" height="54">
+      <tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+        <td width="90%" style="width:90.0%;background:#E6E6E6;padding:.75pt .75pt .75pt .75pt" valign="top">
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><span style="color: blue"><font face="Courier New" size="2">&nbsp;&nbsp;<br>
+            </font></span><font face="Courier New" SIZE="2">&nbsp;Tracelog.Clear&nbsp;&nbsp;&nbsp;&nbsp; <font color="#008000">
+			' Clear text from the Script Trace Log window.</font></font></p>
+        </td>
+      </tr>
+    </table>
+    <p class="MsoNormal" style="mso-layout-grid-align: none; text-autospace: none">&nbsp;</div>
+<hr>
+<p><b><a name="Close">Close</a></b></p>
+<p><font color="#0000FF">void</font> Close()</p>
+<p>Closes the trace log file.&nbsp; Once the trace log file is closed, the user 
+may move or delete the trace file.&nbsp; However, any subsequent calls to write 
+to the trace file will cause the file to be reopened.</p>
+<p>Note: The trace file is normally closed at the end of the test program, so it 
+should not be necessary to call this function.</p>
+<p><b><font size="2" face="Verdana">Example VBScript call:</font></b>&nbsp;&nbsp;</p>
+  <div align="center">
+    <table class="MsoNormalTable" border="0" cellpadding="0" width="90%" style="width:90.0%;mso-cellspacing:1.5pt;background:gainsboro;mso-padding-alt:
+ 0in 0in 0in 0in" id="table12" height="54">
+      <tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+        <td width="90%" style="width:90.0%;background:#E6E6E6;padding:.75pt .75pt .75pt .75pt" valign="top">
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><span style="color: blue"><font face="Courier New" size="2">&nbsp;&nbsp;<br>
+            </font></span><font face="Courier New" SIZE="2">&nbsp;Tracelog.Close&nbsp;&nbsp;&nbsp;&nbsp; <font color="#008000">
+			' Close the trace log file.</font></font></p>
+        </td>
+      </tr>
+    </table>
+    <p class="MsoNormal" style="mso-layout-grid-align: none; text-autospace: none">&nbsp;</div>
+<hr>
+<p><b><a name="Debug">Debug</a></b></p>
+<p><font color="#0000FF">void</font> Debug(<font color="#0000FF">string</font> 
+strMsg)</p>
+<p><i>&nbsp;&nbsp;&nbsp; strMsg: </i>The text to be output to the Script Trace 
+Log window and/or the trace file.</p>
+<p>The Debug method is used to output text to the Script Trace Log window and 
+the trace files.&nbsp; It is generally used to send more verbose output that is 
+helpful early on in the test program development stage.&nbsp; After the test 
+program has been thoroughly debugged and is working correctly, the Debug outputs 
+should no longer be used.&nbsp; You can toggle the Debug output with
+<a href="#EnableDebugTrace">EnableDebugTrace</a>.&nbsp; </p>
+<p><b><font size="2" face="Verdana">Example VBScript call:</font></b>&nbsp;&nbsp;</p>
+  <div align="center">
+    <table class="MsoNormalTable" border="0" cellpadding="0" width="90%" style="width:90.0%;mso-cellspacing:1.5pt;background:gainsboro;mso-padding-alt:
+ 0in 0in 0in 0in" id="table2" height="54">
+      <tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+        <td width="90%" style="width:90.0%;background:#E6E6E6;padding:.75pt .75pt .75pt .75pt" valign="top">
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><span style="color: blue"><font face="Courier New" size="2">&nbsp;&nbsp;<br>
+            </font></span><font face="Courier New" SIZE="2">&nbsp;Tracelog.Debug
+            <font color="#800080">&quot;Hello debug world&quot;&nbsp;&nbsp; </font></font>
+            </p>
+        </td>
+      </tr>
+    </table>
+    <p class="MsoNormal" style="mso-layout-grid-align: none; text-autospace: none">&nbsp;</div>
+<hr>
+<p><b><a name="EnableDebugTrace">EnableDebugTrace</a></b></p>
+<p><font face="Verdana" size="2">Enables/disables debug logging to the Script
+Trace Log window and trace file.&nbsp; If this property is set to true AND
+<a href="#EnableUITrace">EnableUITrace</a>
+is set to true, any Tracelog.Debug calls from the test script will be output to
+the Script Trace Log.&nbsp; If both this property and
+<a href="#EnableFileLogging">EnableFileLogging</a> are true, the Tracelog.Debug 
+calls will also be written to the trace file.&nbsp; The default is false.</font></p>
+<p><b><font size="2" face="Verdana">Example VBScript call:</font></b>&nbsp;&nbsp;</p>
+  <div align="center">
+    <table class="MsoNormalTable" border="0" cellpadding="0" width="90%" style="width:90.0%;mso-cellspacing:1.5pt;background:gainsboro;mso-padding-alt:
+ 0in 0in 0in 0in" id="table4" height="54">
+      <tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+        <td width="90%" style="width:90.0%;background:#E6E6E6;padding:.75pt .75pt .75pt .75pt" valign="top">
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><span style="color: blue"><font face="Courier New" size="2">&nbsp;&nbsp;<br>
+            </font></span><font face="Courier New" SIZE="2">&nbsp;Tracelog.EnableDebugTrace
+            <font color="#0000FF">=</font> <font color="#0000FF">true&nbsp;&nbsp;
+            </font><font color="#008000">&nbsp;' Enables debug output</font></font></p>
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none">
+            <font face="Courier New" size="2" color="#008000">&nbsp;</font><font face="Courier New" SIZE="2">Tracelog.EnableDebugTrace
+            <font color="#0000FF">=</font> <font color="#0000FF">false&nbsp;&nbsp;
+            </font><font color="#008000">' Disables debug output</font></font></p>
+        </td>
+      </tr>
+    </table>
+  </div>
+<p><font face="Verdana"><i>Note: </i>This property may also be set from the 
+Properties Page.&nbsp; See <a href="TestProgramProps.html#TraceDebugEnable">Test 
+Program Properties</a>.</font></p>
+<hr>
+<p><b><a name="EnableFileLogging">EnableFileLogging</a></b></p>
+<p><font face="Verdana" size="2">Enables/disables trace logging to a file.&nbsp;
+If this property is set to true, any Tracelog.Writeline and Tracelog.Debug (if
+<a href="#EnableDebugTrace">EnableDebugTrace</a>
+is true) calls from the test script will be written to the file specified by 
+<a href="TestProgramProps.html#TraceFilePath">TraceFilePath</a>.&nbsp;
+The default is false.</font></p>
+<p><b><font size="2" face="Verdana">Example VBScript call:</font></b>&nbsp;&nbsp;</p>
+  <div align="center">
+    <table class="MsoNormalTable" border="0" cellpadding="0" width="90%" style="width:90.0%;mso-cellspacing:1.5pt;background:gainsboro;mso-padding-alt:
+ 0in 0in 0in 0in" id="table3" height="54">
+      <tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+        <td width="90%" style="width:90.0%;background:#E6E6E6;padding:.75pt .75pt .75pt .75pt" valign="top">
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><span style="color: blue"><font face="Courier New" size="2">&nbsp;&nbsp;<br>
+            </font></span><font face="Courier New" SIZE="2">&nbsp;Tracelog.EnableFileLogging
+            <font color="#0000FF">=</font> <font color="#0000FF">true&nbsp;&nbsp;
+            </font><font color="#008000">&nbsp;' Enables file output</font></font></p>
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none">
+            <font face="Courier New" size="2" color="#008000">&nbsp;</font><font face="Courier New" SIZE="2">Tracelog.EnableFileLogging
+            <font color="#0000FF">=</font> <font color="#0000FF">false&nbsp;&nbsp;
+            </font><font color="#008000">' Disables file output</font></font></p>
+        </td>
+      </tr>
+    </table>
+  </div>
+<p><font face="Verdana"><i>Note: </i>This property may also be set from the 
+Properties Page.&nbsp; See <a href="TestProgramProps.html#TraceFileEnable">Test 
+Program Properties</a>.</font></p>
+<hr>
+<p><b><a name="EnableTimeStamp">EnableTimeStamp</a></b></p>
+<p><font face="Verdana" size="2">If true, the current time is prepended to the
+output line.&nbsp; If false, the time is not included.&nbsp; This applies to 
+both the Debug and WriteLine outputs.&nbsp; The default is
+false.</font></p>
+<p><b><font size="2" face="Verdana">Example VBScript call:</font></b>&nbsp;&nbsp;</p>
+  <div align="center">
+    <table class="MsoNormalTable" border="0" cellpadding="0" width="90%" style="width:90.0%;mso-cellspacing:1.5pt;background:gainsboro;mso-padding-alt:
+ 0in 0in 0in 0in" id="table5" height="54">
+      <tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+        <td width="90%" style="width:90.0%;background:#E6E6E6;padding:.75pt .75pt .75pt .75pt" valign="top">
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><span style="color: blue"><font face="Courier New" size="2">&nbsp;&nbsp;<br>
+            </font></span><font face="Courier New" SIZE="2">&nbsp;Tracelog.EnableTimeStamp
+            <font color="#0000FF">=</font> <font color="#0000FF">true&nbsp;&nbsp;
+            </font><font color="#008000">&nbsp;' Enables </font></font>
+            <font face="Courier New" size="2" color="#008000">time stamp</font></p>
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none">
+            <font face="Courier New" size="2" color="#008000">&nbsp;</font><font face="Courier New" SIZE="2">Tracelog.EnableTimeStamp
+            <font color="#0000FF">=</font> <font color="#0000FF">false&nbsp;&nbsp;
+            </font><font color="#008000">' Disables </font></font>
+            <font face="Courier New" size="2" color="#008000">time stamp</font></p>
+        </td>
+      </tr>
+    </table>
+    <p class="MsoNormal" style="mso-layout-grid-align: none; text-autospace: none" align="left">
+    <font face="Verdana"><i>Note: </i>This property may also be set from the 
+    Properties Page.&nbsp; See <a href="TestProgramProps.html#TraceTimeStamp">
+    Test Program Properties</a>.<br>
+&nbsp;</font></div>
+<hr>
+<p><b><a name="EnableUITrace">EnableUITrace</a></b></p>
+<p><font face="Verdana" size="2">Enables/disables trace logging to the Script
+Trace Log window.&nbsp; If this property is set to false, any Tracelog.Writeline
+and Tracelog.Debug calls from the test script will not be output to the Script
+Trace Log.&nbsp; The default is true.</font></p>
+<p><b><font size="2" face="Verdana">Example VBScript call:</font></b>&nbsp;&nbsp;</p>
+  <div align="center">
+    <table class="MsoNormalTable" border="0" cellpadding="0" width="90%" style="width:90.0%;mso-cellspacing:1.5pt;background:gainsboro;mso-padding-alt:
+ 0in 0in 0in 0in" id="table7" height="54">
+      <tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+        <td width="90%" style="width:90.0%;background:#E6E6E6;padding:.75pt .75pt .75pt .75pt" valign="top">
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><span style="color: blue"><font face="Courier New" size="2">&nbsp;&nbsp;<br>
+            </font></span><font face="Courier New" SIZE="2">&nbsp;Tracelog.EnableUITrace
+            <font color="#0000FF">=</font> <font color="#0000FF">true&nbsp;&nbsp;
+            </font><font color="#008000">&nbsp;' Enables UI tracing</font></font></p>
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none">
+            <font face="Courier New" size="2" color="#008000">&nbsp;</font><font face="Courier New" SIZE="2">Tracelog.EnableUITrace
+            <font color="#0000FF">=</font> <font color="#0000FF">false&nbsp;&nbsp;
+            </font><font color="#008000">' Disables UI tracing</font></font></p>
+        </td>
+      </tr>
+    </table>
+  </div>
+<p class="MsoNormal" style="mso-layout-grid-align: none; text-autospace: none" align="left">
+<font face="Verdana"><i>Note: </i>This property may also be set from the 
+Properties Page.&nbsp; See <a href="TestProgramProps.html#TraceEnable">Test 
+Program Properties</a>.</font></p>
+<hr>
+<p><b><a name="FileNameBM">FileName</a></b></p>
+<p class="auto-style1">Get or sets the name (only) of the Tracelog file.&nbsp; 
+To access the directory of the Tracelog file, use <a href="#GetPath">GetPath()</a> 
+or <a href="#SetPath">SetPath()</a>.</p>
+<p><b><font size="2" face="Verdana">Example VBScript call:</font></b>&nbsp;&nbsp;</p>
+  <div align="center">
+    <table class="MsoNormalTable" border="0" cellpadding="0" width="90%" style="width:90.0%;mso-cellspacing:1.5pt;background:gainsboro;mso-padding-alt:
+ 0in 0in 0in 0in" id="table13" height="54">
+      <tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+        <td width="90%" style="width:90.0%;background:#E6E6E6;padding:.75pt .75pt .75pt .75pt" valign="top">
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><span style="color: blue"><font face="Courier New" size="2">&nbsp;&nbsp;<br>
+            </font></span><font face="Courier New" SIZE="2">&nbsp;Tracelog.FileName =
+			<font color="#800080">&quot;Trace_T1.txt&quot;&nbsp;&nbsp;
+            </font><font color="#008000">&nbsp;' Sets the Tracelog file name</font></font></p>
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none">
+            <font face="Courier New" size="2" color="#008000">&nbsp;</font><font face="Courier New" SIZE="2">Tracelog.WriteLine 
+			Tracelog.FileName<font color="#0000FF">&nbsp;&nbsp;
+            </font><font color="#008000">' Gets the Tracelog file name and 
+			output it to the tracelog</font></font></p>
+        </td>
+      </tr>
+    </table>
+  </div>
+<hr>
+<p><b><a name="GetPath">GetPath</a></b></p>
+<p><font color="#0000FF">string</font> GetPath()</p>
+<p>Returns a string containing the current path of the trace files that are 
+written when <font face="Verdana" size="2">
+<a href="#EnableFileLogging">EnableFileLogging</a>
+is true.&nbsp; </font></p>
+<p><b><font size="2" face="Verdana">Example VBScript call:</font></b>&nbsp;&nbsp;</p>
+  <div align="center">
+    <table class="MsoNormalTable" border="0" cellpadding="0" width="90%" style="width:90.0%;mso-cellspacing:1.5pt;background:gainsboro;mso-padding-alt:
+ 0in 0in 0in 0in" id="table10" height="54">
+      <tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+        <td width="90%" style="width:90.0%;background:#E6E6E6;padding:.75pt .75pt .75pt .75pt" valign="top">
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><span style="color: blue"><font face="Courier New" size="2">&nbsp;&nbsp;<br>
+            </font></span><font face="Courier New" SIZE="2">&nbsp;Tracelog.WriteLine 
+			Tracelog.GetPath&nbsp;&nbsp;&nbsp; <font color="#008000">' Print the 
+			current path to the Trace Log window</font></font></p>
+        </td>
+      </tr>
+    </table>
+  	<p class="MsoNormal" style="mso-layout-grid-align: none; text-autospace: none">
+	&nbsp;</div>
+<hr>
+<p><b><a name="SetPath">SetPath</a></b></p>
+<p><font color="#0000FF">void</font> SetPath(<font color="#0000FF">string</font> 
+strPath)</p>
+<p><i>strPath: </i>A string containing the path to set.</p>
+<p><font face="Verdana" size="2">The SetPath method sets the path of the file written to when
+<a href="#EnableFileLogging">EnableFileLogging</a>
+is true.&nbsp; The default path is C:\Temp\ActivATE\TraceFiles.&nbsp; If a 
+folder in the path does not exist, it will automatically be created when the 
+file is written.&nbsp; The name of the file is predefined as &quot;Trace_TIU&lt;TIU
+#&gt;.txt and cannot be changed.&nbsp; For example, a test program that is run 
+on TIU 8 will write to a file named &quot;Trace_TIU8.txt&quot;.&nbsp; If the file does not exist, it will be
+created.&nbsp; If the file does exist, the new data is appended to the end of
+the existing file.&nbsp;&nbsp;</font></p>
+<p><b><font size="2" face="Verdana">Example VBScript call:</font></b>&nbsp;&nbsp;</p>
+  <div align="center">
+    <table class="MsoNormalTable" border="0" cellpadding="0" width="90%" style="width:90.0%;mso-cellspacing:1.5pt;background:gainsboro;mso-padding-alt:
+ 0in 0in 0in 0in" id="table8" height="54">
+      <tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+        <td width="90%" style="width:90.0%;background:#E6E6E6;padding:.75pt .75pt .75pt .75pt" valign="top">
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><span style="color: blue"><font face="Courier New" size="2">&nbsp;&nbsp;<br>
+            </font></span><font face="Courier New" SIZE="2">&nbsp;Tracelog.SetPath
+            <font color="#800080">&quot;C:\Temp\TraceFiles&quot;</font></font></p>
+        </td>
+      </tr>
+    </table>
+  </div>
+<p class="MsoNormal" style="mso-layout-grid-align: none; text-autospace: none" align="left">
+<font face="Verdana"><i>Note: </i>This property may also be set from the 
+Properties Page.&nbsp; See <a href="TestProgramProps.html#TraceFilePath">Test 
+Program Properties</a>.</font></p>
+<hr>
+<p><b><a name="WriteLine">WriteLine</a></b></p>
+<p><font color="#0000FF">void</font> WriteLine(<font color="#0000FF">string</font> 
+strMsg)</p>
+<p><i>&nbsp;&nbsp;&nbsp; strMsg: </i>The text to be output to the Script Trace 
+Log window and/or the trace file.</p>
+<p>The WriteLine method is used to output text to the Script Trace Log window 
+and the trace files.&nbsp; You can toggle the trace output with
+<a href="#EnableUITrace">EnableUITrace</a>.&nbsp; </p>
+<p><b><font size="2" face="Verdana">Example VBScript call:</font></b>&nbsp;&nbsp;</p>
+  <div align="center">
+    <table class="MsoNormalTable" border="0" cellpadding="0" width="90%" style="width:90.0%;mso-cellspacing:1.5pt;background:gainsboro;mso-padding-alt:
+ 0in 0in 0in 0in" id="table9" height="54">
+      <tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+        <td width="90%" style="width:90.0%;background:#E6E6E6;padding:.75pt .75pt .75pt .75pt" valign="top">
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><span style="color: blue"><font face="Courier New" size="2">&nbsp;&nbsp;<br>
+            </font></span><font face="Courier New" SIZE="2">&nbsp;Tracelog.WriteLine
+            <font color="#800080">&quot;Hello world&quot;&nbsp;&nbsp; </font></font>
+            </p>
+        </td>
+      </tr>
+    </table>
+    <p class="MsoNormal" style="mso-layout-grid-align: none; text-autospace: none">&nbsp;</div>
+<hr>
+<p><b><font size="2">See Also</font></b></p>
+<blockquote>
+  <p><font size="2"><a href="ScriptTraceLogWindow.html">Script
+  Trace Log Window</a> | <a href="ScriptErrors.html">Script
+  Errors</a>&nbsp;</font></p>
+  <p>&nbsp;</p>
+</blockquote>
+<p><font size="2"><a href="#Top">Back to Top</a></font></p>
+<p><font face="Verdana" size="1"><i>EADS North America Test and Services<br>
+Last updated on 10/29/10 by </i>S. Lao</font></p>
+
+</body>
+
+</html>

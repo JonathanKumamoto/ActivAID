@@ -1,0 +1,52 @@
+<html>
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Package Manager Plugins</title>
+<link rel="stylesheet" type="text/css" href="help.css">
+    <style type="text/css">
+        .style1
+        {
+            width: 373px;
+            height: 185px;
+        }
+    </style>
+
+</head>
+
+<body>
+<h1><a name="#top">Package Options Plugins</a></h1>
+<p>Beginning in ActivATE version 5.8.0.4, support for user-defined plugins is an included feature.
+This guide will go over creating plugins for use with the Package Options in ActivATE, which allows users to validate
+a package file and test program. The images below show how to get to the Package Options window, which is accessed when a test program is open by right clicking on the
+test program sequence file in the <i>Project Mngr</i> and selecting <i>Package for Deployment</i>.</p>
+<p>Right click on your test sequence file that appears in the <i>Project Mngr</i> and select <i>Package for Depolyment</i>:</p>
+<img src="bin/Package_for_Deployment.JPG" alt="Project Mngr">
+<p>After following the above instructions, the <i>Package Options</i> window appears. This is what user-defined plugins will affect, specifically the pre and post build checks:</p>
+<img src="bin/PackageOptions_Window.JPG" alt="Package Options Window">
+<h5>How to Create Plugins for Package Options</h5>
+<p>In your plugin's project, you'll need to add a class that inherits from and implements the <font color="#2B91AF">IPackage</font> interface:</p>
+<img src="bin/IPackage_Interface.JPG" alt="IPackage"> 
+<p>In addition, ensure that <i>Interaces.dll</i>, <i>TestSequencer.dll</i>, and <i>TestSequencerDotNet.dll</i> 
+are added to your plugin's project references as seen in the image below. 
+These assemblies can be be found in the ActivATE runtime directory (usually <i>C:\Program Files\ActivATE\ActivATE 5.x</i>).</p>
+<img src="bin/IPackage_Plugin_References.JPG" alt="References Needed">
+<p>Also, make sure to add the namespaces see below. The <i>Sequencer</i> namespace contains the <i>TestSequencer</i> class, while the
+<i>Plugins</i> namespace is needed for the <i>IPackage</i> interface.</p>
+<img src="bin/Package_Options_Namespaces.JPG" alt="Ipackage Namespaces">
+<p>Below are samples of code for each portion of the IPackage interface implementation:</p>
+<img src="bin/PackageOptions_IPackage.JPG" alt="IPackage 1">
+<img src="bin/PackageOptions_IPackage2.JPG" alt="IPackage 2">
+<img src="bin/PackageOptions_IPackage3.JPG" alt="IPackage 3">
+<p>Calls to the <i>UpdateUser</i> method below will print the results to the PackageOptions window. Note the PackageEventArgs object.</p>
+<img src="bin/PackageOptions_IPackage4.JPG" alt="IPackage 4">
+<p>Final result of the above plugin's code is seen below after pressing the <i>Build Package</i> button. Note the information obtained during pre/post build actions, such as
+whether or not a node is enabled, the operator type/name, test program version, the renaming of the package file, etc.</p>
+<img src="bin/PackageOptions_IPackage5.JPG" alt="PackageOptions Window Result">
+<br><br>
+<p><a href="#top">Back to Top</a></p>
+<hr>
+<p><i><font face="Verdana" size="1">Astronics Test Systems<br>
+Last updated on 1/11/2017 C. Colome</font></i></p>
+</body>
+</html>

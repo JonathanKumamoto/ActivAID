@@ -1,0 +1,106 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 12.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Using the Import statement</title>
+</head>
+
+<body>
+
+<p><b><font size="3" face="Verdana"><a name="Top">Using the Import statement</a></font></b></p>
+<p><font size="2" face="Verdana">The Import statement is used to include
+additional VBScript files for use by the test program during runtime.&nbsp;
+These files may be located in the current test directory, in another location on
+the local computer, or on a network drive.&nbsp; Multiple Import statements may
+be used, and the imported files may also contain additional Import
+statements.&nbsp; Generally, the imported files contain methods and variables
+that are commonly used among multiple test programs.&nbsp; This saves the user
+from having to recreate this code for every test program.</font></p>
+<p><font size="2" face="Verdana">When a test program is run, the runtime engine
+searches for Import statements and creates an object for each imported
+file.&nbsp; These objects can then be used in the main test script to access any
+public methods and variables in the imported files.&nbsp;&nbsp;</font></p>
+<p><b><font size="2" face="Verdana">Syntax</font></b></p>
+<p><font size="2" face="Courier New">Import &quot;&lt;<i>File</i>&gt;&quot;,
+&quot;&lt;<i>ScriptName</i>&gt;&quot;</font></p>
+<table border="0" width="894" height="1" cellspacing="5">
+  <tr>
+    <td width="47" valign="top" height="34"></td>
+    <td width="103" valign="top" height="34"><font size="2" face="Courier New"><i>File:</i></font></td>
+    <td width="839" height="34"><font size="2" face="Verdana">The full path of
+      the file to be imported.&nbsp; <i>Note: If the file is located in the
+      current test program directory,&nbsp;<br>
+      the path may be omitted and just the file name needs to be referenced.&nbsp;</i></font></td>
+  </tr>
+  <tr>
+    <td width="47" valign="top" height="20"></td>
+    <td width="103" valign="top" height="20"><font face="Courier New" size="2"><i>ScriptName:&nbsp;</i></font></td>
+    <td width="839" height="20"><font size="2" face="Verdana">The name of the
+      object to be used to reference the imported file from the main test
+      script.</font></td>
+  </tr>
+</table>
+<p><font face="Verdana" size="2">Although the only requirement is that any
+Import statements must be declared within the first 50 lines of code, in general
+it is best to declare them at the top of the file immediately following the
+Option Explicit statement.&nbsp; (If used, the Option Explicit statement must
+always be the first line of executable code.)<br>
+</font></p>
+<p><font face="Verdana" size="2"><b>Example:</b>&nbsp; Import a file named
+MathStuff.tpf from the current test directory.</font></p>
+  <div align="center">
+    <table class="MsoNormalTable" border="0" cellpadding="0" width="90%" style="width:90.0%;mso-cellspacing:1.5pt;background:gainsboro;mso-padding-alt:
+ 0in 0in 0in 0in">
+      <tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+        <td width="90%" style="width:90.0%;background:#E6E6E6;padding:.75pt .75pt .75pt .75pt">
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><font face="Courier New" size="2"><span style="color: blue">&nbsp;
+            Option Explicit&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#008000">' MUST be declared on the first line</font><span style="color:blue"><br>
+            </span>
+            <span style="color: blue">&nbsp;&nbsp;<br>
+            &nbsp;</span> <font color="#0000FF">Import</font> <font color="#800000">&quot;MathStuff.tpf&quot;</font>,<span style="color: blue">
+            </span><font color="#800000">&quot;math&quot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#800000"><br>
+            &nbsp;&nbsp;&nbsp;<b>&nbsp; </b></font>.<br>
+            &nbsp;&nbsp;&nbsp;&nbsp; .<br>
+            &nbsp;&nbsp;&nbsp;&nbsp; .</font></p>
+            <p><font face="Courier New" size="2">&nbsp; <font color="#008000">'
+            Call a function declared inside MathStuff.tpf</font><br>
+            &nbsp; <font color="#0000FF">Dim</font> x, y, z<br>
+            &nbsp; x <font color="#0000FF">=</font> 5 : y <font color="#0000FF"> =</font> 10<br>
+            &nbsp; z <font color="#0000FF"> =</font> math.Average(x, y)<br>
+            &nbsp; </font>
+        </td>
+      </tr>
+    </table>
+  </div>
+<p><font face="Verdana" size="2">The object name &quot;math&quot; is used here
+to reference the Average function defined inside MathStuff.tpf.&nbsp; In this
+example, MathStuff.tpf consists of the following code:</font></p>
+<blockquote>
+  <pre><font color="#008000">' Returns the average of x and y
+</font><font color="#0000FF">Function</font> Average(x, y)
+	Average <font color="#0000FF">=</font> (x <font color="#0000FF">+</font> y)<font color="#0000FF">/</font>2
+<font color="#0000FF">End Function</font></pre>
+  <pre><font color="#008000">' Returns the sum of x and y
+</font><font color="#0000FF">Function</font> Sum(x, y)
+	Sum <font color="#0000FF">=</font> x <font color="#0000FF">+</font> y
+<font color="#0000FF">End Function</font></pre>
+  <pre><font color="#008000">' Returns the difference between x and y
+</font><font color="#0000FF">Function</font> Difference(x, y)
+	Difference <font color="#0000FF">=</font> x <font color="#0000FF">-</font> y
+<font color="#0000FF">End Function</font></pre>
+</blockquote>
+<p><b><font face="Verdana" size="2">See Also</font></b></p>
+<p>&nbsp;&nbsp; <font face="Verdana" size="2"><a href="NullScriptName.html">
+Using a Null Script Name</a> | <a href="ImportScriptErrors.html">Script Errors</a></font></p>
+<p>&nbsp;</p>
+<p><font size="2" face="Verdana"><a href="#Top">Back to
+Top</a></font></p>
+<p><i><font face="Verdana" size="1">Astronics Test Systems<br>
+Last updated on 1/13/06 by L. Anhalt</font></i></p>
+
+</body>
+
+</html>

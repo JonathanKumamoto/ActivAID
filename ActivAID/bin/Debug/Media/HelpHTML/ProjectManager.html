@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="en-us" http-equiv="Content-Language" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Project Manager</title>
+<style type="text/css">
+.auto-style2 {
+	font-size: medium;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.auto-style3 {
+	font-size: small;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.auto-style4 {
+	margin-left: 40px;
+}
+.auto-style5 {
+	font-family: "Courier New", Courier, monospace;
+}
+.auto-style6 {
+	color: #0000FF;
+	font-size: small;
+}
+.auto-style7 {
+	font-size: small;
+}
+.auto-style8 {
+	font-family: "Courier New", Courier, monospace;
+	font-size: small;
+}
+    .style1
+    {
+        font-size: xx-small;
+    }
+</style>
+</head>
+
+<body>
+
+<h1 class="auto-style2">Project Manager</h1>
+<p class="auto-style3">The Project Manager window is only valid on C# and .NET test 
+programs.&nbsp; VBScript does not support a Project Manager.&nbsp; The primary 
+purpose of the Project Manager is to manage additional test program files that 
+are specific to your test program.&nbsp; Test program developers can add a 
+partial class by right-mouse-clicking anywhere in a test program file or may add 
+a partial class or new class by right-mouse-clicking in the Project Manager 
+Window.</p>
+<p>
+<img alt="Add Partial Class" height="392" src="bin/ProjectMngr1.png" width="735" /></p>
+<table style="width: 100%">
+	<tr>
+		<td style="width: 439px"><span class="auto-style3">Adding a partial 
+		class will prompt the user with a "Add Partial Class" dialog box.&nbsp; 
+		You cannot change the name of the partial class.&nbsp; This will be an 
+		extension of the main test program's partial class file.&nbsp; However, 
+		you will be prompted to supply a file name.&nbsp; </span>
+		<br class="auto-style3" />
+		<br class="auto-style3" />
+		<span class="auto-style3">This new file will contain the partial class. 
+		To differentiate a partial class file from a new class file, developers 
+		might want to append a _pc to the file name.&nbsp;&nbsp; Note that no 
+		extension is necessary.&nbsp; All partial class files (for C#) will have 
+		the .CS extension.</span></td>
+		<td>
+		<img alt="Partial Class" height="194" src="bin/PartialClassDlgBox.PNG" width="351" /></td>
+	</tr>
+</table>
+<table style="width: 100%">
+	<tr>
+		<td style="width: 198px">
+		<img alt="Adding a Partial Class" height="120" src="bin/ProjectMngr2.png" width="194" /></td>
+		<td>A<span class="auto-style3">fter pressing OK, the partial class file 
+		is created and added to the project.&nbsp; To edit the new file, 
+		double-click on the file in the Project Manager.</span><br class="auto-style3" />
+		<br class="auto-style3" />
+		<span class="auto-style3">All Functions and Objects in all previous 
+		partial class files will be available (with intellisense) to the new 
+		partial class file.&nbsp; However, as new objects are added to other 
+		files, developers will not see the intellisense until a program reload 
+		is performed.</span></td>
+	</tr>
+</table>
+<table style="width: 100%">
+	<tr>
+		<td style="width: 199px">
+		<img alt="Project Manager Folders" height="175" src="bin/ProjectMngr3.png" width="194" /></td>
+		<td>
+		<p class="auto-style3">Folders may be added to the project manager to 
+		help organize large test programs.&nbsp; Note that folders are added 
+		only one-level deep.&nbsp; That is, folders cannot be added to folders. 
+		Use standard drag-drop to move files around into and out of the folders.&nbsp;&nbsp;
+		</p>
+		<p class="auto-style3">Empty folders will be removed when the test 
+		program is closed.&nbsp; Only folders with files under them will be 
+		retained.</p>
+		<p class="auto-style3">Class files do not have access to anything in the 
+		main test program class.&nbsp; Test program objects - Drivers, Add-Ins, 
+		TraceLog, Results, etc. are only available to the main test program 
+		class objects (including&nbsp; all partial classes).</p>
+		<p class="auto-style3">&nbsp;</p>
+		</td>
+	</tr>
+</table>
+<p class="auto-style3">For class objects to gain access to the test program 
+objects, it is necessary to pass the test program objects over to the new class 
+so they can access them.&nbsp; For example, in our main test program, we might 
+have some code that looks like:</p>
+<p class="auto-style4"><span class="auto-style5"><span class="auto-style7">
+Class1 c1 = </span><span class="auto-style6">new</span><span class="auto-style7"> 
+Class1(DMM, TraceLog);</span></span><br class="auto-style8" />
+<span class="auto-style8">c1.myFn();</span></p>
+<p class="auto-style3">And in our new Class1 file (not a partial class), we 
+would have:</p>
+<p class="auto-style4"><span class="auto-style5" style="color: green">
+<span class="auto-style7">// Must include the DMM object for this class to have 
+access to it. </span></span><br />
+<span class="auto-style8" style="color: blue">using</span><span class="auto-style5" style="color: black"><span class="auto-style7"> 
+Racal.DMM_4152;</span><br class="auto-style7" />
+</span><span class="auto-style8" style="color: gray">///</span><span class="auto-style8" style="color: green">
+</span><span class="auto-style8" style="color: gray">&lt;summary&gt;</span><br class="auto-style8" />
+<span class="auto-style8" style="color: gray">///</span><span class="auto-style7" style="font-family:
+&quot;Courier New&quot;;color:green"> </span>
+<span class="auto-style5" style="color: green"><span class="auto-style7">ToDo: 
+Class Description</span><br class="auto-style7" />
+</span><span class="auto-style8" style="color: gray">///</span><span class="auto-style8" style="color: green">
+</span><span class="auto-style8" style="color: gray">&lt;/summary&gt;</span><br class="auto-style8" />
+<span class="auto-style8" style="color: blue">public</span><span class="auto-style8" style="color: black">
+</span><span class="auto-style8" style="color: blue">class</span><span class="auto-style5" style="color: black"><span class="auto-style7"> 
+Class1</span><br class="auto-style7" />
+</span>
+<span class="auto-style7" style="font-family:
+&quot;Courier New&quot;;color:black">{</span><span style="color: black"><br class="auto-style8" />
+</span><span style="font-family:
+&quot;Courier New&quot;;color:black">
+<span class="auto-style5" style="color: black"><span class="auto-style7">&nbsp;&nbsp;&nbsp; 
+DMMDvr DMM;</span><br class="auto-style7" />
+<span class="auto-style7">&nbsp;&nbsp;&nbsp; Racal.Sequencer.TraceLog TraceLog;</span><br class="auto-style7" />
+<span class="auto-style7">&nbsp;&nbsp;&nbsp; </span><br class="auto-style7" />
+<span class="auto-style7">&nbsp;&nbsp;&nbsp; </span></span></span>
+<span class="auto-style8" style="color: blue">public</span><span class="auto-style5" style="color: black"><span class="auto-style7"> 
+Class1() {}</span><br class="auto-style7" />
+<span class="auto-style7">&nbsp;&nbsp;&nbsp; </span></span>
+<span class="auto-style8" style="color: blue">public</span><span class="auto-style5" style="color: black"><span class="auto-style7"> 
+Class1(DMMDvr _dmm, Racal.Sequencer.TraceLog tLog) </span>
+<br class="auto-style7" />
+<span class="auto-style7">&nbsp;&nbsp;&nbsp; </span></span>
+<span class="auto-style7" style="font-family:
+&quot;Courier New&quot;;color:black">{</span><span style="color: black"><br class="auto-style8" />
+</span><span style="font-family:
+&quot;Courier New&quot;;color:black">
+<span class="auto-style5" style="color: black"><span class="auto-style7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+DMM = _dmm;</span><br class="auto-style7" />
+<span class="auto-style7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TraceLog = 
+tLog;</span><br class="auto-style7" />
+<span class="auto-style7">&nbsp;&nbsp;&nbsp; }</span><br class="auto-style7" />
+<br class="auto-style7" />
+<span class="auto-style7">&nbsp;&nbsp;&nbsp; </span></span></span>
+<span class="auto-style8" style="color: blue">public</span><span class="auto-style8" style="color: black">
+</span><span class="auto-style8" style="color: blue">void</span><span class="auto-style7" style="font-family:&quot;Courier New&quot;;
+color:black"> </span><span class="auto-style5" style="color: black">
+<span class="auto-style7">myFn()</span><br class="auto-style7" />
+<span class="auto-style7">&nbsp;&nbsp;&nbsp; </span></span>
+<span class="auto-style7" style="font-family:
+&quot;Courier New&quot;;color:black">{</span><span style="color: black"><br class="auto-style8" />
+</span><span style="font-family:
+&quot;Courier New&quot;;color:black">
+<span class="auto-style8" style="color: black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span class="auto-style8" style="color: blue">double</span><span class="auto-style8" style="color: black"> 
+value = </span><span class="auto-style8" style="color: purple">0.0</span><span class="auto-style7" style="font-family:&quot;Courier New&quot;;color:black">;</span><span style="color: black"><br class="auto-style8" />
+</span><span style="font-family:&quot;Courier New&quot;;color:black">
+<span class="auto-style8" style="color: black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span class="auto-style8" style="color: black">DMM.Read(</span><span class="auto-style8" style="color: blue">ref</span><span class="auto-style5" style="color: black"><span class="auto-style7"> 
+value);</span><br class="auto-style7" />
+<span class="auto-style7">&nbsp;&nbsp;&nbsp; }</span><br class="auto-style7" />
+<span class="auto-style7">}</span></span><o:p></o:p></p>
+<p>&nbsp;</p>
+<p><span class="auto-style3"><a href="Overview.html">Back To Main</a></span></p>
+<p><span class="auto-style3">see also:</span></p>
+<p><i><font face="Verdana" size="1">Astronics Test Systems<br>
+Last updated on </font><span class="style1">August 12, 2015 by D. Ignacio</span></i></p>
+
+</body>
+
+</html>

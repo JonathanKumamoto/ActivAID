@@ -1,0 +1,130 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Adding a New Driver</title>
+<link rel="stylesheet" type="text/css" href="help.css">
+</head>
+
+<body>
+
+<h1><a name="Top">Adding a New Driver</a></h1>
+<p>These steps describe how to add a new driver to the ActivATE<font face="Verdana">™ 
+environment.</font></p>
+<ol>
+	<li>To get started, use one of the following methods:</li>
+</ol>
+<blockquote>
+	<ol>
+		<li type="a">Right-click anywhere in the tree view in the Configuration 
+		pane and select &quot;Add New&quot; from the context menu.&nbsp; <br>
+		<br>
+		<img border="0" src="bin/AddDriver1.png" width="268" height="181"><br>
+&nbsp;</li>
+		<li type="a">Drag and drop the .DLL or .EXE assembly file that contains 
+		the driver you would like to add to the tree view in the Configuration 
+		pane.&nbsp; If the assembly is recognized as an ActivATE<font face="Verdana">™-specific 
+		assembly, the ActivATE™ environment will try to automatically add the 
+		driver for you.&nbsp; Simply provide a test program reference name and a 
+		description in the fields as shown below, then click OK:<br>
+		<br>
+		<img border="0" src="bin/AddDriver3.png" width="344" height="268"><br>
+		<br>
+		If the assembly is not recognized, the configuration tool will appear 
+		instead.&nbsp; Follow the instructions below to continue adding the 
+		driver.</font></li>
+	</ol>
+</blockquote>
+<ol start="5">
+	<li type="1" value="2">The configuration tool appears.&nbsp; Click the file 
+	browse button next to the File Name text box to open a file browser dialog 
+	and select the driver assembly to add.&nbsp; The driver assembly should be a 
+	.NET or COM DLL or EXE file.&nbsp; <br>
+&nbsp;</li>
+	<li type="1">After the driver assembly has been selected, the classes that 
+	are available within the assembly will be displayed in the Assembly Classes 
+	tree view.&nbsp; Expand a class to view the public methods and properties 
+	that are exposed in that class.<br>&nbsp;</li>
+	<li type="1">The tool will attempt to 
+	recommend the driver and UI (User Interface) classes to use.&nbsp; The 
+	driver class will be used to create an object for the test program to 
+	access, and its public API's will be available to the test program.&nbsp; 
+	The UI class is optional, but can only be specified for an ActivATE<font face="Verdana">™-specific 
+	assembly</font>.&nbsp; If provided, the UI class determines the form that 
+	will be created when the user clicks the icon for the driver on the 
+	Outlook-style toolbar.&nbsp; A UI provides a quick and easy way of accessing 
+	the driver's functionality without having to run a test program.&nbsp; <br>
+	<br>
+	If the assembly is a recognized ActivATE<font face="Verdana">™-specific assembly, the tool should 
+	successfully locate the correct classes.&nbsp; These will be highlighted in 
+	yellow in the Assembly Classes tree view and they will be automatically 
+	filled in in the Driver Class Name and UI Class Name text boxes, as shown 
+	below:<br><br>&nbsp;</font><table border="0" width="72%" id="table1">
+		<tr>
+			<td width="591">
+			<img border="0" src="bin/ConfigTool1.png" width="581" height="339"></td>
+			<td>The GPIBDriver.dll assembly is an ActivATE<font face="Verdana">™-specific 
+			assembly and the tool was therefore able to recommend the correct 
+			classes we should use for this driver.</font></td>
+		</tr>
+	</table>
+	<p><font face="Verdana"><br>If the tool was not able to recommend any classes, or if you would like to 
+	change the selected classes, right-click on the class you would like to use 
+	in the tree view and select either &quot;Use as Driver class&quot; or &quot;Use as UI 
+	class&quot; from the context menu.</font></p>
+	<p><img border="0" src="bin/ConfigTool2.png" width="349" height="220"><br>
+&nbsp;</p></li>
+	<li>Enter the name to be used to reference this driver from the test program 
+	in the TP Reference text box.&nbsp; This name must be unique among all other 
+	test program reference names within the same configuration.<br>
+&nbsp;</li>
+	<li>In the ToolBar Group text box, enter the group name that this driver 
+	will appear under in the Outlook-style toolbar.&nbsp; This field only 
+	applies if a UI class has been selected.&nbsp; The default group is 
+	&quot;Devices&quot;.&nbsp; Additional groups will be added after the Devices pane in 
+	the Outlook-style toolbar.&nbsp; The following example shows the result of 
+	adding a device in a group called &quot;Switch Cards&quot;:<br>
+	<br>
+	<img border="0" src="bin/AddDriver2.png" width="184" height="209"><br>
+&nbsp;</li>
+	<li>Enter a brief description of the driver in the Description text box.&nbsp; 
+	This field is optional.&nbsp; <br>
+&nbsp;</li>
+	<li>Finally, click the Add Driver button to add the new driver to the 
+	current configuration, or click Cancel to exit without adding the driver.</li>
+</ol>
+<p>&nbsp;</p>
+<p><i><b>Important: </b>&nbsp;<b>Committing Changes</b></i></p>
+<p align="left">After the new driver has successfully been added, the 
+Reinitialize button on the toolbar will be highlighted in yellow as shown below.&nbsp; 
+The new driver will NOT be available until the environment has been 
+reinitialized or until the application is restarted.&nbsp; To reinitialize, make 
+sure all test programs and driver UI's are closed and then click the 
+Reinitialize button.<br>
+<br>
+<img border="0" src="bin/reinitializeButton.png" width="297" height="187"></p>
+<p align="left">If at any time you wish to cancel your changes, click the 
+Rollback button at the bottom of the properties page.&nbsp; This will undo all 
+changes that have been made since the last reinitialization.&nbsp; The Rollback 
+button is only enabled if there are uncommitted changes (until the system is 
+reinitialized or until the application is shut down).</p>
+<p align="left">
+<img border="0" src="bin/AddDriver4.png" width="194" height="375"></p>
+<p>&nbsp;</p>
+<p><font size="2" face="Verdana"><a href="#Top">Back to Top</a></font></p>
+<p><i><font face="Verdana" size="1">Astronics Test Systems Test &amp; Services<br>
+Last updated on 2/27/07</font></i></p>
+<p>&nbsp;</p>
+<p>&nbsp; </p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><br>
+&nbsp;</p>
+
+</body>
+
+</html>

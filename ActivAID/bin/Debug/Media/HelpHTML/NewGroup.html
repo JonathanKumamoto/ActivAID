@@ -1,0 +1,113 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 12.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Adding a new group</title>
+<link rel="stylesheet" type="text/css" href="help.css">
+</head>
+
+<body>
+
+<p><b><font size="3" face="Verdana"><a name="Top">Adding a new group</a></font></b></p>
+
+<p><font size="2" face="Verdana">Groups may be added to the test program to help section your tests into
+meaningful and manageable parts.&nbsp; Test groups are analogous to directory
+folders on a computer disk.</font></p>
+
+<ol>
+	<li><font size="2" face="Verdana">Right click on the node to add a group
+node to.&nbsp; Groups may ONLY be added to the root node or other group nodes.<br>
+&nbsp;</font></li>
+	<li><font size="2" face="Verdana">Select &quot;New Group&quot; from the
+context menu.</font></li>
+</ol>
+
+<p><font size="2" face="Verdana">&nbsp;&nbsp;&nbsp; 
+<img border="0" src="bin/newgroup1.jpg" width="320" height="245"></font></p>
+
+<ol>
+	<li value="3"><font size="2" face="Verdana">The New Group dialog appears as
+shown below.&nbsp; Enter a name for the new group in the Group Name
+text box.</font></li>
+</ol>
+
+<p><font size="2" face="Verdana">&nbsp;&nbsp;&nbsp; 
+<img border="0" src="bin/newgroup2.jpg" width="296" height="312"></font></p>
+
+<ol>
+	<li value="4"><font size="2" face="Verdana">Enter a description for this group if
+desired in the Description text box.<br>
+&nbsp;</font></li>
+	<li>If you would like to create your group from an existing template, check 
+	the &quot;Use Template&quot; check box and select the template from the drop down 
+	list.&nbsp; For information on creating templates, see the
+	<a href="Templates.html">Templates</a> help topic.<br>
+&nbsp;</li>
+	<li><font size="2" face="Verdana">The Pre-Group and Post-Group subroutine 
+	names will automatically be filled in for you based on the group name you 
+	enter.&nbsp; If you would like to change the default names, you may do so.&nbsp; 
+	You may also choose to leave them blank.&nbsp; The Pre-Group subroutine is 
+	executed before any tests in the group, and the Post-Group subroutine is 
+	executed after all other tests in the group have been completed.<br>
+&nbsp;</font></li>
+	<li><font face="Verdana" size="2">Click OK to finish or Cancel to exit 
+	without creating a new group.<br>
+&nbsp;</font></li>
+	<li><font face="Verdana" size="2">The following code demonstrates the
+script that is auto-generated and displayed in the Script View window after the
+new group is created.&nbsp; It is appended to the end of the existing test
+script.</font></li>
+</ol>
+<blockquote>
+  <pre><font color="#008000">'----------------------------------------------------
+' Parent  : Root
+' Description: Pre Group Test: A group for my test
+'----------------------------------------------------
+</font><font color="#0000FF">Sub</font> PreGroup1()
+<font color="#008000">'  ToDo: Put your initialization code here
+</font><font color="#0000FF">End Sub</font></pre>
+  <pre><font color="#008000">'----------------------------------------------------
+' Parent  : Root
+' Description: Post Group Test:  
+'----------------------------------------------------
+</font><font color="#0000FF">Sub</font> PostGroup1()
+<font color="#008000">'  ToDo: Put your initialization code here
+</font><font color="#0000FF">End Sub</font></pre>
+</blockquote>
+<p><br>
+<b><font face="Verdana" size="2">Notes:</font></b></p>
+<p><font size="2" face="Verdana">Two nodes with
+the same name cannot exist within the same group (i.e., at the same tree
+level).&nbsp; Therefore, if you try to add a group node to a group that already
+contains a node with the same name, you will receive an error message and the
+new node will not be added.&nbsp; (Node names are case-sensitive.)</font></p>
+<p><font size="2" face="Verdana">If your new group node's VBScript methods have
+the same names as previously defined methods, the following message box appears:</font></p>
+<p><img border="0" src="bin/NewGroup3.jpg"></p>
+<p><font size="2" face="Verdana">If you click &quot;Yes&quot;, new PreTest and
+PostTest subroutines will not be created.&nbsp; Instead, the new group node will
+execute the existing subroutines when the test program is run.&nbsp; It is OK to
+have two or more nodes call the same VBScript method.</font></p>
+<p><font size="2" face="Verdana">If you click &quot;No&quot;, new PreTest and
+PostTest subroutines will be created, but a number will be appended to the end
+of the new names to make them unique.&nbsp; For example, if the node name is
+Group1, the names PreGroup1_1, PreGroup1_2, etc. will be tried until a unique
+name is found.</font></p>
+<p><font size="2" face="Verdana">If you click &quot;Cancel&quot;, the new node
+is not created.</font></p>
+<p>&nbsp;</p>
+<p><font size="2" face="Verdana"><a href="#Top">Back to Top</a></font></p>
+<p><i><font face="Verdana" size="1">Astronics Test Systems<br>
+Last updated on 2/20/07 by L. Anhalt</font></i></p>
+<p>&nbsp;</p>
+
+<pre>&nbsp;</pre>
+
+<p>&nbsp;</p>
+
+</body>
+
+</html>

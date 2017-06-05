@@ -1,0 +1,67 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Package Manager</title>
+<link rel="stylesheet" type="text/css" href="help.css">
+    <style type="text/css">
+        .style3
+        {
+            width: 897px;
+            height: 566px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Package Creation</h1>
+<p>For package creation, the following context menu commands (applied on the 
+root of ActivATE Project Manager root) are relevant:</p>
+<ul>
+	<li><strong>Build:</strong> Test Procedure Binary file is created. Its full 
+	path name and location is displayed in ActivATE Script Trace Log toolbar. 
+	(If ActivATE Script Trace Log toolbar is not visible, it must be enabled 
+	from View pull-down menu.)</li>
+	<li><strong>Package for Deployment:</strong> Project.package is created at 
+	the place where the project sequence file is.</li>
+	<li><strong>Extract from Package:</strong> This command expands a 
+	Project.package built with a previous <strong>Package for Deployment</strong> 
+	command.</li>
+</ul>
+<p>
+<img alt="Package Commands" src="bin/PackageMngr_ContextMenu.PNG"></p>
+<p>&nbsp;</p>
+<p><strong>Package for Deployment command</strong></p>
+<p>ActivATE shows in its Script Trace Log toolbar the files included in the 
+package, along with their MD5 Hash Codes and file sizes. (If ActivATE Script 
+Trace Log toolbar is not visible, it must be enabled from View pull-down menu.)</p>
+<p>The MD5 codes are saved in _md5_hash_values_in_package.xml, which is a file 
+added to the package behind the scene. Its role is to provide the MD5 Hash Codes 
+for each project file at unpacking time in order to validate the correctness of 
+that operation.</p>
+<p>&nbsp;</p>
+<p>
+<img alt="Package for Deployment" src="bin/PackageMngr_ScriptTraceLog.PNG"></p>
+<p>&nbsp;</p>
+<p><strong>Extract from Package command</strong></p>
+<p>This command expands a previously created Package file. When operation 
+completed, the user may choose to inspect the extracted folder:</p>
+<p>
+<img alt="Extract From Package Dialog" src="bin/PackageMngr_ExtractFromPackageDialog.PNG"></p>
+<p>MD5 Hash Code verification errors are always reported in ActivATE Event 
+Logger form, like below:</p>
+<p>
+<img alt="Package Extraction Failure" src="bin/PackageMngr_ExtractionFailure.PNG"></p>
+<p><strong>Other links:</strong></p>
+    <p><a href="PackageMngr.html">Introduction</a>
+	<a href="PackageMngr_DataFiles.html">Data Files In Project</a>
+	<a href="PackageMngr_Usage.html">Package Usage</a></p>
+<hr>
+<p><i><font face="Verdana" size="1">Astronics Test Systems<br>
+Last updated on 2/27/16 I. Zolog</font></i></p>
+
+</body>
+
+</html>

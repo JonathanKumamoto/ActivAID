@@ -1,0 +1,686 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Predefined Objects</title>
+<link rel="stylesheet" type="text/css" href="help.css">
+<style>
+<!--
+div.Section1
+	{page:Section1;}
+.auto-style1 {
+	font-family: Verdana;
+	font-size: x-small;
+}
+.auto-style2 {
+	font-family: Verdana;
+	font-size: x-small;
+	margin-left: 120px;
+}
+.auto-style3 {
+	font-family: "Courier New", Courier, monospace;
+	font-size: x-small;
+	margin-left: 120px;
+}
+.auto-style4 {
+	color: #1F3BF1;
+}
+.auto-style5 {
+	color: #A01BB9;
+}
+.auto-style6 {
+	font-family: "Courier New", Courier, monospace;
+	font-size: 10pt;
+	margin-left: 120px;
+}
+.auto-style8 {
+	color: #1F25E8;
+}
+.auto-style9 {
+	color: #34A70D;
+}
+.auto-style10 {
+	background-color: #FFFF00;
+}
+.auto-style11 {
+	font-family: Verdana;
+	font-size: x-small;
+	margin-left: 40px;
+}
+    .style1
+    {
+        color: #800000;
+    }
+    .style2
+    {
+        font-size: xx-small;
+    }
+-->
+</style>
+</head>
+
+<body>
+
+<h1><font face="Verdana" size="3"><a name="Top">Predefined Objects and Methods</a></font></h1>
+<p><font face="Verdana" size="2">When writing test programs in the ActivATE™ 
+environment, it may be helpful to know that there are some predefined objects 
+and methods that can be used to benefit the user.&nbsp; The following is a list of 
+the available items:</font></p>
+<blockquote>
+  <blockquote>
+    <table border="1" width="754" id="table6" bordercolorlight="#C0C0C0" bordercolordark="#C0C0C0" style="border-collapse: collapse" cellpadding="3">
+      <tr>
+        <td width="91"><a href="#Application">Application</a></td>
+        <td width="642">Provides access to general properties for the ActivATE™ 
+		application.</td>
+      </tr>
+      <tr>
+        <td width="91"><a href="#MyDir">MyDir</a></td>
+        <td width="642">The path of the current test program directory.</td>
+      </tr>
+      <tr>
+        <td width="91"><font face="Verdana" size="2"><a href="#Results">Results</a>&nbsp;
+        </font></td>
+        <td width="642">Provides access to<font face="Verdana" size="2"> the properties 
+        for the test results.</font></td>
+      </tr>
+      <tr>
+        <td width="91"><font face="Verdana" size="2"><a href="#Sequencer">
+        Sequencer</a>&nbsp;&nbsp; </font></td>
+        <td width="642"><font face="Verdana" size="2">Controls the 
+        test program flow.</font></td>
+      </tr>
+      <tr>
+        <td width="91"><a href="#Application">SharedMemory</a></td>
+        <td width="642">Exposes the SharedMemory object. Same as 
+		Application.SharedMemory.</td>
+      </tr>
+      <tr>
+        <td width="91"><a href="#Sleep">Sleep</a></td>
+        <td width="642">Adds a delay for the specified number of milliseconds.</td>
+      </tr>
+      <tr>
+        <td width="91"><a href="#SlotID_/_TIU">SlotID</a></td>
+        <td width="642">The slot number.&nbsp; (same as TIU)</td>
+      </tr>
+      <tr>
+        <td width="91"><a href="#SlotID_/_TIU">TIU</a></td>
+        <td width="642">The Test Interface Unit number.&nbsp; (same as SlotID)</td>
+      </tr>
+      <tr>
+        <td width="91"><font face="Verdana" size="2"><a href="#ThisGroup">ThisGroup</a></font></td>
+        <td width="642">Provides access to<font face="Verdana" size="2"> the properties 
+        for the active group node.</font></td>
+      </tr>
+      <tr>
+        <td width="91"><font face="Verdana" size="2"><a href="#ThisNode">ThisNode</a></font></td>
+        <td width="642">Provides access to<font face="Verdana" size="2"> the properties 
+        for the active test node.</font></td>
+      </tr>
+      <tr>
+        <td width="91"><a href="#TraceLog">TraceLog</a></td>
+        <td width="642">Provides access to the Script Trace Log window and trace 
+		file.</td>
+      </tr>
+      </table>
+  </blockquote>
+</blockquote>
+<hr>
+<p><b><font face="Verdana"><a name="Application">Application</a></font></b></p>
+<blockquote>
+  <blockquote>
+    <table border="1" width="913" id="table16" cellpadding="2">
+      <tr>
+        <td width="152"><font face="Verdana">Application.Path</font></td>
+        <td width="745">Gets the path of the ActivATE.exe file (ex: &quot;C:\Program 
+		Files\ActivATE\ActivATE 3.x&quot;)</td>
+      </tr>
+      <tr>
+        <td width="152">Application.ID</td>
+        <td width="745">Retrieves the current user.</td>
+      </tr>
+      <tr>
+        <td width="152"><font face="Verdana">Application.Version</font></td>
+        <td width="745">Gets the full version of the ActivATE™ application (ex: 
+		&quot;3.3.0.4&quot;)</td>
+      </tr>
+      <tr>
+        <td width="152"><font face="Verdana">Application.SharedMemory</font></td>
+        <td width="745">Gets access to the Shared Memory object.&nbsp; This is 
+		static global memory. Test programs can read and write to this memory as 
+		a thread-safe mechanism to exchange data.&nbsp; Data types of any object 
+		are allowed (Integer, float, double, string, arrays, classes, etc).&nbsp; 
+		Shared memory is limited to 100 objects.&nbsp; This limit is not a 
+		system limitation but rather a limitation to prevent memory overflow.</td>
+      </tr>
+      <tr>
+        <td width="152">SharedMemory.Clear</td>
+        <td width="745">Clears all shared memory variables and removes them from 
+		the SharedMemory object list.</td>
+      </tr>
+      <tr>
+        <td width="152">SharedMemory.RemoveVar</td>
+        <td width="745">&nbsp;Removes the shared memory variable from Shared 
+		Memory. Example VBScript Call<p>
+		<span style="font-size: 10.0pt; line-height: 115%; font-family: Courier New; color: blue">
+		Call</span><span style="font-size: 10.0pt; line-height: 115%; font-family: Courier New; color: black">
+		</span>SharedMemory.RemoveVar(&quot;MyFlag&quot;)</td>
+      </tr>
+      <tr>
+        <td width="152">SharedMemory.GetVar</td>
+        <td width="745">Allows the test get a named shared memory variable.&nbsp; 
+		Example VBScript call:<p class="MsoNormal" style="line-height: normal; text-autospace: none; margin-bottom: .0001pt">
+		<span style="font-size:
+10.0pt;font-family:&quot;Courier New&quot;;color:blue">If</span><span style="font-size:
+10.0pt;font-family:&quot;Courier New&quot;;color:black"> </span>
+		<span style="font-size:
+10.0pt;font-family:&quot;Courier New&quot;;color:blue">CInt</span><span style="font-size:
+10.0pt;font-family:&quot;Courier New&quot;;color:black">(SharedMemory.GetVar(</span><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;;color:maroon">&quot;MyFlag&quot;</span><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;;color:black">) 
+		&gt; </span>
+		<span style="font-size:10.0pt;font-family:&quot;Courier New&quot;;color:purple">
+		4</span><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;;color:black">)
+		</span>
+		<span style="font-size:10.0pt;font-family:&quot;Courier New&quot;;color:blue">
+		Then<br>
+&nbsp;&nbsp;&nbsp; </span>
+		<span style="font-size:10.0pt;line-height:115%;font-family:&quot;Courier New&quot;;color:blue">
+		Exit Function</span><span style="font-size:10.0pt;font-family:
+&quot;Courier New&quot;;color:black"><br>
+		</span>
+		<span style="font-size:10.0pt;line-height:115%;font-family:&quot;Courier New&quot;;color:blue">
+		End</span><span style="font-size:10.0pt;line-height:115%;font-family:&quot;Courier New&quot;;color:black">
+		</span>
+		<span style="font-size:10.0pt;line-height:115%;font-family:&quot;Courier New&quot;;
+color:blue">If</span></td>
+      </tr>
+      <tr>
+        <td width="152"><font face="Verdana">SharedMemory.SetVar</font></td>
+        <td width="745">Allows the test program to set a named shared memory 
+		variable.&nbsp; Example VBScript call
+		<span style="font-size: 10.0pt; line-height: 115%; font-family: Courier New; color: black">
+		<br>
+&nbsp; nCntr = nCntr + 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</span>
+		<span style="font-size: 10.0pt; line-height: 115%; font-family: Courier New; color: blue">
+		<br>
+&nbsp; Call</span><span style="font-size: 10.0pt; line-height: 115%; font-family: Courier New; color: black"> 
+		SharedMemory.SetVar(</span><span style="font-size: 10.0pt; line-height: 115%; font-family: Courier New; color: maroon">&quot;MyFlag&quot;</span><span style="font-size: 10.0pt; line-height: 115%; font-family: Courier New; color: black">,nCntr)</span></td>
+      </tr>
+      </table>
+  </blockquote>
+</blockquote>
+<p><font size="2" face="Verdana"><a href="#Top">Back to Top</a></font></p>
+<hr>
+<p><b><font face="Verdana"><a name="MyDir">MyDir</a></font></b></p>
+<p><font face="Verdana">Provides the full path of the current test program 
+directory, excluding the test program file name.&nbsp; </font></p>
+<p><font face="Verdana">Example. Assume the currently executing test program is 
+located at C:\Program Files\ActivATE\ActivATE 3.x\Test Programs\Demo\ActivATE 
+Demo.seq.&nbsp; A VBScript call would be: </font></p>
+<blockquote>
+	<table border="0" width="479" id="table20" bgcolor="#CCCCCC" height="37">
+		<tr>
+			<td width="473"><font face="Courier New" size="2">&nbsp;&nbsp; 
+			TraceLog.WriteLine </font>
+			<font FACE="Courier New" SIZE="2" COLOR="#0000ff">MyDir</font></td>
+		</tr>
+	</table>
+</blockquote>
+<p><font face="Verdana">The output of the above statement in the Trace Log 
+window will be &quot;</font><font SIZE="2"><a href="file:///C:/Program%20Files/ActivATE/ActivATE%203.x/Test%20Programs/Demo">C:\Program 
+Files\ActivATE\ActivATE 3.x\Test Programs\Demo</a></font><font face="Verdana">&quot;.</font></p>
+<p><font size="2" face="Verdana"><a href="#Top">Back to Top</a></font></p>
+<hr>
+<p><b><font face="Verdana" size="2"><a name="Results">Results</a></font></b></p>
+<p><font face="Verdana">S</font><font face="Verdana" size="2">ee <a href="TestResultsFile.html">Test 
+Results File</a> and <a href="TestResultProps_TestNodes.html">Test Results 
+Properties</a></font></p>
+<p><font size="2" face="Verdana"><a href="#Top">Back to Top</a></font></p>
+<hr>
+<p><b><font size="2" face="Verdana"><a name="Sequencer">Sequencer</a></font></b></p>
+<blockquote>
+  <blockquote>
+    <table border="1" width="964" id="table5" cellpadding="2">
+      <tr>
+        <td width="199">Sequencer.BranchUnconditionally</td>
+        <td width="745">True/False Condition - If True, BranchOnFail node willl always take 
+            precedence over programmatic branching (ThisNode.BranchTo()).&nbsp; If False, 
+            then programmatic branching takes precedence over BranchOnFail flag (if set).</td>
+      </tr>
+      <tr>
+        <td width="199">Sequencer.ConsoleDebug</td>
+        <td width="745">Allows any and all test programs to simulataneously write to the 
+            same debug print output window Debug Output Window MUST be visible (see main menu item &quot;View&quot;) -else these 
+            statements are ignored.&nbsp; Example C# call:<br />
+            <br />
+&nbsp;&nbsp;&nbsp;&nbsp; Sequencer.ConsoleDebug(<span class="style1">&quot;Debug statement&quot;</span>);</td>
+      </tr>
+      <tr>
+        <td width="199">Sequencer.NodeEnable</td>
+        <td width="745">Allows the programmatic control of enabling or disabling 
+		test and group nodes.&nbsp; This is hierarchical.&nbsp; If a Group node 
+		is disabled (or enabled) all child nodes are affected.&nbsp; Nodes are 
+		fully qualified paths, separated with a dot (.)&nbsp;&nbsp;&nbsp; Use 
+		TRUE to enable a node (the default) and FALSE to disable the node. 
+		Programmatic control of enabling and disabling nodes DO NOT PERSIST when 
+		the file is closed.&nbsp; Example call:<p class="MsoNormal" style="line-height: normal; text-autospace: none; margin-bottom: .0001pt">
+		<span style="font-size:
+10.0pt;font-family:&quot;Courier New&quot;;color:green">&nbsp;&nbsp; ' Disable 
+		node &quot;G2.T5&quot;<br>
+&nbsp;&nbsp;&nbsp; </span>
+		<span style="font-size:10.0pt;font-family:&quot;Courier New&quot;;color:blue">
+		Call</span><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;;color:black"> 
+		sequencer.NodeEnable(</span><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+color:blue">false</span><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+color:black">, </span>
+		<span style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+color:maroon">&quot;G2.t5&quot;</span><span style="font-size:10.0pt;font-family:
+&quot;Courier New&quot;;color:black">)</span></td>
+      </tr>
+      <tr>
+        <td width="199"><font face="Verdana" size="2">Sequencer.Failed</font></td>
+        <td width="745"><font face="Verdana" size="2">True/False condition - If 
+        true, indicates the test program has failed at least one test node.
+        </font></td>
+      </tr>
+      <tr>
+        <td width="199">Sequencer.RequestToStop</td>
+        <td width="745">True/False Condition - If True, a &quot;controller&quot; is requesting the test 
+            program to stop.&nbsp; This is a read-only flag this is set using 
+            Sequencer.SoftAbort().</td>
+      </tr>
+      <tr>
+        <td width="199">Sequencer.SoftAbort</td>
+        <td width="745">When called, sets RequestToStop to True.</td>
+      </tr>
+      <tr>
+        <td width="199"><font face="Verdana" size="2">Sequencer.Stop</font></td>
+        <td width="745"><font face="Verdana" size="2">Stops the test program 
+		execution after the current node is completed.&nbsp; (Same as clicking 
+		the stop button.)</font></td>
+      </tr>
+      <tr>
+        <td width="199"><font face="Verdana" size="2">Sequencer.Terminating</font></td>
+        <td width="745"><font face="Verdana" size="2">True/False condition - If 
+        true, indicates the test sequencer will stop the test after executing 
+        the current node.&nbsp; </font></td>
+      </tr>
+      <tr>
+        <td width="199">Sequencer.TestProgramFile</td>
+        <td width="745">Gets the full path (directory and file name) of the test 
+		program.</td>
+      </tr>
+      <tr>
+        <td width="199">Sequencer.TestProgramName</td>
+        <td width="745">Gets the name of the test program.</td>
+      </tr>
+      <tr>
+        <td width="199">Sequencer.TestProgramVersion</td>
+        <td width="745">Gets or sets the test program version.&nbsp; This 
+		property is a string so the version can be in any format you choose.&nbsp; 
+		The default value is &quot;1.0.0&quot; when a new test program is created.</td>
+      </tr>
+    </table>
+    <p><b><i><font face="Verdana" size="2">VBScript Examples:</font></i></b></p>
+    <p><b><i><font face="Verdana" size="2">&nbsp;&nbsp;&nbsp; </font></i></b><u>
+    <font face="Verdana" size="2">Failed</font></u></p>
+    <blockquote>
+      <table border="0" width="479" id="table7" bgcolor="#CCCCCC">
+        <tr>
+          <td width="473"><font face="Courier New" size="2">&nbsp;&nbsp; if 
+          Sequencer.Failed then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tracelog.WriteLine &quot;A Test Node Failed&quot;<br>
+&nbsp;&nbsp; end if</font></td>
+        </tr>
+      </table>
+      <p>&nbsp;</p>
+    </blockquote>
+    <p><font face="Verdana" size="2">&nbsp;&nbsp; <u>Stop</u></font></p>
+    <blockquote>
+      <table border="0" width="479" id="table8" bgcolor="#CCCCCC">
+        <tr>
+          <td width="473"><font face="Courier New" size="2">&nbsp;&nbsp; if &lt;<i>condition</i>&gt; 
+          then <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sequencer.Stop <br>
+&nbsp;&nbsp; end if</font></td>
+        </tr>
+      </table>
+      <p>&nbsp;</p>
+    </blockquote>
+    <p><font face="Verdana" size="2">&nbsp;&nbsp; <u>Terminating (Exiting a 
+	loop)</u></font></p>
+    <p><font face="Verdana" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    The test program will check to see if the terminate flag has been set.&nbsp; 
+	This flag gets set as soon as the &quot;STOP&quot; button is pressed on an executing 
+	test program.&nbsp;&nbsp; <span class="auto-style10">Note: For any and all 
+	loops of any count, the Sequencer.Terminating flag should be checked to make 
+	sure infinite loops are not executed.</span></font></p>
+	  <p class="auto-style11"><strong>VBScript Example:</strong></p>
+    <blockquote>
+      <table border="0" width="479" id="table9" bgcolor="#CCCCCC">
+        <tr>
+          <td width="473"><font face="Courier New" size="2">&nbsp;&nbsp; do &lt;<i>something</i>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if Sequencer.Terminating = true then exit do<br>
+&nbsp;&nbsp; loop</font></td>
+        </tr>
+      </table>
+    </blockquote>
+  </blockquote>
+</blockquote>
+<p class="auto-style1">&nbsp;</p>
+<p class="auto-style2"><strong>CScharp Example</strong>:&nbsp;&nbsp; Note that 
+when looping, it is very easy to get stuck in a loop with no exit criteria.&nbsp; 
+Here's an example of loopoing forever in C# (this is a <em>bad</em> thing).</p>
+<p class="auto-style3"><strong><span class="auto-style4">do</span> <br></strong>
+{<strong><br>&nbsp;&nbsp;&nbsp; TraceLog.WriteLine (&quot;<span class="auto-style5">Looping 
+Forever...</span>&quot;);<br>} <span class="auto-style4">while</span> (<span class="auto-style4">true</span>);</strong></p>
+<p class="auto-style3">&nbsp;</p>
+<p class="auto-style3"><strong>What develpers should use, is:</strong></p>
+<p class="auto-style6"><strong><span class="auto-style8">do </span><br></strong>
+{<strong><br>&nbsp;&nbsp;&nbsp; TraceLog.WriteLine (&quot;<span class="auto-style5">Looping 
+Forever...</span>&quot;);<br>&nbsp;&nbsp;&nbsp; <span class="auto-style9">// This 
+will loop really fast, so use a small delay</span><br>&nbsp;&nbsp;&nbsp; 
+System.Threading.Thread.Sleep(1000);<br>&nbsp;&nbsp;&nbsp; if 
+(Sequencer.Terminating == <span class="auto-style8">true</span>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span class="auto-style8">break</span>;<br>} <span class="auto-style4">while</span> 
+(<span class="auto-style4">true</span>);</strong></p>
+<p class="auto-style3">&nbsp;</p>
+<p class="auto-style1"><font size="2" face="Verdana"><a href="#Top">Back to Top</a></font></p>
+<hr>
+<p><b><font face="Verdana"><font color="#0000FF"><a name="Sleep">void</a></font><a name="Sleep"> 
+Sleep (<font color="#0000FF">int</font> timeout)</a>&nbsp;&nbsp; (VBScript Only)</font></b></p>
+<p><font face="Verdana"><i>timeout<br>
+&nbsp;&nbsp;&nbsp; </i>[in] Specifies the amount of time to sleep for, in 
+milliseconds.</font></p>
+<p><font face="Verdana">Allows the user to add a delay to the test program by 
+suspending the test program thread for the specified time.</font></p>
+<p><font face="Verdana">Example: </font></p>
+<blockquote>
+	<table border="0" width="479" id="table21" bgcolor="#CCCCCC" height="37">
+		<tr>
+			<td width="473"><font face="Courier New" size="2">&nbsp;&nbsp; 
+			</font><font FACE="Courier New" SIZE="2" COLOR="#0000ff">Sleep</font><font FACE="Courier New" SIZE="2">(</font><font FACE="Courier New" SIZE="2" COLOR="#800080">5000</font><font FACE="Courier New" SIZE="2">)
+			</font><font FACE="Courier New" SIZE="2" COLOR="#008000">' Sleep for 
+			5 sec</font></td>
+		</tr>
+	</table>
+</blockquote>
+<p><font size="2" face="Verdana"><a href="#Top">Back to Top</a></font></p>
+<hr>
+<p><b><font face="Verdana"><a name="SlotID_/_TIU">SlotID / TIU</a></font></b></p>
+<p><font face="Verdana">Gets the test interface unit or slot number that the 
+current test program is executing on.&nbsp; The ActivATE software supports up to 
+36 concurrent test programs, so this property will return a number between 1 and 
+36.</font></p>
+<p><font face="Verdana">Example: </font></p>
+<p><font face="Verdana">If the test program is running on TIU 7, the output of 
+both statements below will be &quot;7&quot;.</font></p>
+<blockquote>
+	<table border="0" width="479" id="table22" bgcolor="#CCCCCC" height="37">
+		<tr>
+			<td width="473">
+			<blockquote>
+				<font face="Courier New" size="2">&nbsp;&nbsp; <br>
+				TraceLog.WriteLine </font>
+				<font FACE="Courier New" SIZE="2" COLOR="#0000ff">TIU</font><font FACE="Courier New" SIZE="2"><p>
+				TraceLog.WriteLine </font>
+				<font FACE="Courier New" SIZE="2" COLOR="#0000ff">SlotID</p>
+			</blockquote>
+			</font></td>
+		</tr>
+	</table>
+</blockquote>
+<p><font size="2" face="Verdana"><a href="#Top">Back to Top</a></font></p>
+<hr>
+<p><b><font face="Verdana" size="2"><a name="ThisGroup">ThisGroup</a></font></b></p>
+<p><font face="Verdana" size="2">When writing a test program, use the object 
+&quot;thisGroup&quot; to get or set different properties of the group node that 
+is the direct parent of the current test node.&nbsp; It can only be used within 
+a test node's function that is contained within a group node.&nbsp; It cannot be 
+used in the pre/post subroutines for a group node or in the function for a test 
+node that is a direct child of the root node.&nbsp; </font></p>
+<p><img border="0" src="bin/thisgroup.png" width="215" height="163"></p>
+<p>&nbsp;</p>
+<table border="1" width="860" id="table17">
+  <tr>
+    <td width="143"><font face="Verdana" size="2">Description</font></td>
+    <td width="701"><font face="Verdana" size="2">Gets/sets the description of the current 
+    test program group.</font></td>
+  </tr>
+  <tr>
+    <td width="143"><font face="Verdana" size="2">FullName</font></td>
+    <td width="701"><font face="Verdana">Gets</font><font face="Verdana" size="2"> the full name of the node 
+    including its parent groups.</font></td>
+  </tr>
+  <tr>
+    <td width="143"><font face="Verdana" size="2">LoopCount</font></td>
+    <td width="701"><font face="Verdana" size="2">Gets/Sets the number of times to loop on the 
+    current group.</font></td>
+  </tr>
+  <tr>
+    <td width="143"><font face="Verdana" size="2">LoopNumber</font></td>
+    <td width="701"><font face="Verdana" size="2">Gets/Sets the current loop number the test 
+    program group is on.</font></td>
+  </tr>
+  <tr>
+    <td width="143"><font face="Verdana" size="2">Name</font></td>
+    <td width="701"><font face="Verdana">Gets</font><font face="Verdana" size="2"> the name of the test program 
+    group.</font></td>
+  </tr>
+  <tr>
+    <td width="143"><font face="Verdana" size="2">Tag</font></td>
+    <td width="701"><font face="Verdana" size="2">Gets/Sets a user-defined string for the test program 
+    group.</font></td>
+  </tr>
+  <tr>
+    <td width="143" height="22"><font face="Verdana" size="2">TestProgramFile</font></td>
+    <td height="22" width="701"><font face="Verdana">Gets</font><font face="Verdana" size="2"> the full path of the test program 
+    file.</font></td>
+  </tr>
+</table>
+<p><i><font face="Verdana" size="2"><b>Tip:</b>&nbsp; If a user wants the group 
+node to stop looping before the LoopNumber reaches the number set for LoopCount, 
+set the LoopCount and LoopNumber equal to each other in the test program.</font></i></p>
+<p><i><font face="Verdana" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b>Example:</b> </font></i></p>
+<p><font face="Verdana" size="2"><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</i><u>LoopCount</u> and <u>LoopNumber</u></font></p>
+<table border="0" width="98%" id="table18">
+  <tr>
+    <td width="505" valign="top">
+    <blockquote>
+      <blockquote>
+        <p><i><font face="Verdana" size="2">if &lt;condition&gt; then</font></i></p>
+      </blockquote>
+      <p><font face="Verdana" size="2"><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; thisGroup.LoopNumber = thisGroup.LoopCount</i></font></p>
+      <blockquote>
+        <p><i><font face="Verdana" size="2">end if&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </font></i></p>
+      </blockquote>
+      <p><font face="Verdana" size="2">---- This will stop the loop once the 
+      condition becomes true. <i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </i>
+      </font></p>
+    </blockquote>
+    <p>&nbsp;</td>
+    <td valign="top">
+    <blockquote>
+      <p><i><font face="Verdana" size="2">if &lt;condition&gt; then</font></i></p>
+      <p><font face="Verdana" size="2"><i>&nbsp;&nbsp;&nbsp; thisGroup.LoopCount 
+        = thisGroup.LoopNumber</i></font></p>
+      <p><i><font face="Verdana" size="2">end if&nbsp; </font></i></p>
+    </blockquote>
+    <p><font face="Verdana" size="2">---- This will stop the loop once the 
+    condition becomes true, <i>however, </i>if the test program is saved after 
+    this condition has been true, the LoopCount will be reset to the LoopNumber.&nbsp; 
+    This is <i>not</i> recommended because a user is least likely to want to 
+    reset a LoopCount that has been set in the properties. It is suggested that 
+    the first example be used.</font></p>
+    <p>&nbsp;</td>
+  </tr>
+</table>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u><font face="Verdana" size="2">FullName</font></u></p>
+<blockquote>
+  <blockquote>
+    <table border="0" width="48%" id="table19">
+      <tr>
+        <td width="190">
+        <img border="0" src="bin/preObjects2.png" width="176" height="180"></td>
+        <td><font face="Verdana" size="2">Using the FullName property in test 
+        &quot;t4&quot;:</font><p><font face="Verdana" size="2">&nbsp;&nbsp;&nbsp; 
+        </font><font face="Courier New" size="2">TraceLog.WriteLine <b>thisGroup.FullName</b></font></p>
+        <p><font face="Verdana" size="2">Result:</font></p>
+        <p><font face="Verdana" size="2">&nbsp;&nbsp;&nbsp; </font>
+		<font face="Courier New" size="2">g1.g2</font></td>
+      </tr>
+    </table>
+  </blockquote>
+</blockquote>
+<p><font size="2" face="Verdana"><a href="#Top">Back to Top</a></font></p>
+<hr>
+<p><b><font face="Verdana" size="2"><a name="ThisNode">ThisNode</a></font></b></p>
+<p><font face="Verdana" size="2">When writing a test program, use the object 
+&quot;thisNode&quot; to get or set different properties of the test program node.&nbsp; 
+If used within a group node's pre and/or post subroutines, &quot;thisNode&quot; refers to 
+that group node.&nbsp; If used within a test node's function, &quot;thisNode&quot; refers 
+to that test node.</font></p>
+<p><img border="0" src="bin/thisnode.png" width="212" height="201"></p>
+<p>&nbsp;</p>
+<table border="1" width="822" id="table1">
+  <tr>
+    <td width="143">BranchTo</td>
+    <td width="679">Allows programmatic flow control. The branch node is 
+	unconditional.&nbsp; Branch nodes are fully qualified nodes including 
+	groups, separated by a dot ('.').&nbsp; Example:
+	<p class="MsoNormal" style="line-height: normal; text-autospace: none; margin-bottom: .0001pt">
+	<span style="font-size:
+10.0pt;font-family:&quot;Courier New&quot;;color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+	<span style="font-size:10.0pt;font-family:&quot;Courier New&quot;;color:green">
+	' Branch unconditionally to T4<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+	<span style="font-size:10.0pt;line-height:115%;font-family:&quot;Courier New&quot;;color:blue">
+	Call</span><span style="font-size:10.0pt;line-height:115%;font-family:&quot;Courier New&quot;;color:black"> 
+	thisNode.BranchTo(</span><span style="font-size:10.0pt;line-height:115%;
+font-family:&quot;Courier New&quot;;color:maroon">&quot;G1.G2.T4&quot;</span><span style="font-size:10.0pt;line-height:115%;font-family:&quot;Courier New&quot;;color:black">)</span></p>
+	<p class="MsoNormal" style="line-height: normal; text-autospace: none; margin-bottom: .0001pt">
+	<span style="font-family: Verdana">If the node does not exist, -1 is 
+	returned.&nbsp; If the node exists, zero is returned.</span></td>
+  </tr>
+	<tr>
+    <td width="143">BranchToNone</td>
+    <td width="679">Clears the branch node.&nbsp; Example:<p>
+	<span style="font-size:10.0pt;font-family:&quot;Courier New&quot;;color:green">&nbsp; 
+	' Cancel any preceding branch node. <br>
+	</span>
+	<span style="font-size:10.0pt;
+line-height:115%;font-family:&quot;Courier New&quot;;color:black">&nbsp; 
+	thisNode.BranchToNone()</span></td>
+  </tr>
+  <tr>
+    <td width="143"><font face="Verdana" size="2">Description</font></td>
+    <td width="679"><font face="Verdana" size="2">Gets/Sets the description of the current 
+    test program node.</font></td>
+  </tr>
+  <tr>
+    <td width="143"><font face="Verdana" size="2">FullName</font></td>
+    <td width="679"><font face="Verdana" size="2">Gets the full name of the node 
+    including its parent groups or nodes.</font></td>
+  </tr>
+  <tr>
+    <td width="143"><font face="Verdana" size="2">LoopCount</font></td>
+    <td width="679"><font face="Verdana" size="2">Gets/Sets the number of times to loop on the 
+    current node.</font></td>
+  </tr>
+  <tr>
+    <td width="143"><font face="Verdana" size="2">LoopNumber</font></td>
+    <td width="679"><font face="Verdana" size="2">Gets/Sets the current loop number the test 
+    program node is on.</font></td>
+  </tr>
+  <tr>
+    <td width="143"><font face="Verdana" size="2">Name</font></td>
+    <td width="679"><font face="Verdana" size="2">Gets the name of the test program node.</font></td>
+  </tr>
+  <tr>
+    <td width="143"><font face="Verdana" size="2">Tag</font></td>
+    <td width="679"><font face="Verdana" size="2">Gets/Sets a user-defined string for the test program node.</font></td>
+  </tr>
+  <tr>
+    <td width="143"><font face="Verdana" size="2">TestProgramFile</font></td>
+    <td width="679"><font face="Verdana" size="2">Gets the full path of the test program 
+    file.</font></td>
+  </tr>
+</table>
+<p><i><font face="Verdana" size="2"><b>Tip:</b>&nbsp; If a user wants the test 
+node to stop looping before the LoopNumber reaches the number set for LoopCount, 
+set the LoopCount and LoopNumber equal to each other in the test program.</font></i></p>
+<blockquote>
+  <p><i><font face="Verdana" size="2"><b>Examples:</b> </font></i></p>
+  <p><font face="Verdana" size="2">&nbsp;&nbsp;&nbsp; <u>LoopCount</u> and <u>LoopNumber</u></font></p>
+</blockquote>
+<table border="0" width="100%" id="table3">
+  <tr>
+    <td width="539" valign="top">
+    <blockquote>
+      <blockquote>
+        <p><i><font face="Verdana" size="2">if &lt;condition&gt; then&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </font></i></p>
+        <p><font face="Verdana" size="2"><i>&nbsp;&nbsp;&nbsp;&nbsp; thisNode.LoopNumber = 
+          thisNode.LoopCount</i></font></p>
+        <p><i><font face="Verdana" size="2">end if&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </font></i></p>
+      </blockquote>
+      <p><font face="Verdana" size="2">---- This will stop the loop once the 
+      condition becomes true. <i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </i>
+      </font></p>
+    </blockquote>
+    <p>&nbsp;</td>
+    <td valign="top">
+    <blockquote>
+      <p><i><font face="Verdana" size="2">if &lt;condition&gt; then</font></i></p>
+      <p><i><font face="Verdana" size="2">&nbsp;</font></i><font face="Verdana" size="2"><i>&nbsp;&nbsp;&nbsp; thisNode.LoopCount 
+        = thisNode.LoopNumber</i></font></p>
+      <p><i><font face="Verdana" size="2">end if&nbsp; </font></i></p>
+    </blockquote>
+    <p><font face="Verdana" size="2">---- This will stop the loop once the 
+    condition becomes true, <i>however, </i>if the test program is saved after 
+    this condition has been true, the LoopCount will be reset to the LoopNumber.&nbsp; 
+    This is <i>not</i> recommended because a user is least likely to want to 
+    reset a LoopCount that has been set in the properties. It is suggested that 
+    the first example be used.</font></p>
+    <p>&nbsp;</td>
+  </tr>
+</table>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font face="Verdana" size="2">&nbsp; <u>FullName</u></font></p>
+<blockquote>
+  <blockquote>
+    <table border="0" width="520" id="table10">
+      <tr>
+        <td width="187">
+        <img border="0" src="bin/preObjects2.png" width="176" height="180"></td>
+        <td width="323"><font face="Verdana" size="2">Using the FullName property in test 
+        &quot;t4&quot;:</font><p><font face="Verdana" size="2">&nbsp;&nbsp;&nbsp; 
+        </font><font face="Courier New" size="2">TraceLog.WriteLine <b>thisNode.FullName</b></font></p>
+        <p><font face="Verdana" size="2">Result:</font></p>
+        <p><font face="Verdana" size="2">&nbsp;&nbsp;&nbsp; </font>
+		<font face="Courier New" size="2">g1.g2.t4</font></td>
+      </tr>
+    </table>
+  </blockquote>
+</blockquote>
+<p><font size="2" face="Verdana"><a href="#Top">Back to Top</a></font></p>
+<hr>
+<p><b><font face="Verdana"><a name="TraceLog">TraceLog</a></font></b></p>
+<p><font face="Verdana">S</font><font face="Verdana" size="2">ee 
+<a href="TracelogObject.html">Using the Tracelog Object</a>.</font></p>
+<hr>
+<p><font size="2" face="Verdana"><a href="#Top">Back to Top</a></font></p>
+<p><i><font face="Verdana" size="1">EADS North America Test and Services<br>
+Last updated on</font> <span class="style2">11/18/14 by M. Buccat</span></i></p>
+
+</body>
+
+</html>

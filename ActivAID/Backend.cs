@@ -9,6 +9,7 @@ using BlockDataAndKeyWords = System.Collections.Generic.List<System.Tuple<string
 using System.Diagnostics;
 using System.Windows.Controls;
 using System.Runtime.Serialization;
+using System.IO;
 
 namespace ActivAID
 {
@@ -303,7 +304,7 @@ namespace ActivAID
                 {
                     tb = new TextBlock();
                     rList.Add(tb);
-                    new HrefsClickable(ref tb, hrefTup.Item1, hrefTup.Item2);
+                    new HrefsClickable(ref tb, hrefTup.Item1, @"Media\HelpHTML\"+Path.GetFileName(hrefTup.Item2));
                 }
             }
             return rList;

@@ -518,7 +518,7 @@ namespace ActivAID
 
         private void getfiles()
         {
-            string[] dirs = Directory.GetFiles(@"Media\", "*.*", SearchOption.AllDirectories);           //~~~~~~~~~~~~~~~~~~~manipulate    THIS
+            string[] dirs = Directory.GetFiles(@"Media\", "*.*", SearchOption.TopDirectoryOnly);           //~~~~~~~~~~~~~~~~~~~manipulate    THIS
 
 
             //@"Media\"
