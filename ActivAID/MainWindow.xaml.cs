@@ -15,6 +15,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using ActivAID.Properties;
+using System.Collections;
 
 namespace ActivAID
 {
@@ -36,14 +37,17 @@ namespace ActivAID
         public Func<string, string> stringOp;
         public Func<string[], string[]> summarize;
         SpeechRecognitionEngine sRecognize; //-----intialize speech recogniztion
+        Random rnd;
+        string[] exceptionResponses;
 
         public MainWindow()
         {
 
 
             BackEnd.loadIronPython();
-
-
+            rnd = new Random();
+            exceptionResponses = new string[] { "I'm hearing ya... I just don't getcha. Can you make your request more specific?","Sorry I can't help with that, I am not as advanced as my cousin Siri.",
+            "My sister Alexa inherited all the good AI genes, can you be a little more specific please."};
             InitializeComponent();
             InputBox.TextChanged += OnTextChangedHandler;
             Chatbot = new SimlBot();
@@ -314,7 +318,8 @@ namespace ActivAID
                     }
                     catch (NoFileMatchException)
                     {
-                        outputToUI.Text = "I'm hearing ya... I just don't getcha. Can you make your request more specific?";
+                        int ind = rnd.Next(0, 3);
+                        outputToUI.Text = exceptionResponses[ind];//"I'm hearing ya... I just don't getcha. Can you make your request more specific?";
                         Label botmsg = new Label();
                         botmsg.Name = "botmsg";   //bot's response box
                         botmsg.Target = OutputBox;
