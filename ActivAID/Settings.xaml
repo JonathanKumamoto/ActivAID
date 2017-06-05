@@ -21,12 +21,12 @@
                 <ImageBrush ImageSource="/Media/ColorScheme1.png"/>
             </Button.Background>
         </Button >
-        <Button Name="Buttonsch2" Margin="151,49,78,96.4" Width="24" Height="22" Click="colorsch_OnClick">
+        <Button Name="Buttonsch2" Margin="151,49,78,96.4" Width="24" Height="22" Cursor="Hand" Click="colorsch_OnClick">
             <Button.Background>
                 <ImageBrush ImageSource="/Media/ColorScheme2.png"/>
             </Button.Background>
         </Button>
-        <Button Name="Buttonsch3" Margin="185,49,44,96.4" Height="22" Width="24" HorizontalAlignment="Center" VerticalAlignment="Center" Click="colorsch_OnClick">
+        <Button Name="Buttonsch3" Margin="185,49,44,96.4" Height="22" Width="24" HorizontalAlignment="Center" Cursor="Hand" VerticalAlignment="Center" Click="colorsch_OnClick">
             <Button.Background>
                 <ImageBrush ImageSource="/Media/ColorScheme3.png"/>
             </Button.Background>

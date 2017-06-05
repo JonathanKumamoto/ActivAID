@@ -14,6 +14,7 @@ using System.Speech.Recognition;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using ActivAID.Properties;
 
 namespace ActivAID
 {
@@ -47,13 +48,13 @@ namespace ActivAID
             InputBox.TextChanged += OnTextChangedHandler;
             //Chatbot = new SimlBot();
             //Chatbot.PackageManager.LoadFromString(File.ReadAllText("Knowledge.simlpk"));
-            ColorBOT = "#232c3a"; // Color of Bot message rectangle
-            ColorUser = "#40464e"; // Color of User message rectangle
+            ColorBOT = Properties.Settings.Default["ColorBOT"].ToString(); // Color of Bot message rectangle
+            ColorUser = Properties.Settings.Default["ColorUser"].ToString(); // Color of User message rectangle
             FontColor = "#FFFFFF"; // Font color for text in Chat
             AppWindow = this;
             MouseDown += delegate { DragMove(); };
             settwindow = new Settings();
-            fontSize = 16;
+            fontSize = Convert.ToInt32(Properties.Settings.Default["Font"].ToString());
             GoldBOT = "botmsg";
             mainBOTmsg = true;
             RobotResponding = false;
@@ -63,7 +64,6 @@ namespace ActivAID
             queryHandler = new QueryHandler(dA, uib, stringOp, summarize);
             MainWindow_Creator();
         }
-
         private void defineFunctionObjects()
         {
             stringOp = new Func<string, string>((x) =>
