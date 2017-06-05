@@ -32,7 +32,7 @@ namespace ActivAID
             try
             {
                 toUI = relatedBlocks.Pop();
-                tbText = Regex.Replace(tb.Text, "\n - Click for more info -", "");
+                tbText = Regex.Replace(tb.Text, " - Click for more info -", "");
                 endText = relatedBlocks.Count() == 0 ? "\n - That is all I know! -" : "\n - Click for more info -";
                 toUI = toUI + endText;
             }
