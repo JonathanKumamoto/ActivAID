@@ -327,7 +327,7 @@ namespace ActivAID
 
         private static List<TextBlock> handleKWCase(string paragraph, List<QueryResponse> responses)
         {
-            string fString = "This article covers topics and keywords related to: ";
+            string fString = "The resource I found covers topics and keywords related to: ";
             var tb = new TextBlock();
             List<TextBlock> rList = new List<TextBlock>();
             tb.Text = fString;
