@@ -258,7 +258,7 @@ namespace ActivAID
                         }
 
                         var botOut = Chatbot.Chat(command);
-                        if (botOut.BotMessage != "Sorry, no response was generated.")
+                        if (botOut.BotMessage != "Sorry, no response was generated." && botOut.BotMessage.Trim() != "")
                         {
                             string toTBox;
                             if (new Regex(@"\|").IsMatch(botOut.BotMessage))
