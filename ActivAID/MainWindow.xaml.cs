@@ -54,7 +54,7 @@ namespace ActivAID
             AppWindow = this;
             MouseDown += delegate { DragMove(); };
             settwindow = new Settings();
-            fontSize = Convert.ToInt32(Properties.Settings.Default["Font"].ToString());
+            fontSize = (Int32)Properties.Settings.Default["Font"];
             GoldBOT = "botmsg";
             mainBOTmsg = true;
             RobotResponding = false;
@@ -169,7 +169,7 @@ namespace ActivAID
             mainmsg.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(ColorBOT));
             mainmsg.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom(FontColor));
             mainmsg.Width = 230;
-            mainmsg.FontSize = 16;
+            mainmsg.FontSize = fontSize;
             mainmsg.FontFamily = new FontFamily("Candara");
             mainmsg.Margin = new Thickness(50, -40, 0, 0);
             UserBubble_Creator(true);
@@ -209,7 +209,7 @@ namespace ActivAID
             usermsg.VerticalAlignment = VerticalAlignment.Top;
             usermsg.MaxWidth = 150;
             usermsg.FontFamily = new FontFamily("Candara");
-            usermsg.FontSize = 16;
+            usermsg.FontSize = fontSize;
             usermsg.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom(FontColor));
             usermsg.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
             int ActualWidth = 420 - ((int)usermsg.DesiredSize.Width); //Algorithm to calcualte margin for every user message
@@ -326,7 +326,7 @@ namespace ActivAID
                     botmsg.Width = 210;
                     botmsg.Margin = new Thickness(50, -40, 0, 0);
                     botmsg.FontFamily = new FontFamily("Candara");
-                    botmsg.FontSize = 16;
+                    botmsg.FontSize = fontSize;
                     botmsg.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom(FontColor));
                     UserBubble_Creator(true);
                     OutputBox.Items.Add(botmsg);
@@ -366,7 +366,7 @@ namespace ActivAID
             botmsg.Width = 210;
             botmsg.Margin = new Thickness(50, -40, 0, 0);
             botmsg.FontFamily = new FontFamily("Candara");
-            botmsg.FontSize = 16;
+            botmsg.FontSize = fontSize;
             botmsg.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom(FontColor));
            // UserBubble_Creator(true);
            // OutputBox.Items.Add(botmsg); // Adding to Listbox

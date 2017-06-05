@@ -165,7 +165,7 @@ namespace ActivAID
                     Properties.Settings.Default["Color2"] = (window as MainWindow).frame.Background.ToString();
                     Properties.Settings.Default["ColorBOT"] = (window as MainWindow).ColorBOT;
                     Properties.Settings.Default["ColorUser"] = (window as MainWindow).ColorUser;
-                    Properties.Settings.Default["Font"] = (window as MainWindow).fontSize;
+                    Properties.Settings.Default["Font"] = Convert.ToInt32(textBoxfont.Text);
                     Properties.Settings.Default.Save();
                 }
 

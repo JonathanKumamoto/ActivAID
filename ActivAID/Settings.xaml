@@ -5,6 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ActivAID"
+        xmlns:properties="clr-namespace:ActivAID.Properties"
         mc:Ignorable="d"
         WindowStyle="None"
         Name="settingswindow"
@@ -13,7 +14,7 @@
         <Rectangle Fill="#FF4A4B53" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="253" Margin="0,-1,0,0"/>
         <Label x:Name="ColorScheme" Content="Color Scheme:" HorizontalAlignment="Left" Margin="27,47,0,0" VerticalAlignment="Top"/>
         <Label x:Name="Font" Content="Font Size:" HorizontalAlignment="Left" Margin="52,86,0,0" VerticalAlignment="Top" Width="61"/>
-        <TextBox Name="textBoxfont" HorizontalAlignment="Left" Height="23" Margin="113,88,0,0" TextWrapping="Wrap" Text="16" VerticalAlignment="Top" Width="25"/>
+        <TextBox Name="textBoxfont" HorizontalAlignment="Left" Height="23" Margin="113,88,0,0" TextWrapping="Wrap" Text="{Binding Source={x:Static properties:Settings.Default}, Path=Font}" VerticalAlignment="Top" Width="25"/>
         <Label x:Name="label" Content="Settings" HorizontalAlignment="Center"  VerticalAlignment="Top" FontWeight="Bold" BorderThickness="0" Margin="0" Width="69"/>
         <Button x:Name="save" Content="Save" HorizontalAlignment="Center" Margin="0,142,0,5.4" VerticalAlignment="Center" Click="SaveButton_OnClose" Cursor="Hand" Width="49"/>
         <Button Name="Buttonsch1" Margin="118,49,111,96.4"  Height="22" Width="24" Cursor="Hand" Click="colorsch_OnClick">
