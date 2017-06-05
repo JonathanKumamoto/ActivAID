@@ -19,7 +19,7 @@ namespace ActivAID
         {
             this.outputToUI = outputToUI;
             relatedBlocks = getRelatedBlocks(outputToUI, qr);
-            endText = relatedBlocks.Count() == 0 ? "\n - END -" : "\n - CLICK FOR MORE INFO -";
+            endText = relatedBlocks.Count() == 0 ? "\n - That is all I know! -" : "\n - Click for more info -\n";
             tb.Text = outputToUI;
             tb.MouseUp += callback;
             this.tb = tb;
@@ -32,8 +32,8 @@ namespace ActivAID
             try
             {
                 toUI = relatedBlocks.Pop();
-                tbText = Regex.Replace(tb.Text, "- CLICK FOR MORE INFO -", "");
-                endText = relatedBlocks.Count() == 0 ? "\n - END -" : "\n - CLICK FOR MORE INFO -";
+                tbText = Regex.Replace(tb.Text, "- Click for more info -\n", "");
+                endText = relatedBlocks.Count() == 0 ? "\n - That is all I know! -" : "\n - Click for more info -\n";
                 toUI = toUI + endText;
             }
             catch (InvalidOperationException)

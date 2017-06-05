@@ -22,7 +22,7 @@ namespace ActivAID
         {
             string dbName = Environment.GetEnvironmentVariable("DBNAME");
             string serverName = Environment.GetEnvironmentVariable("SERVERNAME");
-            dblocation = "Server=.;Database=" + dbName + ";Integrated Security=true";
+            dblocation = "Server=localhost\\SQLEXPRESS;Database=" + dbName + ";Integrated Security=true";
             builder = new SqlConnectionStringBuilder();
             builder.IntegratedSecurity = false;
         }

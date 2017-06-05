@@ -28,7 +28,7 @@ namespace ActivAID
                 outputToUI = "Here are some steps that are relevant to your request: \n" + this.steps.Pop().Trim();
             }
             
-            endText = steps.Count() == 0 ? "\n - END -" : "\n - CLICK FOR MORE INFO -";
+            endText = steps.Count() == 0 ? "\n\n - Those are all the steps! -" : "\n\n - Click for more steps -\n";
             tb.Text = outputToUI + endText;
             tb.MouseLeftButtonUp += callback;
             tb.MouseRightButtonUp += activATECallback;
@@ -69,8 +69,8 @@ namespace ActivAID
             try
             {
                 toUI = steps.Pop();
-                tbText = Regex.Replace(tb.Text,"- CLICK FOR MORE INFO -", "");
-                endText = steps.Count() == 0 ? "\n - END -" : "\n - CLICK FOR MORE INFO -";
+                tbText = Regex.Replace(tb.Text,"\n\n- Click for more info -\n", "");
+                endText = steps.Count() == 0 ? "\n\n - That is all I know! -" : "\n\n - Click for more info -\n";
                 toUI = toUI + endText;
             }
             catch (InvalidOperationException)
