@@ -28,7 +28,7 @@ namespace ActivAID
                 outputToUI = "Here are some steps that are relevant to your request: \n" + this.steps.Pop().Trim();
             }
             
-            endText = steps.Count() == 0 ? "\n - END -" : "\n - Click for more steps -";
+            endText = steps.Count() == 0 ? "\n - END -" : "\n - Click for more info -";
             tb.Text = outputToUI + endText;
             tb.MouseLeftButtonUp += callback;
             tb.MouseRightButtonUp += activATECallback;
