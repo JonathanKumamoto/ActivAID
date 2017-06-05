@@ -7,6 +7,7 @@
         xmlns:local="clr-namespace:ActivAID"
         mc:Ignorable="d"
         WindowStyle="None"
+        ResizeMode="NoResize"
         Opacity="0"
         Name="main"
         Title="ActivAID" Height="541.264" Width="536.861" WindowStartupLocation="Manual" FontFamily="Arial" Background="Transparent" AllowsTransparency="True">

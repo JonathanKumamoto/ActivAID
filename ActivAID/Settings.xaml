@@ -9,6 +9,7 @@
         mc:Ignorable="d"
         WindowStyle="None"
         Name="settingswindow"
+        ResizeMode="NoResize"
         Title="Settings" Height="167.384" Width="248.844" Background="White" AllowsTransparency="True">
     <Grid Margin="0,0,-4.2,-0.2">
         <Rectangle Fill="#FF4A4B53" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="253" Margin="0,-1,0,0"/>
