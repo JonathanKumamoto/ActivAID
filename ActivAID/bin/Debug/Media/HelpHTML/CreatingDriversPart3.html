@@ -1,0 +1,385 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="en-us" http-equiv="Content-Language" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Creating .NET Drivers - Creating Events</title>
+<style type="text/css">
+.auto-style1 {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: medium;
+}
+.auto-style2 {
+	font-size: x-small;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.auto-style3 {
+	font-size: small;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.auto-style4 {
+	font-size: small;
+}
+.auto-style5 {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.auto-style6 {
+	font-family: "Courier New", Courier, monospace;
+}
+.auto-style7 {
+	margin-left: 40px;
+}
+.auto-style8 {
+	font-family: "Courier New", Courier, monospace;
+	font-size: small;
+}
+.auto-style9 {
+	text-align: justify;
+	text-indent: .2in;
+	line-height: 95%;
+	font-size: 10.0pt;
+	font-family: "Times New Roman", serif;
+	letter-spacing: -.05pt;
+	margin-left: 0in;
+	margin-right: 0in;
+	margin-top: 0in;
+	margin-bottom: 6.0pt;
+}
+</style>
+</head>
+
+<body>
+
+<h1 class="auto-style1">Creating .NET Drivers - Part 3</h1>
+<p class="auto-style1"><em><a name="Creating_Events">Creating Events</a></em></p>
+<p class="MsoNormal"><span style="mso-no-proof:yes"><span class="auto-style3">As 
+mentioned earlier (see<a href="CreatingDriversPart2.html"> Part 2</a>), the 
+worker class (DmmDvr.cs in this example) should never interface directly with 
+GUI components or controls.</span><span class="auto-style3" style="mso-spacerun:yes">&nbsp;
+</span><span class="auto-style3">All communication to the GUI from the worker 
+class should be through events and only events.</span><span class="auto-style3" style="mso-spacerun:yes">&nbsp;
+</span><span class="auto-style3">Creating (or sourcing) an event in .NET is 
+relatively easy. </span> <o:p></o:p></span></p>
+<p class="MsoNormal"><span style="mso-no-proof:yes"><span class="auto-style3">To 
+pass data using an event, create a class object that inherits from</span><span class="auto-style3" style="mso-spacerun:yes">&nbsp;
+</span><span class="auto-style3">System.EventArgs. Using System.EventArgs allows 
+us to multicast events, meaning they can hold references to more than one event 
+handler.</span><span class="auto-style3" style="mso-spacerun:yes">&nbsp;&nbsp;
+</span><span class="auto-style3">We can instantiate any number of forms and 
+assign our driver class object to each form.</span><span class="auto-style3" style="mso-spacerun:yes">&nbsp;
+</span><span class="auto-style3">This allows us to bring up multiple forms,
+</span><span class="auto-style3">all “talking” to the same back-end driver 
+object, and all getting driver update events.</span><span class="auto-style3" style="mso-spacerun:yes">&nbsp;
+</span><span class="auto-style3">This is a great feature if the form has 
+multiple tabs and we want to view two or more of the tabs simultaneously as 
+shown below.</span></span></p>
+<p class="auto-style1">
+<img alt="DMM Example GUI" height="410" src="bin/DMMExampleGUI.png" width="616" /></p>
+<p class="MsoNormal"><span style="mso-no-proof:yes">An event is just a message 
+sent by an object to indicate an occurrence of something.
+<span style="mso-spacerun:yes">&nbsp;</span>Adding an event to the worker class
+<span style="mso-spacerun:yes">&nbsp;</span>is straightforward in .NET.</span></p>
+<p class="MsoNormal">
+<b class="auto-style7" style="mso-bidi-font-weight: normal">
+<span class="auto-style8" style="color: blue; mso-no-proof: yes">
+public</span><span style="mso-no-proof:yes" class="auto-style8"> </span>
+<span style="mso-no-proof: yes" class="auto-style4">
+<span class="auto-style6" style="color:blue">event</span></span><span style="mso-no-proof:yes" class="auto-style8">
+</span>
+<span style="mso-no-proof:yes" class="auto-style4"> <br class="auto-style6" />
+</span>
+<span class="auto-style8" style="color: #2B91AF; mso-no-proof: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DeviceEventHandler</span><span class="auto-style8" style="mso-no-proof: yes"> 
+DeviceEvent;<o:p></o:p></span></b></p>
+<p align="left" class="MsoNormal">
+<span style="font-family:
+&quot;Arial&quot;,&quot;sans-serif&quot;;mso-no-proof:yes"><o:p>&nbsp;</o:p></span><span style="mso-no-proof:yes">Because 
+we are passing information back to the client, the event needs a delegate (sort 
+of a prototype) that indicates who sent the data and what the data actually is. <o:p></o:p>
+</span></p>
+<p align="left" class="MsoNormal"><b style="mso-bidi-font-weight:
+normal">
+<span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-no-proof:yes"><span style="mso-spacerun:yes" class="auto-style4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>
+<span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-no-proof:yes" class="auto-style4">public</span></b><b style="mso-bidi-font-weight:normal"><span style="font-size:9.0pt;font-family:
+&quot;Courier New&quot;;mso-no-proof:yes"> </span>
+<span style="font-family:
+&quot;Courier New&quot;;mso-no-proof:yes" class="auto-style4"> <span style="color:blue">delegate</span>
+<span style="color:blue">void<br />
+</span></span></b><b style="mso-bidi-font-weight:
+normal">
+<span style="font-family:&quot;Courier New&quot;;mso-no-proof:
+yes" class="auto-style4"><span style="color:#2B91AF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+DeviceEventHandler</span>(<span style="color:blue">object</span> sender,<span style="color:#2B91AF">DeviceEventArgs</span> 
+args);</span></b><span style="font-family:
+&quot;Arial&quot;,&quot;sans-serif&quot;;mso-no-proof:yes"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal"><span style="mso-no-proof:yes"><span class="auto-style3">We 
+can use any object we wish to pass information back through the event as long as 
+the object inherits from System.EventArgs.</span><span class="auto-style3" style="mso-spacerun:yes">&nbsp;
+</span><span class="auto-style3">For our driver example, we will be passing back 
+state information (a class object), status updates as strings, and DMM readings.</span><span class="auto-style3" style="mso-spacerun:yes">&nbsp;
+</span><span class="auto-style3">Since the data can be almost any type, </span>
+<span class="auto-style3" style="mso-spacerun:yes">&nbsp;</span><span class="auto-style3">our 
+argument list needs to contain an attribute so we know what to do with the data 
+when we get it.</span><span class="auto-style3" style="mso-spacerun:yes">&nbsp;
+</span><span class="auto-style3">We use the attribute to “unpack” the data in 
+the event handler in the GUI class.</span><span class="auto-style3" style="mso-spacerun:yes">&nbsp;
+</span><span class="auto-style3">Here is an example of defining a class that we 
+might use to fire events.</span><o:p></o:p></span></p>
+<p align="left" class="auto-style6" style="mso-no-proof: yes">
+<o:p><span class="auto-style4">&nbsp;</span></o:p><b style="mso-bidi-font-weight:
+normal"><span style="mso-no-proof:
+yes" class="auto-style8"><span style="mso-spacerun:yes">&nbsp; </span><span style="color:blue">class</span>
+<span style="color:#2B91AF">DeviceEventArgs</span> : System.<span style="color:#2B91AF">EventArgs</span></span><br class="auto-style4" />
+</b><b style="mso-bidi-font-weight:normal">
+<span style="mso-no-proof:yes" class="auto-style8">
+&nbsp;&nbsp; {<br />
+&nbsp;&nbsp;&nbsp;&nbsp; <span style="color:blue">public</span>
+<span style="color:#2B91AF">
+DeviceEventAttribute</span></span></b><span style="color:#2B91AF;mso-no-proof:yes" class="auto-style4">
+</span><b style="mso-bidi-font-weight:normal">
+<span style="mso-no-proof:yes" class="auto-style8">attribute {<span style="color:blue">get</span>;
+<span style="color:blue">set</span>;}<span style="color:blue"><br />
+&nbsp;&nbsp;&nbsp;&nbsp; public</span> <span style="color:blue">object</span> 
+dataObj { <span style="color:blue">get</span>; <span style="color:blue">set</span>; 
+}<br />
+&nbsp; </span></b><b style="mso-bidi-font-weight:
+normal">
+<span style="mso-no-proof:
+yes" class="auto-style4">&nbsp;}<o:p></o:p></span></b></p>
+<p align="left" class="MsoNormal"><span style="mso-no-proof:
+yes"><span class="auto-style5"><span class="auto-style4">Note that </span> <i style="mso-bidi-font-style:normal">
+<span class="auto-style4">DeviceEventAttribute</span></i><span class="auto-style4"> is 
+just another enum type:</span></span><o:p></o:p></span></p>
+<p align="left" class="MsoNormal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style="mso-no-proof:
+yes">
+<o:p>&nbsp;</o:p></span><b style="mso-bidi-font-weight:
+normal"><span style="font-size:9.0pt;font-family:&quot;Courier New&quot;;color:blue;
+mso-no-proof:yes">public</span></b><b style="mso-bidi-font-weight:normal"><span style="font-size:9.0pt;font-family:&quot;Courier New&quot;;mso-no-proof:yes">
+<span style="color:blue">enum</span> <span style="color:#2B91AF">
+DeviceEventAttribute</span>
+</span></b><b style="mso-bidi-font-weight:
+normal">
+<span style="font-size:9.0pt;font-family:&quot;Courier New&quot;;mso-no-proof:
+yes">{Status, Reading, StateChange, 
+Error }<o:p></o:p></span></b></p>
+<p align="left" class="MsoNormal"><span style="mso-no-proof:yes">
+<span class="auto-style3">If the DMM changes state via 
+a method call, we set the state variable for the device and fire an event to 
+update our GUI.</span><span style="mso-spacerun:yes" class="auto-style3">&nbsp; </span>
+<span class="auto-style3">StateInfo can be any class 
+object that holds current state information (mode, device descriptor, etc).</span><o:p></o:p></span></p>
+<p align="left" class="MsoNormal">
+<span style="mso-no-proof:yes" class="auto-style8"><o:p>&nbsp;</o:p></span><b style="mso-bidi-font-weight:normal"><span style="mso-no-proof:yes" class="auto-style4"><span style="mso-spacerun:yes" class="auto-style6">&nbsp; </span></span>
+<span style="mso-no-proof:yes" class="auto-style8">
+&nbsp;StateInfo.mode =
+<span style="color:#2B91AF">DmmMode</span>.DCV;<span style="color:#2B91AF"><br />
+&nbsp;&nbsp;&nbsp;
+DeviceEventArgs</span> args = </span>
+<span style="color:blue;mso-no-proof:yes" class="auto-style8">
+new</span></b><b style="mso-bidi-font-weight:
+normal"><span style="font-family:&quot;Courier New&quot;;mso-no-proof:
+yes" class="auto-style4"> </span>
+<span style="mso-no-proof:
+yes" class="auto-style4"> <span style="color:#2B91AF" class="auto-style6">DeviceEventArgs</span></span><span style="font-size:9.0pt;font-family:&quot;Courier New&quot;;mso-no-proof:
+yes"><span style="mso-no-proof:
+yes" class="auto-style8"> {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span>
+</b><b style="mso-bidi-font-weight:normal">
+<span style="mso-no-proof:yes" class="auto-style8">
+dataAttribute =<span style="mso-spacerun:yes">&nbsp;</span><span style="color:#2B91AF">DeviceEventAttribute</span>.StateChange, dataObj = _stateInfo<span style="mso-spacerun:yes">&nbsp; </span>};<o:p></o:p></span></b></p>
+<p align="left" class="MsoNormal"><b style="mso-bidi-font-weight:normal">
+<span style="mso-no-proof:yes" class="auto-style8">
+<span style="mso-spacerun:yes">&nbsp; </span><span style="color:green">&nbsp;&nbsp; // Fire 
+the event to inform our GUI<br />
+&nbsp;&nbsp;&nbsp;&nbsp; </span></span></b>
+<b style="mso-bidi-font-weight:
+normal">
+<span style="mso-no-proof:
+yes" class="auto-style8">DeviceEvent(<span style="color:blue">this</span>, 
+args);<o:p></o:p></span></b></p>
+<p align="left" class="MsoNormal">
+<span style="mso-no-proof:yes"><span class="auto-style3">Develeper’s Note: Notice the 
+use of object initializers when we “new up” the object.</span><span style="mso-spacerun:yes" class="auto-style3">&nbsp;
+</span><span class="auto-style3">This is a feature added to .NET 3.0 and later. It is an excellent 
+timesaver when creating drivers because of the often extensive use of 
+properties.</span><span style="mso-spacerun:yes" class="auto-style3">&nbsp; </span>
+<span class="auto-style5"><span class="auto-style4">The code shown above 
+will be repeated for all device state changes so it is best to put that code in 
+a helper function, such as </span> <i style="mso-bidi-font-style:normal">
+<span class="auto-style4">FireEvent</span></i></span>.<span style="mso-spacerun:yes" class="auto-style3">&nbsp;
+</span><span class="auto-style3">The FireEvent method can also check for zero or more clients subscribing 
+to the events and take action accordingly.</span><span style="mso-spacerun:yes" class="auto-style3">&nbsp;
+</span><span class="auto-style3">For example:</span><o:p></o:p></span></p>
+<p align="left" class="MsoNormal">
+<b style="mso-bidi-font-weight:normal" class="auto-style7">
+<span style="font-family:&quot;Courier New&quot;;color:blue;mso-no-proof:yes" class="auto-style4">
+protected</span><span style="font-size:9.0pt;font-family:
+&quot;Courier New&quot;;mso-no-proof:yes"> </span>
+<span style="font-family:
+&quot;Courier New&quot;;mso-no-proof:yes"> 
+<span style="color:blue" class="auto-style4">void</span></span><span style="font-size:9.0pt;font-family:
+&quot;Courier New&quot;;mso-no-proof:yes"><span style="font-family:
+&quot;Courier New&quot;;mso-no-proof:yes" class="auto-style4"> 
+FireEvent(<span style="color:#2B91AF">DeviceEventArgs</span> args)<br />
+</span></span>
+<span style="font-family:&quot;Courier New&quot;;mso-no-proof:yes" class="auto-style4">
+&nbsp;&nbsp;&nbsp;&nbsp;
+{</span></b><b style="mso-bidi-font-weight:normal"><span style="font-family:&quot;Courier New&quot;;color:#2B91AF;mso-no-proof:
+yes"><br class="auto-style4" />
+</span>
+<span style="font-family:&quot;Courier New&quot;;color:#2B91AF;mso-no-proof:
+yes" class="auto-style4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DeviceEventHandler</span><span style="font-family:
+&quot;Courier New&quot;;mso-no-proof:yes" class="auto-style4"> handler = DeviceEvent;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color:green">// 
+Get the list of all clients <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></b>
+<b style="mso-bidi-font-weight:
+normal">
+<span style="font-family:&quot;Courier New&quot;;color:#2B91AF;
+mso-no-proof:yes" class="auto-style4">Delegate</span></b><b style="mso-bidi-font-weight:normal"><span style="font-family:&quot;Courier New&quot;;mso-no-proof:yes" class="auto-style4">[] 
+delegates =
+handler.GetInvocationList();<span style="color:blue"><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; foreach</span> 
+(<span style="color:#2B91AF">Delegate</span> del <span style="color:blue">in</span> 
+delegates&nbsp;&nbsp;&nbsp; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<span style="color:#2B91AF"><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DeviceEventHandler</span> 
+sink = (<span style="color:#2B91AF">DeviceEventHandler</span>)del;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sink.BeginInvoke(<span style="color:blue">this</span>, 
+args, <span style="color:blue"><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new</span> <span style="color:#2B91AF">AsyncCallback</span>(EndFireEvent),
+<span style="color:blue">null</span>);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />
+&nbsp;&nbsp;&nbsp;&nbsp; }<o:p></o:p></span></b></p>
+<p align="left" class="auto-style1">
+<o:p><em><a name="Catching_Events">Catching (Sinking) Events</a></em></o:p></p>
+<p class="MsoNormal"><span class="auto-style3">As soon as the event </span>
+<i style="mso-bidi-font-style: normal">
+<span class="auto-style3" style="mso-no-proof: yes">DeviceEvent </span></i>
+<span style="mso-no-proof: yes"><span class="auto-style3">is placed in the 
+worker class, it will be available through Visual Studio “intellisense”.</span><span class="auto-style3" style="mso-spacerun: yes">&nbsp;
+</span><span class="auto-style3">The DeviceEvent handler definition will be 
+inserted as follows:</span></span><b style="mso-bidi-font-weight: normal"><span style="font-size: 9.0pt; mso-no-proof: yes"><o:p></o:p></span></b></p>
+<p align="left" class="MsoNormal">
+<o:p>
+<img alt="Device Event Example" height="212" src="bin/DeviceEventExample.png" width="387" /></o:p></p>
+<p align="left" class="auto-style3">Just hit Tab to auto-generate the event 
+handler.</p>
+<p align="left" class="MsoNormal">
+<b class="auto-style7" style="mso-bidi-font-weight: normal">
+<span style="font-size: 9.0pt; font-family: &quot;Courier New&quot;; mso-no-proof: yes">
+myDvr.DeviceEvent += <span style="color: blue">new </span></span></b>
+<b style="mso-bidi-font-weight: normal">
+<span style="font-size: 9.0pt; font-family: &quot;Courier New&quot;; mso-no-proof: yes">
+<span style="color: #2B91AF">DeviceEventHandler</span>(myDvr_DeviceEvent);<br />
+&nbsp;&nbsp;&nbsp;&nbsp; </span></b><b style="mso-bidi-font-weight: normal">
+<span style="font-size: 9.0pt; font-family: &quot;Courier New&quot;; color: blue; mso-no-proof: yes">
+void</span><span style="font-size: 9.0pt; font-family: &quot;Courier New&quot;; mso-no-proof: yes"> 
+myDvr_DeviceEvent( </span>
+<span style="font-size: 9.0pt; font-family: &quot;Courier New&quot;; mso-no-proof: yes">
+<span style="color: blue">object</span> sender, <span style="color: #2B91AF">
+DeviceEventArgs</span> args)<br />
+&nbsp;&nbsp;&nbsp;&nbsp; {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<span style="font-size: 9.0pt; font-family: &quot;Courier New&quot;; color: blue; mso-no-proof: yes">
+throw</span></b><b style="mso-bidi-font-weight: normal"><span style="font-size: 9.0pt; font-family: &quot;Courier New&quot;; mso-no-proof: yes">
+<span style="color: blue">new</span> <span style="color: #2B91AF">
+NotImplementedException</span>();<br />
+&nbsp;&nbsp;&nbsp;&nbsp; </span></b><b style="mso-bidi-font-weight: normal">
+<span style="font-size: 9.0pt; font-family: &quot;Courier New&quot;; mso-no-proof: yes">
+}</span></b></p>
+<p align="left" class="MsoNormal"><span class="auto-style3">This event handler 
+in the GUI class will handle all events thrown by the worker class.</span><span class="auto-style3" style="mso-spacerun: yes">&nbsp;
+</span><span class="auto-style3">The immediate advantage of using an 
+event-driven design is that the GUI can be updated as a “live” GUI, reflecting 
+the actual state of the hardware.</span><span class="auto-style3" style="mso-spacerun: yes">&nbsp;
+</span><span class="auto-style3">For example, a host process can make a driver 
+call, such as </span> <o:p></o:p></p>
+<p align="left" class="auto-style9" style="text-justify: inter-ideograph;">
+<b style="mso-bidi-font-weight: normal">
+<span class="auto-style4" style="line-height: 95%; font-family: &quot;Courier New&quot;; mso-no-proof: yes">
+myDvr.Measure(reading);</span><span style="font-size: 9.0pt; line-height: 95%">
+</span></b></p>
+<span class="auto-style5"><span class="auto-style4">&nbsp;The “Measure” method makes 
+a measurement, then fires an event with the measurement data and the attribute
+</span><i style="mso-bidi-font-style: normal"><span class="auto-style4">Reading</span></i></span>.<span class="auto-style3" style="mso-spacerun: yes">&nbsp;
+</span><span class="auto-style3">The GUI catches the event and updates the 
+display.</span><span class="auto-style3" style="mso-spacerun: yes">&nbsp; </span>
+<span class="auto-style3">Here is example code to process the event.</span><o:p></o:p><p class="auto-style9" style="text-justify: inter-ideograph;"><o:p>
+&nbsp;</o:p></p>
+<p class="auto-style9" style="text-justify: inter-ideograph;">
+<o:p></o:p>
+<b style="mso-bidi-font-weight: normal">
+<span class="auto-style4" style="font-family: &quot;Courier New&quot;; color: blue; mso-no-proof: yes">&nbsp; 
+void</span><span class="auto-style4" style="font-family: &quot;Courier New&quot;; mso-no-proof: yes"> 
+myDvr_DeviceEvent( <span style="color: blue">object</span> sender,
+<span style="color: #2B91AF">DeviceEventArgs</span> args)<br />
+&nbsp;&nbsp;&nbsp; </span>
+<span style="font-size: 9.0pt; font-family: &quot;Courier New&quot;; mso-no-proof: yes">
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<span class="auto-style4" style="font-family: &quot;Courier New&quot;; color: blue; mso-no-proof: yes">&nbsp;switch</span></b><b style="mso-bidi-font-weight: normal"><span class="auto-style4" style="font-family: &quot;Courier New&quot;; mso-no-proof: yes"> 
+(args.dataAttribute)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></b>
+<b style="mso-bidi-font-weight: normal">
+<span style="font-size: 9.0pt; font-family: &quot;Courier New&quot;; mso-no-proof: yes">
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<span class="auto-style4" style="font-family: &quot;Courier New&quot;; mso-no-proof: yes">
+<span style="color: blue">case</span> <span style="color: #2B91AF">
+DeviceEventAttribute</span>.StateChange:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _stateInfo 
+= args.dataObj <span style="color: blue">as </span><span style="color: #2B91AF">
+DmmDvr</span>.<span style="color: #2B91AF">DmmStateInformation</span></span><span style="font-size: 9.0pt; font-family: &quot;Courier New&quot;; mso-no-proof: yes">;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<span class="auto-style4" style="font-family: &quot;Courier New&quot;; mso-no-proof: yes">&nbsp;&nbsp; 
+comboBoxMode.SelectedIndex = (<span style="color: blue">int</span>)_stateInfo.mode;<span style="color: blue"><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+break</span></span><span style="font-size: 9.0pt; font-family: &quot;Courier New&quot;; mso-no-proof: yes">;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<span class="auto-style4" style="font-family: &quot;Courier New&quot;; mso-no-proof: yes">
+<span style="color: blue">case</span> <span style="color: #2B91AF">
+DeviceEventAttribute</span>.Reading:<span style="color: blue"><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+double</span> reading = (<span style="color: blue">double</span>)args.dataObj;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+labelReading.Text = reading.ToString()<span style="color: blue"><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+break</span></span>;<br />
+<span style="font-size: 9.0pt; font-family: &quot;Courier New&quot;; mso-no-proof: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+}<br />
+&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<span style="font-size: 9.0pt; line-height: 95%; font-family: &quot;Courier New&quot;; mso-no-proof: yes">
+}</span></b><b style="mso-bidi-font-weight: normal"><span style="font-size: 9.0pt; line-height: 95%"><o:p></o:p></span></b></p>
+<span class="auto-style3" style="mso-fareast-font-family: SimSun; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA">
+Developer’s Note: There will be an issue if the event comes in as a 
+cross-threaded event (and it probably will).<span style="mso-spacerun: yes">&nbsp;
+</span>The code must check for this using <i style="mso-bidi-font-style: normal">
+InvokeRequired</i> but that is beyond the scope of this discussion<br />
+</span>
+<p class="auto-style3" style="language: en-US; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline; margin-top: 0pt; margin-bottom: 0pt">
+<a href="Overview.html">Back To Main</a></p>
+<p class="auto-style3" style="language: en-US; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline; margin-top: 0pt; margin-bottom: 0pt">
+&nbsp;</p>
+<p class="auto-style2" style="language: en-US; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline; margin-top: 0pt; margin-bottom: 0pt">
+<span class="auto-style3">see also: <a href="CreatingDrivers.html">Creating .NET 
+Drivers - An Overview</a> | </span><a href="CreatingDriversPart2.html">
+<span class="auto-style3">Creating .NET Drivers - Part</span><span class="auto-style4"> 
+2 </span></a><span class="auto-style4">| <a href="UsingTheSDK.html">Using the 
+SDK</a> | </span><span class="auto-style5"> 
+<a href="ConstantDefinitions.html"><span class="auto-style4">Constants</span></a><span class="auto-style4">
+</span> </span></p>
+<p style="language: en-US; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline; margin-top: 0pt; margin-bottom: 0pt">
+&nbsp;</p>
+<p style="language: en-US; text-align: left; direction: ltr; unicode-bidi: embed; vertical-align: baseline; margin-top: 0pt; margin-bottom: 0pt"><i><font face="Verdana" size="1">
+Astronics Test Systems<br>
+Last updated on August 12, 2015 by D. Ignacio</font></i></p>
+
+</body>
+
+</html>

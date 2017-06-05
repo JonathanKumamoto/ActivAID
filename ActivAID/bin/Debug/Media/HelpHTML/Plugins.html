@@ -1,0 +1,61 @@
+<html>
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Plugins</title>
+<link rel="stylesheet" type="text/css" href="help.css">
+    <style type="text/css">
+        .style1
+        {
+            width: 373px;
+            height: 185px;
+        }
+    </style>
+
+</head>
+
+<body>
+<h1>Advanced Features</h1>
+<p>Beginning in ActivATE version 5.8.0.4, support for user-defined plugins is an included feature. 
+Plugins are user created programs 
+that can be used to interact with an ActivATE test program. 
+To create a plugin for ActivATE, the plugin's project must have a class that inherits from and implements 
+the <font color="#2B91AF">IPluginActivATE</font> interface, as seen below:</p>
+
+<br><br>
+<img src="bin/Inheritance_Interface.JPG" alt="IPluginActivATE">
+<br><br>
+<p>Implement the <font color="#2B91AF">IPluginActivATE</font> interface:</p>
+<br>
+<img src="bin/Implement_IPlugInActivATE.JPG" alt="Implement IPluginActivATE">
+<br>
+<p>References to <i>Interfaces.dll</i> and <i>TestSequencer.dll</i> will need to be added to your plugin's project as well.
+Both of these files can be found in the ActivATE runtime directory (usually <i>C:\Program Files\ActivATE\ActivATE 5.x</i>). In addition,
+the Racal.Sequencer namespace will be needed in order to have access to the TestSequencer class, which allows for use of many of
+ActivATE's properties and methods such as getting the version of your test program, the name of the test program file, group and node names, etc. 
+See the images below that demonstrate this.
+</p>
+<p>Add Interfaces.dll and TestSequencer.dll to your project's references:</p>
+<img src="bin/Add_Interfaces_TestSequencer.JPG" alt="Assembly References">
+<p>Make sure that the files in your plugin's project have the below namespace in order to access TestSequencer class if needed:</p>
+<img src="bin/Using_Namespace.JPG" alt="Namespace">
+<p>Here is an example of an instance of the TestSequencer class
+named <i>_testSequencer</i>, along with some of its members that can give us information about the test program:</p>
+<img src="bin/TestSequencer_Properties_Methods.JPG" alt="Members">
+<p>To run or preview your plugin from ActivATE, click on the <i>Tools</i> menu in ActivATE and then <i>Options</i> from the context menu that appears, and then navigate to
+<i>IDE Plug-Ins</i>. Only one plugin at a time is supported as of this writing, so place a checkmark on just one plugin if you have multiple as seen below. Press OK.</p>
+<img src="bin/Plugin_Window.JPG" alt="Plugin Window">
+<p>Next, launch your test program in order to see the <i>Plugins</i> menu below:</p>
+<img src="bin/Plugin_Start_Program.JPG" alt="Plugins Menu">
+<p>Then, select your plugin from the context menu:</p>
+<img src="bin/Plugin_Context_Menu.JPG" alt="Plugins Context Menu">
+<p>After clicking the above plugin name, your plugin will launch. Here is an example plugin that obtains the test program file name + path, current slot number, test program version, and this plugin
+can also abort the test:</p>
+<img src="bin/Plugin_Overall.JPG" alt="Plugin ActivATE">
+<br><br>
+<hr>
+<p><i><font face="Verdana" size="1">Astronics Test Systems<br>
+Last updated on 1/27/2016 C. Colome</font></i></p>
+</body>
+
+</html>

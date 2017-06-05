@@ -1,0 +1,179 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Test Program Manager</title>
+<link rel="stylesheet" type="text/css" href="help.css">
+<style type="text/css">
+.auto-style1 {
+	color: #000000;
+}
+.auto-style2 {
+	font-size: xx-small;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Test Program Manager: An Overview</h1>
+<p>&nbsp;</p>
+<table border="0" width="51%">
+	<tr>
+		<td>The Test Program Manager GUI can be displayed by clicking on the 
+		Test Program Manager ICON in the <b>Main</b> Device Toolbar.<p>The Test 
+		Program Manager (TPManager) GUI is a simple user interface that can make 
+		calls directly into the TPMngr class.&nbsp; </p>
+		<p>A more customized, application specific user interface can easily be 
+		developed using the TPManager class <b><i>TPMngr</i></b> to schedule 
+		test programs and display test results.&nbsp; See the
+		<a href="SystemController_pg2.htm">SystemController</a> as an example.</p>
+		<p>The Test Program Manager module is designed to act as the &quot;broker&quot; 
+		between the front-end ActivATE.exe application and the back-end 
+		StationRuntime.exe application (see <a href="SystemController.htm">
+		System Architecture</a>) </td>
+		<td width="201">
+		<img border="0" src="bin/DeviceToolBar4.PNG" width="201" height="351"></td>
+	</tr>
+</table>
+<p>The Test Program Manager (TP Manager) GUI below shows a number of test programs as loaded or 
+running.&nbsp; The TP Manager is capable of running separate and unique test 
+programs in any of the available languages (C#, VBScript, VB.Net).</p>
+<p>
+<img alt="Test Progrram Manager" height="469" longdesc="Test Program Manager" 
+        src="bin/TPMngr3.PNG" width="708"></p>
+<p><b>To Load and Run a test program from the Test Program Manager GUI:</b></p>
+<table border="0" width="88%">
+	<tr>
+		<td width="314">&nbsp;<p>&nbsp;</p>
+		<ul>
+			<li>Use the File Browser button on the TPMngr GUI to browse and 
+			select a test program.</li>
+		</ul>
+		<p>&nbsp;</p>
+		<p>&nbsp;</td>
+		<td>
+		<img border="0" src="bin/TPMngrFileBrowse.PNG" width="552" height="133"></td>
+	</tr>
+	<tr>
+		<td width="314">
+		<ul>
+			<li>Select any number TIUs(Test Interface Unit), sometimes called a 
+			test head as shown at right.&nbsp; Use standard Microsoft multiple 
+			selection keys (CTRL-Mouse-Click, SHIFT-Mouse-Click).</li>
+		</ul>
+		<p>&nbsp;</p>
+		<ul>
+			<li>Use the &quot;Set File&quot; button to &quot;set&quot; this file name in the select 
+			TIU positions.&nbsp; You may set file names using all the same file 
+			or any multiple files.&nbsp; They must be valid test programs.</li>
+		</ul>
+		<p>&nbsp;</td>
+		<td><img border="0" src="bin/TPMngrSelect.PNG" width="558" height="430"></td>
+	</tr>
+	<tr>
+		<td width="314">&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td width="314">
+		<ul>
+			<li>Once selected and &quot;Set&quot;, the file names will appear in the File 
+			Name column of the TP Manager GUI as shown at right.</li>
+		</ul>
+		</td>
+		<td>
+		<img border="0" src="bin/TPMngrSelect2.PNG" width="416" height="113"></td>
+	</tr>
+	<tr>
+		<td width="314">&nbsp;<ul>
+			<li>Once a file name has&nbsp; been set, the buttons shown at the 
+			right (Run, Pause, Stop, Load, Abort, Update) will only act upon 
+			CHECKED TIU items and <i>only</i> on checked items.&nbsp; For example, if 
+			we check slots 3 and 4, but not slot 6, and then press LOAD, only 
+			slots 3 and 4 will be loaded with the indicated test program. </li>
+		</ul>
+		<p>&nbsp;</p>
+		<p>&nbsp;</td>
+		<td><img border="0" src="bin/TPMngrSelect3.PNG" width="208" height="66"><p>
+		<img border="0" src="bin/TPMngrSelect4.PNG" width="411" height="109"></td>
+	</tr>
+	<tr>
+		<td width="314">
+		<ul>
+			<li>Likewise, we can selectively <b>Run</b> test programs using the 
+			same TIU check box and buttons.</li>
+		</ul>
+		</td>
+		<td><img border="0" src="bin/TPMngrSelect5.PNG" width="411" height="91"></td>
+	</tr>
+</table>
+<table style="width: 100%">
+	<tr>
+		<td style="width: 316px">
+		<img alt="TPMngr Dwell" height="107" longdesc="Test Program Mananger Dwell Time" src="bin/TPMngrDwellTime.PNG" width="290"></td>
+		<td>If starting multiple slots, user can space the test start time 
+		between each slot by setting the Dwell Start. This value is in seconds 
+		and determines when to start the next slot testing after starting the 
+		previous slot (TIU) .&nbsp;&nbsp; The default value is 2 seconds but may be set as long as 3600 seconds (that is, each slot can 
+		start 1 hour apart if need be).&nbsp; In this example, Dwell Time is set to 20 
+            seconds.&nbsp; </td>
+	</tr>
+</table>
+<hr>
+<p><b><font size="4"><a name="Test_Program_Events">Test Program Events</a></font></b></p>
+<p>If a test program is executing from the TPMngr, the TPMngr will catch all 
+sequencer events and pass them along to any object&nbsp;that subscribes to the 
+events.&nbsp; <b>TMPngr events</b> are:</p>
+<font SIZE="3">
+<p></font><font SIZE="3" COLOR="#808080">//</font><font SIZE="3" COLOR="#008000"> 
+Bit 1 always set on a failure. Use combinations of bit weight.</p>
+</font>
+<p><font face="Courier New"><font SIZE="3" COLOR="#0000ff">public</font><font SIZE="3">
+</font><font SIZE="3" COLOR="#0000ff">enum</font><font SIZE="3"> </font></font>
+<font SIZE="3" COLOR="#2b91af"><font face="Courier New">eTestStatus<br>
+</font></font><font face="Courier New" SIZE="3">{<br>
+&nbsp;&nbsp;&nbsp; Passed =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0x00,<br>
+&nbsp;&nbsp;&nbsp; Failed =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0x01,<br>
+&nbsp;&nbsp;&nbsp; Stopped =&nbsp;&nbsp;&nbsp;&nbsp; 0x02,<br>
+&nbsp;&nbsp;&nbsp; Running =&nbsp;&nbsp;&nbsp;&nbsp; 0x04,<br>
+&nbsp;&nbsp;&nbsp; Failed_And_Running = 0x05, </font>
+<font SIZE="3" COLOR="#008000"><font face="Courier New">// failed but still 
+running<br>
+</font></font><font face="Courier New" SIZE="3">&nbsp;&nbsp;&nbsp; NotLoaded =&nbsp;&nbsp; 
+0x08,<br>
+&nbsp;&nbsp;&nbsp; Paused =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0x10,<br>
+&nbsp;&nbsp;&nbsp; ScriptError = 0x21, </font>
+<font face="Courier New" SIZE="3" COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+// error + fail<br>
+</font><font face="Courier New" SIZE="3">&nbsp;&nbsp;&nbsp; Loaded =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+0x40,<br>
+&nbsp;&nbsp;&nbsp; Aborted =&nbsp;&nbsp;&nbsp;&nbsp; 0x81, <br>
+&nbsp;&nbsp;&nbsp; LoadFailed =&nbsp; 0x41, <br>
+&nbsp;&nbsp;&nbsp; Message =&nbsp;&nbsp;&nbsp;&nbsp; 0xF0,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font><font face="Courier New" SIZE="3" COLOR="#008000">// General message<br>
+</font><font face="Courier New" SIZE="3">&nbsp;&nbsp;&nbsp; ElapsedTime = 0xF4,
+</font><font face="Courier New" SIZE="3" COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+// ElapsedTime update<br>
+</font><font face="Courier New" SIZE="3">&nbsp;&nbsp;&nbsp; StartTime =&nbsp;&nbsp; 
+0xF8, </font><font face="Courier New" SIZE="3" COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+// Start Time<br>
+</font><font face="Courier New" SIZE="3">&nbsp;&nbsp;&nbsp; ScriptTrace = 0xFE
+</font><font face="Courier New" SIZE="3" COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+// Trace script tracelog ouput<br><font face="Courier New" SIZE="3">
+<span class="auto-style1">&nbsp;&nbsp;&nbsp; Unknown =&nbsp;&nbsp;&nbsp;&nbsp; 
+0x100,</span>
+</font><br>
+</font><font SIZE="3" face="Courier New">}</p>
+</font>
+
+<p><b>See Also</b></p>
+<p><b>&nbsp;&nbsp;&nbsp; </b><a href="TestProgramManager.htm">System Controller 
+- Page 1</a> | <a href="SystemController.htm">System Controller - Page 1</a></p>
+<p><span class="auto-style2">Astronics Test Systems Inc.</span><i><font face="Verdana" size="1"><br class="auto-style2">
+<span class="auto-style2">Last updated on 11/17/14 by M.Buccat</span></font></i></p>
+
+</body>
+
+</html>

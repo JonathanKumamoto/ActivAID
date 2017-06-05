@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="en-us" http-equiv="Content-Language" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Using the ActivATE SDK</title>
+<style type="text/css">
+.auto-style2 {
+	font-size: medium;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.auto-style3 {
+	font-size: small;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+</style>
+</head>
+
+<body>
+
+<h1 class="auto-style2">Using the ActivATE SDK (Software Development Kit)</h1>
+<p class="auto-style3">The ActivATE SDK is designed to create a driver shell 
+that developers can add their own code to.&nbsp; The driver shell comes in two 
+flavors:&nbsp; a Simple Add In or an Instrument Driver that references VISA.&nbsp; </p>
+<p><span class="auto-style3">To install the SDK, download the latest SDK install 
+from the ActivATE web site at:</span><br class="auto-style3" />
+<span class="auto-style3">
+<a href="http://www2.astronicstestsystems.com/ActivATE/SoftwareInfo/Features/SDKInfo.aspx">
+http://www2.astronicstestsystems.com/ActivATE/SoftwareInfo/Features/SDKInfo.aspx</a></span></p>
+<p class="auto-style3">Run the SDK MSI file and follow the directions.&nbsp; The 
+templates will be installed for both Visual Studio 2008 and Visual Studio 2010.&nbsp; 
+After installing the ActivATE SDK, two project templates will be available in 
+Visual Studio.&nbsp; Using the Visual Studio<strong> File&rarr;New Project</strong> 
+menu item, select "ActivATE Test Platform" as the installed template type from 
+the Visual C# selections.&nbsp;&nbsp; Two templates are available:&nbsp; An 
+Instrument Driver template and the Simple Add-In template.</p>
+<p>
+<img alt="SDK" height="311" longdesc="Software Development Kit" src="bin/SDK1.PNG" width="846" /></p>
+<p class="auto-style3">The <em>Simple Add-In</em> template is a framework that 
+will inherit from the Interfaces base class "GenericDriver".&nbsp; The <em>
+Instrument</em> template will inherit from the Interfaces base class "GenericInstrument".&nbsp; 
+Both of these base classes will give a rich set of interfaces and tools to the 
+new driver. Developers should only select the Instrument Template if they need 
+to write an instrument driver that will communicate with hardware over VISA, 
+RS-232, GPIB, TCP/IP, etc.&nbsp;&nbsp; </p>
+<p class="auto-style3">As an example, let's create a Simple Add-In module. 
+Select this as the template and enter any name and location you wish for the new 
+Add-In.</p>
+<p class="auto-style3">
+<img alt="" height="118" longdesc="Simple Addin" src="bin/SDK2.PNG" width="401" /></p>
+<p class="auto-style3">The next dialog that appears will be for the name of the 
+"back-end" driver class and the "front-end" GUI class.&nbsp; You may select any 
+name you wish for either class name, however, it is recommended that "Dvr" be 
+used as a suffix for the driver class and "Ctrl" be used as the suffix for the 
+GUI class.&nbsp; When this module is added to the ActivATE framework using the 
+Configuration Manager dialog box, these two class names will be selected 
+automatically, triggered off the "Dvr" and "Ctrl" suffix.&nbsp; </p>
+<table style="width: 100%">
+	<tr>
+		<td style="width: 360px">
+		<img alt="Add In Picture" height="282" longdesc="Add In Class Selection" src="bin/SDK_ADDIN.PNG" width="375" /></td>
+		<td>After pressing the "Finish" button, the Visual Studio project will 
+		look like this....<br />
+		<br />
+		<img alt="SDK Project" height="126" longdesc="SDK Project" src="bin/SDKAddIn2.PNG" width="175" /></td>
+	</tr>
+</table>
+<p class="auto-style3">The project is already setup to use ActivATE as the debug 
+EXE program.&nbsp;&nbsp; At this step, developers can build and run the project.&nbsp; 
+The output of the new "MyAddIn.DLL" will go directly to the ActivATE runtime 
+directory.&nbsp;&nbsp; The driver is not automatically added to the ActivATE 
+configuration.&nbsp; This will have to be done manually through the "<a href="AddingDrivers.htm">Configuration 
+Manager</a>"</p>
+<p class="auto-style3">When ActivATE launches and the driver is part of the 
+ActivATE configuration (toolset), developers can now debug and step through 
+code.&nbsp; Since ActivATE runs in the "front-end", and this is the application 
+we have set Visual Studio to use as the debug EXE, only the new Add-In GUI class 
+(in this case, "MyAddInCtrl" class) can be debugged as things stand 
+out-of-the-box.&nbsp; To debug the back-end, that is, the "MyAddInDvr" class, 
+the developer will have to "Attach to Process" using the Visual Studio Debug 
+Tools menu and attach to the "StationRuntime" exe.&nbsp; Now developers can step 
+into and out-of both the front-end GUI class and back-end driver class.</p>
+<p class="auto-style3"><strong>DEVELOPERS NOTE FOR VISUAL STUDIO 2010 </strong>:&nbsp; 
+If developers are debugging an add-in by running a .NET test program in ActivATE, 
+Visual Studio 2010 will lock a temporary output file used by the .NET compiler 
+(TIU1.DLL).&nbsp; That is, developers will get one chance to run a test program 
+before Visual Studio locks the file.&nbsp; On subsequent test program runs, this 
+file is rebuilt and needs to be overwritten; it cannot be (it is locked by 
+Visual Studio).&nbsp; This does not occur in VS2008.&nbsp; If debugging API 
+calls in the driver, VS2010 developers are encouraged to use VBScript to debug 
+the API call or to simply use the GUI to call the API (as in pressing a "test" 
+button.&nbsp; </p>
+<p class="auto-style3">&nbsp;</p>
+<p><span class="auto-style3"><a href="Overview.html">Back To Main</a></span></p>
+<p><span class="auto-style3">see also: <a href="AddingDrivers.htm">Adding 
+Drivers to ActivATE</a> | <a href="CreatingDrivers.html">Creating 
+.NET Drivers - An Overview</a> </span> </p>
+<p><i><font face="Verdana" size="1">Astronics Test Systems<br>
+Last updated on August 12, 2015 by D. Ignacio</font></i></p>
+
+</body>
+
+</html>

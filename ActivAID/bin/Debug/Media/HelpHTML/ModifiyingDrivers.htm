@@ -1,0 +1,155 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Modifying a Driver</title>
+<link rel="stylesheet" type="text/css" href="help.css">
+</head>
+
+<body>
+
+<h1><a name="Top">Modifying a Driver</a></h1>
+<p><font face="Verdana">The driver properties can be viewed and many can be 
+edited directly from the properties page on the Configuration pane of the 
+Outlook-style toolbar.&nbsp; To access the properties for a driver, select that 
+driver from the tree view and its properties will be displayed in the properties 
+page.&nbsp; To change a property that is editable, simply enter the new value in 
+the properties page.</font></p>
+<table border="0" width="45%" id="table1">
+	<tr>
+		<td width="276">
+		<img border="0" src="bin/ModifyDriver1.png" width="238" height="555"></td>
+		<td>The properties for the DMM driver are displayed in the properties 
+		page here.</td>
+	</tr>
+</table>
+<p><b><br>
+Device/Tool Properties</b></p>
+<table border="1" width="100%" id="table2" cellpadding="2">
+	<tr>
+		<td width="161"><b>Property Name</b></td>
+		<td width="941"><b>Description</b></td>
+		<td><b>Read/Write</b></td>
+	</tr>
+	<tr>
+		<td width="161">ClassName</td>
+		<td width="941">Full name of the driver class including the namespace 
+		and the name of the assembly file in the format &quot;<em>Namespace.DriverClass, 
+		AssemblyName&quot;.</em> </td>
+		<td>Read only</td>
+	</tr>
+	<tr>
+		<td width="161">CLSID</td>
+		<td width="941">The Class ID, a universally unique identifier (UUID) 
+		that identifies a COM component.&nbsp; This field will be empty (&quot;&quot;) for .NET 
+		assemblies. </td>
+		<td>Read only</td>
+	</tr>
+	<tr>
+		<td width="161">Description</td>
+		<td width="941">A brief description of the device.</td>
+		<td>Read/write</td>
+	</tr>
+	<tr>
+		<td width="161">Enabled</td>
+		<td width="941">True if the driver object will be created for this 
+		device, otherwise false. </td>
+		<td>Read/write</td>
+	</tr>
+	<tr>
+		<td width="161">IsTool</td>
+		<td width="941"><font face="Verdana">True if this assembly is a non-ActivATE™-specific 
+		instrument driver or a non-instrument &quot;tool&quot;, such as a math or Excel 
+		module.&nbsp; </font></td>
+		<td>Read only</td>
+	</tr>
+	<tr>
+		<td width="161">Name</td>
+		<td width="941">The object name of this device that will be used to 
+		reference it from the test program.&nbsp; The name must be unique.</td>
+		<td>Read/write</td>
+	</tr>
+	<tr>
+		<td width="161">ObjectType</td>
+		<td width="941">The type of assembly, either .NET or COM.</td>
+		<td>Read only</td>
+	</tr>
+	<tr>
+		<td width="161">Scriptable</td>
+		<td width="941">True if the driver can be accessed from the test 
+		program, otherwise false.</td>
+		<td>Read/write</td>
+	</tr>
+</table>
+<p><b><font face="Verdana">Control Properties</font></b></p>
+<table border="1" width="100%" id="table3" cellpadding="2">
+	<tr>
+		<td width="161"><b>Property Name</b></td>
+		<td width="941"><b>Description</b></td>
+		<td><b>Read/Write</b></td>
+	</tr>
+	<tr>
+		<td width="161">ClassName</td>
+		<td width="941">Full name of the UI class including the namespace and 
+		the name of the assembly file in the format &quot;<em>Namespace.UIClass, 
+		AssemblyName&quot;.</em> </td>
+		<td>Read only</td>
+	</tr>
+	<tr>
+		<td width="161">Description</td>
+		<td width="941">A brief description of the device.&nbsp; This 
+		description will be displayed beneath the driver icon in the device 
+		toolbar.</td>
+		<td>Read/write</td>
+	</tr>
+	<tr>
+		<td width="161">Driver</td>
+		<td width="941">The name of the driver this UI is associated with.</td>
+		<td>Read/write</td>
+	</tr>
+	<tr>
+		<td width="161">Enabled</td>
+		<td width="941">True if the UI should be enabled and appear in the 
+		device toolbar.</td>
+		<td>Read/write</td>
+	</tr>
+	<tr>
+		<td width="161">Group</td>
+		<td width="941">The group name that this driver will appear under in the 
+		Outlook-style toolbar.&nbsp; The default is &quot;Devices&quot;.</td>
+		<td>Read/write</td>
+	</tr>
+	<tr>
+		<td width="161">Name</td>
+		<td width="941">The name of the UI object, typically the same as the 
+		associated driver object.&nbsp; The name must be unique.</td>
+		<td>Read/write</td>
+	</tr>
+</table>
+<p>&nbsp;</p>
+<p><i><b>Important: </b>&nbsp;<b>Committing Changes</b></i></p>
+<p align="left">After a driver's properties have been edited, the Reinitialize 
+button on the toolbar will be highlighted in yellow as shown below.&nbsp; The 
+new driver settings will NOT be available until the environment has been 
+reinitialized or until the application is restarted.&nbsp; To reinitialize, make 
+sure all test programs and driver UI's are closed and then click the 
+Reinitialize button.<br>
+<br>
+<img border="0" src="bin/reinitializeButton.png" width="297" height="187"></p>
+<p align="left">If at any time you wish to cancel your changes, click the 
+Rollback button at the bottom of the properties page.&nbsp; This will undo all 
+changes that have been made since the last reinitialization.&nbsp; The Rollback 
+button is only enabled if there are uncommitted changes (until the system is 
+reinitialized or until the application is shut down).</p>
+<p align="left">
+<img border="0" src="bin/AddDriver4.png" width="194" height="375"></p>
+<p>&nbsp;</p>
+<p><font size="2" face="Verdana"><a href="#Top">Back to Top</a></font></p>
+<p><i><font face="Verdana" size="1">Astronics Test Systems Test &amp; Services<br>
+Last updated on 2/27/07</font></i></p>
+<p>&nbsp;</p>
+
+</body>
+
+</html>

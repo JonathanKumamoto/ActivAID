@@ -1,0 +1,92 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Macro Record View</title>
+</head>
+
+<body>
+
+<h1><font face="Verdana" size="3"><a name="Top">Macro Record View</a></font></h1>
+<p><font face="Verdana" size="2">The Macro Record feature is used to 
+automatically create VBScript API calls into a driver.&nbsp; When Macro Record 
+is enabled, the operations performed on a driver's GUI are translated into the 
+corresponding VBScript property or method calls and recorded to a Macro Record 
+document.&nbsp; </font></p>
+<p><font face="Verdana" size="2">To begin recording, select &quot;Start Macro Record&quot; 
+from the Tools menu:</font></p>
+<p><img border="0" src="bin/macroRecord1.png" width="188" height="231"></p>
+<p><font face="Verdana" size="2"><br>
+A blank Macro Record document appears within the IDE.&nbsp; </font></p>
+<p><img border="0" src="bin/macroRecord2.png" width="583" height="418"></p>
+<p><font face="Verdana" size="2"><br>
+Once Macro Record is started, all method calls and all calls to a property's set 
+statement are recorded to the Macro Record document in the correct VBScript 
+format.</font></p>
+<p><img border="0" src="bin/MacroRecord3.png" width="563" height="495"></p>
+<p><font face="Verdana" size="2"><b><br>
+Tip</b>: Some methods take a reference variable as a parameter which is to be 
+used as an output of the method.&nbsp; This variable must be declared before 
+passing it to the method, and when the method returns this variable will hold 
+the result of some operation.&nbsp; In the Macro Record output, &quot;var&quot; is used as 
+a placeholder for a reference variable.&nbsp; Wherever you see &quot;var&quot;, you will 
+need to declare a variable to pass by reference to that method.</font></p>
+<p><font face="Verdana" size="2">&nbsp;&nbsp;&nbsp; <b>Example: </b></font></p>
+<p><font face="Verdana" size="2">&nbsp;&nbsp;&nbsp; We get this method call in 
+our Macro Record output:&nbsp;&nbsp;&nbsp; </font></p>
+<p><font face="Courier New" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+call DMM.Measure(var)</font></p>
+<p><font face="Verdana" size="2">&nbsp;&nbsp;&nbsp; If we are going to use this 
+method call in our test program, we would need to declare a variable to pass by 
+reference:</font></p>
+<p><font size="2" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Dim result<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; call DMM.Measure(result)</font></p>
+<p><font face="Verdana" size="2">&nbsp;&nbsp;&nbsp; When the method returns, the 
+variable &quot;result&quot; will hold the result of the DMM measure operation.</font><font size="2" face="Courier New"><br>
+&nbsp;</font></p>
+<p><font face="Verdana" size="2"><b>Tip</b>: Most of the driver methods return 
+an integer error code (usually a return value of zero signifies no error and a 
+negative value means an error occurred).&nbsp; The Macro Record output does not 
+include variables to hold this return value.&nbsp; To capture a method's return 
+value, you will need to declare a variable and use it when calling the driver's 
+method.</font></p>
+<p><font face="Verdana" size="2"><b>&nbsp;&nbsp;&nbsp; Example: </b></font></p>
+<p><font face="Verdana" size="2">&nbsp;&nbsp;&nbsp; We get this method call in 
+our Macro Record output:&nbsp;&nbsp;&nbsp; </font></p>
+<p><font face="Courier New" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+call DMM.Reset()</font></p>
+<p><font face="Verdana" size="2">&nbsp;&nbsp;&nbsp; We would like to know if the 
+Reset was successful, so we will look at the return value of the method:</font><font size="2" face="Courier New"><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim errorCode<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; errorCode = DMM.Measure(result)</font></p>
+<p><font face="Verdana">&nbsp;&nbsp; </font><font face="Verdana" size="2">When 
+the method returns, we will usually want to check the error code to determine if 
+an error occurred:</font></p>
+<p><font face="Courier New" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+If (errorCode &lt;&gt; 0) Then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ' An error 
+occurred.&nbsp; Handle accordingly.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End If</font></p>
+<p><font size="2" face="Verdana"><br>
+<br>
+To stop Macro Record, select &quot;Stop Macro Record&quot; from the Tools menu.&nbsp; </font></p>
+<p><img border="0" src="bin/macroRecord4.png" width="168" height="224">&nbsp;&nbsp;&nbsp;
+</p>
+<p><font face="Verdana" size="2">The Macro Record document remains open after 
+Macro Record has stopped.&nbsp; To use the recorded VBScript API calls within a test program, select the desired 
+text in the Macro Record document and copy and paste it into the correct 
+function in the test program.</font></p>
+<p><font face="Verdana" size="2">Selecting &quot;Start Macro Record&quot; again will open 
+a new document to begin recording.</font></p>
+<p>&nbsp;</p>
+<p><font size="2" face="Verdana"><a href="#Top">Back to Top</a></font></p>
+<p>&nbsp;</p>
+<p><i><font face="Verdana" size="1">Astronics Test Systems<br>
+Last updated on 3/5/07 by L. Anhalt</font></i></p>
+
+</body>
+
+</html>

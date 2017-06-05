@@ -1,0 +1,65 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Debugger Overview</title>
+<link rel="stylesheet" type="text/css" href="help.css">
+</head>
+
+<body>
+
+<h1><a name="Top">Debugger Overview</a></h1>
+<p>The script debugger is an extremely useful tool for developing test programs.&nbsp; 
+It helps the user verify test program logic and determine the source of errors.&nbsp; 
+To use the debugger effectively, it is important to understand how to utilize 
+breakpoints and the watch windows to your advantage.&nbsp;&nbsp; </p>
+<p>A breakpoint is a marker in the test program that signals the debugger to 
+stop when execution reaches that point.&nbsp; A breakpoint may be set on a group 
+node, a test node, a line in the Script View, or a line in the Globals View.&nbsp; 
+When the debugger reaches a breakpoint and pauses, it is in a &quot;break&quot; state.&nbsp; 
+A breakpoint on a group node causes the program to break at the first line of 
+executable code in the group's PreTest function, and a breakpoint on a test node 
+causes the program to break at the first line of executable code in the test's 
+function.&nbsp; When the program stops at a breakpoint, the next line of code 
+that will be executed is highlighted in yellow.&nbsp; </p>
+<p>The watch windows are used to &quot;watch&quot; the values of the test program's 
+variables.&nbsp; The Locals Watch Window watches only those variables that are 
+local to the current function, and the Watch Window watches any variables the 
+user requests it to.&nbsp; Use the watch windows to verify that variables 
+contain expected values.&nbsp; </p>
+<p>Once the test program reaches a breakpoint, you may examine variables in the 
+watch windows, investigate the current state of the system by using the driver 
+UI's, or step through the code line by line.&nbsp; You may also add additional 
+breakpoints or remove existing breakpoints before continuing the program.</p>
+<p><font face="Verdana"><b>Tip: </b>&nbsp;Once the test program starts execution 
+in debug mode, it will stay in debug mode until either the program completes or 
+is stopped by the user.&nbsp; Therefore, clicking run
+<img border="0" src="bin/StartButton.JPG" width="16" height="16"> to resume the 
+program after stopping at a breakpoint will not prevent the program from 
+breaking at subsequent breakpoints.</font></p>
+<p><b>General steps for using the debugger:</b></p>
+<ol>
+  <li>Set breakpoints in the code and/or the Test Sequence View.</li>
+  <li>Run the debugger.</li>
+  <li>After a breakpoint is reached, step through the code while examining 
+  variables in the watch windows.</li>
+  <li>Click run to continue running in debug mode until either the next 
+  breakpoint or the end of the program, or click stop to end debug mode.</li>
+  <li>If necessary, make changes to your code and re-run in debug mode.</li>
+</ol>
+<p>&nbsp;</p>
+<p><b><font face="Verdana" size="2">See Also</font></b></p>
+<blockquote>
+  <p><font face="Verdana" size="2"><a href="DebuggerCommands.html">Debugger 
+  Commands</a> | <a href="WatchWindow.html">Watch Window</a> |
+  <a href="LocalsWindow.html">Locals Watch Window</a> |
+  <a href="CommandWindow.html">Command Window</a></font></p>
+</blockquote>
+<p>&nbsp;</p>
+<p><font size="2" face="Verdana"><a href="#Top">Back to Top</a></font></p>
+<p><i><font face="Verdana" size="1">Astronics Test Systems<br>
+Last updated on 1/27/06 by L. Anhalt</font></i></p>
+
+</body>
+
+</html>

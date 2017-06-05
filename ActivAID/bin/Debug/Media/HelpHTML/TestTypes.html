@@ -1,0 +1,124 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 12.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Test Types</title>
+</head>
+
+<body>
+
+<p><b><font face="Verdana" size="3"><a name="Top">Test Types</a></font></b></p>
+<p><font face="Verdana" size="2">Each test node must have a designated test
+type.&nbsp; The test type gives the user more flexibility over how a pass or
+fail is determined for each test node.&nbsp; The available test types are
+Boolean, Max, Min, MinMax and StringCompare.&nbsp; Although a test type must be specified when a new
+test node is added to the program, it can be changed later through the
+Properties Page.&nbsp; (See <a href="TestNodeProps.html">Test Node Properties</a>)</font></p>
+<p><b><font face="Verdana" size="2">Boolean Test Type</font></b></p>
+<p><font face="Verdana" size="2">The default test type is Boolean.&nbsp; A Boolean
+test returns either true or false where true means the test passed and false
+means the test failed.&nbsp; When a Boolean test is added, the function template
+that is created for you in the test script will look similar to the following
+example:</font></p>
+<font SIZE="2" COLOR="#0000ff">
+<blockquote>
+  <p><font face="Courier New">Function</font></font><font SIZE="2"><font face="Courier New">
+  Test1()</font></font></p>
+<blockquote>
+  <p><font SIZE="2" COLOR="#008000"><font face="Courier New">' ToDo: Put your
+  code here</font></font><font SIZE="2"></p>
+  </blockquote>
+  <p><font face="Courier New">&nbsp;&nbsp;&nbsp; Test1 <font color="#0000FF">=</font>
+  </font></font><font SIZE="2" COLOR="#0000ff"><font face="Courier New">False</font></font><font face="Courier New"><font SIZE="2" COLOR="#0000ff"><br>
+	End</font><font SIZE="2">
+</font></font><font SIZE="2" COLOR="#0000ff"><font face="Courier New">Function</font></p>
+</blockquote>
+</font>
+<p><font face="Verdana" size="2">By default, the function returns false.&nbsp;
+When you write the VBScript code for this test, you will want to return true or
+false depending on conditions that have or have not been met.</font></p>
+<p>&nbsp;</p>
+<p><b><font face="Verdana" size="2">Max Test Type</font></b></p>
+<p><font face="Verdana" size="2">A Max test returns a numeric value that is 
+compared against the test node's Max value.&nbsp; (The Min property is not 
+applicable.)&nbsp; If the return value is less than or equal to the Max value, 
+the test passes.&nbsp; Otherwise, the test fails.&nbsp; When a Max test is 
+added, the function template that is created for you in the test script will 
+look similar to the following example:</font></p>
+<font FACE="Courier New" SIZE="2" COLOR="#0000ff">
+<blockquote>
+	<p>Function</font><font FACE="Courier New" SIZE="2"> Test2()</p>
+	<p></font><font FACE="Courier New" SIZE="2" COLOR="#008000">&nbsp;&nbsp;&nbsp; 
+	' ToDo: Put your code here</p>
+	</font><font FACE="Courier New" SIZE="2">
+	<p>&nbsp;&nbsp;&nbsp; Test2 = </font>
+	<font FACE="Courier New" SIZE="2" COLOR="#800080">0</font><font FACE="Courier New" SIZE="2" COLOR="#0000ff"><br>
+	End Function</font></p>
+</blockquote>
+<p><font face="Verdana" size="2">By default, the function returns 0.&nbsp; You 
+may return any valid integer or floating-point number.&nbsp; The Max value may be set when the test is
+created, in the Properties page, or from the VBScript test function.&nbsp; See
+<a href="TestResultProps_TestNodes.html">Test
+result properties of test nodes</a>.</font></p>
+<p>&nbsp;</p>
+<p><b><font face="Verdana" size="2">Min Test Type</font></b></p>
+<p><font face="Verdana" size="2">A Min test returns a numeric value that is 
+compared against the test node's Min value.&nbsp; (The Max property is not 
+applicable.)&nbsp; If the return value is greater than or equal to the Min 
+value, the test passes.&nbsp; Otherwise, the test fails.&nbsp; When a Min test 
+is added, the function template that is created for you in the test script will 
+look similar to the example shown above for the Max test type.</font></p>
+<p><font face="Verdana" size="2">By default, the function returns 0.&nbsp; You 
+may return any valid integer or floating-point number.&nbsp; The Min value may be set when the test is
+created, in the Properties page, or from the VBScript test function.&nbsp; See
+<a href="TestResultProps_TestNodes.html">Test
+result properties of test nodes</a>.</font></p>
+<p>&nbsp;</p>
+<p><b><font face="Verdana" size="2">Min/Max Test Type</font></b></p>
+<p><font face="Verdana" size="2">A Min/Max test returns a numeric value that is
+compared against the test node's Min and Max values.&nbsp; If the return value
+is greater than or equal to the Min value and less than or equal to the Max
+value, the test passes.&nbsp; Otherwise, the test fails.&nbsp; When a Min/Max
+test is added, the function template that is created for you in the test script
+will look similar to the example shown above for the Max test type.</font></p>
+<p><font face="Verdana" size="2">By default, the function returns 0.&nbsp; You
+may return any valid integer or floating-point number.&nbsp; For example, a test
+might return a DMM reading which needs to lie within a certain range in order
+for the test to pass.&nbsp; The Min and Max values may be set when the test is
+created, in the Properties page, or from the VBScript test function.&nbsp; See <a href="TestResultProps_TestNodes.html">Test
+result properties of test nodes</a>.&nbsp;&nbsp;</font></p>
+<p>&nbsp;</p>
+<p><b><font face="Verdana" size="2">StringCompare Type</font></b></p>
+<p><font face="Verdana" size="2">A StringCompare test returns a string value 
+that is compared against the test node's ComparisonString property.&nbsp; If the 
+return value is equal to the ComparisonString, the test passes.&nbsp; Otherwise, 
+the test fails.&nbsp; To make the comparison case-sensitive, set the node's 
+CaseSensitive property to true (otherwise set to false).&nbsp; When a 
+StringCompare test is added, the function template that is created for you in 
+the test script will look similar to the following example:</font></p>
+<font FACE="Courier New" SIZE="2" COLOR="#0000ff">
+<blockquote>
+	<p>Function</font><font FACE="Courier New" SIZE="2"> Test3()</p>
+	<p></font><font FACE="Courier New" SIZE="2" COLOR="#008000">&nbsp;&nbsp;&nbsp; 
+	' ToDo: Put your code here</p>
+	</font><font FACE="Courier New" SIZE="2">
+	<p>&nbsp;&nbsp;&nbsp; Test3 = <font color="#800080">&quot;&quot;</font></font><font FACE="Courier New" SIZE="2" COLOR="#0000ff"><br>
+	End Function</font></p>
+</blockquote>
+<p><font face="Verdana" size="2">By default, the function returns an empty 
+string.&nbsp; You may return any string value.&nbsp; The CaseSensitive and 
+ComparisonString properties may be set when the test is
+created, in the Properties page, or from the VBScript test function.&nbsp; See
+<a href="TestResultProps_TestNodes.html">Test
+result properties of test nodes</a>.</font></p>
+<p>&nbsp;</p>
+<p><font size="2" face="Verdana"><a href="#Top">Back to Top</a></font></p>
+<p><i><font face="Verdana" size="1">Astronics Test Systems<br>
+Last updated on 12/5/07 by L. Anhalt</font></i></p>
+
+</body>
+
+</html>

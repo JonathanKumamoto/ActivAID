@@ -1,0 +1,65 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>System Controller</title>
+<link rel="stylesheet" type="text/css" href="help.css">
+</head>
+
+<body>
+
+<h1>System Controller - Page 2:&nbsp; SystemControl Tasks. </h1>
+<p>The SystemControl class object is instantiated by the ActivATE framework and 
+initialized by calling the SystemControl Initialize() method.&nbsp; <b>Developers 
+should not modify this method</b> in the SystemControl.cs file unless they are 
+experienced programmers.&nbsp;&nbsp;<font face="Courier New">Initialize()</font> will create the StationRuntime, connect any devices in the system 
+by calling the <font face="Courier New">device.OnConnection()</font>, and then sets up event handling for the 
+Test Program Manager.&nbsp; Again, users should not adjust any of these methods.&nbsp; 
+However, since the SystemControl module has access to the TPManager, the 
+StationRuntime, and hence all the devices <i>in</i> the StationRuntime, the 
+SystemControl module has excellent control over the ActivATE test environment.
+</p>
+<p>This architectural design allows developers to add a great deal of custom 
+functionality to the test environment.&nbsp; For example, a developer could add 
+a SECS/GEM module to the SystemControl object.&nbsp; The SystemControl module 
+could then sink events from the SECS/GEM module and allow a remote computer 
+communicating through SECS/GEM to send commands and receive system status.</p>
+<table border="0" width="47%" cellpadding="2">
+	<tr>
+		<td width="201">
+		<img border="0" src="bin/DeviceToolBar4.PNG" width="201" height="351"></td>
+		<td>The System Controller GUI can be shown by clicking on the System 
+		Controller ICON in the <b>Main</b> Device Tool Bar<p>The ActivATE 
+		SDK (Software Development Kit) contains two example SystemController 
+		projects.&nbsp; Developers may modify this code as required in 
+		order to customize their particular environment. </p>
+		<p>The SystemControl module has access to the DeviceManager module in 
+		the StationRuntime and can make calls into any driver or&nbsp; add-in 
+		installed on the system.&nbsp; It also has access to the Test Program 
+		Manager (TPMngr).</td>
+	</tr>
+</table>
+<p>The example below shows a SystemControl module that controls specific 
+hardware on a dedicated test station including setting up complex Oscilloscope 
+bus routings.</p>
+<p><img border="0" src="bin/SystemController3.PNG" width="513" height="357"></p>
+<p>Below is an example of a SystemControl GUI that can load and execute test 
+programs via the <a href="TestProgramManager.htm">Test Program Manager</a> (TPMngr).&nbsp; 
+Note: This example is included in the SDK.&nbsp; While the test programs are 
+running, multi-cast events are fired from the TPMngr class such as &quot;Running&quot;, 
+&quot;Failed&quot;, etc.&nbsp; These events are <i>sunk</i> by the System Control module 
+and used to display and record the actual execution status and elapsed time of 
+the test program to the user.</p>
+<p><img border="0" src="bin/SystemController1.PNG" width="876" height="588"></p>
+
+<p><b>See Also</b></p>
+<p><b>&nbsp;&nbsp;&nbsp; </b><a href="TestProgramManager.htm">Test Program 
+Manager</a> | <a href="SystemController.htm">System Controller - Page 1</a> |
+<a href="SystemController_pg3.htm">System Controller - Page 3</a></p>
+<p><i><font face="Verdana" size="1">Astronics Test Systems<br>
+Last updated on 9/23/09 by I. Williams</font></i></p>
+
+</body>
+
+</html>

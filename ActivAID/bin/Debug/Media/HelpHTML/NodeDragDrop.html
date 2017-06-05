@@ -1,0 +1,70 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 12.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Node Drag-Drop</title>
+</head>
+
+<body>
+
+<p><b><font face="Verdana" size="3"><a name="Top">Node Drag-Drop</a></font></b></p>
+<p><font size="2" face="Verdana">The group and test nodes in the Test Sequence
+View tree may be moved around within the same test program or they may be copied
+over from another test program.&nbsp; This is accomplished by dragging and
+dropping the node to be moved or copied in the desired destination.&nbsp;&nbsp;</font></p>
+<p><b><font size="2" face="Verdana">Moving a node within the same test program</font></b></p>
+<font size="2" face="Verdana">
+<ol>
+  <li>Click on the node that is to be moved.&nbsp; If a group node is selected,
+    its entire subtree will be moved as well.</li>
+  <li>Drag it to another node within the same Test Sequence View.</li>
+  <li>Release the left mouse button to drop the node in its new location.</li>
+  <li>The test script remains unchanged.</li>
+  </ol>
+  <p><b>Copying a node from one test program to another</b></p>
+  <ol>
+    <li>Open both test programs in the IDE.</li>
+    <li>Make each test program visible by selecting either &quot;New Horizontal Tab 
+	Group&quot; or &quot;New Vertical Tab Group&quot; from the Window menu.</li>
+	<li>Click on the node that is to be copied.&nbsp; If a group node is
+      selected, its entire subtree will be copied as well.</li>
+    <li>Drag it to another node in the other test program's Test Sequence view.</li>
+    <li>Release the left mouse button to copy the node to its new location.</li>
+    <li>The VBScript methods for the copied nodes are appended to the end of the
+      destination test program's test script.&nbsp; The test script of the
+      source test program remains unchanged.&nbsp; (<i>See caution below.</i>)</li>
+  </ol>
+<p>If a node is dragged onto a group node, it will be added as the last node in
+that group.&nbsp; If a node is dragged onto a test node, it will be inserted
+directly above that node.&nbsp; A group node cannot be dragged to any of its
+child nodes.&nbsp; To cancel a drag-drop operation before the left mouse button
+is released, press the Escape key.&nbsp; The root node cannot be moved or
+copied.</p>
+<p>Two nodes with
+the same name cannot exist within the same group (i.e., at the same tree
+level).&nbsp; Therefore, if you try to drag a node into a group that already
+contains a node with the same name, you will receive an error message and the
+drag-drop operation will not be completed.</p>
+<p><b>Caution:&nbsp; </b>If a node is copied from one test program to another
+and the node's VBScript method has the same name as a previously existing method
+in the destination test program, the new node's method will still be copied to
+the test script.&nbsp; This will result in the test script containing two
+methods with the same name.&nbsp; This will not cause a script error when the
+test is run, but it is unknown which method the script engine will use.&nbsp; It
+is the user's responsibility to ensure that each method has a unique name.</font></p>
+<p>&nbsp;</p>
+<p><b><font face="Verdana" size="2">See Also</font></b></p>
+<p><font face="Verdana" size="2">&nbsp;&nbsp; <a href="TestSequenceView.html">Test
+Sequence View</a> | <a href="TestSequenceViewContextMenu.html">Test Sequence
+View Context Menu</a></font></p>
+<p>&nbsp;</p>
+<p><a href="#Top"><font size="2" face="Verdana">Back to
+Top</font></a></p>
+<p><i><font face="Verdana" size="1">Astronics Test Systems<br>
+Last updated on 3/1/07 by L. Anhalt</font></i></p>
+
+</body>
+
+</html>
