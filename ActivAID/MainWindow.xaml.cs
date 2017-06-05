@@ -46,8 +46,8 @@ namespace ActivAID
 
             InitializeComponent();
             InputBox.TextChanged += OnTextChangedHandler;
-            //Chatbot = new SimlBot();
-            //Chatbot.PackageManager.LoadFromString(File.ReadAllText("Knowledge.simlpk"));
+            Chatbot = new SimlBot();
+            Chatbot.PackageManager.LoadFromString(File.ReadAllText("jokes.simlpk"));
             ColorBOT = Properties.Settings.Default["ColorBOT"].ToString(); // Color of Bot message rectangle
             ColorUser = Properties.Settings.Default["ColorUser"].ToString(); // Color of User message rectangle
             FontColor = "#FFFFFF"; // Font color for text in Chat
@@ -251,26 +251,63 @@ namespace ActivAID
                         command = "do: new test program template";
                     }
 
-                    foreach (var textBlock in BackEnd.backendCommand(command.ToLower()))
+                    var botOut = Chatbot.Chat(command);
+                    if (botOut.BotMessage != "Sorry, no response was generated.")
                     {
-                        textBlock.TextWrapping = TextWrapping.Wrap;
+                        string toTBox;
+                        if (new Regex(@"\|").IsMatch(botOut.BotMessage))
+                        {
+                            toTBox = Regex.Replace(botOut.BotMessage, @"\|", "\n");
+                        }
+                        else
+                        {
+                            toTBox = botOut.BotMessage;
+                        }
+                        var tBox = new TextBlock();
+                        tBox.Text = toTBox;
+                        tBox.TextWrapping = TextWrapping.Wrap;
                         Label botmsg = new Label();
                         UserBubble_Creator(true);
                         botmsg.Name = "botmsg";   //bot's response box
                         botmsg.Target = OutputBox;
-                        botmsg.Content = textBlock;
+                        botmsg.Content = tBox;
                         botmsg.BorderThickness = new Thickness(1);
                         botmsg.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(ColorBOT));
                         botmsg.HorizontalAlignment = HorizontalAlignment.Center;
                         botmsg.VerticalAlignment = VerticalAlignment.Top;
                         botmsg.MaxWidth = 220;
-                        botmsg.Width = textBlock.Width;
+                        botmsg.Width = tBox.Width;
                         botmsg.Width = 210;
                         botmsg.Margin = new Thickness(50, -40, 0, 0);
                         botmsg.FontFamily = new FontFamily("Candara");
                         botmsg.FontSize = fontSize;
                         botmsg.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom(FontColor));
                         OutputBox.Items.Add(botmsg);
+                    }
+                    else
+                    {
+
+                        foreach (var textBlock in BackEnd.backendCommand(command.ToLower()))
+                        {
+                            textBlock.TextWrapping = TextWrapping.Wrap;
+                            Label botmsg = new Label();
+                            UserBubble_Creator(true);
+                            botmsg.Name = "botmsg";   //bot's response box
+                            botmsg.Target = OutputBox;
+                            botmsg.Content = textBlock;
+                            botmsg.BorderThickness = new Thickness(1);
+                            botmsg.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(ColorBOT));
+                            botmsg.HorizontalAlignment = HorizontalAlignment.Center;
+                            botmsg.VerticalAlignment = VerticalAlignment.Top;
+                            botmsg.MaxWidth = 220;
+                            botmsg.Width = textBlock.Width;
+                            botmsg.Width = 210;
+                            botmsg.Margin = new Thickness(50, -40, 0, 0);
+                            botmsg.FontFamily = new FontFamily("Candara");
+                            botmsg.FontSize = fontSize;
+                            botmsg.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom(FontColor));
+                            OutputBox.Items.Add(botmsg);
+                        }
                     }
                 }
                 catch (NoFileMatchException)
